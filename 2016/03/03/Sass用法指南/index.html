@@ -1,0 +1,490 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Welcome to the literati Association!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="HJ">
+    
+
+    
+    <meta name="description" content="Sass用法指南标签（空格分隔）： Sass
+
+1. 基本介绍在显示屏上显示.scss文件转化的css代码或保存为css文件12sass test.scsssass test.scss test.css
+Sass提供四个编译风格的选项1234* nested: 嵌套缩进的css代码，它是默认值。* expanded: 没有缩进的、扩展的css代码。* compact: 简洁格式的css代码。* c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Welcome to the literati Association!">
+<meta property="og:url" content="http://yoursite.com/2016/03/03/Sass用法指南/index.html">
+<meta property="og:site_name" content="Welcome to the literati Association!">
+<meta property="og:description" content="Sass用法指南标签（空格分隔）： Sass
+
+1. 基本介绍在显示屏上显示.scss文件转化的css代码或保存为css文件12sass test.scsssass test.scss test.css
+Sass提供四个编译风格的选项1234* nested: 嵌套缩进的css代码，它是默认值。* expanded: 没有缩进的、扩展的css代码。* compact: 简洁格式的css代码。* c">
+<meta property="og:updated_time" content="2016-03-03T08:40:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Welcome to the literati Association!">
+<meta name="twitter:description" content="Sass用法指南标签（空格分隔）： Sass
+
+1. 基本介绍在显示屏上显示.scss文件转化的css代码或保存为css文件12sass test.scsssass test.scss test.css
+Sass提供四个编译风格的选项1234* nested: 嵌套缩进的css代码，它是默认值。* expanded: 没有缩进的、扩展的css代码。* compact: 简洁格式的css代码。* c">
+<meta name="twitter:creator" content="@jj">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Welcome to the literati Association!" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Welcome to the literati Association!" title="Welcome to the literati Association!"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Welcome to the literati Association!">Welcome to the literati Association!</a></h1>
+				<h2 class="blog-motto">The president of the literati association is HJ.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/03/03/Sass用法指南/" title="" itemprop="url"></a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="HJ" target="_blank" itemprop="author">HJ</a>
+		
+  <p class="article-time">
+    <time datetime="2016-03-03T08:40:10.000Z" itemprop="datePublished"> 发表于 2016-03-03</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Sass用法指南"><span class="toc-number">1.</span> <span class="toc-text">Sass用法指南</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-基本介绍"><span class="toc-number">1.0.1.</span> <span class="toc-text">1. 基本介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-基本用法"><span class="toc-number">1.0.2.</span> <span class="toc-text">2. 基本用法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-变量"><span class="toc-number">1.0.2.0.1.</span> <span class="toc-text">2.1 变量</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-计算功能"><span class="toc-number">1.0.2.1.</span> <span class="toc-text">2.2 计算功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-嵌套"><span class="toc-number">1.0.2.2.</span> <span class="toc-text">2.3 嵌套</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-注释"><span class="toc-number">1.0.2.3.</span> <span class="toc-text">2.4 注释</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-代码的重用"><span class="toc-number">1.0.3.</span> <span class="toc-text">3 代码的重用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-继承"><span class="toc-number">1.0.3.1.</span> <span class="toc-text">3.1 继承</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-Mixin"><span class="toc-number">1.0.3.2.</span> <span class="toc-text">3.2 Mixin</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-颜色函数"><span class="toc-number">1.0.3.3.</span> <span class="toc-text">3.3 颜色函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-插入文件"><span class="toc-number">1.0.3.4.</span> <span class="toc-text">3.4 插入文件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-高级语法"><span class="toc-number">1.0.4.</span> <span class="toc-text">4. 高级语法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-条件语句"><span class="toc-number">1.0.4.1.</span> <span class="toc-text">4.1 条件语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-循环语句"><span class="toc-number">1.0.4.2.</span> <span class="toc-text">4.2 循环语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-自定义函数"><span class="toc-number">1.0.4.3.</span> <span class="toc-text">4.3 自定义函数</span></a></li></ol></li></ol></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="Sass用法指南"><a href="#Sass用法指南" class="headerlink" title="Sass用法指南"></a>Sass用法指南</h1><p>标签（空格分隔）： Sass</p>
+<hr>
+<h3 id="1-基本介绍"><a href="#1-基本介绍" class="headerlink" title="1. 基本介绍"></a>1. 基本介绍</h3><p>在显示屏上显示.scss文件转化的css代码或保存为css文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sass test.scss</span><br><span class="line">sass test.scss test.css</span><br></pre></td></tr></table></figure></p>
+<p>Sass提供四个编译风格的选项<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">* nested: 嵌套缩进的css代码，它是默认值。</span><br><span class="line">* expanded: 没有缩进的、扩展的css代码。</span><br><span class="line">* compact: 简洁格式的css代码。</span><br><span class="line">* compressed: 压缩后的css代码。</span><br></pre></td></tr></table></figure></p>
+<p>生产环境中，一般使用最后一个选项。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sass --style compressed test.sass test.css</span><br></pre></td></tr></table></figure></p>
+<p>也可以让Sass监听某个文件或目录，自动编译。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// watch a file</span><br><span class="line">sass --watch input.scss:output.css</span><br><span class="line">// watch a directory</span><br><span class="line">sass --watch app/sass:public/stylesheets</span><br></pre></td></tr></table></figure></p>
+<p>Sass的官方提供了一个<a href="http://sassmeister.com/" target="_blank" rel="external">在线转换器</a>。</p>
+<h3 id="2-基本用法"><a href="#2-基本用法" class="headerlink" title="2. 基本用法"></a>2. 基本用法</h3><h5 id="2-1-变量"><a href="#2-1-变量" class="headerlink" title="2.1 变量"></a>2.1 变量</h5><p>变量以$开头。<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$blue</span>: <span class="number">#1875e7</span>;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="variable">$blue</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果变量需要在字符串中，就必须写在#{}中<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$side</span>: left;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.rounded</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>-#&#123;<span class="variable">$side</span>&#125;-radius: <span class="number">5px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-2-计算功能"><a href="#2-2-计算功能" class="headerlink" title="2.2 计算功能"></a>2.2 计算功能</h4><p>Sass允许在代码中使用算数<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">margin</span>: (<span class="number">14px</span>/<span class="number">2</span>);</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">50px</span> + <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">right</span>: <span class="variable">$var</span> * <span class="number">10%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-3-嵌套"><a href="#2-3-嵌套" class="headerlink" title="2.3 嵌套"></a>2.3 嵌套</h4><p>Sass允许选择其嵌套<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//css</span></span><br><span class="line"><span class="selector-tag">div</span> <span class="selector-tag">h1</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//scss</span></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="selector-tag">h1</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>属性也可以嵌套，比如border-color属性<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>: &#123;</span><br><span class="line">    color: red;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>注意，border后面必须加上冒号。<br>在嵌套的代码块内，可以使用&amp;引用副元素。比如a:hover伪类，可以写成：<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">  &amp;:hover &#123;<span class="attribute">color</span>: <span class="number">#ffb3ff</span>&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-4-注释"><a href="#2-4-注释" class="headerlink" title="2.4 注释"></a>2.4 注释</h4><p>Sass共有两种注释风格。<br>标准的CSS注释 /<em> comment </em>/，会保留到编译后的文件。<br>单行注释 // comment，只保留在Sass源文件中，编译后被省略。<br>在/* 后面加一个感叹号，表示这是“重要注释”。即使是压缩模式编译，也会保留这行注释，通常可以用于声明版权信息。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/*!</span><br><span class="line">  重要注释</span><br><span class="line">*/</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-代码的重用"><a href="#3-代码的重用" class="headerlink" title="3 代码的重用"></a>3 代码的重用</h3><h4 id="3-1-继承"><a href="#3-1-继承" class="headerlink" title="3.1 继承"></a>3.1 继承</h4><p>Sass允许一个选择器继承另一个选择器。比如，现有class1:<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.class1</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ddd</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>class2要继承class1，就要使用@extend命令：<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.class2</span> &#123;</span><br><span class="line">    @<span class="keyword">extend</span> .class1;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">120%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>注意：被继承者若在嵌套</p>
+<h4 id="3-2-Mixin"><a href="#3-2-Mixin" class="headerlink" title="3.2 Mixin"></a>3.2 Mixin</h4><p>Mixin有点像C语言的宏，是可以重用的代码块<br>使用@mixin 命令，定义一个代码块。<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">mixin</span> left &#123;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">  <span class="attribute">margin-left</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>使用@include命令，调用这个mixin。<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  @<span class="keyword">include</span> left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>mixin的强大之处，在于可以指定参数和缺省值。<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">mixin</span> left(<span class="variable">$value</span>: 10px) &#123;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">  <span class="attribute">margin-right</span>: <span class="variable">$value</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>使用的时候，根据需要加入参数：<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  @<span class="keyword">include</span> left(<span class="number">20px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>下面是一个mixin的实例，用来生成浏览器前缀。<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">mixin</span> rounded(<span class="variable">$vert</span>, <span class="variable">$horz</span>, <span class="variable">$radius</span>: 10px) &#123;</span><br><span class="line">  <span class="attribute">border</span>-#&#123;<span class="variable">$vert</span>&#125;-#&#123;<span class="variable">$horz</span>&#125;-radius: <span class="variable">$radius</span>;</span><br><span class="line">  -moz-<span class="attribute">border</span>-#&#123;<span class="variable">$vert</span>&#125;-#&#123;<span class="variable">$horz</span>&#125;-radius: <span class="variable">$radius</span>;</span><br><span class="line">  -webkit-<span class="attribute">border</span>-#&#123;<span class="variable">$vert</span>&#125;-#&#123;<span class="variable">$horz</span>&#125;-radius: <span class="variable">$radius</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>使用的时候，可以像下面这样调用：<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#navbar</span> <span class="selector-tag">li</span> &#123; @<span class="keyword">include</span> rounded(top, left);&#125;</span><br><span class="line"><span class="selector-id">#footer</span> &#123; @<span class="keyword">include</span> rounded(top, left, 5px);&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="3-3-颜色函数"><a href="#3-3-颜色函数" class="headerlink" title="3.3 颜色函数"></a>3.3 颜色函数</h4><p>Sass提供了一些内置的颜色函数，以生成系列颜色<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">lighten(<span class="selector-id">#cc3</span>, 10%) <span class="comment">//#d6d65c</span></span><br><span class="line">darken(<span class="selector-id">#cc3</span>, 10%) <span class="comment">//#a3a329</span></span><br><span class="line">grayscale(<span class="selector-id">#cc3</span>) <span class="comment">//#808080</span></span><br><span class="line">complement(<span class="selector-id">#cc3</span>) <span class="comment">//#33c</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="3-4-插入文件"><a href="#3-4-插入文件" class="headerlink" title="3.4 插入文件"></a>3.4 插入文件</h4><p>@import 命令，用来插入外部文件。<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">import</span> <span class="string">"path/filename.scss"</span>;</span><br></pre></td></tr></table></figure></p>
+<p>如果插入的是.css文件，则等同于css的import命令。<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">import</span> <span class="string">"foo.css"</span>;</span><br></pre></td></tr></table></figure></p>
+<h3 id="4-高级语法"><a href="#4-高级语法" class="headerlink" title="4. 高级语法"></a>4. 高级语法</h3><h4 id="4-1-条件语句"><a href="#4-1-条件语句" class="headerlink" title="4.1 条件语句"></a>4.1 条件语句</h4><p>@if 可以用来判断：<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  @<span class="keyword">if</span> 1 + 1 == 2 &#123;<span class="attribute">border</span>: <span class="number">1px</span> solid;&#125;</span><br><span class="line">  @<span class="keyword">if</span> 5 &lt; 3 &#123;<span class="attribute">border</span>: <span class="number">2px</span> dotted;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>配套的还有@else命令：<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">if</span> lightness(<span class="variable">$color</span>) &gt; 30% &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#000</span>;</span><br><span class="line">&#125; @<span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#fff</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="4-2-循环语句"><a href="#4-2-循环语句" class="headerlink" title="4.2 循环语句"></a>4.2 循环语句</h4><p>Sass支持for循环：<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">for</span> <span class="variable">$i</span> from 1 to 10 &#123;</span><br><span class="line">  <span class="selector-class">.border-</span>#&#123;<span class="variable">$i</span>&#125; &#123;</span><br><span class="line">    <span class="attribute">border</span>: #&#123;<span class="variable">$i</span>&#125;px solid blud;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>也支持while循环：<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$i</span>: <span class="number">6</span>;</span><br><span class="line">@<span class="keyword">while</span> <span class="variable">$i</span> &gt; 0 &#123;</span><br><span class="line">  <span class="selector-class">.item-</span>#&#123;<span class="variable">$i</span>&#125; &#123;<span class="attribute">width</span>: <span class="number">2em</span> * <span class="variable">$i</span>;&#125;</span><br><span class="line">  <span class="variable">$i</span>: <span class="variable">$i</span> - <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>each命令，作用与for类似<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">each</span> <span class="variable">$member</span> in a, b, c, d &#123;</span><br><span class="line">  .#&#123;<span class="variable">$member</span>&#125; &#123;</span><br><span class="line">    <span class="attribute">background-image</span>: url(<span class="string">"/image/#&#123;$member&#125;.jpg"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="4-3-自定义函数"><a href="#4-3-自定义函数" class="headerlink" title="4.3 自定义函数"></a>4.3 自定义函数</h4><p>Sass允许用户编写自己的函数<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@function double(<span class="variable">$n</span>) &#123;</span><br><span class="line">  @return <span class="variable">$n</span> * 2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#sidebar</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: double(<span class="number">5px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2016/03/03/Sass用法指南/" data-title="Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/03/03/在Mac OS X上安装Sass/" title="">
+  <strong>上一篇：</strong><br/>
+  <span>
+  (no title)</span>
+</a>
+</div>
+
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Sass用法指南"><span class="toc-number">1.</span> <span class="toc-text">Sass用法指南</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-基本介绍"><span class="toc-number">1.0.1.</span> <span class="toc-text">1. 基本介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-基本用法"><span class="toc-number">1.0.2.</span> <span class="toc-text">2. 基本用法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-变量"><span class="toc-number">1.0.2.0.1.</span> <span class="toc-text">2.1 变量</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-计算功能"><span class="toc-number">1.0.2.1.</span> <span class="toc-text">2.2 计算功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-嵌套"><span class="toc-number">1.0.2.2.</span> <span class="toc-text">2.3 嵌套</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-注释"><span class="toc-number">1.0.2.3.</span> <span class="toc-text">2.4 注释</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-代码的重用"><span class="toc-number">1.0.3.</span> <span class="toc-text">3 代码的重用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-继承"><span class="toc-number">1.0.3.1.</span> <span class="toc-text">3.1 继承</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-Mixin"><span class="toc-number">1.0.3.2.</span> <span class="toc-text">3.2 Mixin</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-颜色函数"><span class="toc-number">1.0.3.3.</span> <span class="toc-text">3.3 颜色函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-插入文件"><span class="toc-number">1.0.3.4.</span> <span class="toc-text">3.4 插入文件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-高级语法"><span class="toc-number">1.0.4.</span> <span class="toc-text">4. 高级语法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-条件语句"><span class="toc-number">1.0.4.1.</span> <span class="toc-text">4.1 条件语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-循环语句"><span class="toc-number">1.0.4.2.</span> <span class="toc-text">4.2 循环语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-自定义函数"><span class="toc-number">1.0.4.3.</span> <span class="toc-text">4.3 自定义函数</span></a></li></ol></li></ol></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="HJ-ios" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://www.cnblogs.com/mjios/" target="_blank" title="MJ">MJ</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.cnblogs.com/wendingding/p/?page=2" target="_blank" title="WDD">WDD</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=5597151709&verifier=2e2fc03f&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> To the world you maybe one peeson , but to one person you maybe the world. <br/>
+			This is my goddess.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/5597151709" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/HJ-ios" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		<a href="https://twitter.com/jj" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:haojun_1992@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="HJ">HJ</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
