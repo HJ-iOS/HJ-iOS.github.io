@@ -82,7 +82,7 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/03/17/iOS应用程序的特点/" title="iOS应用程序的特点" itemprop="url">iOS应用程序的特点</a>
+      <a href="/2016/03/17/Markdown语法的简要规则/" title="Markdown语法的简要规则" itemprop="url">Markdown语法的简要规则</a>
   </h1>
   <p class="article-author">By
        
@@ -95,32 +95,37 @@
 </header>
     <div class="article-content">
         
-        <h4 id="1-只能运行一个应用"><a href="#1-只能运行一个应用" class="headerlink" title="1.只能运行一个应用"></a>1.只能运行一个应用</h4><pre><code>在iOS中，一次只能有一个应用处于活动状态显示在屏幕上。从iOS4开始，用户按下Home键，应用程序可以在后台继续运行，但是需要专门为此编写代码（以后会详细介绍）
-</code></pre><h4 id="2-只能使用一个窗口"><a href="#2-只能使用一个窗口" class="headerlink" title="2.只能使用一个窗口"></a>2.只能使用一个窗口</h4><pre><code>iOS只允许应用程序操作一个窗口，应用程序与用户的所有交互都在这个窗口中完成，大小就是iOS设备屏幕的固定大小    s
-</code></pre><h4 id="3-有限的访问权限"><a href="#3-有限的访问权限" class="headerlink" title="3.有限的访问权限"></a>3.有限的访问权限</h4><pre><code>iOS的文件系统会为每个每个应用分配一块独立的区域，就是我们熟知的沙盒。每个应用只能读写自己沙盒内的文件。
-</code></pre><h4 id="4-有限的响应时间"><a href="#4-有限的响应时间" class="headerlink" title="4.有限的响应时间"></a>4.有限的响应时间</h4><pre><code>应用程序在运行的时候，按下Home键，iOS就会返回主屏幕，程序必须保存一切内容并退出，如果没有在5s之内保存必要的数据并放弃对系统资源的控制，无论是否已经完全保存，应用程序进程都会被禁止。有一个API可以在应用程序终止前请求多一些时间来完成必要的工作（以后会提到）
-</code></pre><h4 id="5-有限的屏幕尺寸"><a href="#5-有限的屏幕尺寸" class="headerlink" title="5.有限的屏幕尺寸"></a>5.有限的屏幕尺寸</h4><pre><code>设备            硬件尺寸          软件尺寸               精密程度    
-4s           640x960            320x480               2x
-5和5s        640x1136         320x568              2x
-6            6750x1334        375x667              2x
-6P           1080x1920        414x736              3x
-iPad和iPad mini     768x1024      768x1024          1x
-iPad Air、iPad mini Retina、iPad Retina                
-         768x1024           768x1024             1x
-硬件尺寸就是手机屏幕的大小，写代码的时候只要注意软件尺寸就可以了。
-</code></pre><h4 id="6-有限的系统资源"><a href="#6-有限的系统资源" class="headerlink" title="6.有限的系统资源"></a>6.有限的系统资源</h4><pre><code>Cocoa Touch 提供了一种内置机制，可以在内存不足的时候通知应用程序。赶紧释放不必要的内存空间（TMD占着茅坑不拉屎），要不然程序就会闪退。
-接下来的可以忽略不看：
-由于iOS具备图形特性和多种功能，很容易耗光内存。到目前为止iOS设备的物理内存要么是512MB（4s、iPad2、一代iPad mini、iPod touch5），要么是1024MB（5c、5s、6、6P、iPad Air、iPad mini Retina），以后一定还会大的（iPad Air 2 的内存已经达到了2GB）。
-很大一部分内存被用于屏幕缓冲区和其他一些系统进程，一般，只有不到一半的内存留给应用程序使用（实际可用内存可能更少，尤其是因为其他应用可能在后台运行）。
+        <h4 id="1-标题"><a href="#1-标题" class="headerlink" title="1.标题"></a>1.标题</h4><pre><code>#一级标题（ “=” 在文字下方添加也可以 一级标题）
+##二级标题（ “-” 在文字下方添加也可以 二级标题）
+.
+.
+.
+######六级标题
+建议在#后面加一个空格，这是最标准的 Markdowm 语法
+</code></pre><h4 id="2-列表"><a href="#2-列表" class="headerlink" title="2.列表"></a>2.列表</h4><pre><code>a.在列表的显示只需要在文字前加上 -/* 即 无序列表
+b.------------------------ 1./2./3.有序列表
+但是 要和文字之间加上一个字符的空格
+</code></pre><h4 id="3-引用"><a href="#3-引用" class="headerlink" title="3.引用"></a>3.引用</h4><pre><code>在文本之前加入 &gt; 这种尖括号即可
+eg. &gt; 引用一段话
+</code></pre><h4 id="4-图片与链接"><a href="#4-图片与链接" class="headerlink" title="4.图片与链接"></a>4.图片与链接</h4><pre><code>插入链接与插入图片的语法很像。区别在于一个 ！ 号
+图片为：！[]（）{}
 
-谈到iOS内存，还需要考虑另一个因素：现代计算机操作系统（比如OS X）会将未使用的内存块写到磁盘的交换文件中，这样，当应用程序请求的内存超过计算机的实际可用内存时，它仍然可以正常运行。但是，iOS并不会将易失性内存（比如应用程序数据）写到交换文件中。因此，应用程序的可用内存大小受限于iOS设备中未使用的物理内存空间。
-</code></pre><h4 id="7-几个新功能"><a href="#7-几个新功能" class="headerlink" title="7.几个新功能"></a>7.几个新功能</h4><pre><code>1.iOS SDK中的Core Location框架可以确定当前手机的地理坐标&lt;br&gt;
-2.大部分iOS设备都有内置的摄像头和照片库（废话，但是也有人不知道）。&lt;br&gt;
-3.iOS有一个内置的运动传感器，用于检测设备的握持和移动方向。
-8.与众不同的交互方式
+链接为：[]（）
+eg. [百度]{https://baidu.com}
+</code></pre><h4 id="5-粗体斜体"><a href="#5-粗体斜体" class="headerlink" title="5.粗体斜体"></a>5.粗体斜体</h4><pre><code>2个 * 包含一段文本就是粗体的语法
+1个 * 包含一段文本就是斜体的语法
+</code></pre><h4 id="6-代码框"><a href="#6-代码框" class="headerlink" title="6.代码框"></a>6.代码框</h4><pre><code>2个 `(esc键下面的按键)把中间的代码包裹起来
+eg.这是代码 `NSString *name = @&quot;XiaoMing&quot;;`
+使用 tab 键即可缩进
+</code></pre><h4 id="7-表格"><a href="#7-表格" class="headerlink" title="7.表格"></a>7.表格</h4><pre><code>最尼玛蛋疼的玩意
+| Name    | Age     | Hobby   |
+| ------- |:-------:| ------: |
+| goudan  |   20    | football|
 
-iOS系统替你完成，比如点击文本框就会调出软键盘，不需要额外写代码。
-所有的设备都支持通过蓝牙连接外置键盘，现在依然无法连接鼠标。
+能不用就不用  太尼玛墨迹了 
+</code></pre><h4 id="8-下划线"><a href="#8-下划线" class="headerlink" title="8.下划线"></a>8.下划线</h4><pre><code>在空白行下方添加三条“-”横线
+</code></pre><h4 id="9-邮箱"><a href="#9-邮箱" class="headerlink" title="9.邮箱"></a>9.邮箱</h4><pre><code>&lt;haojun_1992@163.com&gt;
+邮箱地址就会变成超链接    
 </code></pre>
         
         
@@ -220,7 +225,7 @@ iOS系统替你完成，比如点击文本框就会调出软键盘，不需要�
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/03/17/Markdown语法的简要规则/" title="Markdown语法的简要规则" itemprop="url">Markdown语法的简要规则</a>
+      <a href="/2016/03/17/iOS应用程序的特点/" title="iOS应用程序的特点" itemprop="url">iOS应用程序的特点</a>
   </h1>
   <p class="article-author">By
        
@@ -233,37 +238,32 @@ iOS系统替你完成，比如点击文本框就会调出软键盘，不需要�
 </header>
     <div class="article-content">
         
-        <h4 id="1-标题"><a href="#1-标题" class="headerlink" title="1.标题"></a>1.标题</h4><pre><code>#一级标题（ “=” 在文字下方添加也可以 一级标题）
-##二级标题（ “-” 在文字下方添加也可以 二级标题）
-.
-.
-.
-######六级标题
-建议在#后面加一个空格，这是最标准的 Markdowm 语法
-</code></pre><h4 id="2-列表"><a href="#2-列表" class="headerlink" title="2.列表"></a>2.列表</h4><pre><code>a.在列表的显示只需要在文字前加上 -/* 即 无序列表
-b.------------------------ 1./2./3.有序列表
-但是 要和文字之间加上一个字符的空格
-</code></pre><h4 id="3-引用"><a href="#3-引用" class="headerlink" title="3.引用"></a>3.引用</h4><pre><code>在文本之前加入 &gt; 这种尖括号即可
-eg. &gt; 引用一段话
-</code></pre><h4 id="4-图片与链接"><a href="#4-图片与链接" class="headerlink" title="4.图片与链接"></a>4.图片与链接</h4><pre><code>插入链接与插入图片的语法很像。区别在于一个 ！ 号
-图片为：！[]（）{}
+        <h4 id="1-只能运行一个应用"><a href="#1-只能运行一个应用" class="headerlink" title="1.只能运行一个应用"></a>1.只能运行一个应用</h4><pre><code>在iOS中，一次只能有一个应用处于活动状态显示在屏幕上。从iOS4开始，用户按下Home键，应用程序可以在后台继续运行，但是需要专门为此编写代码（以后会详细介绍）
+</code></pre><h4 id="2-只能使用一个窗口"><a href="#2-只能使用一个窗口" class="headerlink" title="2.只能使用一个窗口"></a>2.只能使用一个窗口</h4><pre><code>iOS只允许应用程序操作一个窗口，应用程序与用户的所有交互都在这个窗口中完成，大小就是iOS设备屏幕的固定大小    s
+</code></pre><h4 id="3-有限的访问权限"><a href="#3-有限的访问权限" class="headerlink" title="3.有限的访问权限"></a>3.有限的访问权限</h4><pre><code>iOS的文件系统会为每个每个应用分配一块独立的区域，就是我们熟知的沙盒。每个应用只能读写自己沙盒内的文件。
+</code></pre><h4 id="4-有限的响应时间"><a href="#4-有限的响应时间" class="headerlink" title="4.有限的响应时间"></a>4.有限的响应时间</h4><pre><code>应用程序在运行的时候，按下Home键，iOS就会返回主屏幕，程序必须保存一切内容并退出，如果没有在5s之内保存必要的数据并放弃对系统资源的控制，无论是否已经完全保存，应用程序进程都会被禁止。有一个API可以在应用程序终止前请求多一些时间来完成必要的工作（以后会提到）
+</code></pre><h4 id="5-有限的屏幕尺寸"><a href="#5-有限的屏幕尺寸" class="headerlink" title="5.有限的屏幕尺寸"></a>5.有限的屏幕尺寸</h4><pre><code>设备            硬件尺寸          软件尺寸               精密程度    
+4s           640x960            320x480               2x
+5和5s        640x1136         320x568              2x
+6            6750x1334        375x667              2x
+6P           1080x1920        414x736              3x
+iPad和iPad mini     768x1024      768x1024          1x
+iPad Air、iPad mini Retina、iPad Retina                
+         768x1024           768x1024             1x
+硬件尺寸就是手机屏幕的大小，写代码的时候只要注意软件尺寸就可以了。
+</code></pre><h4 id="6-有限的系统资源"><a href="#6-有限的系统资源" class="headerlink" title="6.有限的系统资源"></a>6.有限的系统资源</h4><pre><code>Cocoa Touch 提供了一种内置机制，可以在内存不足的时候通知应用程序。赶紧释放不必要的内存空间（TMD占着茅坑不拉屎），要不然程序就会闪退。
+接下来的可以忽略不看：
+由于iOS具备图形特性和多种功能，很容易耗光内存。到目前为止iOS设备的物理内存要么是512MB（4s、iPad2、一代iPad mini、iPod touch5），要么是1024MB（5c、5s、6、6P、iPad Air、iPad mini Retina），以后一定还会大的（iPad Air 2 的内存已经达到了2GB）。
+很大一部分内存被用于屏幕缓冲区和其他一些系统进程，一般，只有不到一半的内存留给应用程序使用（实际可用内存可能更少，尤其是因为其他应用可能在后台运行）。
 
-链接为：[]（）
-eg. [百度]{https://baidu.com}
-</code></pre><h4 id="5-粗体斜体"><a href="#5-粗体斜体" class="headerlink" title="5.粗体斜体"></a>5.粗体斜体</h4><pre><code>2个 * 包含一段文本就是粗体的语法
-1个 * 包含一段文本就是斜体的语法
-</code></pre><h4 id="6-代码框"><a href="#6-代码框" class="headerlink" title="6.代码框"></a>6.代码框</h4><pre><code>2个 `(esc键下面的按键)把中间的代码包裹起来
-eg.这是代码 `NSString *name = @&quot;XiaoMing&quot;;`
-使用 tab 键即可缩进
-</code></pre><h4 id="7-表格"><a href="#7-表格" class="headerlink" title="7.表格"></a>7.表格</h4><pre><code>最尼玛蛋疼的玩意
-| Name    | Age     | Hobby   |
-| ------- |:-------:| ------: |
-| goudan  |   20    | football|
+谈到iOS内存，还需要考虑另一个因素：现代计算机操作系统（比如OS X）会将未使用的内存块写到磁盘的交换文件中，这样，当应用程序请求的内存超过计算机的实际可用内存时，它仍然可以正常运行。但是，iOS并不会将易失性内存（比如应用程序数据）写到交换文件中。因此，应用程序的可用内存大小受限于iOS设备中未使用的物理内存空间。
+</code></pre><h4 id="7-几个新功能"><a href="#7-几个新功能" class="headerlink" title="7.几个新功能"></a>7.几个新功能</h4><pre><code>1.iOS SDK中的Core Location框架可以确定当前手机的地理坐标&lt;br&gt;
+2.大部分iOS设备都有内置的摄像头和照片库（废话，但是也有人不知道）。&lt;br&gt;
+3.iOS有一个内置的运动传感器，用于检测设备的握持和移动方向。
+8.与众不同的交互方式
 
-能不用就不用  太尼玛墨迹了 
-</code></pre><h4 id="8-下划线"><a href="#8-下划线" class="headerlink" title="8.下划线"></a>8.下划线</h4><pre><code>在空白行下方添加三条“-”横线
-</code></pre><h4 id="9-邮箱"><a href="#9-邮箱" class="headerlink" title="9.邮箱"></a>9.邮箱</h4><pre><code>&lt;haojun_1992@163.com&gt;
-邮箱地址就会变成超链接    
+iOS系统替你完成，比如点击文本框就会调出软键盘，不需要额外写代码。
+所有的设备都支持通过蓝牙连接外置键盘，现在依然无法连接鼠标。
 </code></pre>
         
         
