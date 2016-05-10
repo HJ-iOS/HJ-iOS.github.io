@@ -1,0 +1,641 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>前端构建工具gulp入门教程 | Welcome to the literati Association!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="HJ">
+    
+
+    
+    <meta name="description" content="一.安装Node直接去nodejs官网,点击绿色的 下载按钮,他会根据系统信息选择对应版本(.msi)文件,然后和安装qq一样,为了查看node 是否正确安装,node -v 查看版本号 以及npm -v 版本号
+二.npm 介绍npm(node package manager) nodejs的包管理器,用于node插件管理(包括安装.卸载.管理依赖等)
+命令提示符执行:
+npm install">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端构建工具gulp入门教程">
+<meta property="og:url" content="http://yoursite.com/2016/05/10/gulp安装入门教程/index.html">
+<meta property="og:site_name" content="Welcome to the literati Association!">
+<meta property="og:description" content="一.安装Node直接去nodejs官网,点击绿色的 下载按钮,他会根据系统信息选择对应版本(.msi)文件,然后和安装qq一样,为了查看node 是否正确安装,node -v 查看版本号 以及npm -v 版本号
+二.npm 介绍npm(node package manager) nodejs的包管理器,用于node插件管理(包括安装.卸载.管理依赖等)
+命令提示符执行:
+npm install">
+<meta property="og:updated_time" content="2016-05-10T06:57:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端构建工具gulp入门教程">
+<meta name="twitter:description" content="一.安装Node直接去nodejs官网,点击绿色的 下载按钮,他会根据系统信息选择对应版本(.msi)文件,然后和安装qq一样,为了查看node 是否正确安装,node -v 查看版本号 以及npm -v 版本号
+二.npm 介绍npm(node package manager) nodejs的包管理器,用于node插件管理(包括安装.卸载.管理依赖等)
+命令提示符执行:
+npm install">
+<meta name="twitter:creator" content="@jj">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Welcome to the literati Association!" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Welcome to the literati Association!" title="Welcome to the literati Association!"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Welcome to the literati Association!">Welcome to the literati Association!</a></h1>
+				<h2 class="blog-motto">The president of the literati association is HJ.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/05/10/gulp安装入门教程/" title="前端构建工具gulp入门教程" itemprop="url">前端构建工具gulp入门教程</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="HJ" target="_blank" itemprop="author">HJ</a>
+		
+  <p class="article-time">
+    <time datetime="2016-05-10T01:50:12.000Z" itemprop="datePublished"> 发表于 2016-05-10</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#一-安装Node"><span class="toc-number">1.</span> <span class="toc-text">一.安装Node</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二-npm-介绍"><span class="toc-number">2.</span> <span class="toc-text">二.npm 介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三-选装cnpm"><span class="toc-number">3.</span> <span class="toc-text">三.选装cnpm</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#四-全局安装gulp"><span class="toc-number">4.</span> <span class="toc-text">四.全局安装gulp</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#五-新建package-json文件"><span class="toc-number">5.</span> <span class="toc-text">五.新建package.json文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#六-新建gulpfile-js文件"><span class="toc-number">6.</span> <span class="toc-text">六.新建gulpfile.js文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#七-本地安装gulp"><span class="toc-number">7.</span> <span class="toc-text">七.本地安装gulp</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-插件与功能"><span class="toc-number">8.</span> <span class="toc-text">8.插件与功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-执行定义的一些任务"><span class="toc-number">9.</span> <span class="toc-text">9.执行定义的一些任务</span></a></li></ol>
+		
+		</div>
+		
+		<h4 id="一-安装Node"><a href="#一-安装Node" class="headerlink" title="一.安装Node"></a>一.安装Node</h4><pre><code>直接去nodejs官网,点击绿色的 下载按钮,他会根据系统信息选择对应版本(.msi)文件,然后和安装qq一样,为了查看node 是否正确安装,node -v 查看版本号 以及npm -v 版本号
+</code></pre><h4 id="二-npm-介绍"><a href="#二-npm-介绍" class="headerlink" title="二.npm 介绍"></a>二.npm 介绍</h4><p>npm(node package manager) nodejs的包管理器,用于node插件管理(包括安装.卸载.管理依赖等)</p>
+<pre><code>命令提示符执行:
+npm install &lt;name&gt; [-g] [--save-dev]
+</code></pre><ol>
+<li><p><name> ：node插件名称。例：npm install gulp-less –save-dev</name></p>
+</li>
+<li><p>-g ：全局安装。将会安装在C:\Users\Administrator\AppData\Roaming\npm，并且写入系统环境变量；<br>非全局安装：将会安装在当前定位目录；<br>全局安装可以通过命令行在任何地方调用它，本地安装将安装在定位目录的node_modules文件夹下，通过require()调用；</p>
+</li>
+<li><p>–save ：将保存配置信息至package.json（package.json是nodejs项目配置文件）；</p>
+</li>
+<li><p>-dev ：保存至package.json的devDependencies节点，不指定-dev将保存至dependencies节点<br>配置文件package.json是为了方便下载相关的包，只需要在有这个文件的文件夹下面执行“npm install”（如果安装了cnpm就用“cnpm install”），则会根据package.json下载所有需要的包。【注：我用demo中的package文件在另外一台电脑上面直接安装，打“gulp watch”的时候出现了很多错误】</p>
+</li>
+</ol>
+<h4 id="三-选装cnpm"><a href="#三-选装cnpm" class="headerlink" title="三.选装cnpm"></a>三.选装cnpm</h4><p>3.1、说明：因为npm安装插件是从国外服务器下载，受网络影响大，可能出现异常，如果npm的服务器在中国就好了，所以我们乐于分享的淘宝团队干了这事。来自官网：“这是一个完整 npmjs.org 镜像，你可以用此代替官方版本(只读)，同步频率目前为 10分钟 一次以保证尽量与官方服务同步。”；</p>
+<p>3.2、官方网址：<a href="http://npm.taobao.org" target="_blank" rel="external">http://npm.taobao.org</a>；</p>
+<p>3.3、安装：命令提示符执行npm install cnpm -g –registry=<a href="https://registry.npm.taobao.org；" target="_blank" rel="external">https://registry.npm.taobao.org；</a>  注意：安装完后最好查看其版本号cnpm -v或关闭命令提示符重新打开，安装完直接使用有可能会出现错误；</p>
+<p>注：cnpm跟npm用法完全一致，只是在执行命令时将npm改为cnpm（以下操作将以cnpm代替npm）。</p>
+<h4 id="四-全局安装gulp"><a href="#四-全局安装gulp" class="headerlink" title="四.全局安装gulp"></a>四.全局安装gulp</h4><pre><code>cnpm install gulp -g
+</code></pre><p>如果在某个工程文件夹中提示错误,就手动在安装gulp</p>
+<p>查看是否正确安装,gulp -v 有版本号就right</p>
+<h4 id="五-新建package-json文件"><a href="#五-新建package-json文件" class="headerlink" title="五.新建package.json文件"></a>五.新建package.json文件</h4><p>在命令窗口输入指令“cnpm init”。如果在Git Bash打这个指令，会报“No gulpfile found”的错误。</p>
+<p>5.1、说明：package.json是基于nodejs项目必不可少的配置文件，它是存放在项目根目录的普通json文件；</p>
+<p>5.2、它是这样一个json文件（注意：json文件内是不能写注释的，复制下列内容请删除注释）：</p>
+<pre><code>{
+  &quot;name&quot;: &quot;test&quot;,   //项目名称（必须）
+  &quot;version&quot;: &quot;1.0.0&quot;,   //项目版本（必须）
+  &quot;description&quot;: &quot;This is for study gulp project !&quot;,   //项目描述（必须）
+  &quot;homepage&quot;: &quot;&quot;,   //项目主页
+  &quot;repository&quot;: {    //项目资源库
+&quot;type&quot;: &quot;git&quot;,
+&quot;url&quot;: &quot;https://git.oschina.net/xxxx&quot;
+  },
+  &quot;author&quot;: {    //项目作者信息
+&quot;name&quot;: &quot;surging&quot;,
+&quot;email&quot;: &quot;surging2@qq.com&quot;
+  },
+  &quot;license&quot;: &quot;ISC&quot;,    //项目许可协议
+  &quot;devDependencies&quot;: {    //项目依赖的插件
+&quot;gulp&quot;: &quot;^3.8.11&quot;,
+    &quot;gulp-less&quot;: &quot;^3.0.0&quot;
+  }
+}
+</code></pre><h4 id="六-新建gulpfile-js文件"><a href="#六-新建gulpfile-js文件" class="headerlink" title="六.新建gulpfile.js文件"></a>六.新建gulpfile.js文件</h4><pre><code>gulpfile.js是gulp项目的配置文件，里面是task的配置。简易代码如下：
+
+var gulp = require(&apos;gulp&apos;);
+
+gulp.task(&apos;default&apos;, function() {
+  // 将你的默认的任务代码放在这
+});
+</code></pre><h4 id="七-本地安装gulp"><a href="#七-本地安装gulp" class="headerlink" title="七.本地安装gulp"></a>七.本地安装gulp</h4><pre><code>cnpm install gulp --save-dev
+</code></pre><p>到这你也许会问 为什么全局安装 项目还需要安装,因为全局安装gulp为了执行gulp任务,而本地安装gulp是为了调用gulp插件功能.</p>
+<h4 id="8-插件与功能"><a href="#8-插件与功能" class="headerlink" title="8.插件与功能"></a>8.插件与功能</h4><p>eg:1</p>
+<p>现在我们创建一个Gulp任务来压缩JavaScript文件。首先创建一个名为gulpfile.js的文件，这是定义Gulp任务的地方，它可以通过gulp命令来运行，接着把下面的代码放到gulpfile.js文件里面。</p>
+<pre><code>var gulp = require(&apos;gulp&apos;),
+   uglify = require(&apos;gulp-uglify&apos;);
+
+gulp.task(&apos;minify&apos;, function () {
+   gulp.src(&apos;js/app.js&apos;)
+  .pipe(uglify())
+  .pipe(gulp.dest(&apos;build&apos;))
+});
+</code></pre><p>然后在npm里面运行npm install -–save-dev gulp-uglify来安装gulp-uglify，最后通过运行gulp minify来执行任务。假设js目录下有个app.js文件，那么一个新的app.js将被创建在编译目录下，它包含了js/app.js的压缩内容。想一想，到底发生了什么？</p>
+<p>我们只在gulpfile.js里做了一点事情。首先，我们加载gulp和gulp-uglify模块：</p>
+<pre><code>var gulp = require(&apos;gulp&apos;),
+uglify = require(&apos;gulp-uglify&apos;);
+</code></pre><p>然后，我们定义了一个叫minify的任务，它执行时会调用函数，这个函数会作为第二个参数：</p>
+<pre><code>gulp.task(&apos;minify&apos;, function () {
+
+});
+</code></pre><p>最后，也是难点所在，我们需要定义任务应该做什么：</p>
+<pre><code>gulp.src(&apos;js/app.js&apos;)
+   .pipe(uglify())
+   .pipe(gulp.dest(&apos;build&apos;))
+</code></pre><hr>
+<p> 1）全局配置config</p>
+<p>可以将需要在gulpfile中引用的参数，放到这里，包括一些路径，功能的开关等。例如：</p>
+<pre><code>//全局配置文件
+module.exports = {
+name : &apos;.....&apos;,
+devPath : &apos;.....&apos;,    //项目根路径，根路径下可以包含多个项目
+prodPath : &apos;....&apos;, //生产路径根路径
+sassPath : &apos;.....&apos;, //SASS包含文件路径
+rmHtmlWhitespace : false,//html中是否去除空格
+server : {
+    port : 8088
+}
+};
+</code></pre><p>注意下这里使用了module.exports，这是nodejs的语法。在gulpfile中将会用require引用config。</p>
+<pre><code>//加载项目配置
+var config = require(&apos;./config&apos;);
+</code></pre><p>2）监控gulp.watch</p>
+<p>这个是gulp自带的，就是当你的文件改动了后，就做相应的task。还有一个插件 <a href="http://npm.taobao.org/package/gulp-watch" target="_blank" rel="external">gulp-watch </a>。</p>
+<p>监控sass中的文件变化，一有变化就做sass的编译。“<em>*”与“</em>”这种语法可以参考《 Gulp：任务自动管理工具 》</p>
+<pre><code>gulp.task(&apos;watch&apos;, function() {
+livereload.listen();
+gulp.watch(&apos;**.html&apos;, [&apos;html&apos;]);
+  gulp.watch(&apos;./sass/*.scss&apos;, [&apos;sass&apos;]);
+  gulp.watch(&apos;./css/*.css&apos;, [&apos;css&apos;]);
+  gulp.watch(&apos;./js/*.js&apos;, [&apos;js&apos;]);
+});
+</code></pre><p>监控了四个地方的修改，js、html、css和sass，并且有做了自动刷新 livereload 。这个是通过<a href="http://npm.taobao.org/package/gulp-livereload" target="_blank" rel="external">gulp- livereload</a>来实现的。</p>
+<p>firefox货chrome要分别安装插件才可运行。chrom插件如下：</p>
+<p>安装完后会在浏览器中出现个小按钮，，注意是黑色的时候才是在执行中。还有就是要在相应的task中加相应的代码：</p>
+<pre><code>.pipe(livereload())
+</code></pre><p>3）sass编译与css压缩</p>
+<p>通过sass编写css，能更模块化，多人协作比较方便。安装 <a href="http://npm.taobao.org/package/gulp-sass" target="_blank" rel="external">gulp-sass</a> 。“ gulpPlumber() ”是引用了<a href="http://npm.taobao.org/package/gulp-plumber" target="_blank" rel="external">gulp-plumber</a>，任务错误中断自动重传。</p>
+<pre><code>gulp.task(&apos;sass&apos;, function() {
+gulp.src(&apos;./sass/*.scss&apos;)
+        .pipe(plumber())
+        .pipe(sass())
+        .pipe(gulp.dest(&apos;./css&apos;))
+        .pipe(livereload());
+});
+</code></pre><p><a href="http://npm.taobao.org/package/gulp-cssnano" target="_blank" rel="external">gulp-cssnano</a> ，压缩CSS代码。</p>
+<pre><code>gulp.task(&apos;css&apos;, [&apos;sass&apos;], function() {
+//先删除dist中的css，有时候会不更新
+gulp.src(&apos;./dist/css/*.css&apos;)
+    .pipe(rimraf({force: true}));
+
+gulp.src(&apos;./css/*.css&apos;)
+    .pipe(cssnano())
+    .pipe(gulp.dest(&apos;./dist/css&apos;))
+    .pipe(livereload());
+});
+</code></pre><p>4）js压缩与模块化合并</p>
+<p>使用 <a href="http://npm.taobao.org/package/gulp-uglify" target="_blank" rel="external">gulp-uglify</a> 做js的压缩。 gulpRimraf()用来删除文件夹，引用自 <a href="http://npm.taobao.org/package/gulp-rimraf" target="_blank" rel="external">]gulp-rimraf</a> 。</p>
+<p>模块化合并使用 <a href="http://npm.taobao.org/package/webpack-stream" target="_blank" rel="external">webpack-stream</a> 。</p>
+<pre><code>gulp.task(&apos;js&apos;, function() {
+//先删除dist中的css，有时候会不更新
+gulp.src(&apos;./dist/js/*.js&apos;)
+    .pipe(rimraf({force: true}));
+
+gulp.src(&apos;./js/*.js&apos;)
+    .pipe(plumber())
+    .pipe(jshint())
+    .pipe(jshint.reporter(&apos;default&apos;))
+    .pipe(uglify())
+    .pipe(gulp.dest(&apos;./dist/js&apos;))
+    .pipe(livereload());
+});
+</code></pre><p>上面的jshint是用来分析代码的，例如分号没写。通过打指令“ gulp-jshint ” 。</p>
+<p>5）image图片无损压缩</p>
+<p>通过 <a href="http://npm.taobao.org/package/gulp-image" target="_blank" rel="external">gulp-image</a> 压缩的图片，有时候能牙70%以上，非常给力。</p>
+<pre><code>gulp.task(&apos;image&apos;, function(){
+gulp.src(&apos;./img/*.+(jpg|png|gif|svg)&apos;)
+     .pipe(imagemin())
+   .pipe(gulp.dest(&apos;./dist/img&apos;));
+});
+</code></pre><p>6）html压缩</p>
+<p>经过 <a href="http://npm.taobao.org/package/gulp-htmlmin" target="_blank" rel="external">gulp-htmlmin</a> 压缩过的html可以缩小很多，可以看到都挤到了一起，有很多参数可以选择，比如去除空格等。</p>
+<pre><code>gulp.task(&apos;html&apos;, function() {
+gulp.src(&apos;*.html&apos;)
+    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(gulp.dest(&apos;./dist&apos;))
+    .pipe(livereload());
+});
+</code></pre><p>7）fontmin字体压缩</p>
+<p>网上有很多webfont，例如国外的 <a href="https://fortawesome.github.io/Font-Awesome/" target="_blank" rel="external">Font Awesome</a> ，国内的 <a href="http://www.iconfont.cn/" target="_blank" rel="external">iconfont</a> 。都能做出漂亮的自定义字体。</p>
+<p>与西文字体不同，由于字符集过大，中文字体无法享受 webfont 带来的便利。为了让中文字体也乘上这道风，我们需要对其进行min。使用指令<a href="http://npm.taobao.org/package/gulp-fontmin" target="_blank" rel="external">gulp-fontmin</a>。</p>
+<pre><code>gulp.task(&apos;font&apos;, function() {
+gulp.src(&apos;font/*.+(eot|svg|ttf|woff)&apos;)
+  .pipe(fontmin({
+      text: &apos;人晒&apos;
+  }))
+  .pipe(gulp.dest(&apos;dist/font&apos;));
+});
+</code></pre><p>配置的两个字“人晒”与没配置的“国”，明显有区别。</p>
+<p>8）启动一个本地调试服务器</p>
+<p>通过 <a href="http://npm.taobao.org/package/gulp-connect" target="_blank" rel="external">gulp-connect</a> ，可以做个server。如果你用notpad++这种开发页面，那这个指令会很有用。</p>
+<pre><code>gulp.task(&apos;server&apos;, function(){
+var option = {
+    root : config.devPath,
+    port : config.server.port
+};
+if(config.server.root){
+    option.root = config.server.root;
+}
+connect.server(option);
+});
+</code></pre><p>上面的localhost可以改成本机的IP地址，手机与电脑在同一个网段的话，就可以直接用手机调试了。</p>
+<h4 id="9-执行定义的一些任务"><a href="#9-执行定义的一些任务" class="headerlink" title="9.执行定义的一些任务"></a>9.执行定义的一些任务</h4><pre><code>gulp minify 
+</code></pre><p>运行上文的列子    等等</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2016/05/10/gulp安装入门教程/" data-title="前端构建工具gulp入门教程 | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/04/21/文字在超过宽度自动显示省略号/"  title="文字在超过宽度自动显示省略号">
+ <strong>下一篇：</strong><br/> 
+ <span>文字在超过宽度自动显示省略号
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#一-安装Node"><span class="toc-number">1.</span> <span class="toc-text">一.安装Node</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二-npm-介绍"><span class="toc-number">2.</span> <span class="toc-text">二.npm 介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三-选装cnpm"><span class="toc-number">3.</span> <span class="toc-text">三.选装cnpm</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#四-全局安装gulp"><span class="toc-number">4.</span> <span class="toc-text">四.全局安装gulp</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#五-新建package-json文件"><span class="toc-number">5.</span> <span class="toc-text">五.新建package.json文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#六-新建gulpfile-js文件"><span class="toc-number">6.</span> <span class="toc-text">六.新建gulpfile.js文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#七-本地安装gulp"><span class="toc-number">7.</span> <span class="toc-text">七.本地安装gulp</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-插件与功能"><span class="toc-number">8.</span> <span class="toc-text">8.插件与功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-执行定义的一些任务"><span class="toc-number">9.</span> <span class="toc-text">9.执行定义的一些任务</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="HJ-ios" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://www.cnblogs.com/mjios/" target="_blank" title="MJ">MJ</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.cnblogs.com/wendingding/p/?page=2" target="_blank" title="WDD">WDD</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=5597151709&verifier=2e2fc03f&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> To the world you maybe one peeson , but to one person you maybe the world. <br/>
+			This is my goddess.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/5597151709" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/HJ-ios" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		<a href="https://twitter.com/jj" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:haojun_1992@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="HJ">HJ</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
