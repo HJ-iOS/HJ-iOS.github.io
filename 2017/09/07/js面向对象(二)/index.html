@@ -4,50 +4,38 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Markdown语法的简要规则 | Welcome to the literati Association!</title>
+    <title>Welcome to the literati Association!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="HJ">
     
 
     
-    <meta name="description" content="1.标题#一级标题（ “=” 在文字下方添加也可以 一级标题）
-##二级标题（ “-” 在文字下方添加也可以 二级标题）
-.
-.
-.
-######六级标题
-建议在#后面加一个空格，这是最标准的 Markdowm 语法
-2.列表a.在列表的显示只需要在文字前加上 -/* 即 无序列表
-b.------------------------ 1./2./3.有序列表
-但是 要和文字之间加上一个字符的空格">
+    <meta name="description" content="title:js面向对象(二)1.对象a.普通对象b.函数对象
+2.每个函数对象都有一个prototype属性.这个属性指向函数的原型对象.
+3.每个对象都有proto\属性.但是只有函数对象才有prototype属性.
+4.实例的构造函数属性(constructor)指向构造函数
+5.原型对象:顾名思义就是个普通对象(废话).只要牢牢记住原型就是Person.prototype.
+还是不能理解的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Markdown语法的简要规则">
-<meta property="og:url" content="http://yoursite.com/2016/03/17/Markdown语法的简要规则/index.html">
+<meta property="og:title" content="Welcome to the literati Association!">
+<meta property="og:url" content="http://yoursite.com/2017/09/07/js面向对象(二)/index.html">
 <meta property="og:site_name" content="Welcome to the literati Association!">
-<meta property="og:description" content="1.标题#一级标题（ “=” 在文字下方添加也可以 一级标题）
-##二级标题（ “-” 在文字下方添加也可以 二级标题）
-.
-.
-.
-######六级标题
-建议在#后面加一个空格，这是最标准的 Markdowm 语法
-2.列表a.在列表的显示只需要在文字前加上 -/* 即 无序列表
-b.------------------------ 1./2./3.有序列表
-但是 要和文字之间加上一个字符的空格">
-<meta property="og:updated_time" content="2017-09-07T07:58:42.000Z">
+<meta property="og:description" content="title:js面向对象(二)1.对象a.普通对象b.函数对象
+2.每个函数对象都有一个prototype属性.这个属性指向函数的原型对象.
+3.每个对象都有proto\属性.但是只有函数对象才有prototype属性.
+4.实例的构造函数属性(constructor)指向构造函数
+5.原型对象:顾名思义就是个普通对象(废话).只要牢牢记住原型就是Person.prototype.
+还是不能理解的">
+<meta property="og:updated_time" content="2017-09-07T08:28:24.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Markdown语法的简要规则">
-<meta name="twitter:description" content="1.标题#一级标题（ “=” 在文字下方添加也可以 一级标题）
-##二级标题（ “-” 在文字下方添加也可以 二级标题）
-.
-.
-.
-######六级标题
-建议在#后面加一个空格，这是最标准的 Markdowm 语法
-2.列表a.在列表的显示只需要在文字前加上 -/* 即 无序列表
-b.------------------------ 1./2./3.有序列表
-但是 要和文字之间加上一个字符的空格">
+<meta name="twitter:title" content="Welcome to the literati Association!">
+<meta name="twitter:description" content="title:js面向对象(二)1.对象a.普通对象b.函数对象
+2.每个函数对象都有一个prototype属性.这个属性指向函数的原型对象.
+3.每个对象都有proto\属性.但是只有函数对象才有prototype属性.
+4.实例的构造函数属性(constructor)指向构造函数
+5.原型对象:顾名思义就是个普通对象(废话).只要牢牢记住原型就是Person.prototype.
+还是不能理解的">
 <meta name="twitter:creator" content="@jj">
 
     
@@ -108,14 +96,14 @@ b.------------------------ 1./2./3.有序列表
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/03/17/Markdown语法的简要规则/" title="Markdown语法的简要规则" itemprop="url">Markdown语法的简要规则</a>
+      <a href="/2017/09/07/js面向对象(二)/" title="" itemprop="url"></a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="HJ" target="_blank" itemprop="author">HJ</a>
 		
   <p class="article-time">
-    <time datetime="2016-03-17T01:46:14.000Z" itemprop="datePublished"> 发表于 2016-03-17</time>
+    <time datetime="2017-09-07T08:28:24.000Z" itemprop="datePublished"> 发表于 2017-09-07</time>
     
   </p>
 </header>
@@ -124,56 +112,22 @@ b.------------------------ 1./2./3.有序列表
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-标题"><span class="toc-number">1.</span> <span class="toc-text">1.标题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-列表"><span class="toc-number">2.</span> <span class="toc-text">2.列表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-引用"><span class="toc-number">3.</span> <span class="toc-text">3.引用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-图片与链接"><span class="toc-number">4.</span> <span class="toc-text">4.图片与链接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-粗体斜体"><span class="toc-number">5.</span> <span class="toc-text">5.粗体斜体</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-代码框"><span class="toc-number">6.</span> <span class="toc-text">6.代码框</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-表格"><span class="toc-number">7.</span> <span class="toc-text">7.表格</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-下划线"><span class="toc-number">8.</span> <span class="toc-text">8.下划线</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-邮箱"><span class="toc-number">9.</span> <span class="toc-text">9.邮箱</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-转义字符"><span class="toc-number">10.</span> <span class="toc-text">10.转义字符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11-换行"><span class="toc-number">11.</span> <span class="toc-text">11.换行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12-代码段落"><span class="toc-number">12.</span> <span class="toc-text">12.代码段落</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#title-js面向对象-二"><span class="toc-number">1.</span> <span class="toc-text">title:js面向对象(二)</span></a></li></ol>
 		
 		</div>
 		
-		<h4 id="1-标题"><a href="#1-标题" class="headerlink" title="1.标题"></a>1.标题</h4><pre><code>#一级标题（ “=” 在文字下方添加也可以 一级标题）
-##二级标题（ “-” 在文字下方添加也可以 二级标题）
-.
-.
-.
-######六级标题
-建议在#后面加一个空格，这是最标准的 Markdowm 语法
-</code></pre><h4 id="2-列表"><a href="#2-列表" class="headerlink" title="2.列表"></a>2.列表</h4><pre><code>a.在列表的显示只需要在文字前加上 -/* 即 无序列表
-b.------------------------ 1./2./3.有序列表
-但是 要和文字之间加上一个字符的空格
-</code></pre><h4 id="3-引用"><a href="#3-引用" class="headerlink" title="3.引用"></a>3.引用</h4><pre><code>在文本之前加入 &gt; 这种尖括号即可
-eg. &gt; 引用一段话
-</code></pre><h4 id="4-图片与链接"><a href="#4-图片与链接" class="headerlink" title="4.图片与链接"></a>4.图片与链接</h4><pre><code>插入链接与插入图片的语法很像。区别在于一个 ！ 号
-图片为：！[]（）{}
-
-链接为：[]（）
-eg. [百度]{https://baidu.com}
-</code></pre><h4 id="5-粗体斜体"><a href="#5-粗体斜体" class="headerlink" title="5.粗体斜体"></a>5.粗体斜体</h4><pre><code>2个 * 包含一段文本就是粗体的语法
-1个 * 包含一段文本就是斜体的语法
-</code></pre><h4 id="6-代码框"><a href="#6-代码框" class="headerlink" title="6.代码框"></a>6.代码框</h4><pre><code>2个 `(esc键下面的按键)把中间的代码包裹起来
-eg.这是代码 `NSString *name = @&quot;XiaoMing&quot;;`
-使用 tab 键即可缩进
-</code></pre><h4 id="7-表格"><a href="#7-表格" class="headerlink" title="7.表格"></a>7.表格</h4><pre><code>最尼玛蛋疼的玩意
-| Name    | Age     | Hobby   |
-| ------- |:-------:| ------: |
-| goudan  |   20    | football|
-
-能不用就不用  太尼玛墨迹了 
-</code></pre><h4 id="8-下划线"><a href="#8-下划线" class="headerlink" title="8.下划线"></a>8.下划线</h4><pre><code>在空白行下方添加三条“-”横线
-</code></pre><h4 id="9-邮箱"><a href="#9-邮箱" class="headerlink" title="9.邮箱"></a>9.邮箱</h4><pre><code>&lt;haojun_1992@163.com&gt;
-邮箱地址就会变成超链接    
-</code></pre><h4 id="10-转义字符"><a href="#10-转义字符" class="headerlink" title="10.转义字符"></a>10.转义字符</h4><pre><code>\\ 反斜杠  
-\` 反引号  
-\* 星号  
-\_ 下划线    
-\{\} 大括号  
-\[\] 中括号  
-\(\) 小括号  
-\# 井号    
-\+ 加号    
-\- 减号    
-\. 英文句号        
-\! 感叹号        
-</code></pre><h4 id="11-换行"><a href="#11-换行" class="headerlink" title="11.换行"></a>11.换行</h4><pre><code>行后面+2个空格    
-</code></pre><h4 id="12-代码段落"><a href="#12-代码段落" class="headerlink" title="12.代码段落"></a>12.代码段落</h4><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">我是代码</span><br></pre></td></tr></table></figure>
-</code></pre>  
+		<h2 id="title-js面向对象-二"><a href="#title-js面向对象-二" class="headerlink" title="title:js面向对象(二)"></a>title:js面向对象(二)</h2><p>1.对象<br>a.普通对象<br>b.函数对象</p>
+<p>2.每个函数对象都有一个prototype属性.这个属性指向函数的原型对象.</p>
+<p>3.每个对象都有<em>proto\</em>属性.但是只有函数对象才有prototype属性.</p>
+<p>4.实例的构造函数属性(constructor)指向构造函数</p>
+<p>5.原型对象:顾名思义就是个普通对象(废话).只要牢牢记住原型就是Person.prototype.</p>
+<p>还是不能理解的话,可以把它想象成一个变量美女(苍老师).<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var 苍老师  = Person.prototype;</span><br><span class="line">```  </span><br><span class="line">我们可以 给 苍老师这个原型添加用于继承的属性.age,job,hobby等等.  </span><br><span class="line">其实他还有个默认的属性:constructor.(自带buff的男人)  </span><br><span class="line">说一下这个属性:所有的原型对象都会自动获得一个constructor(构造函数)属性 ,这个属性(是个指针)指向prototype属性所在的函数(Person).</span><br></pre></td></tr></table></figure></p>
+<p>Person.prototype.constructor == Person<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">**原型对象是构造函数的一个实例.**		</span><br><span class="line">在Person创建的时候,创建了一个她的实例对象并复制给他的prototype.</span><br></pre></td></tr></table></figure></p>
+<p>var 仓老师 = new Person();<br>Person.prototype = 仓老师’<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">6._proto\_</span><br><span class="line"></span><br><span class="line">上面已经说到,js在创建对象(不论是普通对象还是函数对象)的时候,都有一个叫做_proto\_的内置属性,**用于指向创建他的构造函数的原型对象**           </span><br><span class="line">对象person1有一个_proto\_属性,创建他的构造函数是Person,构造函数的原型对象是Person.prototype(苍老师还记得吗),所以</span><br></pre></td></tr></table></figure></p>
+<p>person1.<em>proto</em> == Person.prototype<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">原型链:由于\_proto\_是任何对象都有的属性(在强调一次),而js里万物皆对象,所以会形成一条\_proto\_连起来的链条,递归访问_proto\_必须最终到头,并且值是null.</span><br><span class="line"></span><br><span class="line">当js 引擎查找对象的属性的时候,先查找对象本身是否存在该属性,如果不存在,会在原型链上查找,但不会查找自身的prototype.</span><br></pre></td></tr></table></figure></p>
+<p>var A = function(){};<br>var a = new A();<br>```</p>
+<p>{a}<em>proto\</em> –&gt;    {A.prototype} –&gt;    {Objective.prototype} –&gt;  {null}</p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -185,7 +139,7 @@ eg.这是代码 `NSString *name = @&quot;XiaoMing&quot;;`
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2016/03/17/Markdown语法的简要规则/" data-title="Markdown语法的简要规则 | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
+	  <div data-url="http://yoursite.com/2017/09/07/js面向对象(二)/" data-title="Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -198,19 +152,11 @@ eg.这是代码 `NSString *name = @&quot;XiaoMing&quot;;`
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/03/17/iOS应用程序的特点/" title="iOS应用程序的特点">
-  <strong>上一篇：</strong><br/>
-  <span>
-  iOS应用程序的特点</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/03/16/前端开发仓库/"  title="前端开发仓库">
+<a href="/2017/09/07/实例化对象的三种方式/"  title="">
  <strong>下一篇：</strong><br/> 
- <span>前端开发仓库
+ <span>(no title)
 </span>
 </a>
 </div>
@@ -225,7 +171,7 @@ eg.这是代码 `NSString *name = @&quot;XiaoMing&quot;;`
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-标题"><span class="toc-number">1.</span> <span class="toc-text">1.标题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-列表"><span class="toc-number">2.</span> <span class="toc-text">2.列表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-引用"><span class="toc-number">3.</span> <span class="toc-text">3.引用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-图片与链接"><span class="toc-number">4.</span> <span class="toc-text">4.图片与链接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-粗体斜体"><span class="toc-number">5.</span> <span class="toc-text">5.粗体斜体</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-代码框"><span class="toc-number">6.</span> <span class="toc-text">6.代码框</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-表格"><span class="toc-number">7.</span> <span class="toc-text">7.表格</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-下划线"><span class="toc-number">8.</span> <span class="toc-text">8.下划线</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-邮箱"><span class="toc-number">9.</span> <span class="toc-text">9.邮箱</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-转义字符"><span class="toc-number">10.</span> <span class="toc-text">10.转义字符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11-换行"><span class="toc-number">11.</span> <span class="toc-text">11.换行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12-代码段落"><span class="toc-number">12.</span> <span class="toc-text">12.代码段落</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#title-js面向对象-二"><span class="toc-number">1.</span> <span class="toc-text">title:js面向对象(二)</span></a></li></ol>
  
   </div>
 
