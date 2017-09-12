@@ -4,38 +4,26 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>常用的Meta标签写法和作用 | Welcome to the literati Association!</title>
+    <title>html中的meta总结 | Welcome to the literati Association!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="HJ">
     
 
     
-    <meta name="description" content="###pc端页面关键词
-&amp;lt;meta name=&amp;quot;keywords&amp;quot; content=&amp;quot;your tags&amp;quot; /&amp;gt;
-页面描述
-&amp;lt;meta name=&amp;quot;description&amp;quot; content=&amp;quot;150 words&amp;quot; /&amp;gt;
-搜索引擎索引方式
-&amp;lt;meta name=&amp;quot;robots&amp;qu">
+    <meta name="description" content="前言meta是html语言head区的一个辅助性标签。meta标签的作用有：搜索引擎优化（SEO），定义页面使用语言，自动刷新并指向新的页面，实现网页转换时的动态效果，控制页面缓冲，网页定级评价，控制网页显示的窗口等！meta标签的组成：meta标签共有两个属性，它们分别是http-equiv属性和name属性，不同的属性又有不同的参数值，这些不同的参数值就实现了不同的网页功能。
+1、name属性">
 <meta property="og:type" content="article">
-<meta property="og:title" content="常用的Meta标签写法和作用">
+<meta property="og:title" content="html中的meta总结">
 <meta property="og:url" content="http://yoursite.com/2017/08/21/常用的meta标签写法和作用/index.html">
 <meta property="og:site_name" content="Welcome to the literati Association!">
-<meta property="og:description" content="###pc端页面关键词
-&amp;lt;meta name=&amp;quot;keywords&amp;quot; content=&amp;quot;your tags&amp;quot; /&amp;gt;
-页面描述
-&amp;lt;meta name=&amp;quot;description&amp;quot; content=&amp;quot;150 words&amp;quot; /&amp;gt;
-搜索引擎索引方式
-&amp;lt;meta name=&amp;quot;robots&amp;qu">
-<meta property="og:updated_time" content="2017-08-21T02:20:02.000Z">
+<meta property="og:description" content="前言meta是html语言head区的一个辅助性标签。meta标签的作用有：搜索引擎优化（SEO），定义页面使用语言，自动刷新并指向新的页面，实现网页转换时的动态效果，控制页面缓冲，网页定级评价，控制网页显示的窗口等！meta标签的组成：meta标签共有两个属性，它们分别是http-equiv属性和name属性，不同的属性又有不同的参数值，这些不同的参数值就实现了不同的网页功能。
+1、name属性">
+<meta property="og:updated_time" content="2017-09-12T09:14:45.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="常用的Meta标签写法和作用">
-<meta name="twitter:description" content="###pc端页面关键词
-&amp;lt;meta name=&amp;quot;keywords&amp;quot; content=&amp;quot;your tags&amp;quot; /&amp;gt;
-页面描述
-&amp;lt;meta name=&amp;quot;description&amp;quot; content=&amp;quot;150 words&amp;quot; /&amp;gt;
-搜索引擎索引方式
-&amp;lt;meta name=&amp;quot;robots&amp;qu">
+<meta name="twitter:title" content="html中的meta总结">
+<meta name="twitter:description" content="前言meta是html语言head区的一个辅助性标签。meta标签的作用有：搜索引擎优化（SEO），定义页面使用语言，自动刷新并指向新的页面，实现网页转换时的动态效果，控制页面缓冲，网页定级评价，控制网页显示的窗口等！meta标签的组成：meta标签共有两个属性，它们分别是http-equiv属性和name属性，不同的属性又有不同的参数值，这些不同的参数值就实现了不同的网页功能。
+1、name属性">
 
     
     <link rel="alternative" href="/atom.xml" title="Welcome to the literati Association!" type="application/atom+xml">
@@ -95,7 +83,7 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/08/21/常用的meta标签写法和作用/" title="常用的Meta标签写法和作用" itemprop="url">常用的Meta标签写法和作用</a>
+      <a href="/2017/08/21/常用的meta标签写法和作用/" title="html中的meta总结" itemprop="url">html中的meta总结</a>
   </h1>
   <p class="article-author">By
        
@@ -111,74 +99,111 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1、name属性"><span class="toc-number">2.</span> <span class="toc-text">1、name属性</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-1、Keywords-关键字"><span class="toc-number">2.1.</span> <span class="toc-text">1.1、Keywords(关键字)　</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2、description-网站内容描述"><span class="toc-number">2.2.</span> <span class="toc-text">1.2、description(网站内容描述)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-3、robots-机器人向导"><span class="toc-number">2.3.</span> <span class="toc-text">1.3、robots(机器人向导)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-4、author-作者"><span class="toc-number">2.4.</span> <span class="toc-text">1.4、author(作者)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-5、generator"><span class="toc-number">2.5.</span> <span class="toc-text">1.5、generator</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-6、COPYRIGHT"><span class="toc-number">2.6.</span> <span class="toc-text">1.6、COPYRIGHT</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-7、revisit-after"><span class="toc-number">2.7.</span> <span class="toc-text">1.7、revisit-after</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、http-equiv属性"><span class="toc-number">3.</span> <span class="toc-text">2、http-equiv属性</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1、Expires-期限"><span class="toc-number">3.1.</span> <span class="toc-text">2.1、Expires(期限)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2、Pragma-cache模式"><span class="toc-number">3.2.</span> <span class="toc-text">2.2、Pragma(cache模式)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-3、Refresh-刷新"><span class="toc-number">3.3.</span> <span class="toc-text">2.3、Refresh(刷新)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-4、Set-Cookie-cookie设定"><span class="toc-number">3.4.</span> <span class="toc-text">2.4、Set-Cookie(cookie设定)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-5、Window-target-显示窗口的设定"><span class="toc-number">3.5.</span> <span class="toc-text">2.5、Window-target(显示窗口的设定)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-6、content-Type-显示字符集的设定"><span class="toc-number">3.6.</span> <span class="toc-text">2.6、content-Type(显示字符集的设定)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-7、content-Language（显示语言的设定）"><span class="toc-number">3.7.</span> <span class="toc-text">2.7、content-Language（显示语言的设定）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-8、Cache-Control指定请求和响应遵循的缓存机制。"><span class="toc-number">3.8.</span> <span class="toc-text">2.8、Cache-Control指定请求和响应遵循的缓存机制。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-9、http-equiv-”imagetoolbar”"><span class="toc-number">3.9.</span> <span class="toc-text">2.9、http-equiv=”imagetoolbar”</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-10、Content-Script-Type"><span class="toc-number">3.10.</span> <span class="toc-text">2.10、Content-Script-Type</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-常用的属性"><span class="toc-number">4.</span> <span class="toc-text">3.常用的属性</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#PC端"><span class="toc-number">4.1.</span> <span class="toc-text">PC端</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-1-申明编码"><span class="toc-number">4.2.</span> <span class="toc-text">3.1    申明编码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-2-转码申明：用百度打开网页可能会对其进行转码（比如贴广告），避免转码可添加如下meta"><span class="toc-number">4.3.</span> <span class="toc-text">3.2    转码申明：用百度打开网页可能会对其进行转码（比如贴广告），避免转码可添加如下meta</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-3-优先使用-IE-最新版本和-Chrome"><span class="toc-number">4.4.</span> <span class="toc-text">3.3    优先使用 IE 最新版本和 Chrome</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-4-浏览器内核控制：国内浏览器很多都是双内核（webkit和Trident），webkit内核高速浏览，IE内核兼容网页和旧版网站。而添加meta标签的网站可以控制浏览器选择何种内核渲染"><span class="toc-number">4.5.</span> <span class="toc-text">3.4    浏览器内核控制：国内浏览器很多都是双内核（webkit和Trident），webkit内核高速浏览，IE内核兼容网页和旧版网站。而添加meta标签的网站可以控制浏览器选择何种内核渲染</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#移动端"><span class="toc-number">4.6.</span> <span class="toc-text">移动端</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-5-忽略数字自动识别为电话号码"><span class="toc-number">4.7.</span> <span class="toc-text">3.5    忽略数字自动识别为电话号码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-6-忽略识别邮箱"><span class="toc-number">4.8.</span> <span class="toc-text">3.6    忽略识别邮箱</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-7-针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓"><span class="toc-number">4.9.</span> <span class="toc-text">3.7    针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-8-微软的老式浏览器"><span class="toc-number">4.10.</span> <span class="toc-text">3.8    微软的老式浏览器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-9-uc强制竖屏"><span class="toc-number">4.11.</span> <span class="toc-text">3.9    uc强制竖屏</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-10-QQ强制竖屏"><span class="toc-number">4.12.</span> <span class="toc-text">3.10    QQ强制竖屏</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-11-UC强制全屏"><span class="toc-number">4.13.</span> <span class="toc-text">3.11    UC强制全屏</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-12-QQ强制全屏"><span class="toc-number">4.14.</span> <span class="toc-text">3.12    QQ强制全屏</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-13-UC应用模式"><span class="toc-number">4.15.</span> <span class="toc-text">3.13    UC应用模式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-14-QQ应用模式"><span class="toc-number">4.16.</span> <span class="toc-text">3.14    QQ应用模式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-15-windows-phone-点击无高光"><span class="toc-number">4.17.</span> <span class="toc-text">3.15    windows phone 点击无高光</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-16-WebApp全屏模式：伪装app，离线应用"><span class="toc-number">4.18.</span> <span class="toc-text">3.16    WebApp全屏模式：伪装app，离线应用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-17-隐藏状态栏-设置状态栏颜色：只有在开启WebApp全屏模式时才生效。"><span class="toc-number">4.19.</span> <span class="toc-text">3.17    隐藏状态栏/设置状态栏颜色：只有在开启WebApp全屏模式时才生效。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-18-添加到主屏后的标题"><span class="toc-number">4.20.</span> <span class="toc-text">3.18    添加到主屏后的标题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-19-添加到主屏的icon"><span class="toc-number">4.21.</span> <span class="toc-text">3.19    添加到主屏的icon</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-20-viewport：能优化移动浏览器的显示。如果不是响应式网站，不要使用initial-scale或者禁用缩放。"><span class="toc-number">4.22.</span> <span class="toc-text">3.20    viewport：能优化移动浏览器的显示。如果不是响应式网站，不要使用initial-scale或者禁用缩放。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-21-支付宝分享"><span class="toc-number">4.23.</span> <span class="toc-text">3.21    支付宝分享</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<p>###pc端<br>页面关键词</p>
-<p><code>&lt;meta name=&quot;keywords&quot; content=&quot;your tags&quot; /&gt;</code></p>
-<p>页面描述</p>
-<p><code>&lt;meta name=&quot;description&quot; content=&quot;150 words&quot; /&gt;</code></p>
-<p>搜索引擎索引方式</p>
-<p><code>&lt;meta name=&quot;robots&quot; content=&quot;index,follow&quot; /&gt;</code></p>
-<pre><code>&lt;!--
-all：文件将被检索，且页面上的链接可以被查询；
-none：文件将不被检索，且页面上的链接不可以被查询；
-index：文件将被检索；
-follow：页面上的链接可以被查询；
-noindex：文件将不被检索；
-nofollow：页面上的链接不可以被查询。
---&gt;
-</code></pre><p>页面重定向和刷新</p>
-<p><code>&lt;meta http-equiv=&quot;refresh&quot; content=&quot;0;url=&quot; /&gt;</code></p>
-<p>定义网页作者</p>
-<p><code>&lt;meta name=&quot;author&quot; content=&quot;author name&quot; /&gt;</code> </p>
-<p>优先使用 IE 最新版本和 Chrome </p>
-<p><code>&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot;/&gt;</code><br>申明编码</p>
-<p><code>&lt;meta charset=&#39;utf-8&#39; /&gt;</code></p>
-<p> 关于X-UA-Compatible</p>
-<p><code>&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=6&quot; &gt;&lt;!-- 使用IE6 --&gt;</code></p>
-<p><code>&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=7&quot; &gt;&lt;!-- 使用IE7 --&gt;</code></p>
-<p><code>&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=8&quot; &gt;&lt;!-- 使用IE8 --&gt;</code></p>
-<p>禁止浏览器从本地计算机的缓存中访问页面内容</p>
-<p><code>&lt;meta http-equiv=&quot;Pragma&quot; content=&quot;no-cache&quot;&gt;</code></p>
-<p>浏览器不会自动调整文件的大小,也就是说是固定大小,不会随着浏览器拉伸缩放。</p>
-<p><code>&lt;meta name=&quot;MobileOptimized&quot; content=&quot;240&quot;/&gt;</code></p>
-<p>不让百度转码</p>
-<p><code>&lt;meta http-equiv=&quot;Cache-Control&quot; content=&quot;no-siteapp&quot; /&gt;</code></p>
-<p>微软的老式浏览器</p>
-<p><code>&lt;meta name=&quot;MobileOptimized&quot; content=&quot;320&quot;&gt;</code></p>
-<p>###移动端<br>移动设备</p>
-<p><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no&quot;/&gt;</code></p>
-<p>WebApp全屏模式</p>
-<p><code>&lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot; /&gt;</code></p>
-<p>隐藏状态栏/设置状态栏颜色</p>
-<p><code>&lt;meta name=&quot;apple-mobile-web-app-status-bar-style&quot; content=&quot;black-translucent&quot; /&gt;</code></p>
-<p>添加到主屏后的标题</p>
-<p><code>&lt;meta name=&quot;apple-mobile-web-app-title&quot; content=&quot;标题&quot;&gt;</code></p>
-<p>忽略数字自动识别为电话号码</p>
-<p><code>&lt;meta content=&quot;telephone=no&quot; name=&quot;format-detection&quot; /&gt;</code></p>
-<p>忽略识别邮箱</p>
-<p><code>&lt;meta content=&quot;email=no&quot; name=&quot;format-detection&quot; /&gt;</code></p>
-<p>针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 </p>
-<p><code>&lt;meta name=&quot;HandheldFriendly&quot; content=&quot;true&quot;&gt;</code></p>
-<p>uc强制竖屏</p>
-<p><code>&lt;meta name=&quot;screen-orientation&quot; content=&quot;portrait&quot;&gt;</code></p>
-<p> QQ强制竖屏</p>
-<p><code>&lt;meta name=&quot;x5-orientation&quot; content=&quot;portrait&quot;&gt;</code></p>
-<p>UC强制全屏</p>
-<p><code>&lt;meta name=&quot;full-screen&quot; content=&quot;yes&quot;&gt;</code></p>
-<p>QQ强制全屏</p>
-<p><code>&lt;meta name=&quot;x5-fullscreen&quot; content=&quot;true&quot;&gt;</code></p>
-<p>UC应用模式</p>
-<p><code>&lt;meta name=&quot;browsermode&quot; content=&quot;application&quot;&gt;</code></p>
-<p>QQ应用模式</p>
-<p><code>&lt;meta name=&quot;x5-page-mode&quot; content=&quot;app&quot;&gt;</code></p>
-<p>添加 RSS 订阅</p>
-<p><code>&lt;link rel=&quot;alternate&quot; type=&quot;application/rss+xml&quot; title=&quot;RSS&quot; href=&quot;/rss.xml&quot;/&gt;</code></p>
-<p>添加 favicon icon</p>
-<p><code>&lt;link rel=&quot;shortcut icon&quot; type=&quot;image/ico&quot; href=&quot;/favicon.ico&quot;/&gt;nt=&quot;no&quot;&gt;</code></p>
-  
+		<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>meta是html语言head区的一个辅助性标签。<br>meta标签的作用有：搜索引擎优化（SEO），定义页面使用语言，自动刷新并指向新的页面，实现网页转换时的动态效果，控制页面缓冲，网页定级评价，控制网页显示的窗口等！<br>meta标签的组成：meta标签共有两个属性，它们分别是http-equiv属性和name属性，不同的属性又有不同的参数值，这些不同的参数值就实现了不同的网页功能。</p>
+<h4 id="1、name属性"><a href="#1、name属性" class="headerlink" title="1、name属性"></a>1、name属性</h4><p>name属性主要用于描述网页，与之对应的属性值为content，content中的内容主要是便于搜索引擎机器人查找信息和分类信息用的。<br>meta标签的name属性语法格式是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;参数&quot;content=&quot;具体的参数值&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>其中name属性主要有以下几种参数：　</p>
+<h5 id="1-1、Keywords-关键字"><a href="#1-1、Keywords-关键字" class="headerlink" title="1.1、Keywords(关键字)　"></a>1.1、Keywords(关键字)　</h5><p>keywords用来告诉搜索引擎你网页的关键字是什么。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;keywords&quot;content=&quot;meta总结,html meta,meta属性,meta跳转&quot;&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="1-2、description-网站内容描述"><a href="#1-2、description-网站内容描述" class="headerlink" title="1.2、description(网站内容描述)"></a>1.2、description(网站内容描述)</h5><p>description用来告诉搜索引擎你的网站主要内容。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;description&quot;content=&quot;haorooms博客,html的meta总结，meta是html语言head区的一个辅助性标签。&quot;&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="1-3、robots-机器人向导"><a href="#1-3、robots-机器人向导" class="headerlink" title="1.3、robots(机器人向导)"></a>1.3、robots(机器人向导)</h5><p>robots用来告诉搜索机器人哪些页面需要索引，哪些页面不需要索引。</p>
+<p>content的参数有all,none,index,noindex,follow,nofollow。默认是all。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;robots&quot;content=&quot;none&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>具体参数如下：</p>
+<p>信息参数为all：文件将被检索，且页面上的链接可以被查询；</p>
+<p>信息参数为none：文件将不被检索，且页面上的链接不可以被查询；</p>
+<p>信息参数为index：文件将被检索；</p>
+<p>信息参数为follow：页面上的链接可以被查询；</p>
+<p>信息参数为noindex：文件将不被检索，但页面上的链接可以被查询；</p>
+<p>信息参数为nofollow：文件将被检索，但页面上的链接不可以被查询；</p>
+<h5 id="1-4、author-作者"><a href="#1-4、author-作者" class="headerlink" title="1.4、author(作者)"></a>1.4、author(作者)</h5><p>标注网页的作者</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;author&quot;content=&quot;root,root@xxxx.com&quot;&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="1-5、generator"><a href="#1-5、generator" class="headerlink" title="1.5、generator"></a>1.5、generator</h5><p>meta标签的generator的信息参数，代表说明网站的采用的什么软件制作。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;generator&quot;content=&quot;信息参数&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="1-6、COPYRIGHT"><a href="#1-6、COPYRIGHT" class="headerlink" title="1.6、COPYRIGHT"></a>1.6、COPYRIGHT</h5><p>meta标签的COPYRIGHT的信息参数，代表说明网站版权信息。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;META NAME=&quot;COPYRIGHT&quot;CONTENT=&quot;信息参数&quot;&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="1-7、revisit-after"><a href="#1-7、revisit-after" class="headerlink" title="1.7、revisit-after"></a>1.7、revisit-after</h5><p>revisit-after代表网站重访,7days代表7天，依此类推。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;META name=&quot;revisit-after&quot;CONTENT=&quot;7days&quot;&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="2、http-equiv属性"><a href="#2、http-equiv属性" class="headerlink" title="2、http-equiv属性"></a>2、http-equiv属性</h4><p>http-equiv顾名思义，相当于http的文件头作用，它可以向浏览器传回一些有用的信息，以帮助正确和精确地显示网页内容，与之对应的属性值为content，content中的内容其实就是各个参数的变量值。</p>
+<p>meta标签的http-equiv属性语法格式是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta http-equiv=&quot;参数&quot;content=&quot;参数变量值&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>其中http-equiv属性主要有以下几种参数：</p>
+<h5 id="2-1、Expires-期限"><a href="#2-1、Expires-期限" class="headerlink" title="2.1、Expires(期限)"></a>2.1、Expires(期限)</h5><p>可以用于设定网页的到期时间。一旦网页过期，必须到服务器上重新传输。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta http-equiv=&quot;expires&quot;content=&quot;Fri,12Jan200118:18:18GMT&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>注意：必须使用GMT的时间格式。</p>
+<h5 id="2-2、Pragma-cache模式"><a href="#2-2、Pragma-cache模式" class="headerlink" title="2.2、Pragma(cache模式)"></a>2.2、Pragma(cache模式)</h5><p>禁止浏览器从本地计算机的缓存中访问页面内容。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta http-equiv=&quot;Pragma&quot;content=&quot;no-cache&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>注意：这样设定，访问者将无法脱机浏览。</p>
+<h5 id="2-3、Refresh-刷新"><a href="#2-3、Refresh-刷新" class="headerlink" title="2.3、Refresh(刷新)"></a>2.3、Refresh(刷新)</h5><p>自动刷新并指向新页面。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta http-equiv=&quot;Refresh&quot;content=&quot;2;URL=http://www.haorooms.com&quot;&gt; //(注意后面的引号，分别在秒数的前面和网址的后面)</span><br></pre></td></tr></table></figure>
+<p>注意：其中的2是指停留2秒钟后自动刷新到URL网址。</p>
+<h5 id="2-4、Set-Cookie-cookie设定"><a href="#2-4、Set-Cookie-cookie设定" class="headerlink" title="2.4、Set-Cookie(cookie设定)"></a>2.4、Set-Cookie(cookie设定)</h5><p>如果网页过期，那么存盘的cookie将被删除。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta http-equiv=&quot;Set-Cookie&quot;content=&quot;cookie value=xxx;expires=Friday,12-Jan-200118:18:18GMT；path=/&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>注意：必须使用GMT的时间格式。</p>
+<h5 id="2-5、Window-target-显示窗口的设定"><a href="#2-5、Window-target-显示窗口的设定" class="headerlink" title="2.5、Window-target(显示窗口的设定)"></a>2.5、Window-target(显示窗口的设定)</h5><p>强制页面在当前窗口以独立页面显示。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta http-equiv=&quot;Window-target&quot;content=&quot;_top&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>注意：用来防止别人在框架里调用自己的页面。</p>
+<h5 id="2-6、content-Type-显示字符集的设定"><a href="#2-6、content-Type-显示字符集的设定" class="headerlink" title="2.6、content-Type(显示字符集的设定)"></a>2.6、content-Type(显示字符集的设定)</h5><p>设定页面使用的字符集。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta http-equiv=&quot;content-Type&quot;content=&quot;text/html;charset=gb2312&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>具体如下：</p>
+<p>meta标签的charset的信息参数如GB2312时，代表说明网站是采用的编码是简体中文；</p>
+<p>meta标签的charset的信息参数如BIG5时，代表说明网站是采用的编码是繁体中文；</p>
+<p>meta标签的charset的信息参数如iso-2022-jp时，代表说明网站是采用的编码是日文；</p>
+<p>meta标签的charset的信息参数如ks_c_5601时，代表说明网站是采用的编码是韩文；</p>
+<p>meta标签的charset的信息参数如ISO-8859-1时，代表说明网站是采用的编码是英文；</p>
+<p>meta标签的charset的信息参数如UTF-8时，代表世界通用的语言编码；</p>
+<h5 id="2-7、content-Language（显示语言的设定）"><a href="#2-7、content-Language（显示语言的设定）" class="headerlink" title="2.7、content-Language（显示语言的设定）"></a>2.7、content-Language（显示语言的设定）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta http-equiv=&quot;Content-Language&quot;content=&quot;zh-cn&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="2-8、Cache-Control指定请求和响应遵循的缓存机制。"><a href="#2-8、Cache-Control指定请求和响应遵循的缓存机制。" class="headerlink" title="2.8、Cache-Control指定请求和响应遵循的缓存机制。"></a>2.8、Cache-Control指定请求和响应遵循的缓存机制。</h5><p>Cache-Control指定请求和响应遵循的缓存机制。在请求消息或响应消息中设置Cache-Control并不会修改另一个消息处理过程中的缓存处理过程。请求时的缓存指令包括no-cache、no-store、max-age、max-stale、min-fresh、on</p>
+<p>ly-if-cached，响应消息中的指令包括public、private、no-cache、no-store、no-transform、must-revalidate、proxy-revalidate、max-age。各个消息中的指令含义如下</p>
+<p>Public指示响应可被任何缓存区缓存</p>
+<p>Private指示对于单个用户的整个或部分响应消息，不能被共享缓存处理。这允许服务器仅仅描述当用户的部分响应消息，此响应消息对于其他用户的请求无效</p>
+<p>no-cache指示请求或响应消息不能缓存</p>
+<p>no-store用于防止重要的信息被无意的发布。在请求消息中发送将使得请求和响应消息都不使用缓存。</p>
+<p>max-age指示客户机可以接收生存期不大于指定时间（以秒为单位）的响应</p>
+<p>min-fresh指示客户机可以接收响应时间小于当前时间加上指定时间的响应</p>
+<p>max-stale指示客户机可以接收超出超时期间的响应消息。如果指定max-stale消息的值，那么客户机可以接收超出超时期指定值之内的响应消息。</p>
+<h5 id="2-9、http-equiv-”imagetoolbar”"><a href="#2-9、http-equiv-”imagetoolbar”" class="headerlink" title="2.9、http-equiv=”imagetoolbar”"></a>2.9、http-equiv=”imagetoolbar”</h5><p>指定是否显示图片工具栏，当为false代表不显示，当为true代表显示。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta http-equiv=&quot;imagetoolbar&quot;content=&quot;false&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="2-10、Content-Script-Type"><a href="#2-10、Content-Script-Type" class="headerlink" title="2.10、Content-Script-Type"></a>2.10、Content-Script-Type</h5><p>W3C网页规范，指明页面中脚本的类型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta http-equiv=&quot;Content-Script-Type&quot;Content=&quot;text/javascript&quot;&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="3-常用的属性"><a href="#3-常用的属性" class="headerlink" title="3.常用的属性"></a>3.常用的属性</h4><h5 id="PC端"><a href="#PC端" class="headerlink" title="PC端"></a>PC端</h5><h5 id="3-1-申明编码"><a href="#3-1-申明编码" class="headerlink" title="3.1    申明编码"></a>3.1    申明编码</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta charset=&apos;utf-8&apos; /&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="3-2-转码申明：用百度打开网页可能会对其进行转码（比如贴广告），避免转码可添加如下meta"><a href="#3-2-转码申明：用百度打开网页可能会对其进行转码（比如贴广告），避免转码可添加如下meta" class="headerlink" title="3.2    转码申明：用百度打开网页可能会对其进行转码（比如贴广告），避免转码可添加如下meta"></a>3.2    转码申明：用百度打开网页可能会对其进行转码（比如贴广告），避免转码可添加如下meta</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta http-equiv=&quot;Cache-Control&quot; content=&quot;no-siteapp&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="3-3-优先使用-IE-最新版本和-Chrome"><a href="#3-3-优先使用-IE-最新版本和-Chrome" class="headerlink" title="3.3    优先使用 IE 最新版本和 Chrome"></a>3.3    优先使用 IE 最新版本和 Chrome</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot; /&gt;</span><br><span class="line">&lt;!-- 关于X-UA-Compatible --&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=6&quot; &gt;&lt;!-- 使用IE6 --&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=7&quot; &gt;&lt;!-- 使用IE7 --&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=8&quot; &gt;&lt;!-- 使用IE8 --&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="3-4-浏览器内核控制：国内浏览器很多都是双内核（webkit和Trident），webkit内核高速浏览，IE内核兼容网页和旧版网站。而添加meta标签的网站可以控制浏览器选择何种内核渲染"><a href="#3-4-浏览器内核控制：国内浏览器很多都是双内核（webkit和Trident），webkit内核高速浏览，IE内核兼容网页和旧版网站。而添加meta标签的网站可以控制浏览器选择何种内核渲染" class="headerlink" title="3.4    浏览器内核控制：国内浏览器很多都是双内核（webkit和Trident），webkit内核高速浏览，IE内核兼容网页和旧版网站。而添加meta标签的网站可以控制浏览器选择何种内核渲染"></a>3.4    浏览器内核控制：国内浏览器很多都是双内核（webkit和Trident），webkit内核高速浏览，IE内核兼容网页和旧版网站。而添加meta标签的网站可以控制浏览器选择何种内核渲染</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;renderer&quot; content=&quot;webkit|ie-comp|ie-stand&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>国内双核浏览器默认内核模式如下：  </p>
+<ol>
+<li>搜狗高速浏览器、QQ浏览器：IE内核（兼容模式）  </li>
+<li>360极速浏览器、遨游浏览器：Webkit内核（极速模式）<br><a href="http://se.360.cn/v6/help/meta.html" target="_blank" rel="external">参考文档</a><h5 id="移动端"><a href="#移动端" class="headerlink" title="移动端"></a>移动端</h5><h5 id="3-5-忽略数字自动识别为电话号码"><a href="#3-5-忽略数字自动识别为电话号码" class="headerlink" title="3.5    忽略数字自动识别为电话号码"></a>3.5    忽略数字自动识别为电话号码</h5></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta content=&quot;telephone=no&quot; name=&quot;format-detection&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="3-6-忽略识别邮箱"><a href="#3-6-忽略识别邮箱" class="headerlink" title="3.6    忽略识别邮箱"></a>3.6    忽略识别邮箱</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta content=&quot;email=no&quot; name=&quot;format-detection&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="3-7-针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓"><a href="#3-7-针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓" class="headerlink" title="3.7    针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓"></a>3.7    针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;HandheldFriendly&quot; content=&quot;true&quot;&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="3-8-微软的老式浏览器"><a href="#3-8-微软的老式浏览器" class="headerlink" title="3.8    微软的老式浏览器"></a>3.8    微软的老式浏览器</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;MobileOptimized&quot; content=&quot;320&quot;&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="3-9-uc强制竖屏"><a href="#3-9-uc强制竖屏" class="headerlink" title="3.9    uc强制竖屏"></a>3.9    uc强制竖屏</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;screen-orientation&quot; content=&quot;portrait&quot;&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="3-10-QQ强制竖屏"><a href="#3-10-QQ强制竖屏" class="headerlink" title="3.10    QQ强制竖屏"></a>3.10    QQ强制竖屏</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;x5-orientation&quot; content=&quot;portrait&quot;&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="3-11-UC强制全屏"><a href="#3-11-UC强制全屏" class="headerlink" title="3.11    UC强制全屏"></a>3.11    UC强制全屏</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;full-screen&quot; content=&quot;yes&quot;&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="3-12-QQ强制全屏"><a href="#3-12-QQ强制全屏" class="headerlink" title="3.12    QQ强制全屏"></a>3.12    QQ强制全屏</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;x5-fullscreen&quot; content=&quot;true&quot;&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="3-13-UC应用模式"><a href="#3-13-UC应用模式" class="headerlink" title="3.13    UC应用模式"></a>3.13    UC应用模式</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;browsermode&quot; content=&quot;application&quot;&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="3-14-QQ应用模式"><a href="#3-14-QQ应用模式" class="headerlink" title="3.14    QQ应用模式"></a>3.14    QQ应用模式</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;x5-page-mode&quot; content=&quot;app&quot;&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="3-15-windows-phone-点击无高光"><a href="#3-15-windows-phone-点击无高光" class="headerlink" title="3.15    windows phone 点击无高光"></a>3.15    windows phone 点击无高光</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;msapplication-tap-highlight&quot; content=&quot;no&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>——-ios———start————-  </p>
+<h5 id="3-16-WebApp全屏模式：伪装app，离线应用"><a href="#3-16-WebApp全屏模式：伪装app，离线应用" class="headerlink" title="3.16    WebApp全屏模式：伪装app，离线应用"></a>3.16    WebApp全屏模式：伪装app，离线应用</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="3-17-隐藏状态栏-设置状态栏颜色：只有在开启WebApp全屏模式时才生效。"><a href="#3-17-隐藏状态栏-设置状态栏颜色：只有在开启WebApp全屏模式时才生效。" class="headerlink" title="3.17    隐藏状态栏/设置状态栏颜色：只有在开启WebApp全屏模式时才生效。"></a>3.17    隐藏状态栏/设置状态栏颜色：只有在开启WebApp全屏模式时才生效。</h5><p>content的值为default | black | black-translucent </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;apple-mobile-web-app-status-bar-style&quot; content=&quot;black-translucent&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="3-18-添加到主屏后的标题"><a href="#3-18-添加到主屏后的标题" class="headerlink" title="3.18    添加到主屏后的标题"></a>3.18    添加到主屏后的标题</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;apple-mobile-web-app-title&quot; content=&quot;标题&quot;&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="3-19-添加到主屏的icon"><a href="#3-19-添加到主屏的icon" class="headerlink" title="3.19    添加到主屏的icon"></a>3.19    添加到主屏的icon</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;apple-touch-icon-precomposed&quot; href=&quot;/icon.png&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<p>———-ios———–end——————  </p>
+<h5 id="3-20-viewport：能优化移动浏览器的显示。如果不是响应式网站，不要使用initial-scale或者禁用缩放。"><a href="#3-20-viewport：能优化移动浏览器的显示。如果不是响应式网站，不要使用initial-scale或者禁用缩放。" class="headerlink" title="3.20    viewport：能优化移动浏览器的显示。如果不是响应式网站，不要使用initial-scale或者禁用缩放。"></a>3.20    viewport：能优化移动浏览器的显示。如果不是响应式网站，不要使用initial-scale或者禁用缩放。</h5><p>大部分4.7-5寸设备的viewport宽设为360px；5.5寸设备设为400px；iphone6设为375px；ipone6 plus设为414px。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<!-- `width=device-width` 会导致 iPhone 5 添加到主屏后以 WebApp 全屏模式打开页面时出现黑边  -->
+<p>width：宽度（数值 / device-width）（范围从200 到10,000，默认为980 像素）<br>height：高度（数值 / device-height）（范围从223 到10,000）<br>initial-scale：初始的缩放比例 （范围从&gt;0 到10）<br>minimum-scale：允许用户缩放到的最小比例<br>maximum-scale：允许用户缩放到的最大比例<br>user-scalable：用户是否可以手动缩 (no,yes)<br>minimal-ui：可以在页面加载时最小化上下状态栏。（已弃用）  </p>
+<p>注意，很多人使用initial-scale=1到非响应式网站上，这会让网站以100%宽度渲染，用户需要手动移动页面或者缩放。如果和initial-scale=1同时使用user-scalable=no或maximum-scale=1，则用户将不能放大/缩小网页来看到全部的内容。</p>
+<h5 id="3-21-支付宝分享"><a href="#3-21-支付宝分享" class="headerlink" title="3.21    支付宝分享"></a>3.21    支付宝分享</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;Alipay:link&quot; content=&quot;&quot;&gt;  </span><br><span class="line">&lt;meta name=&quot;Alipay:title&quot; content=&quot;标题&quot;&gt;  </span><br><span class="line">&lt;meta name=&quot;Alipay:imgUrl&quot; content=&quot;图片&quot;&gt;  </span><br><span class="line">&lt;meta name=&quot;Alipay:desc&quot; content=&quot;内容描述&quot;&gt;</span><br></pre></td></tr></table></figure>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -190,7 +215,7 @@ nofollow：页面上的链接不可以被查询。
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2017/08/21/常用的meta标签写法和作用/" data-title="常用的Meta标签写法和作用 | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
+	  <div data-url="http://yoursite.com/2017/08/21/常用的meta标签写法和作用/" data-title="html中的meta总结 | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -230,7 +255,7 @@ nofollow：页面上的链接不可以被查询。
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1、name属性"><span class="toc-number">2.</span> <span class="toc-text">1、name属性</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-1、Keywords-关键字"><span class="toc-number">2.1.</span> <span class="toc-text">1.1、Keywords(关键字)　</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2、description-网站内容描述"><span class="toc-number">2.2.</span> <span class="toc-text">1.2、description(网站内容描述)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-3、robots-机器人向导"><span class="toc-number">2.3.</span> <span class="toc-text">1.3、robots(机器人向导)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-4、author-作者"><span class="toc-number">2.4.</span> <span class="toc-text">1.4、author(作者)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-5、generator"><span class="toc-number">2.5.</span> <span class="toc-text">1.5、generator</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-6、COPYRIGHT"><span class="toc-number">2.6.</span> <span class="toc-text">1.6、COPYRIGHT</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-7、revisit-after"><span class="toc-number">2.7.</span> <span class="toc-text">1.7、revisit-after</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、http-equiv属性"><span class="toc-number">3.</span> <span class="toc-text">2、http-equiv属性</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1、Expires-期限"><span class="toc-number">3.1.</span> <span class="toc-text">2.1、Expires(期限)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2、Pragma-cache模式"><span class="toc-number">3.2.</span> <span class="toc-text">2.2、Pragma(cache模式)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-3、Refresh-刷新"><span class="toc-number">3.3.</span> <span class="toc-text">2.3、Refresh(刷新)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-4、Set-Cookie-cookie设定"><span class="toc-number">3.4.</span> <span class="toc-text">2.4、Set-Cookie(cookie设定)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-5、Window-target-显示窗口的设定"><span class="toc-number">3.5.</span> <span class="toc-text">2.5、Window-target(显示窗口的设定)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-6、content-Type-显示字符集的设定"><span class="toc-number">3.6.</span> <span class="toc-text">2.6、content-Type(显示字符集的设定)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-7、content-Language（显示语言的设定）"><span class="toc-number">3.7.</span> <span class="toc-text">2.7、content-Language（显示语言的设定）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-8、Cache-Control指定请求和响应遵循的缓存机制。"><span class="toc-number">3.8.</span> <span class="toc-text">2.8、Cache-Control指定请求和响应遵循的缓存机制。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-9、http-equiv-”imagetoolbar”"><span class="toc-number">3.9.</span> <span class="toc-text">2.9、http-equiv=”imagetoolbar”</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-10、Content-Script-Type"><span class="toc-number">3.10.</span> <span class="toc-text">2.10、Content-Script-Type</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-常用的属性"><span class="toc-number">4.</span> <span class="toc-text">3.常用的属性</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#PC端"><span class="toc-number">4.1.</span> <span class="toc-text">PC端</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-1-申明编码"><span class="toc-number">4.2.</span> <span class="toc-text">3.1    申明编码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-2-转码申明：用百度打开网页可能会对其进行转码（比如贴广告），避免转码可添加如下meta"><span class="toc-number">4.3.</span> <span class="toc-text">3.2    转码申明：用百度打开网页可能会对其进行转码（比如贴广告），避免转码可添加如下meta</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-3-优先使用-IE-最新版本和-Chrome"><span class="toc-number">4.4.</span> <span class="toc-text">3.3    优先使用 IE 最新版本和 Chrome</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-4-浏览器内核控制：国内浏览器很多都是双内核（webkit和Trident），webkit内核高速浏览，IE内核兼容网页和旧版网站。而添加meta标签的网站可以控制浏览器选择何种内核渲染"><span class="toc-number">4.5.</span> <span class="toc-text">3.4    浏览器内核控制：国内浏览器很多都是双内核（webkit和Trident），webkit内核高速浏览，IE内核兼容网页和旧版网站。而添加meta标签的网站可以控制浏览器选择何种内核渲染</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#移动端"><span class="toc-number">4.6.</span> <span class="toc-text">移动端</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-5-忽略数字自动识别为电话号码"><span class="toc-number">4.7.</span> <span class="toc-text">3.5    忽略数字自动识别为电话号码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-6-忽略识别邮箱"><span class="toc-number">4.8.</span> <span class="toc-text">3.6    忽略识别邮箱</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-7-针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓"><span class="toc-number">4.9.</span> <span class="toc-text">3.7    针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-8-微软的老式浏览器"><span class="toc-number">4.10.</span> <span class="toc-text">3.8    微软的老式浏览器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-9-uc强制竖屏"><span class="toc-number">4.11.</span> <span class="toc-text">3.9    uc强制竖屏</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-10-QQ强制竖屏"><span class="toc-number">4.12.</span> <span class="toc-text">3.10    QQ强制竖屏</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-11-UC强制全屏"><span class="toc-number">4.13.</span> <span class="toc-text">3.11    UC强制全屏</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-12-QQ强制全屏"><span class="toc-number">4.14.</span> <span class="toc-text">3.12    QQ强制全屏</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-13-UC应用模式"><span class="toc-number">4.15.</span> <span class="toc-text">3.13    UC应用模式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-14-QQ应用模式"><span class="toc-number">4.16.</span> <span class="toc-text">3.14    QQ应用模式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-15-windows-phone-点击无高光"><span class="toc-number">4.17.</span> <span class="toc-text">3.15    windows phone 点击无高光</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-16-WebApp全屏模式：伪装app，离线应用"><span class="toc-number">4.18.</span> <span class="toc-text">3.16    WebApp全屏模式：伪装app，离线应用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-17-隐藏状态栏-设置状态栏颜色：只有在开启WebApp全屏模式时才生效。"><span class="toc-number">4.19.</span> <span class="toc-text">3.17    隐藏状态栏/设置状态栏颜色：只有在开启WebApp全屏模式时才生效。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-18-添加到主屏后的标题"><span class="toc-number">4.20.</span> <span class="toc-text">3.18    添加到主屏后的标题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-19-添加到主屏的icon"><span class="toc-number">4.21.</span> <span class="toc-text">3.19    添加到主屏的icon</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-20-viewport：能优化移动浏览器的显示。如果不是响应式网站，不要使用initial-scale或者禁用缩放。"><span class="toc-number">4.22.</span> <span class="toc-text">3.20    viewport：能优化移动浏览器的显示。如果不是响应式网站，不要使用initial-scale或者禁用缩放。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-21-支付宝分享"><span class="toc-number">4.23.</span> <span class="toc-text">3.21    支付宝分享</span></a></li></ol></li></ol>
  
   </div>
 
