@@ -4,38 +4,29 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>js面向对象(二) | Welcome to the literati Association!</title>
+    <title>apply()和call()用法 | Welcome to the literati Association!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="HJ">
     
 
     
-    <meta name="description" content="1.对象a.普通对象b.函数对象
-2.每个函数对象都有一个prototype属性.这个属性指向函数的原型对象.
-3.每个对象都有_proto_属性.但是只有函数对象才有prototype属性.
-4.实例的构造函数属性(constructor)指向构造函数
-5.原型对象:顾名思义就是个普通对象(废话).只要牢牢记住原型就是Person.prototype.
-还是不能理解的话,可以把它想象成一个变量美">
+    <meta name="description" content="共同作用:借用别人的方法来调用,就像调用自己一样.在非严格模式下当我们第一个参数传递null或undefined是,函数体内的this会指向默认的宿主对象.
+区别:唯一的区别只有接受参数的方式不同.call()方法:定义    :    调用一个对象的一个方法,一另一个对象替换当前对象.语法    :    Function.call(obj,arg1,arg2,…)  
+apply()方法:定义">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js面向对象(二)">
-<meta property="og:url" content="http://yoursite.com/2017/09/07/js面向对象(二)/index.html">
+<meta property="og:title" content="apply()和call()用法">
+<meta property="og:url" content="http://yoursite.com/2017/09/14/call()apply()/index.html">
 <meta property="og:site_name" content="Welcome to the literati Association!">
-<meta property="og:description" content="1.对象a.普通对象b.函数对象
-2.每个函数对象都有一个prototype属性.这个属性指向函数的原型对象.
-3.每个对象都有_proto_属性.但是只有函数对象才有prototype属性.
-4.实例的构造函数属性(constructor)指向构造函数
-5.原型对象:顾名思义就是个普通对象(废话).只要牢牢记住原型就是Person.prototype.
-还是不能理解的话,可以把它想象成一个变量美">
-<meta property="og:updated_time" content="2017-09-07T09:25:47.000Z">
+<meta property="og:description" content="共同作用:借用别人的方法来调用,就像调用自己一样.在非严格模式下当我们第一个参数传递null或undefined是,函数体内的this会指向默认的宿主对象.
+区别:唯一的区别只有接受参数的方式不同.call()方法:定义    :    调用一个对象的一个方法,一另一个对象替换当前对象.语法    :    Function.call(obj,arg1,arg2,…)  
+apply()方法:定义">
+<meta property="og:updated_time" content="2017-09-14T07:02:40.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js面向对象(二)">
-<meta name="twitter:description" content="1.对象a.普通对象b.函数对象
-2.每个函数对象都有一个prototype属性.这个属性指向函数的原型对象.
-3.每个对象都有_proto_属性.但是只有函数对象才有prototype属性.
-4.实例的构造函数属性(constructor)指向构造函数
-5.原型对象:顾名思义就是个普通对象(废话).只要牢牢记住原型就是Person.prototype.
-还是不能理解的话,可以把它想象成一个变量美">
+<meta name="twitter:title" content="apply()和call()用法">
+<meta name="twitter:description" content="共同作用:借用别人的方法来调用,就像调用自己一样.在非严格模式下当我们第一个参数传递null或undefined是,函数体内的this会指向默认的宿主对象.
+区别:唯一的区别只有接受参数的方式不同.call()方法:定义    :    调用一个对象的一个方法,一另一个对象替换当前对象.语法    :    Function.call(obj,arg1,arg2,…)  
+apply()方法:定义">
 
     
     <link rel="alternative" href="/atom.xml" title="Welcome to the literati Association!" type="application/atom+xml">
@@ -95,14 +86,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/09/07/js面向对象(二)/" title="js面向对象(二)" itemprop="url">js面向对象(二)</a>
+      <a href="/2017/09/14/call()apply()/" title="apply()和call()用法" itemprop="url">apply()和call()用法</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="HJ" target="_blank" itemprop="author">HJ</a>
 		
   <p class="article-time">
-    <time datetime="2017-09-07T08:28:24.000Z" itemprop="datePublished"> 发表于 2017-09-07</time>
+    <time datetime="2017-09-14T06:29:07.000Z" itemprop="datePublished"> 发表于 2017-09-14</time>
     
   </p>
 </header>
@@ -111,28 +102,15 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#共同作用-借用别人的方法来调用-就像调用自己一样"><span class="toc-number">1.</span> <span class="toc-text">共同作用:借用别人的方法来调用,就像调用自己一样.</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#区别-唯一的区别只有接受参数的方式不同"><span class="toc-number">2.</span> <span class="toc-text">区别:唯一的区别只有接受参数的方式不同.</span></a></li></ol>
 		
 		</div>
 		
-		<p>1.对象<br>a.普通对象<br>b.函数对象</p>
-<p>2.每个函数对象都有一个prototype属性.这个属性指向函数的原型对象.</p>
-<p>3.每个对象都有_proto_属性.但是只有函数对象才有prototype属性.</p>
-<p>4.实例的构造函数属性(constructor)指向构造函数</p>
-<p>5.原型对象:顾名思义就是个普通对象(废话).只要牢牢记住原型就是Person.prototype.</p>
-<p>还是不能理解的话,可以把它想象成一个变量美女(苍老师).</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var 苍老师  = Person.prototype;</span><br></pre></td></tr></table></figure>
-<p>我们可以 给 苍老师这个原型添加用于继承的属性.age,job,hobby等等.<br>其实他还有个默认的属性:constructor.(自带buff的男人)<br>说一下这个属性:所有的原型对象都会自动获得一个constructor(构造函数)属性 ,这个属性(是个指针)指向prototype属性所在的函数(Person).</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Person.prototype.constructor == Person</span><br></pre></td></tr></table></figure>
-<p><strong>原型对象是构造函数的一个实例.</strong><br>在Person创建的时候,创建了一个她的实例对象并复制给他的prototype.  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var 仓老师 = new Person();</span><br><span class="line">Person.prototype = 仓老师&apos;</span><br></pre></td></tr></table></figure>
-<p>6._proto_</p>
-<p>上面已经说到,js在创建对象(不论是普通对象还是函数对象)的时候,都有一个叫做<em>proto\</em>的内置属性,<strong>用于指向创建他的构造函数的原型对象</strong><br>对象person1有一个_proto_属性,创建他的构造函数是Person,构造函数的原型对象是Person.prototype(苍老师还记得吗),所以</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">person1._proto_ == Person.prototype</span><br></pre></td></tr></table></figure>
-<p>原型链:由于_proto_是任何对象都有的属性(在强调一次),而js里万物皆对象,所以会形成一条_proto_连起来的链条,递归访问_proto_必须最终到头,并且值是null.</p>
-<p>当js 引擎查找对象的属性的时候,先查找对象本身是否存在该属性,如果不存在,会在原型链上查找,但不会查找自身的prototype.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var A = function()&#123;&#125;;</span><br><span class="line">var a = new A();</span><br></pre></td></tr></table></figure>
-<p>{a}_proto_ –&gt;    {A.prototype} –&gt;    {Objective.prototype} –&gt;  {null}</p>
+		<h4 id="共同作用-借用别人的方法来调用-就像调用自己一样"><a href="#共同作用-借用别人的方法来调用-就像调用自己一样" class="headerlink" title="共同作用:借用别人的方法来调用,就像调用自己一样."></a>共同作用:借用别人的方法来调用,就像调用自己一样.</h4><p>在非严格模式下当我们第一个参数传递null或undefined是,函数体内的this会指向默认的宿主对象.</p>
+<h4 id="区别-唯一的区别只有接受参数的方式不同"><a href="#区别-唯一的区别只有接受参数的方式不同" class="headerlink" title="区别:唯一的区别只有接受参数的方式不同."></a>区别:唯一的区别只有接受参数的方式不同.</h4><p><font color="#0099ff" size="4">call()方法:</font><br>定义    :    调用一个对象的一个方法,一另一个对象替换当前对象.<br>语法    :    Function.call(obj,arg1,arg2,…)  </p>
+<p><font color="#0099ff" size="4">apply()方法:</font><br>定义    :    应用某一对象的一个方法,用另一个对象替换当前对象.<br>语法    :    Function.apply(obj,args)<br>obj        :    这个对象将代替Function类里面的this对象.<br>args    :    这是是数组或类数组,apply方法把这个集合中的元素作为参数传递给调用的函数.</p>
+<p>用一个简单的公式总结:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fn.call(obj,arg1,arg2) == fn.apply(obj,arguments) == fn.apply(obj,[arg1,arg2]) == this.fn(arg1,arg2)</span><br></pre></td></tr></table></figure>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -145,7 +123,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2017/09/07/js面向对象(二)/" data-title="js面向对象(二) | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
+	  <div data-url="http://yoursite.com/2017/09/14/call()apply()/" data-title="apply()和call()用法 | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -158,19 +136,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/09/14/this全面解析/" title="全面解析	this">
-  <strong>上一篇：</strong><br/>
-  <span>
-  全面解析	this</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/09/07/实例化对象的三种方式/"  title="实例化对象的三种形式">
+<a href="/2017/09/14/this全面解析/"  title="全面解析	this">
  <strong>下一篇：</strong><br/> 
- <span>实例化对象的三种形式
+ <span>全面解析	this
 </span>
 </a>
 </div>
@@ -185,7 +155,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#共同作用-借用别人的方法来调用-就像调用自己一样"><span class="toc-number">1.</span> <span class="toc-text">共同作用:借用别人的方法来调用,就像调用自己一样.</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#区别-唯一的区别只有接受参数的方式不同"><span class="toc-number">2.</span> <span class="toc-text">区别:唯一的区别只有接受参数的方式不同.</span></a></li></ol>
  
   </div>
 
