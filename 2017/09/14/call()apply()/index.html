@@ -12,21 +12,20 @@
 
     
     <meta name="description" content="共同作用:借用别人的方法来调用,就像调用自己一样.在非严格模式下当我们第一个参数传递null或undefined是,函数体内的this会指向默认的宿主对象.
-区别:唯一的区别只有接受参数的方式不同.call()方法:定义    :    调用一个对象的一个方法,一另一个对象替换当前对象.语法    :    Function.call(obj,arg1,arg2,…)  
-apply()方法:定义">
+区别:唯一的区别只有接受参数的方式不同.call()方法:定义    :    调用一个对象的一个方法,一另一个对象替换当前对象.语法    :    Function.call(obj,arg1,arg2,…)apply()方法:定义">
 <meta property="og:type" content="article">
 <meta property="og:title" content="apply()和call()用法">
 <meta property="og:url" content="http://yoursite.com/2017/09/14/call()apply()/index.html">
 <meta property="og:site_name" content="Welcome to the literati Association!">
 <meta property="og:description" content="共同作用:借用别人的方法来调用,就像调用自己一样.在非严格模式下当我们第一个参数传递null或undefined是,函数体内的this会指向默认的宿主对象.
-区别:唯一的区别只有接受参数的方式不同.call()方法:定义    :    调用一个对象的一个方法,一另一个对象替换当前对象.语法    :    Function.call(obj,arg1,arg2,…)  
-apply()方法:定义">
-<meta property="og:updated_time" content="2017-09-14T07:02:40.000Z">
+区别:唯一的区别只有接受参数的方式不同.call()方法:定义    :    调用一个对象的一个方法,一另一个对象替换当前对象.语法    :    Function.call(obj,arg1,arg2,…)apply()方法:定义">
+<meta property="og:image" content="https://github.com/hjaistrive/picture/raw/master/call.png">
+<meta property="og:updated_time" content="2017-10-10T06:31:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="apply()和call()用法">
 <meta name="twitter:description" content="共同作用:借用别人的方法来调用,就像调用自己一样.在非严格模式下当我们第一个参数传递null或undefined是,函数体内的this会指向默认的宿主对象.
-区别:唯一的区别只有接受参数的方式不同.call()方法:定义    :    调用一个对象的一个方法,一另一个对象替换当前对象.语法    :    Function.call(obj,arg1,arg2,…)  
-apply()方法:定义">
+区别:唯一的区别只有接受参数的方式不同.call()方法:定义    :    调用一个对象的一个方法,一另一个对象替换当前对象.语法    :    Function.call(obj,arg1,arg2,…)apply()方法:定义">
+<meta name="twitter:image" content="https://github.com/hjaistrive/picture/raw/master/call.png">
 
     
     <link rel="alternative" href="/atom.xml" title="Welcome to the literati Association!" type="application/atom+xml">
@@ -107,10 +106,14 @@ apply()方法:定义">
 		</div>
 		
 		<h4 id="共同作用-借用别人的方法来调用-就像调用自己一样"><a href="#共同作用-借用别人的方法来调用-就像调用自己一样" class="headerlink" title="共同作用:借用别人的方法来调用,就像调用自己一样."></a>共同作用:借用别人的方法来调用,就像调用自己一样.</h4><p>在非严格模式下当我们第一个参数传递null或undefined是,函数体内的this会指向默认的宿主对象.</p>
-<h4 id="区别-唯一的区别只有接受参数的方式不同"><a href="#区别-唯一的区别只有接受参数的方式不同" class="headerlink" title="区别:唯一的区别只有接受参数的方式不同."></a>区别:唯一的区别只有接受参数的方式不同.</h4><p><font color="#0099ff" size="4">call()方法:</font><br>定义    :    调用一个对象的一个方法,一另一个对象替换当前对象.<br>语法    :    Function.call(obj,arg1,arg2,…)  </p>
-<p><font color="#0099ff" size="4">apply()方法:</font><br>定义    :    应用某一对象的一个方法,用另一个对象替换当前对象.<br>语法    :    Function.apply(obj,args)<br>obj        :    这个对象将代替Function类里面的this对象.<br>args    :    这是是数组或类数组,apply方法把这个集合中的元素作为参数传递给调用的函数.</p>
-<p>用一个简单的公式总结:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fn.call(obj,arg1,arg2) == fn.apply(obj,arguments) == fn.apply(obj,[arg1,arg2]) == this.fn(arg1,arg2)</span><br></pre></td></tr></table></figure>
+<h4 id="区别-唯一的区别只有接受参数的方式不同"><a href="#区别-唯一的区别只有接受参数的方式不同" class="headerlink" title="区别:唯一的区别只有接受参数的方式不同."></a>区别:唯一的区别只有接受参数的方式不同.</h4><font color="#0099ff" size="4">call()方法:</font><br>定义    :    调用一个对象的一个方法,一另一个对象替换当前对象.<br>语法    :    Function.call(obj,arg1,arg2,…)<br><br><font color="#0099ff" size="4">apply()方法:</font><br>定义    :    应用某一对象的一个方法,用另一个对象替换当前对象.<br>语法    :    Function.apply(obj,args)<br>obj        :    这个对象将代替Function类里面的this对象.<br>args    :    这是是数组或类数组,apply方法把这个集合中的元素作为参数传递给调用的函数.<br><br><br>用一个简单的公式总结:<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fn.call(obj,arg1,arg2) == fn.apply(obj,arguments) == fn.apply(obj,[arg1,arg2]) == this.fn(arg1,arg2)</span><br></pre></td></tr></table></figure><br><br><font color="red" size="4">举例</font>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">function Sister()  </span><br><span class="line">&#123;   </span><br><span class="line">    this.age=18;  </span><br><span class="line">    this.sayAge= function()   </span><br><span class="line">    &#123;  </span><br><span class="line">        document.write(&quot;Age:&quot;+this.age);  </span><br><span class="line">    &#125;  </span><br><span class="line">    this.yaya=function()  </span><br><span class="line">    &#123;  </span><br><span class="line">        document.write(&quot;yaya.....&quot;);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line">function Brother()  </span><br><span class="line">&#123;   </span><br><span class="line">    this.age=25;  </span><br><span class="line">    this.sayAge=function()&#123;  </span><br><span class="line">        document.write(&quot;Age:&quot;+this.age);  </span><br><span class="line">    &#125;  </span><br><span class="line">    this.hoho=function()  </span><br><span class="line">    &#123;  </span><br><span class="line">        document.write(&quot;hoho.....&quot;)  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line">var sis=new Sister();  </span><br><span class="line">var bro=new Brother();  </span><br><span class="line">sis.sayAge.call(bro);</span><br></pre></td></tr></table></figure>
+<p>它输出的是 Age:25,其实到这里我还很迷糊,下面这一个断点调试才让我明白,</p>
+<p><img src="https://github.com/hjaistrive/picture/raw/master/call.png" alt="实例图片"></p>
+<p>我在第26行打了断点,然后单步了一步.<br>sis.sayAge.call(bro)调用的方法确实是Sister中的方法,但是其中的this(上下文)却变成了Brother.用文档中的解释就是:只有这个sayAge是sis对象的,其执行环境却是bro的.</p>
+<p>简而言之:sis.sayAge.call(bro)意思就是,单单将sis的sayAge移动到bro对象中来执行.</p>
+<p>ps:要是我设计的js,我就规定这么写:sis.sayAge.in(bro)</p>
   
 	</div>
 		<footer class="article-footer clearfix">
