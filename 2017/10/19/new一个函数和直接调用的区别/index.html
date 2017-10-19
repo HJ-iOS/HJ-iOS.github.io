@@ -1,0 +1,471 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>new一个函数和直接调用的区别 | Welcome to the literati Association!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="HJ">
+    
+
+    
+    <meta name="description" content="首先说说new()到底做了什么.1.创建一个新对象.2.将构造函数的作用域付给新对象(因此this就指向了这个新对象).3.执行构造函数的代码(为这个新对象添加属性).4.返回新对象.(如果没有返回值或者函数有返回值,但是该返回值不是对象的话,则返回第一步建立的对象,如果函数没有返回值,且返回值是对象的话,则忽略第一步建立的对象,返回默认返回的对象.)
+用栗子说明
+1234567891011121">
+<meta property="og:type" content="article">
+<meta property="og:title" content="new一个函数和直接调用的区别">
+<meta property="og:url" content="http://yoursite.com/2017/10/19/new一个函数和直接调用的区别/index.html">
+<meta property="og:site_name" content="Welcome to the literati Association!">
+<meta property="og:description" content="首先说说new()到底做了什么.1.创建一个新对象.2.将构造函数的作用域付给新对象(因此this就指向了这个新对象).3.执行构造函数的代码(为这个新对象添加属性).4.返回新对象.(如果没有返回值或者函数有返回值,但是该返回值不是对象的话,则返回第一步建立的对象,如果函数没有返回值,且返回值是对象的话,则忽略第一步建立的对象,返回默认返回的对象.)
+用栗子说明
+1234567891011121">
+<meta property="og:updated_time" content="2017-10-19T03:02:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="new一个函数和直接调用的区别">
+<meta name="twitter:description" content="首先说说new()到底做了什么.1.创建一个新对象.2.将构造函数的作用域付给新对象(因此this就指向了这个新对象).3.执行构造函数的代码(为这个新对象添加属性).4.返回新对象.(如果没有返回值或者函数有返回值,但是该返回值不是对象的话,则返回第一步建立的对象,如果函数没有返回值,且返回值是对象的话,则忽略第一步建立的对象,返回默认返回的对象.)
+用栗子说明
+1234567891011121">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Welcome to the literati Association!" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Welcome to the literati Association!" title="Welcome to the literati Association!"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Welcome to the literati Association!">Welcome to the literati Association!</a></h1>
+				<h2 class="blog-motto">The president of the literati association is HJ.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/10/19/new一个函数和直接调用的区别/" title="new一个函数和直接调用的区别" itemprop="url">new一个函数和直接调用的区别</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="HJ" target="_blank" itemprop="author">HJ</a>
+		
+  <p class="article-time">
+    <time datetime="2017-10-19T03:02:30.000Z" itemprop="datePublished"> 发表于 2017-10-19</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#首先说说new-到底做了什么"><span class="toc-number">1.</span> <span class="toc-text">首先说说new()到底做了什么.</span></a></li></ol>
+		
+		</div>
+		
+		<h4 id="首先说说new-到底做了什么"><a href="#首先说说new-到底做了什么" class="headerlink" title="首先说说new()到底做了什么."></a>首先说说new()到底做了什么.</h4><p>1.创建一个新对象.<br>2.将构造函数的作用域付给新对象(因此this就指向了这个新对象).<br>3.执行构造函数的代码(为这个新对象添加属性).<br>4.返回新对象.(<font size="3" color="red">如果没有返回值或者函数有返回值,但是该返回值不是对象的话,则返回第一步建立的对象,如果函数没有返回值,且返回值是对象的话,则忽略第一步建立的对象,返回默认返回的对象.</font>)</p>
+<p>用栗子说明</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">function Animal(name)&#123;</span><br><span class="line">this.name = name;</span><br><span class="line">&#125;</span><br><span class="line"> Animal.color = &quot;black&quot;;</span><br><span class="line"> Animal.prototype.say = function()&#123;</span><br><span class="line">console.log(&quot;I&apos;m &quot; + this.name);</span><br><span class="line"> &#125;;</span><br><span class="line"> var cat = new Animal(&quot;cat&quot;);</span><br><span class="line"> </span><br><span class="line"> console.log(</span><br><span class="line"> cat.name, //cat</span><br><span class="line"> cat.color //undefined</span><br><span class="line"> );</span><br><span class="line"> cat.say(); //I&apos;m cat</span><br><span class="line"> </span><br><span class="line"> console.log(</span><br><span class="line"> Animal.name, //Animal</span><br><span class="line"> Animal.color //back</span><br><span class="line"> );</span><br><span class="line"> Animal.say(); //Animal.say is not a function</span><br></pre></td></tr></table></figure>
+<p>Animal 本身是一个普通函数，但当通过new来创建对象时，Animal就是构造函数。<br>JS引擎执行这句代码时，在内部做了很多工作，用伪代码模拟其工作流程如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">new Animal(&quot;cat&quot;) = &#123;</span><br><span class="line"> </span><br><span class="line">var obj = &#123;&#125;;</span><br><span class="line"> </span><br><span class="line">obj.__proto__ = Animal.prototype;</span><br><span class="line"> </span><br><span class="line">var result = Animal.call(obj,&quot;cat&quot;);</span><br><span class="line"> </span><br><span class="line">return typeof result === &apos;object&apos;? result : obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>(1）创建一个空对象obj;<br>(2）把obj的proto指向构造函数Animal的原型对象prototype，此时便建立了obj对象的原型链：obj-&gt;Animal.prototype-&gt;Object.prototype-&gt;null<br>(3）在obj对象的执行环境调用Animal 函数并传递参数“cat”。 相当于var result = obj.Animal(“cat”)。<br>(4）考察第3步返回的返回值，如果无返回值或者返回一个非对象值，则将obj返回作为新对象；否则会将返回值作为新对象返回。    </p>
+<p>理解了其运行机制以后，我们知道cat其实就是过程（4）的返回值，因此我们对cat对象的认知就多了一些：<br>cat的原型链是：cat-&gt;Animal.prototype-&gt;Object.prototype-&gt;null<br>cat上新增了一个属性：name<br>分析完了cat的产生过程，我们再看看输出结果：<br>cat.name -&gt; 在过程（3）中，obj对象就产生了name属性。因此cat.name就是这里的obj.name    </p>
+<p>cat.color -&gt; cat会先查找自身的color，没有找到便会沿着原型链查找，在上述例子中，我们仅在Animal对象上定义了color,并没有在其原型链上定义，因此找不到。    </p>
+<p>cat.say -&gt; cat会先查找自身的say方法，没有找到便会沿着原型链查找，在上述例子中，我们在Animal的prototype上定义了say,因此在原型链上找到了say方法。<br>另外，在say方法中还访问this.name，这里的this指的是其调用者obj,因此输出的是obj.name的值。        </p>
+<p>对于Animal来说，它本身也是一个对象，因此，它在访问属性和方法时也遵守上述查找规则，所以：<br>Animal.color -&gt; “black”<br>Animal.name -&gt; “Animal” , Animal先查找自身的name,找到了name, 但这个name不是我们定义的name,而是函数对象内置的属性。</p>
+<p>一般情况下，函数对象在产生时会内置name属性并将函数名作为赋值（仅函数对象）。<br>Animal.say -&gt; Animal在自身没有找到say方法，也会沿着其原型链查找，话说Animal的原型链是什么呢？    </p>
+<p>从测试结果看：Animal的原型链是这样的：<br>Animal-&gt;Function.prototype-&gt;Object.prototype-&gt;null<br>因此Animal的原型链上没有定义say方法！    </p>
+<p>在Javascript中, 通过new可以产生原对象的一个实例对象，而这个实例对象继承了原对象的属性和方法。因此，new存在的意义在于它实现了Javascript中的继承，而不仅仅是实例化了一个对象！</p>
+<p>再写个测试栗子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function Test() &#123;    </span><br><span class="line">　　this.name = &apos;Test&apos;;    </span><br><span class="line">　　return &apos;Test&apos;;    </span><br><span class="line">&#125;    </span><br><span class="line">    </span><br><span class="line">var fnT = Test(); //Test   </span><br><span class="line">var newT = new Test();//&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>我们可以在分析一下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var newT = new Test();</span><br></pre></td></tr></table></figure>
+<p>它干了什么</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">new Test() = &#123;</span><br><span class="line"> </span><br><span class="line">var obj = &#123;&#125;;</span><br><span class="line"> </span><br><span class="line">obj.__proto__ = Test.prototype;</span><br><span class="line"> </span><br><span class="line">var result = Test.call(obj);</span><br><span class="line"> </span><br><span class="line">return typeof result === &apos;object&apos;? result : obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>重要的是第三点<br>在obj环境中执行调用Test函数,用result变量承接Test函数的结果.显然这里是个字符串.<br>第四步:<br>        返回的字符串’Test’不是一个’oobject’类型,则将obj作为返回值返回.</p>
+<p>再写个测试栗子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function Test() &#123;    </span><br><span class="line">　　this.name = &apos;Test&apos;;    </span><br><span class="line">　　return function() &#123; return true; &#125;    </span><br><span class="line">&#125;    </span><br><span class="line">var test1 = Test(); 	 //function test()&#123;&#125;   </span><br><span class="line">var test2 = new Test(); // function ()&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>test1 就单纯的是一个变量承接 一个函数.没什么好说的.</p>
+<p>重点再来分析一一下test2.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">new Test() = &#123;</span><br><span class="line"> </span><br><span class="line">var obj = &#123;&#125;;</span><br><span class="line"> </span><br><span class="line">obj.__proto__ = Test.prototype;</span><br><span class="line"> </span><br><span class="line">var result = Test.call(obj);</span><br><span class="line"> </span><br><span class="line">return typeof result === &apos;object&apos;? result : obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第四步返回的是一个function (){} 是’object’类型.就直接返回result去承接这个变量.注意 不是obj,所以this.name = ‘Test’,是在obj这个对象里.    </p>
+<p>(Function Array RegExp 也算obj的一种)</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2017/10/19/new一个函数和直接调用的区别/" data-title="new一个函数和直接调用的区别 | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/10/19/再谈构造函数,原型,实例/" title="再谈构造函数,原型,实例">
+  <strong>上一篇：</strong><br/>
+  <span>
+  再谈构造函数,原型,实例</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2017/10/17/函数声明与函数表达式以及立即执行函数/"  title="函数声明与函数表达式以及立即执行函数">
+ <strong>下一篇：</strong><br/> 
+ <span>函数声明与函数表达式以及立即执行函数
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#首先说说new-到底做了什么"><span class="toc-number">1.</span> <span class="toc-text">首先说说new()到底做了什么.</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="hjaistrive" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=5597151709&verifier=2e2fc03f&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> To the world you maybe one peeson , but to one person you maybe the world. <br/>
+			This is my goddess.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/hjaistrive" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		<a href="http://stackoverflow.com/users/8573660" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
+		
+		
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/liang-ren-de-hui-yi-yiren-guo" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:hjaistrive@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="HJ">HJ</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

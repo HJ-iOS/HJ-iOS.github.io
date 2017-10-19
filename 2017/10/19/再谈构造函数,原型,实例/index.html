@@ -4,29 +4,32 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>函数声明与函数表达式以及立即执行函数 | Welcome to the literati Association!</title>
+    <title>再谈构造函数,原型,实例 | Welcome to the literati Association!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="HJ">
     
 
     
-    <meta name="description" content="函数声明的定义：function fn(){……}，使用function关键字声明一个函数，再指定一个函数名，叫函数声明。    
-函数表达式：var fn=function(){……}，使用function关键字声明一个函数，但未给函数命名，最后将匿名函数赋予一个变量，叫函数表达式，这是最常见的函数表达式语法形式。    
-匿名函数：function(){……}，使用function关键字声明一">
+    <meta name="description" content="一、首先说一下什么是构造函数：构造函数：用来在创建对象时初始化对象。特点：构造函数名一般为大写字母开头；与new运算符一起使用来实例化对象。
+12function Person()&amp;#123;&amp;#125;           //Person构造函数  var p=new Person();         //Person构造函数创建对象,也可叫做实例化
+二、什么是原型？原型：构造函数在创建的过">
 <meta property="og:type" content="article">
-<meta property="og:title" content="函数声明与函数表达式以及立即执行函数">
-<meta property="og:url" content="http://yoursite.com/2017/10/17/函数声明与函数表达式以及立即执行函数/index.html">
+<meta property="og:title" content="再谈构造函数,原型,实例">
+<meta property="og:url" content="http://yoursite.com/2017/10/19/再谈构造函数,原型,实例/index.html">
 <meta property="og:site_name" content="Welcome to the literati Association!">
-<meta property="og:description" content="函数声明的定义：function fn(){……}，使用function关键字声明一个函数，再指定一个函数名，叫函数声明。    
-函数表达式：var fn=function(){……}，使用function关键字声明一个函数，但未给函数命名，最后将匿名函数赋予一个变量，叫函数表达式，这是最常见的函数表达式语法形式。    
-匿名函数：function(){……}，使用function关键字声明一">
-<meta property="og:updated_time" content="2017-10-17T03:06:51.000Z">
+<meta property="og:description" content="一、首先说一下什么是构造函数：构造函数：用来在创建对象时初始化对象。特点：构造函数名一般为大写字母开头；与new运算符一起使用来实例化对象。
+12function Person()&amp;#123;&amp;#125;           //Person构造函数  var p=new Person();         //Person构造函数创建对象,也可叫做实例化
+二、什么是原型？原型：构造函数在创建的过">
+<meta property="og:image" content="https://github.com/hjaistrive/picture/raw/master/3.png">
+<meta property="og:image" content="https://github.com/hjaistrive/picture/raw/master/4.png">
+<meta property="og:updated_time" content="2017-10-19T06:53:04.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="函数声明与函数表达式以及立即执行函数">
-<meta name="twitter:description" content="函数声明的定义：function fn(){……}，使用function关键字声明一个函数，再指定一个函数名，叫函数声明。    
-函数表达式：var fn=function(){……}，使用function关键字声明一个函数，但未给函数命名，最后将匿名函数赋予一个变量，叫函数表达式，这是最常见的函数表达式语法形式。    
-匿名函数：function(){……}，使用function关键字声明一">
+<meta name="twitter:title" content="再谈构造函数,原型,实例">
+<meta name="twitter:description" content="一、首先说一下什么是构造函数：构造函数：用来在创建对象时初始化对象。特点：构造函数名一般为大写字母开头；与new运算符一起使用来实例化对象。
+12function Person()&amp;#123;&amp;#125;           //Person构造函数  var p=new Person();         //Person构造函数创建对象,也可叫做实例化
+二、什么是原型？原型：构造函数在创建的过">
+<meta name="twitter:image" content="https://github.com/hjaistrive/picture/raw/master/3.png">
 
     
     <link rel="alternative" href="/atom.xml" title="Welcome to the literati Association!" type="application/atom+xml">
@@ -86,14 +89,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/10/17/函数声明与函数表达式以及立即执行函数/" title="函数声明与函数表达式以及立即执行函数" itemprop="url">函数声明与函数表达式以及立即执行函数</a>
+      <a href="/2017/10/19/再谈构造函数,原型,实例/" title="再谈构造函数,原型,实例" itemprop="url">再谈构造函数,原型,实例</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="HJ" target="_blank" itemprop="author">HJ</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-17T03:00:53.000Z" itemprop="datePublished"> 发表于 2017-10-17</time>
+    <time datetime="2017-10-19T06:53:04.000Z" itemprop="datePublished"> 发表于 2017-10-19</time>
     
   </p>
 </header>
@@ -102,23 +105,22 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、首先说一下什么是构造函数："><span class="toc-number">1.</span> <span class="toc-text">一、首先说一下什么是构造函数：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、什么是原型？"><span class="toc-number">2.</span> <span class="toc-text">二、什么是原型？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、构造函数、原型对象、实例化对象三者的关系："><span class="toc-number">3.</span> <span class="toc-text">三、构造函数、原型对象、实例化对象三者的关系：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、原型链："><span class="toc-number">4.</span> <span class="toc-text">四、原型链：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、继承："><span class="toc-number">5.</span> <span class="toc-text">五、继承：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#图中有几个难点："><span class="toc-number">5.1.</span> <span class="toc-text">图中有几个难点：</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<p>函数声明的定义：function fn(){……}，使用function关键字声明一个函数，再指定一个函数名，叫函数声明。    </p>
-<p>函数表达式：var fn=function(){……}，使用function关键字声明一个函数，但未给函数命名，最后将匿名函数赋予一个变量，叫函数表达式，这是最常见的函数表达式语法形式。    </p>
-<p>匿名函数：function(){……}，使用function关键字声明一个函数，但未给函数命名，所以叫匿名函数，匿名函数属于函数表达式，匿名函数有很多作用，赋予一个变量则创建函数，赋予一个事件则成为事件处理程序或创建闭包等等。    </p>
-<p>函数声明和函数表达式不同之处在于：    </p>
-<p>1、Javascript引擎在解析javascript代码时会‘函数声明提升’（Function declaration Hoisting）当前执行环境（作用域）上的函数声明，而函数表达式必须等到Javascirtp引擎执行到它所在行时，才会从上而下一行一行地解析函数表达式，<br>2、函数表达式后面可以加括号立即调用该函数，函数声明不可以，只能以fn()形式调用 。以下是两者差别的两个例子。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">fn1();//不会报错，因为&quot;提升了&quot;函数声明，函数调用可在函数声明之前  </span><br><span class="line">         function fn1()&#123;  </span><br><span class="line">             console.log(&quot;这里是函数声明&quot;);  </span><br><span class="line">         &#125;  </span><br><span class="line">           </span><br><span class="line">fn2();//会报错，变量fn2还未保存对函数的引用，函数调用必须在函数表达式之后  </span><br><span class="line">         var fn2=function()&#123;  </span><br><span class="line">             console.log(&quot;这里是函数表达式&quot;);  </span><br><span class="line">         &#125;</span><br></pre></td></tr></table></figure>
-<p>关于立即执行函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//情况1  </span><br><span class="line">            //结果会被输出  </span><br><span class="line">            var fn=function()&#123;  </span><br><span class="line">                console.log(&quot;函数表达式赋值给一个变量&quot;);  </span><br><span class="line">            &#125;();  </span><br><span class="line"> //情况2  </span><br><span class="line">            //结果不会被输出，JavaScript引擎只解析函数声明，忽略后面的括号，函数声明不会被调用  </span><br><span class="line">            function fn()&#123;  </span><br><span class="line">                console.log(&quot;函数声明&quot;);  </span><br><span class="line">            &#125;();  </span><br><span class="line">  //情况3  </span><br><span class="line">            //语法错误，匿名函数属于函数表达式，未执行赋值操作，不能被调用  </span><br><span class="line">            function()&#123;  </span><br><span class="line">                console.log(&quot;函数表达式&quot;);  </span><br><span class="line">            &#125;();</span><br></pre></td></tr></table></figure>
-<p>下面看经典的立即执行函数样式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">(function(a)&#123;  </span><br><span class="line">          console.log(a);  </span><br><span class="line">      &#125;)(123);  </span><br><span class="line">				 </span><br><span class="line">				 </span><br><span class="line">      (function(a)&#123;  </span><br><span class="line">          console.log(a);  </span><br><span class="line">      &#125;(1234));  </span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">      !function(a)&#123;  </span><br><span class="line">          console.log(a);  </span><br><span class="line">      &#125;(12345);  </span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">      +function(a)&#123;  </span><br><span class="line">          console.log(a);  </span><br><span class="line">      &#125;(123456);  </span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">      -function(a)&#123;  </span><br><span class="line">          console.log(a);  </span><br><span class="line">      &#125;(1234567);</span><br></pre></td></tr></table></figure>
-<p><font size="6" color="red">总结:</font><br>也就是说只有<font size="4" color="blue">函数表达式才能实现立即执行</font>    ，匿名函数也是函数表达式为何不能立即执行呢，因为匿名函数开始的function会被JavaScript引擎识别为函数声明的开始，所以加上括号也不会被执行了，而加上()，！，+，-等符号为什么就可以了呢，因为加上这些符号就可以告诉JavaScript引擎这不是函数声明了，就这么简单。        </p>
-<p>目前使用最多的还是加括号的形式，这种形式有什么好处呢？        </p>
-<p><font size="4" color="blue">(function(){……})()</font>    这种形式可以模仿一个作用域容器，在这里面定义的变量可以不受外界影响，外部无法调用也无法因为外部变量重名而覆盖，起到防止污染全局的作用</p>
+		<h3 id="一、首先说一下什么是构造函数："><a href="#一、首先说一下什么是构造函数：" class="headerlink" title="一、首先说一下什么是构造函数："></a>一、首先说一下什么是构造函数：</h3><p>构造函数：用来在创建对象时初始化对象。<br>特点：构造函数名一般为大写字母开头；与new运算符一起使用来实例化对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">function Person()&#123;&#125;           //Person构造函数  </span><br><span class="line">var p=new Person();         //Person构造函数创建对象,也可叫做实例化</span><br></pre></td></tr></table></figure>
+<h3 id="二、什么是原型？"><a href="#二、什么是原型？" class="headerlink" title="二、什么是原型？"></a>二、什么是原型？</h3><p>原型：构造函数在创建的过程中，系统自动创建出来与构造函数相关联的一个空的对象。可以由构造函数.prototype来访问到。<br>举例：在实例化对象p的过程中，系统就自动创建出了构造函数的原型，即Person.prototype.<br>注意：每个对象的__proto__属性指向自身构造函数的prototype；<br>constructor属性是原型对象的属性，指向这个原型对象所对应的构造函数</p>
+<h3 id="三、构造函数、原型对象、实例化对象三者的关系："><a href="#三、构造函数、原型对象、实例化对象三者的关系：" class="headerlink" title="三、构造函数、原型对象、实例化对象三者的关系："></a>三、构造函数、原型对象、实例化对象三者的关系：</h3><p><img src="https://github.com/hjaistrive/picture/raw/master/3.png" alt=""></p>
+<h3 id="四、原型链："><a href="#四、原型链：" class="headerlink" title="四、原型链："></a>四、原型链：</h3><p>原型链：每一个对象都有自己的原型对象，原型对象本身也是对象，原型对象也有自己的原型对象，这样就形成了一个链式结构，叫做原型链。    </p>
+<p>举例：    </p>
+<p>在上面这个例子中的p对象的原型链结构图如下：    </p>
+<p>p对象—–&gt;Person.prototype——-&gt;Object.prototype———&gt;null        </p>
+<p>对这个实例化对象而言，访问对象的属性，是首先在对象本身去找，如果没有，就会去他的原型对象中找，一直找到原型链的终点；如果是修改对象的属性，如果这个实例化对象中有这个属性，就修改，没有这个属性就添加这个属性。</p>
+<h3 id="五、继承："><a href="#五、继承：" class="headerlink" title="五、继承："></a>五、继承：</h3><p>内容过多,请点击<a href="JS__继承.md">飞机票</a></p>
+<p>六、完整原型链：<br><img src="https://github.com/hjaistrive/picture/raw/master/4.png" alt=""></p>
+<h4 id="图中有几个难点："><a href="#图中有几个难点：" class="headerlink" title="图中有几个难点："></a>图中有几个难点：</h4><p>1.Function构造函数可以用Function.<strong>proto</strong>来访问Function.prototype. 这是因为Function构造函数的构造函数是他本身，作为实例化对象的角色来访问，可行。<br>2.任何函数都是函数，他都继承Function的所有属性和方法，而Function是内置的构造函数，也是对象，都是继承Object的所有属性和方法。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -131,7 +133,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2017/10/17/函数声明与函数表达式以及立即执行函数/" data-title="函数声明与函数表达式以及立即执行函数 | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
+	  <div data-url="http://yoursite.com/2017/10/19/再谈构造函数,原型,实例/" data-title="再谈构造函数,原型,实例 | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -144,19 +146,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/10/19/new一个函数和直接调用的区别/" title="new一个函数和直接调用的区别">
-  <strong>上一篇：</strong><br/>
-  <span>
-  new一个函数和直接调用的区别</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/10/13/渲染同样dom不同数据的方法/"  title="渲染同样dom不同数据的方法">
+<a href="/2017/10/19/new一个函数和直接调用的区别/"  title="new一个函数和直接调用的区别">
  <strong>下一篇：</strong><br/> 
- <span>渲染同样dom不同数据的方法
+ <span>new一个函数和直接调用的区别
 </span>
 </a>
 </div>
@@ -171,7 +165,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、首先说一下什么是构造函数："><span class="toc-number">1.</span> <span class="toc-text">一、首先说一下什么是构造函数：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、什么是原型？"><span class="toc-number">2.</span> <span class="toc-text">二、什么是原型？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、构造函数、原型对象、实例化对象三者的关系："><span class="toc-number">3.</span> <span class="toc-text">三、构造函数、原型对象、实例化对象三者的关系：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、原型链："><span class="toc-number">4.</span> <span class="toc-text">四、原型链：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、继承："><span class="toc-number">5.</span> <span class="toc-text">五、继承：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#图中有几个难点："><span class="toc-number">5.1.</span> <span class="toc-text">图中有几个难点：</span></a></li></ol></li></ol>
  
   </div>
 
