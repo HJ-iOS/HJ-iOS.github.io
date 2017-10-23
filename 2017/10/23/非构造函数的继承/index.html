@@ -25,7 +25,7 @@
 还有一个对象，叫做”医生”。
 123　　var Doctor =&amp;#123;　　　　career:&amp;apos;医生&amp;apos;　　&amp;#125;
 请问怎样才能让”医生”去继承”中国人”，也就是说，我怎样才能生成">
-<meta property="og:updated_time" content="2017-10-23T03:26:25.000Z">
+<meta property="og:updated_time" content="2017-10-23T03:29:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="非构造函数的继承">
 <meta name="twitter:description" content="一、什么是”非构造函数”的继承？比如，现在有一个对象，叫做”中国人”。
@@ -108,7 +108,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、什么是”非构造函数”的继承？"><span class="toc-number">1.</span> <span class="toc-text">一、什么是”非构造函数”的继承？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、object-方法"><span class="toc-number">2.</span> <span class="toc-text">二、object()方法</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、什么是”非构造函数”的继承？"><span class="toc-number">1.</span> <span class="toc-text">一、什么是”非构造函数”的继承？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、object-方法"><span class="toc-number">2.</span> <span class="toc-text">二、object()方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、浅拷贝"><span class="toc-number">3.</span> <span class="toc-text">三、浅拷贝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、深拷贝"><span class="toc-number">4.</span> <span class="toc-text">四、深拷贝</span></a></li></ol>
 		
 		</div>
 		
@@ -123,18 +123,31 @@
 <p>这个object()函数，其实只做一件事，就是把子对象的prototype属性，指向父对象，从而使得子对象与父对象连在一起。<br>使用的时候，第一步先在父对象的基础上，生成子对象：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　var Doctor = object(Chinese);</span><br></pre></td></tr></table></figure>
 <p>然后，再加上子对象本身的属性：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">　　Doctor.career = &apos;医生&apos;;</span><br><span class="line">```　　</span><br><span class="line">这时，子对象已经继承了父对象的属性了。</span><br></pre></td></tr></table></figure>
-<p>　　alert(Doctor.nation); //中国<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">###	三、浅拷贝</span><br><span class="line">除了使用&quot;prototype链&quot;以外，还有另一种思路：把父对象的属性，全部拷贝给子对象，也能实现继承。	</span><br><span class="line">下面这个函数，就是在做拷贝：</span><br></pre></td></tr></table></figure></p>
-<p>　　function extendCopy(p) {<br>　　　　var c = {};<br>　　　　for (var i in p) {<br>　　　　　　c[i] = p[i];<br>　　　　}<br>　　　　c.uber = p;<br>　　　　return c;<br>　　}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">使用的时候，这样写：</span><br></pre></td></tr></table></figure></p>
-<p>　　var Doctor = extendCopy(Chinese);<br>　　Doctor.career = ‘医生’;<br>　　alert(Doctor.nation); // 中国<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">但是，这样的拷贝有一个问题。那就是，如果父对象的属性等于数组或另一个对象，那么实际上，子对象获得的只是一个内存地址，而不是真正拷贝，因此存在父对象被篡改的可能。</span><br><span class="line">请看，现在给Chinese添加一个&quot;出生地&quot;属性，它的值是一个数组。</span><br></pre></td></tr></table></figure></p>
-<p>　　Chinese.birthPlaces = [‘北京’,’上海’,’香港’];<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">　　</span><br><span class="line">通过extendCopy()函数，Doctor继承了Chinese。</span><br></pre></td></tr></table></figure></p>
-<p>　　var Doctor = extendCopy(Chinese);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">然后，我们为Doctor的&quot;出生地&quot;添加一个城市：</span><br></pre></td></tr></table></figure></p>
-<p>　　Doctor.birthPlaces.push(‘厦门’);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">发生了什么事？Chinese的&quot;出生地&quot;也被改掉了！</span><br></pre></td></tr></table></figure></p>
-<p>　　alert(Doctor.birthPlaces); //北京, 上海, 香港, 厦门<br>　　alert(Chinese.birthPlaces); //北京, 上海, 香港, 厦门<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">　　</span><br><span class="line">所以，extendCopy()只是拷贝基本类型的数据，我们把这种拷贝叫做&quot;浅拷贝&quot;。这是早期jQuery实现继承的方式。	</span><br><span class="line"></span><br><span class="line">###	四、深拷贝</span><br><span class="line">所谓&quot;深拷贝&quot;，就是能够实现真正意义上的数组和对象的拷贝。它的实现并不难，只要递归调用&quot;浅拷贝&quot;就行了。</span><br></pre></td></tr></table></figure></p>
-<p>　　function deepCopy(p, c) {<br>　　　　var c = c || {};<br>　　　　for (var i in p) {<br>　　　　　　if (typeof p[i] === ‘object’) {<br>　　　　　　　　c[i] = (p[i].constructor === Array) ? [] : {};<br>　　　　　　　　deepCopy(p[i], c[i]);<br>　　　　　　} else {<br>　　　　　　　　　c[i] = p[i];<br>　　　　　　}<br>　　　　}<br>　　　　return c;<br>　　}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">使用的时候这样写：</span><br></pre></td></tr></table></figure></p>
-<p>　　var Doctor = deepCopy(Chinese);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">　　</span><br><span class="line">现在，给父对象加一个属性，值为数组。然后，在子对象上修改这个属性：</span><br></pre></td></tr></table></figure></p>
-<p>　　Chinese.birthPlaces = [‘北京’,’上海’,’香港’];<br>　　Doctor.birthPlaces.push(‘厦门’);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">　　</span><br><span class="line">这时，父对象就不会受到影响了。</span><br></pre></td></tr></table></figure></p>
-<p>　　alert(Doctor.birthPlaces); //北京, 上海, 香港, 厦门<br>　　alert(Chinese.birthPlaces); //北京, 上海, 香港<br>```<br>目前，jQuery库使用的就是这种继承方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　Doctor.career = &apos;医生&apos;;</span><br></pre></td></tr></table></figure>
+<p>这时，子对象已经继承了父对象的属性了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　alert(Doctor.nation); //中国</span><br></pre></td></tr></table></figure>
+<h3 id="三、浅拷贝"><a href="#三、浅拷贝" class="headerlink" title="三、浅拷贝"></a>三、浅拷贝</h3><p>除了使用”prototype链”以外，还有另一种思路：把父对象的属性，全部拷贝给子对象，也能实现继承。<br>下面这个函数，就是在做拷贝：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">　　function extendCopy(p) &#123;</span><br><span class="line">　　　　var c = &#123;&#125;;</span><br><span class="line">　　　　for (var i in p) &#123; </span><br><span class="line">　　　　　　c[i] = p[i];</span><br><span class="line">　　　　&#125;</span><br><span class="line">　　　　c.uber = p;</span><br><span class="line">　　　　return c;</span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure>
+<p>使用的时候，这样写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">　　var Doctor = extendCopy(Chinese);</span><br><span class="line">　　Doctor.career = &apos;医生&apos;;</span><br><span class="line">　　alert(Doctor.nation); // 中国</span><br></pre></td></tr></table></figure>
+<p>但是，这样的拷贝有一个问题。那就是，如果父对象的属性等于数组或另一个对象，那么实际上，子对象获得的只是一个内存地址，而不是真正拷贝，因此存在父对象被篡改的可能。<br>请看，现在给Chinese添加一个”出生地”属性，它的值是一个数组。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　Chinese.birthPlaces = [&apos;北京&apos;,&apos;上海&apos;,&apos;香港&apos;];</span><br></pre></td></tr></table></figure>
+<p>　　<br>通过extendCopy()函数，Doctor继承了Chinese。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　var Doctor = extendCopy(Chinese);</span><br></pre></td></tr></table></figure>
+<p>然后，我们为Doctor的”出生地”添加一个城市：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　Doctor.birthPlaces.push(&apos;厦门&apos;);</span><br></pre></td></tr></table></figure>
+<p>发生了什么事？Chinese的”出生地”也被改掉了！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">　　alert(Doctor.birthPlaces); //北京, 上海, 香港, 厦门</span><br><span class="line">　　alert(Chinese.birthPlaces); //北京, 上海, 香港, 厦门</span><br></pre></td></tr></table></figure>
+<p>　　<br>所以，extendCopy()只是拷贝基本类型的数据，我们把这种拷贝叫做”浅拷贝”。这是早期jQuery实现继承的方式。    </p>
+<h3 id="四、深拷贝"><a href="#四、深拷贝" class="headerlink" title="四、深拷贝"></a>四、深拷贝</h3><p>所谓”深拷贝”，就是能够实现真正意义上的数组和对象的拷贝。它的实现并不难，只要递归调用”浅拷贝”就行了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">　　function deepCopy(p, c) &#123;</span><br><span class="line">　　　　var c = c || &#123;&#125;;</span><br><span class="line">　　　　for (var i in p) &#123;</span><br><span class="line">　　　　　　if (typeof p[i] === &apos;object&apos;) &#123;</span><br><span class="line">　　　　　　　　c[i] = (p[i].constructor === Array) ? [] : &#123;&#125;;</span><br><span class="line">　　　　　　　　deepCopy(p[i], c[i]);</span><br><span class="line">　　　　　　&#125; else &#123;</span><br><span class="line">　　　　　　　　　c[i] = p[i];</span><br><span class="line">　　　　　　&#125;</span><br><span class="line">　　　　&#125;</span><br><span class="line">　　　　return c;</span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure>
+<p>使用的时候这样写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　var Doctor = deepCopy(Chinese);</span><br></pre></td></tr></table></figure>
+<p>　　<br>现在，给父对象加一个属性，值为数组。然后，在子对象上修改这个属性：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">　　Chinese.birthPlaces = [&apos;北京&apos;,&apos;上海&apos;,&apos;香港&apos;];</span><br><span class="line">　　Doctor.birthPlaces.push(&apos;厦门&apos;);</span><br></pre></td></tr></table></figure>
+<p>　　<br>这时，父对象就不会受到影响了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">　　alert(Doctor.birthPlaces); //北京, 上海, 香港, 厦门</span><br><span class="line">　　alert(Chinese.birthPlaces); //北京, 上海, 香港</span><br></pre></td></tr></table></figure>
+<p>目前，jQuery库使用的就是这种继承方法。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -179,7 +192,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、什么是”非构造函数”的继承？"><span class="toc-number">1.</span> <span class="toc-text">一、什么是”非构造函数”的继承？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、object-方法"><span class="toc-number">2.</span> <span class="toc-text">二、object()方法</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、什么是”非构造函数”的继承？"><span class="toc-number">1.</span> <span class="toc-text">一、什么是”非构造函数”的继承？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、object-方法"><span class="toc-number">2.</span> <span class="toc-text">二、object()方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、浅拷贝"><span class="toc-number">3.</span> <span class="toc-text">三、浅拷贝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、深拷贝"><span class="toc-number">4.</span> <span class="toc-text">四、深拷贝</span></a></li></ol>
  
   </div>
 
