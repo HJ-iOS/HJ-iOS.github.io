@@ -1,0 +1,498 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>JS__继承 | Welcome to the literati Association!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="HJ">
+    
+
+    
+    <meta name="description" content="今天要介绍的是，对象之间的”继承”的五种方法。
+现在有一动物对象的构造函数。
+123function Animal()&amp;#123;　　　　this.species = &amp;quot;动物&amp;quot;;　　&amp;#125;
+还有一个”猫”对象的构造函数。
+1234function Cat(name,color)&amp;#123;　　　　this.name = name;　　　　this.color = colo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS__继承">
+<meta property="og:url" content="http://yoursite.com/2017/10/20/JS__继承/index.html">
+<meta property="og:site_name" content="Welcome to the literati Association!">
+<meta property="og:description" content="今天要介绍的是，对象之间的”继承”的五种方法。
+现在有一动物对象的构造函数。
+123function Animal()&amp;#123;　　　　this.species = &amp;quot;动物&amp;quot;;　　&amp;#125;
+还有一个”猫”对象的构造函数。
+1234function Cat(name,color)&amp;#123;　　　　this.name = name;　　　　this.color = colo">
+<meta property="og:updated_time" content="2017-10-23T02:58:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS__继承">
+<meta name="twitter:description" content="今天要介绍的是，对象之间的”继承”的五种方法。
+现在有一动物对象的构造函数。
+123function Animal()&amp;#123;　　　　this.species = &amp;quot;动物&amp;quot;;　　&amp;#125;
+还有一个”猫”对象的构造函数。
+1234function Cat(name,color)&amp;#123;　　　　this.name = name;　　　　this.color = colo">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Welcome to the literati Association!" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Welcome to the literati Association!" title="Welcome to the literati Association!"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Welcome to the literati Association!">Welcome to the literati Association!</a></h1>
+				<h2 class="blog-motto">The president of the literati association is HJ.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/10/20/JS__继承/" title="JS__继承" itemprop="url">JS__继承</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="HJ" target="_blank" itemprop="author">HJ</a>
+		
+  <p class="article-time">
+    <time datetime="2017-10-20T08:04:36.000Z" itemprop="datePublished"> 发表于 2017-10-20</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、-构造函数绑定"><span class="toc-number">1.</span> <span class="toc-text">一、 构造函数绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、-prototype模式"><span class="toc-number">2.</span> <span class="toc-text">二、 prototype模式　</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、-直接继承prototype"><span class="toc-number">3.</span> <span class="toc-text">三、 直接继承prototype</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、-利用空对象作为中介"><span class="toc-number">4.</span> <span class="toc-text">四、 利用空对象作为中介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、-拷贝继承"><span class="toc-number">5.</span> <span class="toc-text">五、 拷贝继承</span></a></li></ol>
+		
+		</div>
+		
+		<p>今天要介绍的是，对象之间的”继承”的五种方法。</p>
+<p>现在有一动物对象的构造函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function Animal()&#123;</span><br><span class="line">　　　　this.species = &quot;动物&quot;;</span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure>
+<p>还有一个”猫”对象的构造函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function Cat(name,color)&#123;</span><br><span class="line">　　　　this.name = name;</span><br><span class="line">　　　　this.color = color;</span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="一、-构造函数绑定"><a href="#一、-构造函数绑定" class="headerlink" title="一、 构造函数绑定"></a>一、 构造函数绑定</h3><p>第一种方法也是最简单的方法，使用call或apply方法，将父对象的构造函数绑定在子对象上，即在子对象构造函数中加一行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function Cat(name,color)&#123;</span><br><span class="line">　　　　Animal.apply(this, arguments);</span><br><span class="line">　　　　this.name = name;</span><br><span class="line">　　　　this.color = color;</span><br><span class="line">　　&#125;</span><br><span class="line">　　var cat1 = new Cat(&quot;大毛&quot;,&quot;黄色&quot;);</span><br><span class="line">　　alert(cat1.species); // 动物</span><br></pre></td></tr></table></figure>
+<h3 id="二、-prototype模式"><a href="#二、-prototype模式" class="headerlink" title="二、 prototype模式　"></a>二、 prototype模式　</h3><p>第二种方法更常见，使用prototype属性。<br>如果”猫”的prototype对象，指向一个Animal的实例，那么所有”猫”的实例，就能继承Animal了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Cat.prototype = new Animal();</span><br><span class="line">　　Cat.prototype.constructor = Cat;</span><br><span class="line">　　var cat1 = new Cat(&quot;大毛&quot;,&quot;黄色&quot;);</span><br><span class="line">　　alert(cat1.species); // 动物</span><br></pre></td></tr></table></figure>
+<p>代码的第一行，我们将Cat的prototype对象指向一个Animal的实例。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cat.prototype = new Animal();</span><br></pre></td></tr></table></figure>
+<p>它相当于完全删除了prototype 对象原先的值，然后赋予一个新值。但是，第二行又是什么意思呢？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cat.prototype.constructor = Cat;</span><br></pre></td></tr></table></figure>
+<p>原来，任何一个prototype对象都有一个constructor属性，指向它的构造函数。如果没有”Cat.prototype = new Animal();”这一行，Cat.prototype.constructor是指向Cat的；加了这一行以后，Cat.prototype.constructor指向Animal。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(Cat.prototype.constructor == Animal); //true</span><br></pre></td></tr></table></figure>
+<p>更重要的是，每一个实例也有一个constructor属性，默认调用prototype对象的constructor属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(cat1.constructor == Cat.prototype.constructor); // true</span><br></pre></td></tr></table></figure>
+<p>因此，在运行”Cat.prototype = new Animal();”这一行之后，cat1.constructor也指向Animal！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(cat1.constructor == Animal); // true</span><br></pre></td></tr></table></figure>
+<p>这显然会导致继承链的紊乱（cat1明明是用构造函数Cat生成的），因此我们必须手动纠正，将Cat.prototype对象的constructor值改为Cat。这就是第二行的意思。<br>这是很重要的一点，编程时务必要遵守。下文都遵循这一点，即如果替换了prototype对象，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">o.prototype = &#123;&#125;;</span><br></pre></td></tr></table></figure>
+<p>那么，下一步必然是为新的prototype对象加上constructor属性，并将这个属性指回原来的构造函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">o.prototype.constructor = o;</span><br></pre></td></tr></table></figure>
+<h3 id="三、-直接继承prototype"><a href="#三、-直接继承prototype" class="headerlink" title="三、 直接继承prototype"></a>三、 直接继承prototype</h3><p>第三种方法是对第二种方法的改进。由于Animal对象中，不变的属性都可以直接写入Animal.prototype。所以，我们也可以让Cat()跳过 Animal()，直接继承Animal.prototype。<br>现在，我们先将Animal对象改写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">function Animal()&#123; &#125;</span><br><span class="line">　　Animal.prototype.species = &quot;动物&quot;;</span><br></pre></td></tr></table></figure>
+<p>然后，将Cat的prototype对象，然后指向Animal的prototype对象，这样就完成了继承。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Cat.prototype = Animal.prototype;</span><br><span class="line">　　Cat.prototype.constructor = Cat;</span><br><span class="line">　　var cat1 = new Cat(&quot;大毛&quot;,&quot;黄色&quot;);</span><br><span class="line">　　alert(cat1.species); // 动物</span><br></pre></td></tr></table></figure>
+<p>与前一种方法相比，这样做的优点是效率比较高（不用执行和建立Animal的实例了），比较省内存。缺点是 Cat.prototype和Animal.prototype现在指向了同一个对象，那么任何对Cat.prototype的修改，都会反映到Animal.prototype。    </p>
+<p>所以，上面这一段代码其实是有问题的。请看第二行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cat.prototype.constructor = Cat;</span><br></pre></td></tr></table></figure>
+<p>这一句实际上把Animal.prototype对象的constructor属性也改掉了！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(Animal.prototype.constructor); // Cat</span><br></pre></td></tr></table></figure>
+<h3 id="四、-利用空对象作为中介"><a href="#四、-利用空对象作为中介" class="headerlink" title="四、 利用空对象作为中介"></a>四、 利用空对象作为中介</h3><p>由于”直接继承prototype”存在上述的缺点，所以就有第四种方法，利用一个空对象作为中介。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var F = function()&#123;&#125;;</span><br><span class="line">　　F.prototype = Animal.prototype;</span><br><span class="line">　　Cat.prototype = new F();</span><br><span class="line">　　Cat.prototype.constructor = Cat;</span><br></pre></td></tr></table></figure>
+<p>F是空对象，所以几乎不占内存。这时，修改Cat的prototype对象，就不会影响到Animal的prototype对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(Animal.prototype.constructor); // Animal</span><br></pre></td></tr></table></figure>
+<p>我们将上面的方法，封装成一个函数，便于使用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function extend(Child, Parent) &#123;</span><br><span class="line"></span><br><span class="line">　　　　var F = function()&#123;&#125;;</span><br><span class="line">　　　　F.prototype = Parent.prototype;</span><br><span class="line">　　　　Child.prototype = new F();</span><br><span class="line">　　　　Child.prototype.constructor = Child;</span><br><span class="line">　　　　Child.uber = Parent.prototype;</span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure>
+<p>使用的时候，方法如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">extend(Cat,Animal);</span><br><span class="line">　　var cat1 = new Cat(&quot;大毛&quot;,&quot;黄色&quot;);</span><br><span class="line">　　alert(cat1.species); // 动物</span><br></pre></td></tr></table></figure>
+<p>这个extend函数，就是YUI库如何实现继承的方法。<br>另外，说明一点，函数体最后一行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Child.uber = Parent.prototype;</span><br></pre></td></tr></table></figure>
+<p>意思是为子对象设一个uber属性，这个属性直接指向父对象的prototype属性。（uber是一个德语词，意思是”向上”、”上一层”。）这等于在子对象上打开一条通道，可以直接调用父对象的方法。这一行放在这里，只是为了实现继承的完备性，纯属备用性质。</p>
+<h3 id="五、-拷贝继承"><a href="#五、-拷贝继承" class="headerlink" title="五、 拷贝继承"></a>五、 拷贝继承</h3><p>上面是采用prototype对象，实现继承。我们也可以换一种思路，纯粹采用”拷贝”方法实现继承。简单说，如果把父对象的所有属性和方法，拷贝进子对象，不也能够实现继承吗？这样我们就有了第五种方法。<br>首先，还是把Animal的所有不变属性，都放到它的prototype对象上。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">function Animal()&#123;&#125;</span><br><span class="line">　　Animal.prototype.species = &quot;动物&quot;;</span><br></pre></td></tr></table></figure>
+<p>然后，再写一个函数，实现属性拷贝的目的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function extend2(Child, Parent) &#123;</span><br><span class="line">　　　　var p = Parent.prototype;</span><br><span class="line">　　　　var c = Child.prototype;</span><br><span class="line">　　　　for (var i in p) &#123;</span><br><span class="line">　　　　　　c[i] = p[i];</span><br><span class="line">　　　　　　&#125;</span><br><span class="line">　　　　c.uber = p;</span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure>
+<p>这个函数的作用，就是将父对象的prototype对象中的属性，一一拷贝给Child对象的prototype对象。<br>使用的时候，这样写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">extend2(Cat, Animal);</span><br><span class="line">　　var cat1 = new Cat(&quot;大毛&quot;,&quot;黄色&quot;);</span><br><span class="line">　　alert(cat1.species); // 动物</span><br></pre></td></tr></table></figure>  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2017/10/20/JS__继承/" data-title="JS__继承 | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/10/23/非构造函数的继承/" title="非构造函数的继承">
+  <strong>上一篇：</strong><br/>
+  <span>
+  非构造函数的继承</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2017/10/20/constructor属性详解/"  title="constructor属性详解">
+ <strong>下一篇：</strong><br/> 
+ <span>constructor属性详解
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、-构造函数绑定"><span class="toc-number">1.</span> <span class="toc-text">一、 构造函数绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、-prototype模式"><span class="toc-number">2.</span> <span class="toc-text">二、 prototype模式　</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、-直接继承prototype"><span class="toc-number">3.</span> <span class="toc-text">三、 直接继承prototype</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、-利用空对象作为中介"><span class="toc-number">4.</span> <span class="toc-text">四、 利用空对象作为中介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、-拷贝继承"><span class="toc-number">5.</span> <span class="toc-text">五、 拷贝继承</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="hjaistrive" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=5597151709&verifier=2e2fc03f&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> To the world you maybe one peeson , but to one person you maybe the world. <br/>
+			This is my goddess.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/hjaistrive" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		<a href="http://stackoverflow.com/users/8573660" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
+		
+		
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/liang-ren-de-hui-yi-yiren-guo" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:hjaistrive@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="HJ">HJ</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
