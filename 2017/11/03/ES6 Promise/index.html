@@ -1,0 +1,509 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>ES6中的Promise | Welcome to the literati Association!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="HJ">
+    
+
+    
+    <meta name="description" content="ES6 Promise 先拉出来遛遛复杂的概念先不讲，我们先简单粗暴地把Promise用一下，有个直观感受。那么第一个问题来了，Promise是什么玩意呢？是一个类？对象？数组？函数？
+别猜了，直接打印出来看看吧，console.dir(Promise)，就这么简单粗暴。
+
+这么一看就明白了，Promise是一个构造函数，自己身上有all、reject、resolve这几个眼熟的方法，原型上有th">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6中的Promise">
+<meta property="og:url" content="http://yoursite.com/2017/11/03/ES6 Promise/index.html">
+<meta property="og:site_name" content="Welcome to the literati Association!">
+<meta property="og:description" content="ES6 Promise 先拉出来遛遛复杂的概念先不讲，我们先简单粗暴地把Promise用一下，有个直观感受。那么第一个问题来了，Promise是什么玩意呢？是一个类？对象？数组？函数？
+别猜了，直接打印出来看看吧，console.dir(Promise)，就这么简单粗暴。
+
+这么一看就明白了，Promise是一个构造函数，自己身上有all、reject、resolve这几个眼熟的方法，原型上有th">
+<meta property="og:image" content="https://github.com/hjaistrive/picture/raw/master/promise.png">
+<meta property="og:image" content="https://github.com/hjaistrive/picture/raw/master/result.png">
+<meta property="og:image" content="https://github.com/hjaistrive/picture/raw/master/error.png">
+<meta property="og:updated_time" content="2017-11-03T07:39:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6中的Promise">
+<meta name="twitter:description" content="ES6 Promise 先拉出来遛遛复杂的概念先不讲，我们先简单粗暴地把Promise用一下，有个直观感受。那么第一个问题来了，Promise是什么玩意呢？是一个类？对象？数组？函数？
+别猜了，直接打印出来看看吧，console.dir(Promise)，就这么简单粗暴。
+
+这么一看就明白了，Promise是一个构造函数，自己身上有all、reject、resolve这几个眼熟的方法，原型上有th">
+<meta name="twitter:image" content="https://github.com/hjaistrive/picture/raw/master/promise.png">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Welcome to the literati Association!" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Welcome to the literati Association!" title="Welcome to the literati Association!"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Welcome to the literati Association!">Welcome to the literati Association!</a></h1>
+				<h2 class="blog-motto">The president of the literati association is HJ.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/11/03/ES6 Promise/" title="ES6中的Promise" itemprop="url">ES6中的Promise</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="HJ" target="_blank" itemprop="author">HJ</a>
+		
+  <p class="article-time">
+    <time datetime="2017-11-03T07:39:21.000Z" itemprop="datePublished"> 发表于 2017-11-03</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#ES6-Promise-先拉出来遛遛"><span class="toc-number">1.</span> <span class="toc-text">ES6 Promise 先拉出来遛遛</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#链式操作的用法"><span class="toc-number">1.1.</span> <span class="toc-text">链式操作的用法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#reject的用法"><span class="toc-number">1.2.</span> <span class="toc-text">reject的用法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#catch的用法"><span class="toc-number">1.3.</span> <span class="toc-text">catch的用法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#all的用法"><span class="toc-number">1.4.</span> <span class="toc-text">all的用法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#race的用法"><span class="toc-number">1.5.</span> <span class="toc-text">race的用法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">2.</span> <span class="toc-text">总结</span></a></li></ol>
+		
+		</div>
+		
+		<h3 id="ES6-Promise-先拉出来遛遛"><a href="#ES6-Promise-先拉出来遛遛" class="headerlink" title="ES6 Promise 先拉出来遛遛"></a>ES6 Promise 先拉出来遛遛</h3><p>复杂的概念先不讲，我们先简单粗暴地把Promise用一下，有个直观感受。那么第一个问题来了，Promise是什么玩意呢？是一个类？对象？数组？函数？</p>
+<p>别猜了，直接打印出来看看吧，console.dir(Promise)，就这么简单粗暴。</p>
+<p><img src="https://github.com/hjaistrive/picture/raw/master/promise.png" alt=""></p>
+<p>这么一看就明白了，Promise是一个构造函数，自己身上有all、reject、resolve这几个眼熟的方法，原型上有then、catch等同样很眼熟的方法。这么说用Promise new出来的对象肯定就有then、catch方法喽，没错。</p>
+<p>那就new一个玩玩吧。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var p = new Promise(function(resolve, reject)&#123;</span><br><span class="line">    //做一些异步操作</span><br><span class="line">    setTimeout(function()&#123;</span><br><span class="line">        console.log(&apos;执行完成&apos;);</span><br><span class="line">        resolve(&apos;随便什么数据&apos;);</span><br><span class="line">    &#125;, 2000);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>Promise的构造函数接收一个参数，是函数，并且传入两个参数：resolve，reject，分别表示异步操作执行成功后的回调函数和异步操作执行失败后的回调函数。其实这里用“成功”和“失败”来描述并不准确，按照标准来讲，resolve是将Promise的状态置为fullfiled，reject是将Promise的状态置为rejected。不过在我们开始阶段可以先这么理解，后面再细究概念。</p>
+<p>在上面的代码中，我们执行了一个异步操作，也就是setTimeout，2秒后，输出“执行完成”，并且调用resolve方法。</p>
+<p>运行代码，会在2秒后输出“执行完成”。注意！我只是new了一个对象，并没有调用它，我们传进去的函数就已经执行了，这是需要注意的一个细节。所以我们用Promise的时候一般是包在一个函数中，在需要的时候去运行这个函数，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function runAsync()&#123;</span><br><span class="line">    var p = new Promise(function(resolve, reject)&#123;</span><br><span class="line">        //做一些异步操作</span><br><span class="line">        setTimeout(function()&#123;</span><br><span class="line">            console.log(&apos;执行完成&apos;);</span><br><span class="line">            resolve(&apos;随便什么数据&apos;);</span><br><span class="line">        &#125;, 2000);</span><br><span class="line">    &#125;);</span><br><span class="line">    return p;            </span><br><span class="line">&#125;</span><br><span class="line">runAsync()</span><br></pre></td></tr></table></figure>
+<p>这时候你应该有两个疑问：1.包装这么一个函数有毛线用？2.resolve(‘随便什么数据’);这是干毛的？</p>
+<p>我们继续来讲。在我们包装好的函数最后，会return出Promise对象，也就是说，执行这个函数我们得到了一个Promise对象。还记得Promise对象上有then、catch方法吧？这就是强大之处了，看下面的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">runAsync().then(function(data)&#123;</span><br><span class="line">    console.log(data);</span><br><span class="line">    //后面可以用传过来的数据做些其他操作</span><br><span class="line">    //......</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>在runAsync()的返回上直接调用then方法，then接收一个参数，是函数，并且会拿到我们在runAsync中调用resolve时传的的参数。运行这段代码，会在2秒后输出“执行完成”，紧接着输出“随便什么数据”。</p>
+<p>这时候你应该有所领悟了，原来then里面的函数就跟我们平时的回调函数一个意思，能够在runAsync这个异步任务执行完成之后被执行。这就是Promise的作用了，简单来讲，就是能把原来的回调写法分离出来，在异步操作执行完后，用链式调用的方式执行回调函数。</p>
+<p>你可能会不屑一顾，那么牛逼轰轰的Promise就这点能耐？我把回调函数封装一下，给runAsync传进去不也一样吗，就像这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function runAsync(callback)&#123;</span><br><span class="line">    setTimeout(function()&#123;</span><br><span class="line">        console.log(&apos;执行完成&apos;);</span><br><span class="line">        callback(&apos;随便什么数据&apos;);</span><br><span class="line">    &#125;, 2000);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">runAsync(function(data)&#123;</span><br><span class="line">    console.log(data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>效果也是一样的，还费劲用Promise干嘛。那么问题来了，有多层回调该怎么办？如果callback也是一个异步操作，而且执行完后也需要有相应的回调函数，该怎么办呢？总不能再定义一个callback2，然后给callback传进去吧。而Promise的优势在于，可以在then方法中继续写Promise对象并返回，然后继续调用then来进行回调操作。</p>
+<h4 id="链式操作的用法"><a href="#链式操作的用法" class="headerlink" title="链式操作的用法"></a>链式操作的用法</h4><p>所以，从表面上看，Promise只是能够简化层层回调的写法，而实质上，Promise的精髓是“状态”，用维护状态、传递状态的方式来使得回调函数能够及时调用，它比传递callback函数要简单、灵活的多。所以使用Promise的正确场景是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">runAsync1()</span><br><span class="line">.then(function(data)&#123;</span><br><span class="line">    console.log(data);</span><br><span class="line">    return runAsync2();</span><br><span class="line">&#125;)</span><br><span class="line">.then(function(data)&#123;</span><br><span class="line">    console.log(data);</span><br><span class="line">    return runAsync3();</span><br><span class="line">&#125;)</span><br><span class="line">.then(function(data)&#123;</span><br><span class="line">    console.log(data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>这样能够按顺序，每隔两秒输出每个异步回调中的内容，在runAsync2中传给resolve的数据，能在接下来的then方法中拿到。运行结果如下：</p>
+<blockquote>
+<p>异步任务1执行完成<br>随便什么数据1<br>异步任务2执行完成<br>随便什么数据2<br>异步任务3执行完成<br>随便什么数据3    </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">function runAsync1()&#123;</span><br><span class="line">    var p = new Promise(function(resolve, reject)&#123;</span><br><span class="line">        //做一些异步操作</span><br><span class="line">        setTimeout(function()&#123;</span><br><span class="line">            console.log(&apos;异步任务1执行完成&apos;);</span><br><span class="line">            resolve(&apos;随便什么数据1&apos;);</span><br><span class="line">        &#125;, 1000);</span><br><span class="line">    &#125;);</span><br><span class="line">    return p;            </span><br><span class="line">&#125;</span><br><span class="line">function runAsync2()&#123;</span><br><span class="line">    var p = new Promise(function(resolve, reject)&#123;</span><br><span class="line">        //做一些异步操作</span><br><span class="line">        setTimeout(function()&#123;</span><br><span class="line">            console.log(&apos;异步任务2执行完成&apos;);</span><br><span class="line">            resolve(&apos;随便什么数据2&apos;);</span><br><span class="line">        &#125;, 2000);</span><br><span class="line">    &#125;);</span><br><span class="line">    return p;            </span><br><span class="line">&#125;</span><br><span class="line">function runAsync3()&#123;</span><br><span class="line">    var p = new Promise(function(resolve, reject)&#123;</span><br><span class="line">        //做一些异步操作</span><br><span class="line">        setTimeout(function()&#123;</span><br><span class="line">            console.log(&apos;异步任务3执行完成&apos;);</span><br><span class="line">            resolve(&apos;随便什么数据3&apos;);</span><br><span class="line">        &#125;, 2000);</span><br><span class="line">    &#125;);</span><br><span class="line">    return p;            </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在then方法中，你也可以直接return数据而不是Promise对象，在后面的then中就可以接收到数据了，比如我们把上面的代码修改成这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">runAsync1()</span><br><span class="line">.then(function(data)&#123;</span><br><span class="line">    console.log(data);</span><br><span class="line">    return runAsync2();</span><br><span class="line">&#125;)</span><br><span class="line">.then(function(data)&#123;</span><br><span class="line">    console.log(data);</span><br><span class="line">    return &apos;直接返回数据&apos;;  //这里直接返回数据</span><br><span class="line">&#125;)</span><br><span class="line">.then(function(data)&#123;</span><br><span class="line">    console.log(data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>那么输出就变成了这样：</p>
+<blockquote>
+<p>异步任务1执行完成<br>随便什么数据1<br>异步任务2执行完成<br>随便什么数据2<br>直接返回数据</p>
+</blockquote>
+<h4 id="reject的用法"><a href="#reject的用法" class="headerlink" title="reject的用法"></a>reject的用法</h4><p>到这里，你应该对“Promise是什么玩意”有了最基本的了解。那么我们接着来看看ES6的Promise还有哪些功能。我们光用了resolve，还没用reject呢，它是做什么的呢？事实上，我们前面的例子都是只有“执行成功”的回调，还没有“失败”的情况，reject的作用就是把Promise的状态置为rejected，这样我们在then中就能捕捉到，然后执行“失败”情况的回调。看下面的代码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">function getNumber()&#123;</span><br><span class="line">    var p = new Promise(function(resolve, reject)&#123;</span><br><span class="line">        //做一些异步操作</span><br><span class="line">        setTimeout(function()&#123;</span><br><span class="line">            var num = Math.ceil(Math.random()*10); //生成1-10的随机数</span><br><span class="line">            if(num&lt;=5)&#123;</span><br><span class="line">                resolve(num);</span><br><span class="line">            &#125;</span><br><span class="line">            else&#123;</span><br><span class="line">                reject(&apos;数字太大了&apos;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, 2000);</span><br><span class="line">    &#125;);</span><br><span class="line">    return p;            </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getNumber()</span><br><span class="line">.then(</span><br><span class="line">    function(data)&#123;</span><br><span class="line">        console.log(&apos;resolved&apos;);</span><br><span class="line">        console.log(data);</span><br><span class="line">    &#125;, </span><br><span class="line">    function(reason, data)&#123;</span><br><span class="line">        console.log(&apos;rejected&apos;);</span><br><span class="line">        console.log(reason);</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>getNumber函数用来异步获取一个数字，2秒后执行完成，如果数字小于等于5，我们认为是“成功”了，调用resolve修改Promise的状态。否则我们认为是“失败”了，调用reject并传递一个参数，作为失败的原因。</p>
+<p>运行getNumber并且在then中传了两个参数，then方法可以接受两个参数，第一个对应resolve的回调，第二个对应reject的回调。所以我们能够分别拿到他们传过来的数据。多次运行这段代码，你会随机得到下面两种结果：</p>
+<blockquote>
+<p>resolved<br>1</p>
+</blockquote>
+<p>或者</p>
+<blockquote>
+<p>rejected<br>数字太大了</p>
+</blockquote>
+<h4 id="catch的用法"><a href="#catch的用法" class="headerlink" title="catch的用法"></a>catch的用法</h4><p>我们知道Promise对象除了then方法，还有一个catch方法，它是做什么用的呢？其实它和then的第二个参数一样，用来指定reject的回调，用法是这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">getNumber()</span><br><span class="line">.then(function(data)&#123;</span><br><span class="line">    console.log(&apos;resolved&apos;);</span><br><span class="line">    console.log(data);</span><br><span class="line">&#125;)</span><br><span class="line">.catch(function(reason)&#123;</span><br><span class="line">    console.log(&apos;rejected&apos;);</span><br><span class="line">    console.log(reason);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>效果和写在then的第二个参数里面一样。不过它还有另外一个作用：在执行resolve的回调（也就是上面then中的第一个参数）时，如果抛出异常了（代码出错了），那么并不会报错卡死js，而是会进到这个catch方法中。请看下面的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">getNumber()</span><br><span class="line">.then(function(data)&#123;</span><br><span class="line">    console.log(&apos;resolved&apos;);</span><br><span class="line">    console.log(data);</span><br><span class="line">    console.log(somedata); //此处的somedata未定义</span><br><span class="line">&#125;)</span><br><span class="line">.catch(function(reason)&#123;</span><br><span class="line">    console.log(&apos;rejected&apos;);</span><br><span class="line">    console.log(reason);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>在resolve的回调中，我们console.log(somedata);而somedata这个变量是没有被定义的。如果我们不用Promise，代码运行到这里就直接在控制台报错了，不往下运行了。但是在这里，会得到这样的结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">resolved</span><br><span class="line">4</span><br><span class="line">rejected</span><br><span class="line">ReferencError:	somedata is not defined(...)</span><br></pre></td></tr></table></figure>
+<p>也就是说进到catch方法里面去了，而且把错误原因传到了reason参数中。即便是有错误的代码也不会报错了，这与我们的try/catch语句有相同的功能。</p>
+<h4 id="all的用法"><a href="#all的用法" class="headerlink" title="all的用法"></a>all的用法</h4><p>Promise的all方法提供了并行执行异步操作的能力，并且在所有异步操作执行完后才执行回调。我们仍旧使用上面定义好的runAsync1、runAsync2、runAsync3这三个函数，看下面的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Promise</span><br><span class="line">.all([runAsync1(), runAsync2(), runAsync3()])</span><br><span class="line">.then(function(results)&#123;</span><br><span class="line">    console.log(results);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>用Promise.all来执行，all接收一个数组参数，里面的值最终都算返回Promise对象。这样，三个异步操作的并行执行的，等到它们都执行完后才会进到then里面。那么，三个异步操作返回的数据哪里去了呢？都在then里面呢，all会把所有异步操作的结果放进一个数组中传给then，就是上面的results。所以上面代码的输出结果就是：</p>
+<p><img src="https://github.com/hjaistrive/picture/raw/master/result.png" alt=""></p>
+<p>有了all，你就可以并行执行多个异步操作，并且在一个回调中处理所有的返回数据，是不是很酷？有一个场景是很适合用这个的，一些游戏类的素材比较多的应用，打开网页时，预先加载需要用到的各种资源如图片、flash以及各种静态文件。所有的都加载完后，我们再进行页面的初始化。</p>
+<h4 id="race的用法"><a href="#race的用法" class="headerlink" title="race的用法"></a>race的用法</h4><p>all方法的效果实际上是「谁跑的慢，以谁为准执行回调」，那么相对的就有另一个方法「谁跑的快，以谁为准执行回调」，这就是race方法，这个词本来就是赛跑的意思。race的用法与all一样，我们把上面runAsync1的延时改为1秒来看一下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Promise</span><br><span class="line">.race([runAsync1(), runAsync2(), runAsync3()])</span><br><span class="line">.then(function(results)&#123;</span><br><span class="line">    console.log(results);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>这三个异步操作同样是并行执行的。结果你应该可以猜到，1秒后runAsync1已经执行完了，此时then里面的就执行了。结果是这样的：</p>
+<blockquote>
+<p>异步任务1执行完毕<br>随便什么数据1<br>异步任务2执行完毕<br>异步任务3执行完毕</p>
+</blockquote>
+<p>你猜对了吗？不完全，是吧。在then里面的回调开始执行时，runAsync2()和runAsync3()并没有停止，仍旧再执行。于是再过1秒后，输出了他们结束的标志。</p>
+<p>这个race有什么用呢？使用场景还是很多的，比如我们可以用race给某个异步请求设置超时时间，并且在超时后执行相应的操作，代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">//请求某个图片资源</span><br><span class="line">function requestImg()&#123;</span><br><span class="line">    var p = new Promise(function(resolve, reject)&#123;</span><br><span class="line">        var img = new Image();</span><br><span class="line">        img.onload = function()&#123;</span><br><span class="line">            resolve(img);</span><br><span class="line">        &#125;</span><br><span class="line">        img.src = &apos;xxxxxx&apos;;</span><br><span class="line">    &#125;);</span><br><span class="line">    return p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//延时函数，用于给请求计时</span><br><span class="line">function timeout()&#123;</span><br><span class="line">    var p = new Promise(function(resolve, reject)&#123;</span><br><span class="line">        setTimeout(function()&#123;</span><br><span class="line">            reject(&apos;图片请求超时&apos;);</span><br><span class="line">        &#125;, 5000);</span><br><span class="line">    &#125;);</span><br><span class="line">    return p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Promise</span><br><span class="line">.race([requestImg(), timeout()])</span><br><span class="line">.then(function(results)&#123;</span><br><span class="line">    console.log(results);</span><br><span class="line">&#125;)</span><br><span class="line">.catch(function(reason)&#123;</span><br><span class="line">    console.log(reason);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>requestImg函数会异步请求一张图片，我把地址写为”xxxxxx”，所以肯定是无法成功请求到的。timeout函数是一个延时5秒的异步操作。我们把这两个返回Promise对象的函数放进race，于是他俩就会赛跑，如果5秒之内图片请求成功了，那么遍进入then方法，执行正常的流程。如果5秒钟图片还未成功返回，那么timeout就跑赢了，则进入catch，报出“图片请求超时”的信息。运行结果如下：</p>
+<p><img src="https://github.com/hjaistrive/picture/raw/master/error.png" alt=""></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>本文中所有异步操作均以setTimeout为例子，之所以不使用ajax是为了避免引起混淆，因为谈起ajax，很多人的第一反应就是jquery的ajax，而jquery又有自己的Promise实现。如果你理解了原理，就知道使用setTimeout和使用ajax是一样的意思。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2017/11/03/ES6 Promise/" data-title="ES6中的Promise | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2017/11/02/Object.defineProperty/"  title="Object.defineProperty">
+ <strong>下一篇：</strong><br/> 
+ <span>Object.defineProperty
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#ES6-Promise-先拉出来遛遛"><span class="toc-number">1.</span> <span class="toc-text">ES6 Promise 先拉出来遛遛</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#链式操作的用法"><span class="toc-number">1.1.</span> <span class="toc-text">链式操作的用法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#reject的用法"><span class="toc-number">1.2.</span> <span class="toc-text">reject的用法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#catch的用法"><span class="toc-number">1.3.</span> <span class="toc-text">catch的用法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#all的用法"><span class="toc-number">1.4.</span> <span class="toc-text">all的用法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#race的用法"><span class="toc-number">1.5.</span> <span class="toc-text">race的用法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">2.</span> <span class="toc-text">总结</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="hjaistrive" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=5597151709&verifier=2e2fc03f&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> To the world you maybe one peeson , but to one person you maybe the world. <br/>
+			This is my goddess.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/hjaistrive" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		<a href="http://stackoverflow.com/users/8573660" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
+		
+		
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/liang-ren-de-hui-yi-yiren-guo" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:hjaistrive@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="HJ">HJ</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

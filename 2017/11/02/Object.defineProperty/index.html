@@ -1,0 +1,459 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Object.defineProperty | Welcome to the literati Association!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="HJ">
+    
+
+    
+    <meta name="description" content="Object.defineProperty ，顾名思义，为对象定义属性。在js中我们可以通过下面这几种方法定义属性
+12345678910// (1) define someOne property namesomeOne.name = &amp;apos;cover&amp;apos;;//or use (2) someOne[&amp;apos;name&amp;apos;] = &amp;apos;cover&amp;apos;;d//">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Object.defineProperty">
+<meta property="og:url" content="http://yoursite.com/2017/11/02/Object.defineProperty/index.html">
+<meta property="og:site_name" content="Welcome to the literati Association!">
+<meta property="og:description" content="Object.defineProperty ，顾名思义，为对象定义属性。在js中我们可以通过下面这几种方法定义属性
+12345678910// (1) define someOne property namesomeOne.name = &amp;apos;cover&amp;apos;;//or use (2) someOne[&amp;apos;name&amp;apos;] = &amp;apos;cover&amp;apos;;d//">
+<meta property="og:updated_time" content="2017-11-02T09:12:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Object.defineProperty">
+<meta name="twitter:description" content="Object.defineProperty ，顾名思义，为对象定义属性。在js中我们可以通过下面这几种方法定义属性
+12345678910// (1) define someOne property namesomeOne.name = &amp;apos;cover&amp;apos;;//or use (2) someOne[&amp;apos;name&amp;apos;] = &amp;apos;cover&amp;apos;;d//">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Welcome to the literati Association!" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Welcome to the literati Association!" title="Welcome to the literati Association!"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Welcome to the literati Association!">Welcome to the literati Association!</a></h1>
+				<h2 class="blog-motto">The president of the literati association is HJ.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/11/02/Object.defineProperty/" title="Object.defineProperty" itemprop="url">Object.defineProperty</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="HJ" target="_blank" itemprop="author">HJ</a>
+		
+  <p class="article-time">
+    <time datetime="2017-11-02T09:12:58.000Z" itemprop="datePublished"> 发表于 2017-11-02</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#语法"><span class="toc-number">1.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参数"><span class="toc-number">2.</span> <span class="toc-text">参数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#属性的状态设置"><span class="toc-number">2.1.</span> <span class="toc-text">属性的状态设置</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#优化对象获取和修改属性方式"><span class="toc-number">2.1.1.</span> <span class="toc-text">优化对象获取和修改属性方式</span></a></li></ol></li></ol></li></ol>
+		
+		</div>
+		
+		<p>Object.defineProperty ，顾名思义，为对象定义属性。在js中我们可以通过下面这几种方法定义属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// (1) define someOne property name</span><br><span class="line">someOne.name = &apos;cover&apos;;</span><br><span class="line"></span><br><span class="line">//or use (2) </span><br><span class="line">someOne[&apos;name&apos;] = &apos;cover&apos;;</span><br><span class="line">d</span><br><span class="line">// or use (3) defineProperty</span><br><span class="line">Object.defineProperty(someOne, &apos;name&apos;, &#123;</span><br><span class="line">    value : &apos;cover&apos;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>我们可以通过Object.defineProperty这个方法，直接在一个对象上定义一个新的属性，或者是修改已存在的属性。最终这个方法会返回该对象。</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><p>Object.defineProperty(object, propertyname, descriptor)</p>
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><p><code>object</code> 必需。 要在其上添加或修改属性的对象。 这可能是一个本机 JavaScript对象（即用户定义的对象或内置对象）或 DOM 对象。<br><code>propertyname</code> 必需。 一个包含属性名称的字符串。<br><code>descriptor</code> 必需。 属性描述符。 它可以针对数据属性或访问器属性。</p>
+<h4 id="属性的状态设置"><a href="#属性的状态设置" class="headerlink" title="属性的状态设置"></a>属性的状态设置</h4><p>1.<strong>descriptor</strong>的参数值得我们关注下,该属性可设置的值有：<br><strong>【value】</strong> 属性的值，默认为 undefined。<br><strong>【writable】</strong> 该属性是否可写，如果设置成 false，则任何对该属性改写的操作都无效（但不会报错），对于像前面例子中直接在对象上定义的属性，这个属性该特性默认值为为 true。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var someOne = &#123; &#125;;</span><br><span class="line">Object.defineProperty(someOne, &quot;name&quot;, &#123;</span><br><span class="line">    value:&quot;coverguo&quot; , //由于设定了writable属性为false 导致这个量不可以修改</span><br><span class="line">    writable: false </span><br><span class="line">&#125;);  </span><br><span class="line">console.log(someOne.name); // 输出 coverguo</span><br><span class="line">someOne.name = &quot;linkzhu&quot;;</span><br><span class="line">console.log(someOne.name); // 输出coverguo</span><br></pre></td></tr></table></figure>
+<p>2.<br><strong>configurable</strong>如果为false，则任何尝试删除目标属性或修改属性以下特性（writable, configurable, enumerable）的行为将被无效化，对于像前面例子中直接在对象上定义的属性，这个属性该特性默认值为为 true。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var someOne = &#123; &#125;;</span><br><span class="line">Object.defineProperty(someOne, &quot;name&quot;, &#123;</span><br><span class="line">    value:&quot;coverguo&quot; ,</span><br><span class="line">    configurable: false </span><br><span class="line">&#125;);  </span><br><span class="line">delete someOne.name; //删除属性---然并卵</span><br><span class="line">console.log(someOne.name);// 输出 coverguo</span><br><span class="line">someOne.name = &quot;linkzhu&quot;;</span><br><span class="line">console.log(someOne.name); // 输出coverguo</span><br></pre></td></tr></table></figure>
+<p>3.<strong>enumerable</strong> 是否能在for-in循环中遍历出来或在Object.keys中列举出来。对于像前面例子中直接在对象上定义的属性，这个属性该特性默认值为为 true</p>
+<p>注意 在调用Object.defineProperty()方法时，如果不指定， configurable， enumerable， writable特性的默认值都是false,这跟之前所 <code>说的对于像前面例子中直接在对象上定义的属性，这个特性默认值为为 true。并不冲突</code>，如下代码所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//调用Object.defineProperty()方法时，如果不指定</span><br><span class="line">var someOne = &#123; &#125;;</span><br><span class="line">someOne.name = &apos;coverguo&apos;;</span><br><span class="line">console.log(Object.getOwnPropertyDescriptor(someOne, &apos;name&apos;));</span><br><span class="line">//输出 Object &#123;value: &quot;coverguo&quot;, writable: true, enumerable: true, configurable: true&#125;</span><br><span class="line"></span><br><span class="line">//直接在对象上定义的属性，这个特性默认值为为 true</span><br><span class="line">var otherOne = &#123;&#125;;</span><br><span class="line">Object.defineProperty(otherOne, &quot;name&quot;, &#123;</span><br><span class="line">    value:&quot;coverguo&quot; </span><br><span class="line">&#125;);  </span><br><span class="line">console.log(Object.getOwnPropertyDescriptor(otherOne, &apos;name&apos;));</span><br><span class="line">//输出 Object &#123;value: &quot;coverguo&quot;, writable: false, enumerable: false, configurable: false&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>【get】</strong>一旦目标对象访问该属性，就会调用这个方法，并返回结果。默认为 undefined。<br><strong>【set】</strong> 一旦目标对象设置该属性，就会调用这个方法。默认为 undefined。<br>从上面，可以得知，我们可以通过使用Object.defineProperty，来定义和控制一些特殊的属性，如属性是否可读，属性是否可枚举，甚至修改属性的修改器（setter）和获取器(getter)<br>那什么场景和地方适合使用到特殊的属性呢？</p>
+<h5 id="优化对象获取和修改属性方式"><a href="#优化对象获取和修改属性方式" class="headerlink" title="优化对象获取和修改属性方式"></a>优化对象获取和修改属性方式</h5><p>这个优化对象获取和修改属性方式，是什么意思呢？ 过去我们在设置dom节点transform时是这样的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//加入有一个目标节点， 我们想设置其位移时是这样的</span><br><span class="line">var targetDom = document.getElementById(&apos;target&apos;);</span><br><span class="line">var transformText = &apos;translateX(&apos; + 10 + &apos;px)&apos;;</span><br><span class="line">targetDom.style.webkitTransform = transformText;</span><br><span class="line">targetDom.style.transform = transformText;</span><br></pre></td></tr></table></figure>
+<p>通过上面，可以看到如果页面是需要许多动画时，我们这样编写transform属性是十分蛋疼的。(┬＿┬)<br>但如果通过Object.defineProperty， 我们则可以</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//这里只是简单设置下translateX的属性，其他如scale等属性可自己去尝试</span><br><span class="line"></span><br><span class="line">Object.defineProperty(dom, &apos;translateX&apos;, &#123;</span><br><span class="line">set: function(value) &#123;</span><br><span class="line">         var transformText = &apos;translateX(&apos; + value + &apos;px)&apos;;</span><br><span class="line">        dom.style.webkitTransform = transformText;</span><br><span class="line">        dom.style.transform = transformText;</span><br><span class="line">&#125;</span><br><span class="line">//这样再后面调用的时候, 十分简单</span><br><span class="line">dom.translateX = 10;</span><br><span class="line">dom.translateX = -10;</span><br><span class="line">//甚至可以拓展设置如scale, originX, translateZ,等各个属性，达到下面的效果</span><br><span class="line">dom.scale = 1.5;  //放大1.5倍</span><br><span class="line">dom.originX = 5;  //设置中心点X</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面只是个简单的版本,并不是最合理的写法，但主要是为了说明具体的意图和方法<br>有兴趣了解更多可以看下面这个库：<br><a href="https://github.com/AlloyTeam/AlloyTouch/blob/master/transform.js" target="_blank" rel="external">点我,老铁</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2017/11/02/Object.defineProperty/" data-title="Object.defineProperty | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/11/03/ES6 Promise/" title="ES6中的Promise">
+  <strong>上一篇：</strong><br/>
+  <span>
+  ES6中的Promise</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2017/10/23/非构造函数的继承/"  title="非构造函数的继承">
+ <strong>下一篇：</strong><br/> 
+ <span>非构造函数的继承
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#语法"><span class="toc-number">1.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参数"><span class="toc-number">2.</span> <span class="toc-text">参数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#属性的状态设置"><span class="toc-number">2.1.</span> <span class="toc-text">属性的状态设置</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#优化对象获取和修改属性方式"><span class="toc-number">2.1.1.</span> <span class="toc-text">优化对象获取和修改属性方式</span></a></li></ol></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="hjaistrive" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=5597151709&verifier=2e2fc03f&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> To the world you maybe one peeson , but to one person you maybe the world. <br/>
+			This is my goddess.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/hjaistrive" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		<a href="http://stackoverflow.com/users/8573660" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
+		
+		
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/liang-ren-de-hui-yi-yiren-guo" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:hjaistrive@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="HJ">HJ</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
