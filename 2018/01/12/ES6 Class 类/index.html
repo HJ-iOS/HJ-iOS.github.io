@@ -1,0 +1,499 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>ES6 Class 类 | Welcome to the literati Association!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="HJ">
+    
+
+    
+    <meta name="description" content="ES6中的类实际就是一个函数,且正如函数的定义方式有函数声明和函数表达式两种一样,类的定义也有两种方式.分别为:
+
+-类声明-类表达式
+
+类声明类声明是定义类的一种方式,使用class关键字后跟一个类名,就可以定义一个类.
+12345class Foo &amp;#123;	constructor&amp;#123;		//...	&amp;#125;&amp;#125;
+不存在变量提升(hoist)类声明和函数声明不同的一点是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6 Class 类">
+<meta property="og:url" content="http://yoursite.com/2018/01/12/ES6 Class 类/index.html">
+<meta property="og:site_name" content="Welcome to the literati Association!">
+<meta property="og:description" content="ES6中的类实际就是一个函数,且正如函数的定义方式有函数声明和函数表达式两种一样,类的定义也有两种方式.分别为:
+
+-类声明-类表达式
+
+类声明类声明是定义类的一种方式,使用class关键字后跟一个类名,就可以定义一个类.
+12345class Foo &amp;#123;	constructor&amp;#123;		//...	&amp;#125;&amp;#125;
+不存在变量提升(hoist)类声明和函数声明不同的一点是">
+<meta property="og:updated_time" content="2018-01-12T02:58:34.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6 Class 类">
+<meta name="twitter:description" content="ES6中的类实际就是一个函数,且正如函数的定义方式有函数声明和函数表达式两种一样,类的定义也有两种方式.分别为:
+
+-类声明-类表达式
+
+类声明类声明是定义类的一种方式,使用class关键字后跟一个类名,就可以定义一个类.
+12345class Foo &amp;#123;	constructor&amp;#123;		//...	&amp;#125;&amp;#125;
+不存在变量提升(hoist)类声明和函数声明不同的一点是">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Welcome to the literati Association!" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Welcome to the literati Association!" title="Welcome to the literati Association!"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Welcome to the literati Association!">Welcome to the literati Association!</a></h1>
+				<h2 class="blog-motto">The president of the literati association is HJ.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/01/12/ES6 Class 类/" title="ES6 Class 类" itemprop="url">ES6 Class 类</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="HJ" target="_blank" itemprop="author">HJ</a>
+		
+  <p class="article-time">
+    <time datetime="2018-01-12T02:58:34.000Z" itemprop="datePublished"> 发表于 2018-01-12</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#类声明"><span class="toc-number">1.</span> <span class="toc-text">类声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不存在变量提升-hoist"><span class="toc-number">2.</span> <span class="toc-text">不存在变量提升(hoist)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类表达式"><span class="toc-number">3.</span> <span class="toc-text">类表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类体和方法定义"><span class="toc-number">4.</span> <span class="toc-text">类体和方法定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#严格模式"><span class="toc-number">5.</span> <span class="toc-text">严格模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构造器（constructor方法）"><span class="toc-number">6.</span> <span class="toc-text">构造器（constructor方法）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原型方法"><span class="toc-number">7.</span> <span class="toc-text">原型方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#静态方法"><span class="toc-number">8.</span> <span class="toc-text">静态方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#extends关键字"><span class="toc-number">9.</span> <span class="toc-text">extends关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#super-关键字"><span class="toc-number">10.</span> <span class="toc-text">super 关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类的Getter和Setter方法"><span class="toc-number">11.</span> <span class="toc-text">类的Getter和Setter方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类的Generator方法"><span class="toc-number">12.</span> <span class="toc-text">类的Generator方法</span></a></li></ol>
+		
+		</div>
+		
+		<p>ES6中的类实际就是一个函数,且正如函数的定义方式有函数声明和函数表达式两种一样,类的定义也有两种方式.<br>分别为:</p>
+<blockquote>
+<p>-类声明<br>-类表达式</p>
+</blockquote>
+<h3 id="类声明"><a href="#类声明" class="headerlink" title="类声明"></a>类声明</h3><p>类声明是定义类的一种方式,使用class关键字后跟一个类名,就可以定义一个类.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class Foo &#123;</span><br><span class="line">	constructor&#123;</span><br><span class="line">		//...</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="不存在变量提升-hoist"><a href="#不存在变量提升-hoist" class="headerlink" title="不存在变量提升(hoist)"></a>不存在变量提升(hoist)</h3><p>类声明和函数声明不同的一点是,函数声明存在变量提升现象,而类声明不会.即,类必须先声明,然后才可以使用,否则会抛出<code>ReferencError</code>异常</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var foo = new Foo(); // Uncaught ReferenceError: Foo is not defined(...)</span><br><span class="line">class Foo &#123;</span><br><span class="line">    // ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这种规定的原因与类的继承有关，必须保证子类在父类之后定义。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let Foo = class &#123;&#125;;</span><br><span class="line"></span><br><span class="line">class Bar extends Foo &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的代码不会报错，因为class Bar继承Foo时，Foo已经有定义了。(但是，如果存在Class提升，上面代码就会报错，因为Class Bar会被提升到代码头部，而表达式式Foo是不会提升的，所以导致Class Bar继承Foo的时候，Foo还没有定义。)</p>
+<h3 id="类表达式"><a href="#类表达式" class="headerlink" title="类表达式"></a>类表达式</h3><p>类表达式就定义类的另外一种方式，就像函数表达式一样，在类表达式中，类名是可有可无的。若定义的类名，则该类名只有的类的内部才可以访问到。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 方式一</span><br><span class="line">const MyClass = class &#123;&#125;;</span><br><span class="line"></span><br><span class="line">// 方式二：给出类名</span><br><span class="line">const MyClass = class Me &#123;</span><br><span class="line">    getClassName() &#123;</span><br><span class="line">        return Me.name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>上面方式二定义类的同时给出了类名，此时，Me类名只可以在Class的内部代码可用，指代当前类。MyClass的name属性值为给出的类名。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let my = new MyClass();</span><br><span class="line">my.getClassName(); // Me</span><br><span class="line">Me.name; // Uncaught ReferenceError: Me is not defined(…)</span><br><span class="line">MyClass.name; // Me</span><br></pre></td></tr></table></figure>
+<p>采用类表达式，可以写出立即执行的Class。如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">let person = new class &#123;</span><br><span class="line">    constructor(name) &#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    sayName() &#123;</span><br><span class="line">        console.log(this.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;(&apos;Zhang San&apos;);</span><br><span class="line"></span><br><span class="line">person.sayName(); // Zhang San</span><br></pre></td></tr></table></figure>
+<h3 id="类体和方法定义"><a href="#类体和方法定义" class="headerlink" title="类体和方法定义"></a>类体和方法定义</h3><p>类的成员需要定义在一对大括号内{}，大括号内的代码的大括号本身组成了类体。类成员包括类构造器和类方法（包括静态方法和实例方法）。</p>
+<h3 id="严格模式"><a href="#严格模式" class="headerlink" title="严格模式"></a>严格模式</h3><p>类体中的代码都强制在严格模式中执行，即默认”use strict”。考虑到未来所有的代码，其实都是运行在模块之中，所以ES6实际上把整个语言升级到了严格模式。</p>
+<h3 id="构造器（constructor方法）"><a href="#构造器（constructor方法）" class="headerlink" title="构造器（constructor方法）"></a>构造器（constructor方法）</h3><p><code>constructor</code>方法是一个特殊的类方法，它既不是静态方法也不是实例方法，它仅在实例化的时候被调用。一个类只能拥有一个名为<code>constructor</code>的方法，否则会抛出SyntaxError异常。</p>
+<p>如果没有定义<code>constructor</code>方法，这个方法会被默认添加，即，不管有没有显示定义，任何一个类都有<code>constructor</code>方法。</p>
+<p>子类必须在<code>constructor</code>方法中调用<code>super</code>方法，否则新建实例时会报错。因为子类没有自己的<code>this</code>对象，而是继承父类的this对象，然后对其进行加工，如果不调用<code>super</code>方法，子类就得不到this对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class Point &#123;&#125;</span><br><span class="line"></span><br><span class="line">class ColorPoint extends Point &#123;</span><br><span class="line">    constructor() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let cp = new ColorPoint(); // ReferenceError</span><br></pre></td></tr></table></figure>
+<p>上面代码中，<code>ColorPoint</code>继承了父类<code>Point</code>，但是它的构造函数没有调用<code>super</code>方法，导致新建实例时报错。</p>
+<h3 id="原型方法"><a href="#原型方法" class="headerlink" title="原型方法"></a>原型方法</h3><p>定义类的方法时，方法名前面不需要加上<code>function</code>关键字。另外，方法之间不需要用逗号分隔，加了会报错。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class Bar &#123;</span><br><span class="line">    constructor() &#123;&#125;</span><br><span class="line"></span><br><span class="line">    doStuff() &#123;&#125;</span><br><span class="line"></span><br><span class="line">    toString() &#123;&#125;</span><br><span class="line"></span><br><span class="line">    toValue() &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>类的所有方法都是定义在类的`prototype属性上的，上面的写法等同于下面：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Bar.prototype = &#123;</span><br><span class="line">    doStuff() &#123;&#125;,</span><br><span class="line">    toString() &#123;&#125;,</span><br><span class="line">    toValue() &#123;&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>所以，在类的实例上调用方法，实际上就是调用原型上的方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class B &#123;&#125;</span><br><span class="line">let b = new B();</span><br><span class="line"></span><br><span class="line">b.constructor === B.prototype.constructor; // true</span><br></pre></td></tr></table></figure>
+<p>上面代码中，b是B类的实例，它的<code>constructor</code>方法就是B类原型的<code>constructor</code>方法。<br>由于类的方法都是定义在<code>prototype</code>上面，所以类的新方法可以添加在<code>prototype</code>对象上面。<code>Object.assign</code>方法可以很方便地一次向类添加多个方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class Point &#123;</span><br><span class="line">    constructor() &#123;</span><br><span class="line">        // ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Object.assign(Point.prototype, &#123;</span><br><span class="line">    toString() &#123;&#125;,</span><br><span class="line">    toValue() &#123;&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>另外，类的内部所有定义的方法，都是不可枚举的（non-enumerable）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class Point &#123;</span><br><span class="line">    constructor(x, y) &#123;</span><br><span class="line">        // ...</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    toString() &#123;</span><br><span class="line">        return &apos;(&apos; + x + &apos;, &apos; + y + &apos;)&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Object.keys(Point.prototype); // []</span><br><span class="line">Object.getOwnPropertyNames(Point.prototype); // [&quot;constructor&quot;, &quot;toString&quot;]</span><br><span class="line">Object.getOwnPropertyDescriptor(Point, &apos;toString&apos;);</span><br><span class="line">// Object &#123;writable: true, enumerable: false, configurable: true&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h3><p><code>static</code>关键字用来定义类的静态方法。静态方法是指那些不需要对类进行实例化，使用类名就可以直接访问的方法。静态方法经常用来作为工具函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class Point &#123;</span><br><span class="line">    constructor(x, y) &#123;</span><br><span class="line">        this.x = x;</span><br><span class="line">        this.y = y;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    static distance(a, b) &#123;</span><br><span class="line">        const dx = a.x - b.x;</span><br><span class="line">        const dy = a.y - b.y;</span><br><span class="line"></span><br><span class="line">        return Math.sqrt(dx*dx + dy*dy);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const p1 = new Point(5, 5);</span><br><span class="line">const p2 = new Point(10, 10);</span><br><span class="line"></span><br><span class="line">console.log(Point.distance(p1, p2));</span><br></pre></td></tr></table></figure>
+<p>静态方法不可以被实例继承，是通过类名直接调用的。但是，父类的静态方法可以被子类继承。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class Foo &#123;</span><br><span class="line">  static classMethod() &#123;</span><br><span class="line">    return &apos;hello&apos;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Bar extends Foo &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Bar.classMethod(); // &quot;hello&quot;</span><br></pre></td></tr></table></figure>
+<p>静态方法也可以用<code>super</code>关键字调用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class Foo &#123;</span><br><span class="line">  static classMethod() &#123;</span><br><span class="line">    return &apos;hello&apos;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Bar extends Foo &#123;</span><br><span class="line">  static classMethod() &#123;</span><br><span class="line">    return super.classMethod() + &apos;, too&apos;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Bar.classMethod(); // &quot;hello too&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="extends关键字"><a href="#extends关键字" class="headerlink" title="extends关键字"></a>extends关键字</h3><p><code>extends</code>关键字用于实现类之间的继承。子类继承父类，就继承了父类的所有属性和方法。<br><code>extends</code>后面只可以跟一个父类。</p>
+<h3 id="super-关键字"><a href="#super-关键字" class="headerlink" title="super 关键字"></a>super 关键字</h3><p><code>super</code>关键字可以用来调用其父类的构造器或方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Cat &#123; </span><br><span class="line">  constructor(name) &#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  speak() &#123;</span><br><span class="line">    console.log(this.name + &apos; makes a noise.&apos;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Lion extends Cat &#123;</span><br><span class="line">  speak() &#123;</span><br><span class="line">    super.speak();</span><br><span class="line">    console.log(this.name + &apos; roars.&apos;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="类的Getter和Setter方法"><a href="#类的Getter和Setter方法" class="headerlink" title="类的Getter和Setter方法"></a>类的Getter和Setter方法</h3><p>与ES5一样，在类内部可以使用<code>get</code>和<code>set</code>关键字，对某个属性设置取值和赋值方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class Foo &#123;</span><br><span class="line">    constructor() &#123;&#125;</span><br><span class="line"></span><br><span class="line">    get prop() &#123;</span><br><span class="line">        return &apos;getter&apos;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    set prop(val) &#123;</span><br><span class="line">        console.log(&apos;setter: &apos; + val);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let foo = new Foo();</span><br><span class="line"></span><br><span class="line">foo.prop = 1;</span><br><span class="line">// setter: 1</span><br><span class="line"></span><br><span class="line">foo.prop;</span><br><span class="line">// &quot;getter&quot;</span><br></pre></td></tr></table></figure>
+<p>上面代码中，<code>prop</code>属性有对应 的赋值和取值方法，因此赋值和读取行为都被自定义了。<br>存值和取值方法是设置在属性的descriptor对象上的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var descriptor = Object.getOwnPropertyDescriptor(Foo.prototype, &apos;prop&apos;);</span><br><span class="line"></span><br><span class="line">&quot;get&quot; in descriptor // true</span><br><span class="line">&quot;set&quot; in descriptor // true</span><br></pre></td></tr></table></figure>
+<p>上面代码中，存值和取值方法是定义在<code>prop</code>属性的描述对象上的，这与ES5一致。</p>
+<h3 id="类的Generator方法"><a href="#类的Generator方法" class="headerlink" title="类的Generator方法"></a>类的Generator方法</h3><p>如果类的某个方法名前加上星号（<code>*</code>），就表示这个方法是一个Generator函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Foo &#123;</span><br><span class="line">  constructor(...args) &#123;</span><br><span class="line">    this.args = args;</span><br><span class="line">  &#125;</span><br><span class="line">  * [Symbol.iterator]() &#123;</span><br><span class="line">    for (let arg of this.args) &#123;</span><br><span class="line">      yield arg;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">for (let x of new Foo(&apos;hello&apos;, &apos;world&apos;)) &#123;</span><br><span class="line">  console.log(x);</span><br><span class="line">&#125;</span><br><span class="line">// hello</span><br><span class="line">// world</span><br></pre></td></tr></table></figure>
+<p>上面代码中，Foo类的Symbol.iterator方法前有一个星号，表示该方法是一个Generator函数。Symbol.iterator方法返回一个Foo类的默认遍历器，<code>for...of</code>循环会自动调用这个遍历器。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2018/01/12/ES6 Class 类/" data-title="ES6 Class 类 | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2018/01/11/逗号-按用途分类/"  title="Javascript 逗号">
+ <strong>下一篇：</strong><br/> 
+ <span>Javascript 逗号
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#类声明"><span class="toc-number">1.</span> <span class="toc-text">类声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不存在变量提升-hoist"><span class="toc-number">2.</span> <span class="toc-text">不存在变量提升(hoist)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类表达式"><span class="toc-number">3.</span> <span class="toc-text">类表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类体和方法定义"><span class="toc-number">4.</span> <span class="toc-text">类体和方法定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#严格模式"><span class="toc-number">5.</span> <span class="toc-text">严格模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构造器（constructor方法）"><span class="toc-number">6.</span> <span class="toc-text">构造器（constructor方法）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原型方法"><span class="toc-number">7.</span> <span class="toc-text">原型方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#静态方法"><span class="toc-number">8.</span> <span class="toc-text">静态方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#extends关键字"><span class="toc-number">9.</span> <span class="toc-text">extends关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#super-关键字"><span class="toc-number">10.</span> <span class="toc-text">super 关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类的Getter和Setter方法"><span class="toc-number">11.</span> <span class="toc-text">类的Getter和Setter方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类的Generator方法"><span class="toc-number">12.</span> <span class="toc-text">类的Generator方法</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="hjaistrive" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=5597151709&verifier=2e2fc03f&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> To the world you maybe one peeson , but to one person you maybe the world. <br/>
+			This is my goddess.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/hjaistrive" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		<a href="http://stackoverflow.com/users/8573660" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
+		
+		
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/liang-ren-de-hui-yi-yiren-guo" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:hjaistrive@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
+		
+		<a href="/about" target="_blank" title="HJ">HJ</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
