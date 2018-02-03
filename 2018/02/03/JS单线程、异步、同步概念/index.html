@@ -4,29 +4,35 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>iOS应用程序的特点 | Welcome to the literati Association!</title>
+    <title>JS单线程、异步、同步概念 | Welcome to the literati Association!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="HJ">
     
 
     
-    <meta name="description" content="1.只能运行一个应用在iOS中，一次只能有一个应用处于活动状态显示在屏幕上。从iOS4开始，用户按下Home键，应用程序可以在后台继续运行，但是需要专门为此编写代码（以后会详细介绍）
-2.只能使用一个窗口iOS只允许应用程序操作一个窗口，应用程序与用户的所有交互都在这个窗口中完成，大小就是iOS设备屏幕的固定大小    s
-3.有限的访问权限iOS的文件系统会为每个每个应用分配一块独立的区域，就是">
+    <meta name="description" content="从一到面试题引发的追究
+123for(var j=0;j&amp;lt;10;j++)&amp;#123;  setTimeout(function()&amp;#123;console.log(j)&amp;#125;,5000)&amp;#125;
+答案显而易见   
+
+为什么会循环打印十个10而不是0到9？从结果来看，for循环执行完跳出之后，才开始执行setTimeout（所以j才等于10），为什么不是每次迭代都执行一次setT">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS应用程序的特点">
-<meta property="og:url" content="http://yoursite.com/2016/03/17/iOS应用程序的特点/index.html">
+<meta property="og:title" content="JS单线程、异步、同步概念">
+<meta property="og:url" content="http://yoursite.com/2018/02/03/JS单线程、异步、同步概念/index.html">
 <meta property="og:site_name" content="Welcome to the literati Association!">
-<meta property="og:description" content="1.只能运行一个应用在iOS中，一次只能有一个应用处于活动状态显示在屏幕上。从iOS4开始，用户按下Home键，应用程序可以在后台继续运行，但是需要专门为此编写代码（以后会详细介绍）
-2.只能使用一个窗口iOS只允许应用程序操作一个窗口，应用程序与用户的所有交互都在这个窗口中完成，大小就是iOS设备屏幕的固定大小    s
-3.有限的访问权限iOS的文件系统会为每个每个应用分配一块独立的区域，就是">
-<meta property="og:updated_time" content="2016-03-17T01:46:14.000Z">
+<meta property="og:description" content="从一到面试题引发的追究
+123for(var j=0;j&amp;lt;10;j++)&amp;#123;  setTimeout(function()&amp;#123;console.log(j)&amp;#125;,5000)&amp;#125;
+答案显而易见   
+
+为什么会循环打印十个10而不是0到9？从结果来看，for循环执行完跳出之后，才开始执行setTimeout（所以j才等于10），为什么不是每次迭代都执行一次setT">
+<meta property="og:updated_time" content="2018-02-03T10:22:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS应用程序的特点">
-<meta name="twitter:description" content="1.只能运行一个应用在iOS中，一次只能有一个应用处于活动状态显示在屏幕上。从iOS4开始，用户按下Home键，应用程序可以在后台继续运行，但是需要专门为此编写代码（以后会详细介绍）
-2.只能使用一个窗口iOS只允许应用程序操作一个窗口，应用程序与用户的所有交互都在这个窗口中完成，大小就是iOS设备屏幕的固定大小    s
-3.有限的访问权限iOS的文件系统会为每个每个应用分配一块独立的区域，就是">
+<meta name="twitter:title" content="JS单线程、异步、同步概念">
+<meta name="twitter:description" content="从一到面试题引发的追究
+123for(var j=0;j&amp;lt;10;j++)&amp;#123;  setTimeout(function()&amp;#123;console.log(j)&amp;#125;,5000)&amp;#125;
+答案显而易见   
+
+为什么会循环打印十个10而不是0到9？从结果来看，for循环执行完跳出之后，才开始执行setTimeout（所以j才等于10），为什么不是每次迭代都执行一次setT">
 
     
     <link rel="alternative" href="/atom.xml" title="Welcome to the literati Association!" type="application/atom+xml">
@@ -86,14 +92,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/03/17/iOS应用程序的特点/" title="iOS应用程序的特点" itemprop="url">iOS应用程序的特点</a>
+      <a href="/2018/02/03/JS单线程、异步、同步概念/" title="JS单线程、异步、同步概念" itemprop="url">JS单线程、异步、同步概念</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="HJ" target="_blank" itemprop="author">HJ</a>
 		
   <p class="article-time">
-    <time datetime="2016-03-17T01:46:14.000Z" itemprop="datePublished"> 发表于 2016-03-17</time>
+    <time datetime="2018-02-03T10:22:19.000Z" itemprop="datePublished"> 发表于 2018-02-03</time>
     
   </p>
 </header>
@@ -102,37 +108,40 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-只能运行一个应用"><span class="toc-number">1.</span> <span class="toc-text">1.只能运行一个应用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-只能使用一个窗口"><span class="toc-number">2.</span> <span class="toc-text">2.只能使用一个窗口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-有限的访问权限"><span class="toc-number">3.</span> <span class="toc-text">3.有限的访问权限</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-有限的响应时间"><span class="toc-number">4.</span> <span class="toc-text">4.有限的响应时间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-有限的屏幕尺寸"><span class="toc-number">5.</span> <span class="toc-text">5.有限的屏幕尺寸</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-有限的系统资源"><span class="toc-number">6.</span> <span class="toc-text">6.有限的系统资源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-几个新功能"><span class="toc-number">7.</span> <span class="toc-text">7.几个新功能</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#这就涉及到了JavaScript的核心特性：单线程。"><span class="toc-number">1.</span> <span class="toc-text">这就涉及到了JavaScript的核心特性：单线程。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#任务队列与异步"><span class="toc-number">2.</span> <span class="toc-text">任务队列与异步</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS的运行机制如下："><span class="toc-number">3.</span> <span class="toc-text">JS的运行机制如下：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#疑问"><span class="toc-number">4.</span> <span class="toc-text">疑问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EventLoop"><span class="toc-number">5.</span> <span class="toc-text">EventLoop</span></a></li></ol>
 		
 		</div>
 		
-		<h4 id="1-只能运行一个应用"><a href="#1-只能运行一个应用" class="headerlink" title="1.只能运行一个应用"></a>1.只能运行一个应用</h4><pre><code>在iOS中，一次只能有一个应用处于活动状态显示在屏幕上。从iOS4开始，用户按下Home键，应用程序可以在后台继续运行，但是需要专门为此编写代码（以后会详细介绍）
-</code></pre><h4 id="2-只能使用一个窗口"><a href="#2-只能使用一个窗口" class="headerlink" title="2.只能使用一个窗口"></a>2.只能使用一个窗口</h4><pre><code>iOS只允许应用程序操作一个窗口，应用程序与用户的所有交互都在这个窗口中完成，大小就是iOS设备屏幕的固定大小    s
-</code></pre><h4 id="3-有限的访问权限"><a href="#3-有限的访问权限" class="headerlink" title="3.有限的访问权限"></a>3.有限的访问权限</h4><pre><code>iOS的文件系统会为每个每个应用分配一块独立的区域，就是我们熟知的沙盒。每个应用只能读写自己沙盒内的文件。
-</code></pre><h4 id="4-有限的响应时间"><a href="#4-有限的响应时间" class="headerlink" title="4.有限的响应时间"></a>4.有限的响应时间</h4><pre><code>应用程序在运行的时候，按下Home键，iOS就会返回主屏幕，程序必须保存一切内容并退出，如果没有在5s之内保存必要的数据并放弃对系统资源的控制，无论是否已经完全保存，应用程序进程都会被禁止。有一个API可以在应用程序终止前请求多一些时间来完成必要的工作（以后会提到）
-</code></pre><h4 id="5-有限的屏幕尺寸"><a href="#5-有限的屏幕尺寸" class="headerlink" title="5.有限的屏幕尺寸"></a>5.有限的屏幕尺寸</h4><pre><code>设备            硬件尺寸          软件尺寸               精密程度    
-4s           640x960            320x480               2x
-5和5s        640x1136         320x568              2x
-6            6750x1334        375x667              2x
-6P           1080x1920        414x736              3x
-iPad和iPad mini     768x1024      768x1024          1x
-iPad Air、iPad mini Retina、iPad Retina                
-         768x1024           768x1024             1x
-硬件尺寸就是手机屏幕的大小，写代码的时候只要注意软件尺寸就可以了。
-</code></pre><h4 id="6-有限的系统资源"><a href="#6-有限的系统资源" class="headerlink" title="6.有限的系统资源"></a>6.有限的系统资源</h4><pre><code>Cocoa Touch 提供了一种内置机制，可以在内存不足的时候通知应用程序。赶紧释放不必要的内存空间（TMD占着茅坑不拉屎），要不然程序就会闪退。
-接下来的可以忽略不看：
-由于iOS具备图形特性和多种功能，很容易耗光内存。到目前为止iOS设备的物理内存要么是512MB（4s、iPad2、一代iPad mini、iPod touch5），要么是1024MB（5c、5s、6、6P、iPad Air、iPad mini Retina），以后一定还会大的（iPad Air 2 的内存已经达到了2GB）。
-很大一部分内存被用于屏幕缓冲区和其他一些系统进程，一般，只有不到一半的内存留给应用程序使用（实际可用内存可能更少，尤其是因为其他应用可能在后台运行）。
-
-谈到iOS内存，还需要考虑另一个因素：现代计算机操作系统（比如OS X）会将未使用的内存块写到磁盘的交换文件中，这样，当应用程序请求的内存超过计算机的实际可用内存时，它仍然可以正常运行。但是，iOS并不会将易失性内存（比如应用程序数据）写到交换文件中。因此，应用程序的可用内存大小受限于iOS设备中未使用的物理内存空间。
-</code></pre><h4 id="7-几个新功能"><a href="#7-几个新功能" class="headerlink" title="7.几个新功能"></a>7.几个新功能</h4><pre><code>1.iOS SDK中的Core Location框架可以确定当前手机的地理坐标&lt;br&gt;
-2.大部分iOS设备都有内置的摄像头和照片库（废话，但是也有人不知道）。&lt;br&gt;
-3.iOS有一个内置的运动传感器，用于检测设备的握持和移动方向。
-8.与众不同的交互方式
-
-iOS系统替你完成，比如点击文本框就会调出软键盘，不需要额外写代码。
-所有的设备都支持通过蓝牙连接外置键盘，现在依然无法连接鼠标。
-</code></pre>  
+		<p>从一到面试题引发的追究</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(var j=0;j&lt;10;j++)&#123;</span><br><span class="line">  setTimeout(function()&#123;console.log(j)&#125;,5000)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>答案显而易见   </p>
+<blockquote>
+<p>为什么会循环打印十个10而不是0到9？<br>从结果来看，for循环执行完跳出之后，才开始执行setTimeout（所以j才等于10），为什么不是每次迭代都执行一次setTimeout呢？</p>
+</blockquote>
+<p>为什么会循环打印十个10</p>
+<p>许多人习惯用第二个问题中的执行结果来回答这个问题：“for循环执行完跳出之后，才开始执行setTimeout，所以才打印了十个10”。</p>
+<p>这样的答案，只能说是既应付了自己，又应付了别人。其实，要解答第一个问题，首先要解答的就是第二的问题。</p>
+<p>大家都知道，JavaScript在ES6出现以前，是没有块状作用域的，这就意味着， 在for循环中用var定义的变量j，其实是属于全局的，即在全局范围内都可以被访问到，既然如此，那其实整个全局作用域中就只有一个j，每次for循环都i是在更新这个j。</p>
+<p>那么现在关键的问题在于，为什么整个for循环会先于setTimeout执行，而不是我们正常理解的，一次迭代执行一次。</p>
+<h3 id="这就涉及到了JavaScript的核心特性：单线程。"><a href="#这就涉及到了JavaScript的核心特性：单线程。" class="headerlink" title="这就涉及到了JavaScript的核心特性：单线程。"></a>这就涉及到了JavaScript的核心特性：单线程。</h3><p>JavaScript设计的初衷，是浏览器用来与用户进行交互和DOM操作的。这就决定了它必须是单线程的，设想JavaScript同事有两个线程，一个线程在DOM节点添加内容，一个线程删除该节点，浏览器就会出现混乱。所以，为了避免复杂性，从一诞生，JavaScript就是单线程，这已经成了这门语言的核心特征，将来也不会改变。</p>
+<p>但是浏览器是多线程的，除了js引擎线程，还有UI渲染线程，http请求线程等等。<br>多线程共享运行资源，浏览器中js可以操作dom，会影响UI渲染，所以js引擎线程和UI渲染线程是互斥的，当js执行时会阻塞UI的渲染，如alert。</p>
+<h3 id="任务队列与异步"><a href="#任务队列与异步" class="headerlink" title="任务队列与异步"></a>任务队列与异步</h3><p>js是单线程语言，浏览器只分配给js一个主线程，用来执行任务（函数），但一次只能执行一个任务，这些任务形成一个执行栈排队等候执行，但前端的某些任务是非常耗时的，比如网络请求，定时器和事件监听，如果让他们和别的任务一样，都老老实实的排队等待执行的话，执行效率会非常的低，甚至导致页面的假死。所以，浏览器为这些耗时任务开辟了另外的线程，主要包括http请求线程，浏览器定时触发器，浏览器事件触发线程，这些任务是异步的。</p>
+<blockquote>
+<p>a.同步任务是指在主线程上排队执行的任务，只有前一个任务执行完毕，后一个同步任务才能执行。</p>
+<p>b.异步任务是指不在主线程、而是在任务队列中的任务。只有当任务队列通知主线程，并且执行栈为空时，该任务队列中的任务才会进入主线程执行。</p>
+</blockquote>
+<p>那么问题来了，这些异步任务完成后，主线程怎么知道呢？答案就是回调函数</p>
+<p>例如setTimeout(function(){console.log(1);}，50）;浏览器异步执行计时操作，当50ms到了后，会触发定时事件，并且执行栈为空这个时候，就会把回调函数放到任务队列里。整个程序就是通过这样的一个个事件驱动起来的。</p>
+<p>所以说，js是一直是单线程的，浏览器才是实现异步的那个家伙。</p>
+<h3 id="JS的运行机制如下："><a href="#JS的运行机制如下：" class="headerlink" title="JS的运行机制如下："></a>JS的运行机制如下：</h3><blockquote>
+<p>(1）所有同步任务都在主线程上执行，形成一个执行栈。<br>(2）主线程之外，还存在一个”任务队列”。只要异步任务有了运行结果，就在”任务队列”之中放置一个事件。<br>(3）一旦”执行栈”中的所有同步任务执行完毕，系统就会读取”任务队列”，看看里面有哪些事件。那些对应的异步任务，于是结束等待状态，进入执行栈，开始执行。<br>(4）主线程不断重复上面的第三步。</p>
+</blockquote>
+<p>所以执行栈中的代码（同步任务），总是在读取”任务队列”（异步任务）之前执行。</p>
+<h3 id="疑问"><a href="#疑问" class="headerlink" title="疑问"></a>疑问</h3><p>我看到这里的时候 有个疑问 真的是在执行栈为空的时候,才会执行任务队里面吗?</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(function ()&#123;console.log(&apos;计时器====1s&apos;)&#125;,1000);</span><br><span class="line">console.time(); </span><br><span class="line">for(var i= 0;i&lt;= 999999999;i++)</span><br><span class="line">&#123;</span><br><span class="line">	if(i == 999999999)</span><br><span class="line">	&#123;</span><br><span class="line">		console.log(&apos;故意延时&apos;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125; </span><br><span class="line">console.timeEnd();//延时的时间大约是2.5s</span><br></pre></td></tr></table></figure>
+<p>运行结果显而易见(很脑残的疑问,是真的菜)</p>
+<h3 id="EventLoop"><a href="#EventLoop" class="headerlink" title="EventLoop"></a>EventLoop</h3><p>主线程从”任务队列”中读取事件，这个过程是循环不断的，所以整个的这种运行机制又称为Event Loop（事件循环）。</p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -144,7 +153,7 @@ iOS系统替你完成，比如点击文本框就会调出软键盘，不需要�
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2016/03/17/iOS应用程序的特点/" data-title="iOS应用程序的特点 | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
+	  <div data-url="http://yoursite.com/2018/02/03/JS单线程、异步、同步概念/" data-title="JS单线程、异步、同步概念 | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -157,19 +166,11 @@ iOS系统替你完成，比如点击文本框就会调出软键盘，不需要�
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/03/17/Markdown语法的简要规则/" title="Markdown语法的简要规则">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Markdown语法的简要规则</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/03/17/Vim学习/"  title="Vim学习">
+<a href="/2018/01/22/Null vs. Undefined/"  title="JavaScript — Null vs. Undefined">
  <strong>下一篇：</strong><br/> 
- <span>Vim学习
+ <span>JavaScript — Null vs. Undefined
 </span>
 </a>
 </div>
@@ -184,7 +185,7 @@ iOS系统替你完成，比如点击文本框就会调出软键盘，不需要�
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-只能运行一个应用"><span class="toc-number">1.</span> <span class="toc-text">1.只能运行一个应用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-只能使用一个窗口"><span class="toc-number">2.</span> <span class="toc-text">2.只能使用一个窗口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-有限的访问权限"><span class="toc-number">3.</span> <span class="toc-text">3.有限的访问权限</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-有限的响应时间"><span class="toc-number">4.</span> <span class="toc-text">4.有限的响应时间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-有限的屏幕尺寸"><span class="toc-number">5.</span> <span class="toc-text">5.有限的屏幕尺寸</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-有限的系统资源"><span class="toc-number">6.</span> <span class="toc-text">6.有限的系统资源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-几个新功能"><span class="toc-number">7.</span> <span class="toc-text">7.几个新功能</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#这就涉及到了JavaScript的核心特性：单线程。"><span class="toc-number">1.</span> <span class="toc-text">这就涉及到了JavaScript的核心特性：单线程。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#任务队列与异步"><span class="toc-number">2.</span> <span class="toc-text">任务队列与异步</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS的运行机制如下："><span class="toc-number">3.</span> <span class="toc-text">JS的运行机制如下：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#疑问"><span class="toc-number">4.</span> <span class="toc-text">疑问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EventLoop"><span class="toc-number">5.</span> <span class="toc-text">EventLoop</span></a></li></ol>
  
   </div>
 
