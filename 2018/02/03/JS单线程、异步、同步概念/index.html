@@ -25,7 +25,8 @@
 答案显而易见   
 
 为什么会循环打印十个10而不是0到9？从结果来看，for循环执行完跳出之后，才开始执行setTimeout（所以j才等于10），为什么不是每次迭代都执行一次setT">
-<meta property="og:updated_time" content="2018-02-03T10:22:19.000Z">
+<meta property="og:image" content="https://github.com/hjaistrive/picture/raw/master/eventLoop.png">
+<meta property="og:updated_time" content="2018-02-05T03:07:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS单线程、异步、同步概念">
 <meta name="twitter:description" content="从一到面试题引发的追究
@@ -33,6 +34,7 @@
 答案显而易见   
 
 为什么会循环打印十个10而不是0到9？从结果来看，for循环执行完跳出之后，才开始执行setTimeout（所以j才等于10），为什么不是每次迭代都执行一次setT">
+<meta name="twitter:image" content="https://github.com/hjaistrive/picture/raw/master/eventLoop.png">
 
     
     <link rel="alternative" href="/atom.xml" title="Welcome to the literati Association!" type="application/atom+xml">
@@ -108,7 +110,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#这就涉及到了JavaScript的核心特性：单线程。"><span class="toc-number">1.</span> <span class="toc-text">这就涉及到了JavaScript的核心特性：单线程。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#任务队列与异步"><span class="toc-number">2.</span> <span class="toc-text">任务队列与异步</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS的运行机制如下："><span class="toc-number">3.</span> <span class="toc-text">JS的运行机制如下：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#疑问"><span class="toc-number">4.</span> <span class="toc-text">疑问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EventLoop"><span class="toc-number">5.</span> <span class="toc-text">EventLoop</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#这就涉及到了JavaScript的核心特性：单线程。"><span class="toc-number">1.</span> <span class="toc-text">这就涉及到了JavaScript的核心特性：单线程。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#任务队列与异步"><span class="toc-number">2.</span> <span class="toc-text">任务队列与异步</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS的运行机制如下："><span class="toc-number">3.</span> <span class="toc-text">JS的运行机制如下：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#疑问"><span class="toc-number">4.</span> <span class="toc-text">疑问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EventLoop"><span class="toc-number">5.</span> <span class="toc-text">EventLoop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#定时器"><span class="toc-number">6.</span> <span class="toc-text">定时器</span></a></li></ol>
 		
 		</div>
 		
@@ -141,6 +143,14 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(function ()&#123;console.log(&apos;计时器====1s&apos;)&#125;,1000);</span><br><span class="line">console.time(); </span><br><span class="line">for(var i= 0;i&lt;= 999999999;i++)</span><br><span class="line">&#123;</span><br><span class="line">	if(i == 999999999)</span><br><span class="line">	&#123;</span><br><span class="line">		console.log(&apos;故意延时&apos;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125; </span><br><span class="line">console.timeEnd();//延时的时间大约是2.5s</span><br></pre></td></tr></table></figure>
 <p>运行结果显而易见(很脑残的疑问,是真的菜)</p>
 <h3 id="EventLoop"><a href="#EventLoop" class="headerlink" title="EventLoop"></a>EventLoop</h3><p>主线程从”任务队列”中读取事件，这个过程是循环不断的，所以整个的这种运行机制又称为Event Loop（事件循环）。</p>
+<p><img src="https://github.com/hjaistrive/picture/raw/master/eventLoop.png" alt=""></p>
+<p>上图中，主线程运行的时候，产生堆（heap）和栈（stack），栈中的代码调用各种外部API，它们在”任务队列”中加入各种事件（click，load，done）。只要栈中的代码执行完毕，主线程就会去读取”任务队列”，依次执行那些事件所对应的回调函数。</p>
+<h3 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h3><p>除了放置异步任务的事件，”任务队列”还可以放置定时事件，即指定某些代码在多少时间之后执行。这叫做”定时器”（timer）功能，也就是定时执行的代码。<br>定时器功能主要由setTimeout()和setInterval()这两个函数来完成，它们的内部运行机制完全一样，区别在于前者指定的代码是一次性执行，后者则为反复执行。以下主要讨论setTimeout()。<br>setTimeout()接受两个参数，第一个是回调函数，第二个是推迟执行的毫秒数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">console.log(1);</span><br><span class="line">setTimeout(function()&#123;console.log(2);&#125;,1000);</span><br><span class="line">console.log(3);</span><br></pre></td></tr></table></figure>
+<p>上面代码的执行结果是1，3，2，因为setTimeout()将第二行推迟到1000毫秒之后执行。<br>如果将setTimeout()的第二个参数设为0，就表示当前代码执行完（执行栈清空）以后，立即执行（0毫秒间隔）指定的回调函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(function()&#123;console.log(1);&#125;, 0);</span><br><span class="line">console.log(2);</span><br></pre></td></tr></table></figure>
+<p>上面代码的执行结果总是2，1，因为只有在执行完第二行以后，系统才会去执行”任务队列”中的回调函数。<br>总之，setTimeout(fn,0)的含义是，指定某个任务在主线程最早可得的空闲时间执行，也就是说，尽可能早得执行。它在”任务队列”的尾部添加一个事件，因此要等到同步任务和”任务队列”现有的事件都处理完，才会得到执行。  </p>
+<p>HTML5标准规定了setTimeout()的第二个参数的最小值（最短间隔），不得低于<code>4毫秒</code>，如果低于这个值，就会自动增加。在此之前，老版本的浏览器都将最短间隔设为10毫秒。另外，对于那些DOM的变动（尤其是涉及页面重新渲染的部分），通常不会立即执行，而是每16毫秒执行一次。这时使用requestAnimationFrame()的效果要好于setTimeout()。<br>需要注意的是，setTimeout()只是将事件插入了”任务队列”，必须等到当前代码（执行栈）执行完，主线程才会去执行它指定的回调函数。要是当前代码耗时很长，有可能要等很久，所以并没有办法保证，回调函数一定会在setTimeout()指定的时间执行。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -185,7 +195,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#这就涉及到了JavaScript的核心特性：单线程。"><span class="toc-number">1.</span> <span class="toc-text">这就涉及到了JavaScript的核心特性：单线程。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#任务队列与异步"><span class="toc-number">2.</span> <span class="toc-text">任务队列与异步</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS的运行机制如下："><span class="toc-number">3.</span> <span class="toc-text">JS的运行机制如下：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#疑问"><span class="toc-number">4.</span> <span class="toc-text">疑问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EventLoop"><span class="toc-number">5.</span> <span class="toc-text">EventLoop</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#这就涉及到了JavaScript的核心特性：单线程。"><span class="toc-number">1.</span> <span class="toc-text">这就涉及到了JavaScript的核心特性：单线程。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#任务队列与异步"><span class="toc-number">2.</span> <span class="toc-text">任务队列与异步</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS的运行机制如下："><span class="toc-number">3.</span> <span class="toc-text">JS的运行机制如下：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#疑问"><span class="toc-number">4.</span> <span class="toc-text">疑问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EventLoop"><span class="toc-number">5.</span> <span class="toc-text">EventLoop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#定时器"><span class="toc-number">6.</span> <span class="toc-text">定时器</span></a></li></ol>
  
   </div>
 
