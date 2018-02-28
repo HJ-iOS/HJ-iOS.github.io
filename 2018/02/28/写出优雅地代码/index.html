@@ -1,0 +1,524 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Welcome to the literati Association!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="HJ">
+    
+
+    
+    <meta name="description" content="原则-单一职责原则-易用性原则-可读性原则-复杂性守恒原则：无论你怎么写代码，复杂性都是不会消失的
+
+注：如果逻辑很复杂，那么代码看起来就应该是复杂的。如果逻辑很简单，代码看起来就应该是简单的。
+
+单一职责原则面向对象五大设计模式基本原则之一。即一部分代码只应该用于某一个特定功能，不应与其他功能耦合在一起。
+假设你的一个function同时实现了功能a和功能b，之后需求变更，你需要修改功能a，但是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Welcome to the literati Association!">
+<meta property="og:url" content="http://yoursite.com/2018/02/28/写出优雅地代码/index.html">
+<meta property="og:site_name" content="Welcome to the literati Association!">
+<meta property="og:description" content="原则-单一职责原则-易用性原则-可读性原则-复杂性守恒原则：无论你怎么写代码，复杂性都是不会消失的
+
+注：如果逻辑很复杂，那么代码看起来就应该是复杂的。如果逻辑很简单，代码看起来就应该是简单的。
+
+单一职责原则面向对象五大设计模式基本原则之一。即一部分代码只应该用于某一个特定功能，不应与其他功能耦合在一起。
+假设你的一个function同时实现了功能a和功能b，之后需求变更，你需要修改功能a，但是">
+<meta property="og:updated_time" content="2018-02-28T03:00:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Welcome to the literati Association!">
+<meta name="twitter:description" content="原则-单一职责原则-易用性原则-可读性原则-复杂性守恒原则：无论你怎么写代码，复杂性都是不会消失的
+
+注：如果逻辑很复杂，那么代码看起来就应该是复杂的。如果逻辑很简单，代码看起来就应该是简单的。
+
+单一职责原则面向对象五大设计模式基本原则之一。即一部分代码只应该用于某一个特定功能，不应与其他功能耦合在一起。
+假设你的一个function同时实现了功能a和功能b，之后需求变更，你需要修改功能a，但是">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Welcome to the literati Association!" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Welcome to the literati Association!" title="Welcome to the literati Association!"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Welcome to the literati Association!">Welcome to the literati Association!</a></h1>
+				<h2 class="blog-motto">The president of the literati association is HJ.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/02/28/写出优雅地代码/" title="" itemprop="url"></a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="HJ" target="_blank" itemprop="author">HJ</a>
+		
+  <p class="article-time">
+    <time datetime="2018-02-28T03:00:46.000Z" itemprop="datePublished"> 发表于 2018-02-28</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#原则"><span class="toc-number">1.</span> <span class="toc-text">原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单一职责原则"><span class="toc-number">2.</span> <span class="toc-text">单一职责原则</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#“and”原则"><span class="toc-number">2.1.</span> <span class="toc-text">“and”原则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#“100”原则"><span class="toc-number">2.2.</span> <span class="toc-text">“100”原则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#命令、查询拆分原则"><span class="toc-number">2.3.</span> <span class="toc-text">命令、查询拆分原则</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#易用性原则"><span class="toc-number">3.</span> <span class="toc-text">易用性原则</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#简单"><span class="toc-number">3.1.</span> <span class="toc-text">简单</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#一致性"><span class="toc-number">3.2.</span> <span class="toc-text">一致性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#低耦合"><span class="toc-number">3.3.</span> <span class="toc-text">低耦合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#高内聚"><span class="toc-number">3.4.</span> <span class="toc-text">高内聚</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#错误处理"><span class="toc-number">3.5.</span> <span class="toc-text">错误处理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可读性原则"><span class="toc-number">4.</span> <span class="toc-text">可读性原则</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#命名"><span class="toc-number">4.1.</span> <span class="toc-text">命名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#注释"><span class="toc-number">4.2.</span> <span class="toc-text">注释</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bad-Smell"><span class="toc-number">5.</span> <span class="toc-text">Bad Smell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#样式规范"><span class="toc-number">6.</span> <span class="toc-text">样式规范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#破窗效应"><span class="toc-number">7.</span> <span class="toc-text">破窗效应</span></a></li></ol>
+		
+		</div>
+		
+		<h3 id="原则"><a href="#原则" class="headerlink" title="原则"></a>原则</h3><p>-单一职责原则<br>-易用性原则<br>-可读性原则<br>-复杂性守恒原则：无论你怎么写代码，复杂性都是不会消失的</p>
+<blockquote>
+<p>注：如果逻辑很复杂，那么代码看起来就应该是复杂的。如果逻辑很简单，代码看起来就应该是简单的。</p>
+</blockquote>
+<h3 id="单一职责原则"><a href="#单一职责原则" class="headerlink" title="单一职责原则"></a>单一职责原则</h3><p>面向对象五大设计模式基本原则之一。即<code>一部分代码只应该用于某一个特定功能，不应与其他功能耦合在一起。</code></p>
+<p>假设你的一个function同时实现了功能a和功能b，之后需求变更，你需要修改功能a，但是因为这两个功能都在一个function里，你就不得不再去确认是否会影响到功能b。这就造成了不必要的成本。</p>
+<p>如下我总结了三个拆分代码的原则：</p>
+<h4 id="“and”原则"><a href="#“and”原则" class="headerlink" title="“and”原则"></a>“and”原则</h4><p>当你为你的方法命名时不得不加上“and”时，就该考虑考虑是不是要把这个方法拆分一下了。</p>
+<h4 id="“100”原则"><a href="#“100”原则" class="headerlink" title="“100”原则"></a>“100”原则</h4><p>当你的一个function超过一百行时，一定要进行拆分了。</p>
+<blockquote>
+<p>注：这里的100可能有点多，只是对我个人而言，100算是我的极限，总之就是绝对不要将一个函数写的太长。</p>
+</blockquote>
+<h4 id="命令、查询拆分原则"><a href="#命令、查询拆分原则" class="headerlink" title="命令、查询拆分原则"></a>命令、查询拆分原则</h4><p>我们开发中大部分操作可以总结为“命令”和“查询”，如写cookie、修改data、发送post请求都可以叫“命令”，而读取cookie、ajax获取数据则认为是“查询”操作。</p>
+<p>函数式编程中讲究“数据不可变”，即：</p>
+<blockquote>
+<p>只有纯的没有副作用的函数，才是合格的函数。</p>
+<p>副作用：指当调用函数时，除了返回函数值之外，还对主调用函数产生附加的影响。例如修改全局变量（函数外的变量）或修改参数。</p>
+</blockquote>
+<p>好处是使得开发更加简单，可回溯，测试友好，减少了任何可能的副作用。</p>
+<p>将“命令”与“查询”拆分实际上就是函数式编程思想的部分体现，参考如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function getFirstName() &#123;</span><br><span class="line">    var firstName = document.querySelector(&quot;#firstName&quot;).value;</span><br><span class="line">    firstName = firstName.toLowerCase();</span><br><span class="line">    setCookie(&quot;firstName&quot;, firstName);</span><br><span class="line">    if (firstName === null) &#123;</span><br><span class="line">        return &quot;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    return firstName;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var activeFirstName = getFirstName();</span><br></pre></td></tr></table></figure>
+<p>通过名字来看，该方法是用于获取first name的，但实际上它还设置了cookie，这是我们没有预料的。对于一个“查询”方法，它不应该有任何修改方法外变量的行为，即“副作用”。更好的写法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function getFirstName() &#123;</span><br><span class="line">    var firstName = document.querySelector(&quot;#firstName&quot;).value</span><br><span class="line">    if (firstName === null) &#123;</span><br><span class="line">        return &quot;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    return firstName;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">setCookie(&quot;firstName&quot;, getFirstName().toLowerCase());</span><br></pre></td></tr></table></figure>
+<p>一目了然，getFirstName只返回firstName，而设置cookie操作在它之外进行。</p>
+<h3 id="易用性原则"><a href="#易用性原则" class="headerlink" title="易用性原则"></a>易用性原则</h3><h4 id="简单"><a href="#简单" class="headerlink" title="简单"></a>简单</h4><p>这里的简单，主要归结为function的一些设计原则，有如下几点：调用简单、易理解、减少记忆成本、参数处理。</p>
+<p>如下，仅仅想实现修改dom颜色、宽度等属性，原生代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">document.querySelector(&apos;#id&apos;).style.color = &apos;red&apos;</span><br><span class="line">document.querySelector(&apos;#id&apos;).style.width = &apos;123px&apos;</span><br><span class="line">document.querySelector(&apos;#id&apos;).style.height = &apos;456px&apos;</span><br></pre></td></tr></table></figure>
+<p>而封装过后：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function a(selector, color, width, height) &#123;</span><br><span class="line">  document.querySelector(selector).style.color = color</span><br><span class="line">  document.querySelector(selector).style.width = width</span><br><span class="line">  document.querySelector(selector).style.height = height</span><br><span class="line">&#125;</span><br><span class="line">a(&apos;#a&apos;, &apos;red&apos;)</span><br></pre></td></tr></table></figure>
+<p>瞬间变得简单可用了 ~</p>
+<p>但该方法还存在一个问题，那就是命名太抽象了。。。除了开发者自己以外不可能有人在不看源码的情况下一眼看出这个方法a是干嘛的。那么咱再把这个方法名改写得更易理解一点：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function letSomeElementChange(selector, color, width, height) &#123;</span><br><span class="line">  document.querySelector(selector).style.color = color</span><br><span class="line">  document.querySelector(selector).style.width = width</span><br><span class="line">  document.querySelector(selector).style.height = height</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样我们就能一目了然该方法的作用 ~ 不过仍有可优化的地方。这么长的方法名谁记得住，要减少记忆成本啊，再改个名：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function setElement(selector, color, width, height) &#123;</span><br><span class="line">  document.querySelector(selector).style.color = color</span><br><span class="line">  document.querySelector(selector).style.width = width</span><br><span class="line">  document.querySelector(selector).style.height = height</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>OK，目前这个方法已经满足它的职责并且很好用了，但还觉得怪怪的。这一坨参数太碍眼。。。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function setElement(selector, opt) &#123;</span><br><span class="line">  const &#123; color, width, height &#125; = opt</span><br><span class="line">  color &amp;&amp; document.querySelector(selector).style.color = color</span><br><span class="line">  width &amp;&amp; document.querySelector(selector).style.width = width</span><br><span class="line">  height &amp;&amp; document.querySelector(selector).style.height = height</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>把多个参数合并一下，并在内部做兼容处理，这个方法便易用多了。即使不传第二个参数也不会有任何副作用。</p>
+<h4 id="一致性"><a href="#一致性" class="headerlink" title="一致性"></a>一致性</h4><p>假如有这样一个方法，获取歌曲列表，并将其设置到div的innerText中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function getSongs() &#123;</span><br><span class="line">  return $.get(&apos;/songs).then((response) &#123;</span><br><span class="line">      div.innerText = response.songs</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这就违背了方法的表里一致性，也违背了上文的单一职责原则中命令、查询拆分原则，因为它不仅获取了歌单，同时还修改了innerText，要让其更合理：</p>
+<h4 id="低耦合"><a href="#低耦合" class="headerlink" title="低耦合"></a>低耦合</h4><p>耦合是衡量一个程序单元对其他程序单元的依赖程度。耦合（或高耦合）是应该极力避免的。如果你发现自己正在复制和粘贴代码并进行小的更改，或者重写代码，因为其他地方发生了更改，这就是高耦合的体现。</p>
+<p>耦合会严重影响代码的复用性及可扩展性，让后人维护时不得不修改甚至重写这部分代码，不仅浪费时间还会导致仓储中又多出一块类似的代码，很容易让人迷惑。</p>
+<p>同时，修改耦合度高的代码时经常会牵一发而动全身，如果修改时没有理清这些耦合关系，那么带来的后果可能会是灾难性的，特别是对于需求变化较多以及多人协作开发维护的项目，修改一个地方会引起本来已经运行稳定的模块错误，严重时会导致恶性循环，问题永远改不完，开发和测试都在各种问题之间奔波劳累，最后导致项目延期，用户满意度降低，成本也增加了，这对用户和开发商影响都是很恶劣的，各种风险也就不言而喻了。</p>
+<h4 id="高内聚"><a href="#高内聚" class="headerlink" title="高内聚"></a>高内聚</h4><blockquote>
+<p>不应该将没有任何联系的东西堆到一起。</p>
+</blockquote>
+<p><code>内聚是一个类中变量与方法连接强度的尺度</code>。高内聚是值得要的，因为它意味着类可以更好地执行一项工作。低内聚是不好的，因为它表明类中的元素之间很少相关。每个方法也应该高内聚，大多数的方法只执行一个功能，不要在方法中添加‘额外’的指令，这样会导致方法执行更多的函数，同时也违反了上文的单一职责原则。</p>
+<p><code>低内聚的体现</code>：如果属性没有被类中的多个方法使用，这可能是低内聚的标志。同样，如果方法在几种不同的情况下不能被重用，或者如果一个方法根本不被使用，这也可能是低内聚的一个标志。</p>
+<p><code>高内聚有助于缓解高耦合，高耦合是需要高内聚的标志</code>。但是，如果两个问题同时存在，应当选择内聚的方式。对于开发者来说，高内聚通常比低耦合更有帮助，尽管两者通常可以一起完成。</p>
+<h4 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h4><p>可预见的错误：诸如ajax回调、函数参数，这类问题很好解决，只需在开发时多考虑一步，对各种极端情况做好兼容即可。<br>不可预见的错误：类似兼容性问题，这类问题无法在开发时准确预见的错误，可以准备好抛错，console.error/log/warn，最后你还可以为自己的程序留些后路: try…catch。</p>
+<h3 id="可读性原则"><a href="#可读性原则" class="headerlink" title="可读性原则"></a>可读性原则</h3><h4 id="命名"><a href="#命名" class="headerlink" title="命名"></a>命名</h4><p>命名应该保证别人通过名称一眼就能知道这个变量保存的是什么，或者这个方法是用来做什么的。</p>
+<p>普通变量、属性用名词如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var person = &#123;</span><br><span class="line">  name: &apos;Frank&apos;</span><br><span class="line">&#125;</span><br><span class="line">var student = &#123;</span><br><span class="line">  grade: 3,</span><br><span class="line">  class: 2</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>bool变量、属性用（形容词）或者（be动词）或者（情态动词）或者（hasX），如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var person = &#123;</span><br><span class="line">  dead: false, // 如果是形容词，前面就没必要加 is，比如isDead 就很废话</span><br><span class="line">  canSpeak: true, //情态动词有 can、should、will、need 等，情态动词后面接动词</span><br><span class="line">  isVip: true, // be 动词有 is、was 等，后面一般接名词</span><br><span class="line">  hasChildren: true, // has 加名词</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>普通函数、方法用（动词）开头：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var person = &#123;</span><br><span class="line">  run()&#123;&#125;, // 不及物动词</span><br><span class="line">  drinkWater()&#123;&#125;, // 及物动词</span><br><span class="line">  eat(foo)&#123;&#125;, // 及物动词加参数（参数是名词）</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>回调、钩子函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var person = &#123;</span><br><span class="line">  beforeDie()&#123;&#125;,</span><br><span class="line">  afterDie()&#123;&#125;,</span><br><span class="line">  // 或者</span><br><span class="line">  willDie()&#123;&#125;</span><br><span class="line">  dead()&#123;&#125; // 这里跟 bool 冲突，你只要不同时暴露 bool dead 和函数 dead 就行，怕冲突就用上面的 afterDie</span><br><span class="line">&#125;</span><br><span class="line">button.addEventListener(&apos;click&apos;, onButtonClick)</span><br><span class="line">var component = &#123;</span><br><span class="line">  beforeCreate()&#123;&#125;,</span><br><span class="line">  created()&#123;&#125;,</span><br><span class="line">  beforeMount()&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>命名一致性<br>顺序一致性：比如 <code>updateContainerWidth</code> 和 <code>updateHeightOfContainer</code> 的顺序就令人很别扭   </p>
+<p>时间一致性：有可能随着代码的变迁，一个变量的含义已经不同于它一开始的含义了，这个时候你需要及时改掉这个变量的名字。   </p>
+<p>这一条是最难做到的，因为写代码容易，改代码难。如果这个代码组织得不好，很可能会出现牵一发而动全身的情况（如全局变量就很难改）</p>
+<h4 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h4><p>不需要多花哨，只要把作用、用法描述清楚即可。方法的标准注释应该如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * [function_name description]</span><br><span class="line"> * @param  &#123;[type]&#125; argument [description]</span><br><span class="line"> * @return &#123;[type]&#125;          [description]</span><br><span class="line"> */</span><br><span class="line">function function_name(argument) &#123;</span><br><span class="line">  // body...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>将方法的参数与返回值都写清楚</p>
+<h3 id="Bad-Smell"><a href="#Bad-Smell" class="headerlink" title="Bad Smell"></a>Bad Smell</h3><p>项目中我们经常能够遇这类代码，它们仍可用，但是很“臭”，国外管这类代码有一个统称，即“bad smell”。如下这类代码可以说是很“臭”了：</p>
+<p>表里不一的代码<br>过时的注释<br>逻辑很简单，但是看起来很复杂的代码<br>重复的代码<br>相似的代码<br>总是一起出现的代码<br>未使用的依赖<br>不同风格的代码        </p>
+<h3 id="样式规范"><a href="#样式规范" class="headerlink" title="样式规范"></a>样式规范</h3><p>1.正确命名：class必须用“-”写法，不要用驼峰和下划线。</p>
+<p>2.正确嵌套：正常情况下一定要将class嵌套闭合，否则就相当于添加到全局，如果有重复命名的class就会受影响。</p>
+<p>3.拒绝copy：如果想复用已有的样式，直接在原有class上用“,”语法分割，就能应用，不要再copy一份样式，会让两份样式都被应用，就要考虑样式覆盖的问题，很不友好。</p>
+<p>4.滥用class：没有必要加的class不要加，每个class的添加都应该有明确理由。滥用class的话可能会导致样式覆盖，不该应用这个样式的地方用了这个样式。</p>
+<p>5.慎用 !important，会强行覆盖所有同属性样式，一旦使用后会让代码难以维护，开发过程中绝对不要依赖该方法。如下总结了一些使用 !important的经验：</p>
+<blockquote>
+<p>一定要优化考虑使用样式规则的优先级来解决问题而不是 !important</p>
+<p>只有在需要覆盖全站或外部 css（例如引用的 ExtJs 或者 YUI ）的特定页面中使用 !important<br>解决紧急线上问题可以使用，但之后也要尽快用可维护的方式将代码替换回来<br>永远不要在全站范围的 css 上使用 !important<br>永远不要在你的插件中使用 !important<br>说得容易，做起来难        </p>
+</blockquote>
+<h3 id="破窗效应"><a href="#破窗效应" class="headerlink" title="破窗效应"></a>破窗效应</h3><blockquote>
+<p>此理论认为环境中的不良现象如果被放任存在，会诱使人们仿效，甚至变本加厉。一幢有少许破窗的建筑为例，如果那些窗不被修理好，可能将会有破坏者破坏更多的窗户。最终他们甚至会闯入建筑内，如果发现无人居住，也许就在那里定居或者纵火。一面墙，如果出现一些涂鸦没有被清洗掉，很快的，墙上就布满了乱七八糟、不堪入目的东西；一条人行道有些许纸屑，不久后就会有更多垃圾，最终人们会视若理所当然地将垃圾顺手丢弃在地上。这个现象，就是犯罪心理学中的破窗效应，在编程领域同样存在。</p>
+</blockquote>
+<p>要做到：只要是经过你手的代码，都会比之前好一点。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2018/02/28/写出优雅地代码/" data-title="Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2018/02/07/原型链简单理解/"  title="原型链(简单的概念)">
+ <strong>下一篇：</strong><br/> 
+ <span>原型链(简单的概念)
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#原则"><span class="toc-number">1.</span> <span class="toc-text">原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单一职责原则"><span class="toc-number">2.</span> <span class="toc-text">单一职责原则</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#“and”原则"><span class="toc-number">2.1.</span> <span class="toc-text">“and”原则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#“100”原则"><span class="toc-number">2.2.</span> <span class="toc-text">“100”原则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#命令、查询拆分原则"><span class="toc-number">2.3.</span> <span class="toc-text">命令、查询拆分原则</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#易用性原则"><span class="toc-number">3.</span> <span class="toc-text">易用性原则</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#简单"><span class="toc-number">3.1.</span> <span class="toc-text">简单</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#一致性"><span class="toc-number">3.2.</span> <span class="toc-text">一致性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#低耦合"><span class="toc-number">3.3.</span> <span class="toc-text">低耦合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#高内聚"><span class="toc-number">3.4.</span> <span class="toc-text">高内聚</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#错误处理"><span class="toc-number">3.5.</span> <span class="toc-text">错误处理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可读性原则"><span class="toc-number">4.</span> <span class="toc-text">可读性原则</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#命名"><span class="toc-number">4.1.</span> <span class="toc-text">命名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#注释"><span class="toc-number">4.2.</span> <span class="toc-text">注释</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bad-Smell"><span class="toc-number">5.</span> <span class="toc-text">Bad Smell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#样式规范"><span class="toc-number">6.</span> <span class="toc-text">样式规范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#破窗效应"><span class="toc-number">7.</span> <span class="toc-text">破窗效应</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="hjaistrive" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=5597151709&verifier=2e2fc03f&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> To the world you maybe one peeson , but to one person you maybe the world. <br/>
+			This is my goddess.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/hjaistrive" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		<a href="http://stackoverflow.com/users/8573660" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
+		
+		
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/liang-ren-de-hui-yi-yiren-guo" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:hjaistrive@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
+		
+		<a href="/about" target="_blank" title="HJ">HJ</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
