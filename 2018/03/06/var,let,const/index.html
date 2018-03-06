@@ -1,0 +1,516 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>var,let,const区别 | Welcome to the literati Association!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="HJ">
+    
+
+    
+    <meta name="description" content="let和const有很多相似之处，先说一说let吧。1. let添加了块级作用域我们知道，JavaScript是没有块级作用域的，如果在块内使用var声明一个变量，它在代码块外面仍旧是可见的：
+12345678910if (true) &amp;#123;     var foo = 3;&amp;#125;console.log(foo);    // 3for (var i = 0; i &amp;lt; 9; i+">
+<meta property="og:type" content="article">
+<meta property="og:title" content="var,let,const区别">
+<meta property="og:url" content="http://yoursite.com/2018/03/06/var,let,const/index.html">
+<meta property="og:site_name" content="Welcome to the literati Association!">
+<meta property="og:description" content="let和const有很多相似之处，先说一说let吧。1. let添加了块级作用域我们知道，JavaScript是没有块级作用域的，如果在块内使用var声明一个变量，它在代码块外面仍旧是可见的：
+12345678910if (true) &amp;#123;     var foo = 3;&amp;#125;console.log(foo);    // 3for (var i = 0; i &amp;lt; 9; i+">
+<meta property="og:updated_time" content="2018-03-06T06:48:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="var,let,const区别">
+<meta name="twitter:description" content="let和const有很多相似之处，先说一说let吧。1. let添加了块级作用域我们知道，JavaScript是没有块级作用域的，如果在块内使用var声明一个变量，它在代码块外面仍旧是可见的：
+12345678910if (true) &amp;#123;     var foo = 3;&amp;#125;console.log(foo);    // 3for (var i = 0; i &amp;lt; 9; i+">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Welcome to the literati Association!" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Welcome to the literati Association!" title="Welcome to the literati Association!"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Welcome to the literati Association!">Welcome to the literati Association!</a></h1>
+				<h2 class="blog-motto">The president of the literati association is HJ.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/03/06/var,let,const/" title="var,let,const区别" itemprop="url">var,let,const区别</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="HJ" target="_blank" itemprop="author">HJ</a>
+		
+  <p class="article-time">
+    <time datetime="2018-03-06T06:48:15.000Z" itemprop="datePublished"> 发表于 2018-03-06</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#let和const有很多相似之处，先说一说let吧。"><span class="toc-number">1.</span> <span class="toc-text">let和const有很多相似之处，先说一说let吧。</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-let添加了块级作用域"><span class="toc-number"></span> <span class="toc-text">1. let添加了块级作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-let约束了变量提升"><span class="toc-number"></span> <span class="toc-text">2. let约束了变量提升</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-let有暂时性死区"><span class="toc-number"></span> <span class="toc-text">3. let有暂时性死区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-let禁止重复声明变量"><span class="toc-number"></span> <span class="toc-text">4. let禁止重复声明变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-let不会成为全局对象的属性"><span class="toc-number"></span> <span class="toc-text">5. let不会成为全局对象的属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-最后：const命令"><span class="toc-number"></span> <span class="toc-text">6. 最后：const命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-基本概念"><span class="toc-number"></span> <span class="toc-text">1.基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-基本用法"><span class="toc-number"></span> <span class="toc-text">2.基本用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#const"><span class="toc-number"></span> <span class="toc-text">const</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-变量声明提升与暂时性死区"><span class="toc-number"></span> <span class="toc-text">3.变量声明提升与暂时性死区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-重复声明"><span class="toc-number"></span> <span class="toc-text">4.重复声明</span></a>
+		
+		</div>
+		
+		<h4 id="let和const有很多相似之处，先说一说let吧。"><a href="#let和const有很多相似之处，先说一说let吧。" class="headerlink" title="let和const有很多相似之处，先说一说let吧。"></a>let和const有很多相似之处，先说一说let吧。</h4><h3 id="1-let添加了块级作用域"><a href="#1-let添加了块级作用域" class="headerlink" title="1. let添加了块级作用域"></a>1. let添加了块级作用域</h3><p>我们知道，JavaScript是没有块级作用域的，如果在块内使用var声明一个变量，它在代码块外面仍旧是可见的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">if (true) &#123;</span><br><span class="line">     var foo = 3;</span><br><span class="line">&#125;</span><br><span class="line">console.log(foo);    // 3</span><br><span class="line"></span><br><span class="line">for (var i = 0; i &lt; 9; i++) &#123;</span><br><span class="line">     var j = i;</span><br><span class="line">&#125;</span><br><span class="line">console.log(i);      // 9</span><br><span class="line">console.log(j);      // 8</span><br></pre></td></tr></table></figure>
+<p>可以看到，在上面代码中，我们虽然是在块内声明的变量，但代码块执行完毕后，依然可以访问到相应的变量，说明JavaScript中没有块级作用域的。</p>
+<p>而ES6规范给开发者带来了块级作用域，如果把var换成let命令，我们就可以获得一个块级变量：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">if (true) &#123;</span><br><span class="line">     let foo = 3;</span><br><span class="line">&#125;</span><br><span class="line">console.log(foo);   // Uncaught ReferenceError</span><br><span class="line"></span><br><span class="line">for (let i = 0; i &lt; 9; i++) &#123;</span><br><span class="line">     let j = i;</span><br><span class="line">&#125;</span><br><span class="line">console.log(i);     // Uncaught ReferenceError</span><br><span class="line">console.log(j);     // Uncaught ReferenceError</span><br></pre></td></tr></table></figure>
+<p>从上面代码可以看出，块内声明的变量，块外是不可见的，如果试图引用一个块内用let声明的变量，就会引发一个异常。</p>
+<h3 id="2-let约束了变量提升"><a href="#2-let约束了变量提升" class="headerlink" title="2. let约束了变量提升"></a>2. let约束了变量提升</h3><p>在JavaScript中，变量提升是很常见的，例如下面这段代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function hoistVariable() &#123;</span><br><span class="line">    console.log(&apos;foo:&apos;, foo); // foo: undefined</span><br><span class="line">    var foo = 3;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hoistVariable();</span><br></pre></td></tr></table></figure>
+<p>在代码正式执行之前，编译器将会对代码进行预编译分析阶段，在这个阶段，当前作用域中的变量和函数，将被提升到作用域的顶部。（注：目前的JavaScript引擎大都对源代码进行了编译处理，并且预编译和提升是抽象出来的概念。）</p>
+<p>经过预编译之后的代码逻辑如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function hoistVariable() &#123;</span><br><span class="line">    var foo;</span><br><span class="line">    console.log(&apos;foo:&apos;, foo); // foo: undefined</span><br><span class="line">    foo = 3;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hoistVariable();</span><br></pre></td></tr></table></figure>
+<p>ES6中的let命令规范了变量的声明，约束了变量提升，也就是说，我们必须先声明，然后才可以使用，下面者段代码将会报错：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function nonHoistingFunc() &#123;</span><br><span class="line">    console.log(&apos;foo:&apos;, foo); // Uncaught ReferenceError</span><br><span class="line">    let foo = 3;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">nonHoistingFunc();</span><br></pre></td></tr></table></figure>
+<p>正确的使用方式是，永远将变量声明置于当前作用域顶部：</p>
+<p>复制代码<br>function nonHoistingFunc() {<br>    let foo = 3;<br>    console.log(‘foo:’, foo); // 3<br>}</p>
+<p>nonHoistingFunc();<br>复制代码<br>需要注意的是，不管是var还是let，预编译过程中，都发生了变量提升，但与var不同的是，ES6对let进行了约束，其规定，在真正的词法变量声明之前，以任何方式访问let变量都是不允许的，所以从开发人员角度来看，let禁止了变量提升这一行为。</p>
+<p>关于这一点，大家可以参考ES6规范中“let和const变量的声明”。</p>
+<h3 id="3-let有暂时性死区"><a href="#3-let有暂时性死区" class="headerlink" title="3. let有暂时性死区"></a>3. let有暂时性死区</h3><p>只要在块内存在let命令，那么这个变量就绑定到了当前块作用域，不再受外部变量的影响，下面代码将会引发一个错误：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var foo = 3;</span><br><span class="line"></span><br><span class="line">if (true) &#123;</span><br><span class="line">    foo = 5; // Uncaught ReferenceError</span><br><span class="line">    let foo;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>ES6规定如果块内存在let命令，那么这个块就会成为一个封闭的作用域，并要求let变量先声明才能使用，如果在声明之前就开始使用，它并不会引用外部的变量。</p>
+<p>如果把这里的let替换成var，由于不会形成块级作用域，变量的声明其实是与第一行重复了，相当于下面这段代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var foo;</span><br><span class="line"></span><br><span class="line">foo= 3;</span><br><span class="line"></span><br><span class="line">if (true) &#123;</span><br><span class="line">    foo = 5;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-let禁止重复声明变量"><a href="#4-let禁止重复声明变量" class="headerlink" title="4. let禁止重复声明变量"></a>4. let禁止重复声明变量</h3><p>如上面所述，使用var可以重复声明变量，但let不允许在相同作用域内重复声明同一个变量，下面的代码会引发错误：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// SyntaxError</span><br><span class="line">function func() &#123;</span><br><span class="line">    let foo = 3;</span><br><span class="line">    var foo = 5;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// SyntaxError</span><br><span class="line">function func() &#123;</span><br><span class="line">    let foo = 3;</span><br><span class="line">    let foo = 5;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// SyntaxError</span><br><span class="line">function func(arg) &#123;</span><br><span class="line">    let arg;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="5-let不会成为全局对象的属性"><a href="#5-let不会成为全局对象的属性" class="headerlink" title="5. let不会成为全局对象的属性"></a>5. let不会成为全局对象的属性</h3><p>我们在全局范围内使用var声明一个变量时，这个变量会自动成为全局对象的属性(在浏览器和Node.js环境下，这个全局对象分别是window和global)，但let是独立存在的变量，不会成为全局对象的属性：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a = 3;</span><br><span class="line">console.log(window.a); // 3</span><br><span class="line"></span><br><span class="line">let b = 5;</span><br><span class="line">console.log(window.b); // undefined</span><br></pre></td></tr></table></figure>
+<h3 id="6-最后：const命令"><a href="#6-最后：const命令" class="headerlink" title="6. 最后：const命令"></a>6. 最后：const命令</h3><p>以上let所介绍的规则均适用于const命令，不同的是，const声明的变量不能重新赋值，也是由于这个规则，const变量声明时必须初始化，不能留到以后赋值，所以下面的代码是不合法的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const a = 3;</span><br><span class="line"></span><br><span class="line">a = 5;   // Uncaught TypeError: Assignment to constant variable</span><br><span class="line"></span><br><span class="line">const b; // Uncaught SyntaxError: Missing initializer in const declaration</span><br></pre></td></tr></table></figure>
+<p>以上就是let和const的内容，可以看出，let和const大大改进了ES5的变量机制，使得JS更严谨和规范，随着ES6支持程度的提高，我们应该开始习惯let和const的使用了。</p>
+<hr>
+<h3 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1.基本概念"></a>1.基本概念</h3><p>var声明了一个变量，并且可以同时初始化该变量。<br>let语句声明一个块级作用域的本地变量，并且可选的赋予初始值。<br>const 声明创建一个只读的常量，作用域与let相同。这不意味着常量指向的值不可变，而是变量标识符的值只能赋值一次。</p>
+<h3 id="2-基本用法"><a href="#2-基本用法" class="headerlink" title="2.基本用法"></a>2.基本用法</h3><p>var为大家所熟悉，在这里不再赘述。</p>
+<p>let</p>
+<p>let的用法类似于var，但是所声明的变量，只在let命令所在的代码块内有效。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;  </span><br><span class="line">  let a = 10;  </span><br><span class="line">  var b = 1;  </span><br><span class="line">&#125;  </span><br><span class="line">a // ReferenceError: a is not defined.  </span><br><span class="line">b // 1</span><br></pre></td></tr></table></figure>
+<p>上面代码在代码块之中，分别用let和var声明了两个变量。然后在代码块之外调用这两 个变量，结果let声明的变量报错，var声明的变量返回了正确的值。这表明，let声明 的变量只在它所在的代码块有效。</p>
+<p>for循环的计数器，就很合适使用let命令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for (let i = 0; i &lt; 10; i++) &#123;&#125;</span><br><span class="line"></span><br><span class="line">console.log(i);</span><br><span class="line">//ReferenceError: i is not defined</span><br></pre></td></tr></table></figure>
+<p>上面代码中，计数器i只在for循环体内有效，在循环体外引用就会报错。</p>
+<p>另外，for循环还有一个特别之处，就是循环语句部分是一个父作用域，而循环体内部 是一个单独的子作用域。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for (let i = 0; i &lt; 3; i++) &#123;</span><br><span class="line">  let i = &apos;abc&apos;;</span><br><span class="line">  console.log(i);</span><br><span class="line">&#125;</span><br><span class="line">// abc</span><br><span class="line">// abc</span><br><span class="line">// abc</span><br></pre></td></tr></table></figure>
+<p>上面代码输出了3次abc，这表明函数内部的变量i和外部的变量i是分离的。</p>
+<h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><p>const声明一个只读的常量。一旦声明，常量的值就不能改变。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const PI = 3.1415;</span><br><span class="line">PI // 3.1415</span><br><span class="line"></span><br><span class="line">PI = 3;</span><br><span class="line">// TypeError: Assignment to constant variable.</span><br></pre></td></tr></table></figure>
+<p>上面代码表明改变常量的值会报错。</p>
+<p>const声明的变量不得改变值，这意味着，const一旦声明变量，就必须立即初始化，不能留到以后赋值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const foo;</span><br><span class="line">// SyntaxError: Missing initializer in const declaration</span><br></pre></td></tr></table></figure>
+<p>上面代码表示，对于const来说，只声明不赋值，就会报错。<br>const的作用域与let命令相同：只在声明所在的块级作用域内有效。</p>
+<h3 id="3-变量声明提升与暂时性死区"><a href="#3-变量声明提升与暂时性死区" class="headerlink" title="3.变量声明提升与暂时性死区"></a>3.变量声明提升与暂时性死区</h3><p>变量声明提升</p>
+<p>此段仅适用var声明</p>
+<p>由于变量声明（以及其他声明）总是在任意代码执行之前处理的，所以在代码中的任<br>意位置声明变量总是等效于在代码开头声明。这意味着变量可以在声明之前使用，这<br>个行为叫做“hoisting”。“hoisting”就像是把所有的变量声明移动到函数或者全 局代码的开头位置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">bla = 2</span><br><span class="line">var bla;</span><br><span class="line">// ...</span><br><span class="line">// 可以理解为：   </span><br><span class="line">var bla;</span><br></pre></td></tr></table></figure>
+<p>bla = 2; 由于这个原因，我们建议总是在作用域的最开始（函数或者全局代码的开头）声明变 量。这样可以使变量的作用域变得清晰。 </p>
+<p>var命令会发生”变量提升“现象，即变量可以在声明之前使用，值为undefined。这种<br>现象多多少少是有些奇怪的，按照一般的逻辑，变量应该在声明语句之后才可以使用。</p>
+<p>为了纠正这种现象，let命令改变了语法行为，它所声明的变量一定要在声明后使用， 否则报错。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// var 的情况</span><br><span class="line">console.log(foo); // 输出undefined</span><br><span class="line">var foo = 2;</span><br><span class="line"></span><br><span class="line">// let 的情况</span><br><span class="line">console.log(bar); // 报错ReferenceError</span><br><span class="line">let bar = 2;</span><br></pre></td></tr></table></figure>
+<p>上面代码中，变量foo用var命令声明，会发生变量提升，即脚本开始运行时，变量foo 已经存在了，但是没有值，所以会输出undefined。</p>
+<p>变量bar用let命令声明，不会发生 变量提升。这表示在声明它之前，变量bar是不存在的，这时如果用到它，就会抛出一 个错误。</p>
+<p>const的作用域与let命令相同：只在声明所在的块级作用域内有效。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if (true) &#123;</span><br><span class="line">  const MAX = 5;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">MAX // Uncaught ReferenceError: MAX is not defined</span><br></pre></td></tr></table></figure>
+<p>暂时性死区</p>
+<p>只要块级作用域内存在let命令，它所声明的变量就“绑定”（binding）这个区域， 不再受外部的影响。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var tmp = 123;</span><br><span class="line"></span><br><span class="line">if (true) &#123;</span><br><span class="line">  tmp = &apos;abc&apos;; // ReferenceError</span><br><span class="line">  let tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码中，存在全局变量tmp，但是块级作用域内let又声明了一个局部变量tmp，导致后者绑定这个块级作用域，所以在let声明变量前，对tmp赋值会报错。</p>
+<p>ES6明确规定，如果区块中存在let和const命令，这个区块对这些命令声明的变量，从一开始就形成了封闭作用域。凡是在声明之前就使用这些变量，就会报错。</p>
+<p>总之，在代码块内，使用let命令声明变量之前，该变量都是不可用的。这在语法上，称为“暂时性死区”（temporal dead zone，简称 TDZ）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">if (true) &#123;</span><br><span class="line">  // TDZ开始</span><br><span class="line">  tmp = &apos;abc&apos;; // ReferenceError</span><br><span class="line">  console.log(tmp); // ReferenceError</span><br><span class="line"></span><br><span class="line">  let tmp; // TDZ结束</span><br><span class="line">  console.log(tmp); // undefined</span><br><span class="line"></span><br><span class="line">  tmp = 123;</span><br><span class="line">  console.log(tmp); // 123</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码中，在let命令声明变量tmp之前，都属于变量tmp的“死区”。</p>
+<p>“暂时性死区”也意味着typeof不再是一个百分之百安全的操作。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">typeof x; // ReferenceError</span><br><span class="line">let x;</span><br></pre></td></tr></table></figure>
+<p>上面代码中，变量x使用let命令声明，所以在声明之前，都属于x的“死区”，只要用到该变量就会报错。因此，typeof运行时就会抛出一个ReferenceError。</p>
+<p>作为比较，如果一个变量根本没有被声明，使用typeof反而不会报错。</p>
+<p>typeof undeclared_variable // “undefined”<br>上面代码中，undeclared_variable是一个不存在的变量名，结果返回“undefined”。所以，在没有let之前，typeof运算符是百分之百安全的，永远不会报错。现在这一点不成立了。这样的设计是为了让大家养成良好的编程习惯，变量一定要在声明之后使用，否则就报错。</p>
+<p>另外，下面的代码也会报错，与var的行为不同。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 不报错</span><br><span class="line">var x = x;</span><br><span class="line"></span><br><span class="line">// 报错</span><br><span class="line">let x = x;</span><br><span class="line">// ReferenceError: x is not defined</span><br></pre></td></tr></table></figure>
+<p>上面代码报错，也是因为暂时性死区。使用let声明变量时，只要变量在还没有声明完成前使用，就会报错。上面这行就属于这个情况，在变量x的声明语句还没有执行完成前，就去取x的值，导致报错”x 未定义“。</p>
+<p>ES6 规定暂时性死区和let、const语句不出现变量提升，主要是为了减少运行时错误，防止在变量声明前就使用这个变量，从而导致意料之外的行为。这样的错误在 ES5 是很常见的，现在有了这种规定，避免此类错误就很容易了。</p>
+<p>总之，暂时性死区的本质就是，只要一进入当前作用域，所要使用的变量就已经存在了，但是不可获取，只有等到声明变量的那一行代码出现，才可以获取和使用该变量。</p>
+<h3 id="4-重复声明"><a href="#4-重复声明" class="headerlink" title="4.重复声明"></a>4.重复声明</h3><p>var是允许在相同作用域内重复声明同一个变量的，而let与const不允许这一现象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 报错</span><br><span class="line">function () &#123;</span><br><span class="line">  let a = 10;</span><br><span class="line">  var a = 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 报错</span><br><span class="line">function () &#123;</span><br><span class="line">  let a = 10;</span><br><span class="line">  let a = 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>因此，不能在函数内部重新声明参数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function func(arg) &#123;</span><br><span class="line">  let arg; // 报错</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function func(arg) &#123;</span><br><span class="line">  &#123;</span><br><span class="line">    let arg; // 不报错</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>const声明的常量，也与let一样不可重复声明。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var message = &quot;Hello!&quot;;</span><br><span class="line">let age = 25;</span><br><span class="line"></span><br><span class="line">// 以下两行都会报错</span><br><span class="line">const message = &quot;Goodbye!&quot;;</span><br><span class="line">const age = 30;</span><br></pre></td></tr></table></figure>  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2018/03/06/var,let,const/" data-title="var,let,const区别 | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2018/03/01/在服务器上展网页/"  title="在服务器上展示你的网页(github)">
+ <strong>下一篇：</strong><br/> 
+ <span>在服务器上展示你的网页(github)
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#let和const有很多相似之处，先说一说let吧。"><span class="toc-number">1.</span> <span class="toc-text">let和const有很多相似之处，先说一说let吧。</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-let添加了块级作用域"><span class="toc-number"></span> <span class="toc-text">1. let添加了块级作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-let约束了变量提升"><span class="toc-number"></span> <span class="toc-text">2. let约束了变量提升</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-let有暂时性死区"><span class="toc-number"></span> <span class="toc-text">3. let有暂时性死区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-let禁止重复声明变量"><span class="toc-number"></span> <span class="toc-text">4. let禁止重复声明变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-let不会成为全局对象的属性"><span class="toc-number"></span> <span class="toc-text">5. let不会成为全局对象的属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-最后：const命令"><span class="toc-number"></span> <span class="toc-text">6. 最后：const命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-基本概念"><span class="toc-number"></span> <span class="toc-text">1.基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-基本用法"><span class="toc-number"></span> <span class="toc-text">2.基本用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#const"><span class="toc-number"></span> <span class="toc-text">const</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-变量声明提升与暂时性死区"><span class="toc-number"></span> <span class="toc-text">3.变量声明提升与暂时性死区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-重复声明"><span class="toc-number"></span> <span class="toc-text">4.重复声明</span></a>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="hjaiim" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=5597151709&verifier=2e2fc03f&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> To the world you maybe one peeson , but to one person you maybe the world. <br/>
+			This is my goddess.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/hjaiim" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		<a href="http://stackoverflow.com/users/8573660" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
+		
+		
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/liang-ren-de-hui-yi-yiren-guo" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:hjaiim@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
+		
+		<a href="/about" target="_blank" title="HJ">HJ</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
