@@ -1,0 +1,502 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>js-面向对象 | Welcome to the literati Association!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="HJ">
+    
+
+    
+    <meta name="description" content="先上一张图，可以对面向对象有一个大致的了解，然而什么是面向对象呢，用java中的一句经典语句来说就是：万事万物皆对象。面向对象的思想主要是以对象为主，将一个问题抽象出具体的对象，并且将抽象出来的对象和对象的属性和方法封装成一个类.
+
+面向对象是把构成问题事务分解成各个对象，建立对象的目的不是为了完成一个步骤，而是为了描叙某个事物在整个解决问题的步骤中的行为。
+
+封装面向对象有三大特性，封装、继承">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js-面向对象">
+<meta property="og:url" content="http://yoursite.com/2018/03/10/js面向对象/index.html">
+<meta property="og:site_name" content="Welcome to the literati Association!">
+<meta property="og:description" content="先上一张图，可以对面向对象有一个大致的了解，然而什么是面向对象呢，用java中的一句经典语句来说就是：万事万物皆对象。面向对象的思想主要是以对象为主，将一个问题抽象出具体的对象，并且将抽象出来的对象和对象的属性和方法封装成一个类.
+
+面向对象是把构成问题事务分解成各个对象，建立对象的目的不是为了完成一个步骤，而是为了描叙某个事物在整个解决问题的步骤中的行为。
+
+封装面向对象有三大特性，封装、继承">
+<meta property="og:image" content="https://github.com/hjaiim/picture/raw/master/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.png">
+<meta property="og:updated_time" content="2018-03-10T08:06:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js-面向对象">
+<meta name="twitter:description" content="先上一张图，可以对面向对象有一个大致的了解，然而什么是面向对象呢，用java中的一句经典语句来说就是：万事万物皆对象。面向对象的思想主要是以对象为主，将一个问题抽象出具体的对象，并且将抽象出来的对象和对象的属性和方法封装成一个类.
+
+面向对象是把构成问题事务分解成各个对象，建立对象的目的不是为了完成一个步骤，而是为了描叙某个事物在整个解决问题的步骤中的行为。
+
+封装面向对象有三大特性，封装、继承">
+<meta name="twitter:image" content="https://github.com/hjaiim/picture/raw/master/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.png">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Welcome to the literati Association!" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Welcome to the literati Association!" title="Welcome to the literati Association!"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Welcome to the literati Association!">Welcome to the literati Association!</a></h1>
+				<h2 class="blog-motto">The president of the literati association is HJ.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/03/10/js面向对象/" title="js-面向对象" itemprop="url">js-面向对象</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="HJ" target="_blank" itemprop="author">HJ</a>
+		
+  <p class="article-time">
+    <time datetime="2018-03-10T08:06:33.000Z" itemprop="datePublished"> 发表于 2018-03-10</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#封装"><span class="toc-number">1.</span> <span class="toc-text">封装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、-生成实例对象的原始模式"><span class="toc-number">1.1.</span> <span class="toc-text">一、 生成实例对象的原始模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、-原始模式的改进"><span class="toc-number">1.2.</span> <span class="toc-text">二、 原始模式的改进</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、-构造函数模式"><span class="toc-number">1.3.</span> <span class="toc-text">三、 构造函数模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#通过this定义的属性和方法-我们实例化对象的时候都会重新复制一份"><span class="toc-number">1.4.</span> <span class="toc-text">通过this定义的属性和方法,我们实例化对象的时候都会重新复制一份.</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通过原型prototype"><span class="toc-number">2.</span> <span class="toc-text">通过原型prototype</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在类的外部通过-语法添加"><span class="toc-number">3.</span> <span class="toc-text">在类的外部通过.语法添加</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#三者的区别"><span class="toc-number">3.1.</span> <span class="toc-text">三者的区别</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#javascript也有private-public-protected"><span class="toc-number">4.</span> <span class="toc-text">javascript也有private public protected</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#new的实质"><span class="toc-number">5.</span> <span class="toc-text">new的实质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#举个栗子"><span class="toc-number">6.</span> <span class="toc-text">举个栗子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#继承"><span class="toc-number">7.</span> <span class="toc-text">继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多态"><span class="toc-number">8.</span> <span class="toc-text">多态</span></a></li></ol>
+		
+		</div>
+		
+		<p><img src="https://github.com/hjaiim/picture/raw/master/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.png" alt=""></p>
+<p>先上一张图，可以对面向对象有一个大致的了解，然而什么是面向对象呢，用java中的一句经典语句来说就是：万事万物皆对象。面向对象的思想主要是以对象为主，将一个问题抽象出具体的对象，并且将抽象出来的对象和对象的属性和方法封装成一个类.</p>
+<blockquote>
+<p>面向对象是把构成问题事务分解成各个对象，建立对象的目的不是为了完成一个步骤，而是为了描叙某个事物在整个解决问题的步骤中的行为。</p>
+</blockquote>
+<h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>面向对象有三大特性，封装、继承和多态。对于ES5来说，没有class的概念，并且由于js的函数级作用域（在函数内部的变量在函数外访问不到），所以我们就可以模拟 class的概念，在es5中，类其实就是保存了一个函数的变量，这个函数有自己的属性和方法。将属性和方法组成一个类的过程就是封装。</p>
+<blockquote>
+<p>封装：把客观事物封装成抽象的类，隐藏属性和方法的实现细节，仅对外公开接口。</p>
+</blockquote>
+<p>那么，如果我们要把”属性”（property）和”方法”（method），封装成一个对象，甚至要从原型对象生成一个实例对象，我们应该怎么做呢？</p>
+<h4 id="一、-生成实例对象的原始模式"><a href="#一、-生成实例对象的原始模式" class="headerlink" title="一、 生成实例对象的原始模式"></a>一、 生成实例对象的原始模式</h4><p>假定我们把猫看成一个对象，它有”名字”和”颜色”两个属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">　　var Cat = &#123;</span><br><span class="line">　　　　name : &apos;&apos;,</span><br><span class="line">　　　　color : &apos;&apos;</span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure>
+<p>现在，我们需要根据这个原型对象的规格（schema），生成两个实例对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var cat1 = &#123;&#125;; // 创建一个空对象</span><br><span class="line">　　　　cat1.name = &quot;大毛&quot;; // 按照原型对象的属性赋值</span><br><span class="line">　　　　cat1.color = &quot;黄色&quot;;</span><br><span class="line">var cat2 = &#123;&#125;;</span><br><span class="line">　　　　cat2.name = &quot;二毛&quot;;</span><br><span class="line">　　　　cat2.color = &quot;黑色&quot;;</span><br></pre></td></tr></table></figure>
+<p>好了，这就是最简单的封装了，把两个属性封装在一个对象里面。但是，这样的写法有两个缺点，一是如果多生成几个实例，写起来就非常麻烦；二是实例与原型之间，没有任何办法，可以看出有什么联系。</p>
+<h4 id="二、-原始模式的改进"><a href="#二、-原始模式的改进" class="headerlink" title="二、 原始模式的改进"></a>二、 原始模式的改进</h4><p>我们可以写一个函数，解决代码重复的问题。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">　　function Cat(name,color) &#123;</span><br><span class="line">　　　　return &#123;</span><br><span class="line">　　　　　　name:name,</span><br><span class="line">　　　　　　color:color</span><br><span class="line">　　　　&#125;</span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure>
+<p>然后生成实例对象，就等于是在调用函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">　　var cat1 = Cat(&quot;大毛&quot;,&quot;黄色&quot;);</span><br><span class="line">　　var cat2 = Cat(&quot;二毛&quot;,&quot;黑色&quot;);</span><br></pre></td></tr></table></figure></p>
+<p>这种方法的问题依然是，cat1和cat2之间没有内在的联系，不能反映出它们是同一个原型对象的实例。</p>
+<h4 id="三、-构造函数模式"><a href="#三、-构造函数模式" class="headerlink" title="三、 构造函数模式"></a>三、 构造函数模式</h4><p>为了解决从原型对象生成实例的问题，Javascript提供了一个构造函数（Constructor）模式。用来在创建对象时初始化对象。</p>
+<p>构造函数其实就是普通的函数，只不过有以下的特点</p>
+<blockquote>
+<p>1.首字母大写（建议构造函数首字母大写，即使用大驼峰命名，非构造函数首字母小写）<br>2.内部使用this<br>3.使用 new生成实例    </p>
+</blockquote>
+<p>通过构造函数添加属性和方法实际上也就是通过this添加的属性和方法。因为this总是指向当前对象的，所以通过this添加的属性和方法只在当前对象上添加，是该对象自身拥有的。所以我们实例化一个新对象的时候，this指向的属性和方法都会得到相应的创建，也就是会在内存中复制一份，这样就造成了内存的浪费。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fuction Cat (name,color) &#123;</span><br><span class="line">			this.name = name;</span><br><span class="line">			this.color = color;</span><br><span class="line">			this.dance = function () &#123;</span><br><span class="line">					console.log(&apos;跳海草舞&apos;);</span><br><span class="line">			 &#125;</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
+<p>生成实例:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var cat1 = new Cat(&apos;tom&apos;,&apos;orange&apos;);</span><br></pre></td></tr></table></figure>
+<h4 id="通过this定义的属性和方法-我们实例化对象的时候都会重新复制一份"><a href="#通过this定义的属性和方法-我们实例化对象的时候都会重新复制一份" class="headerlink" title="通过this定义的属性和方法,我们实例化对象的时候都会重新复制一份."></a>通过this定义的属性和方法,我们实例化对象的时候都会重新复制一份.</h4><p>在类上通过 this的方式添加属性和对象会导致内存浪费的问题，我们就考虑，有什么方法可以让实例化的类所使用的方法直接使用指针指向同一个方法。于是，就想到了原型的方式    </p>
+<h3 id="通过原型prototype"><a href="#通过原型prototype" class="headerlink" title="通过原型prototype"></a>通过原型prototype</h3><blockquote>
+<p>js规定,每一个构造函数都有一个prototype属性,指向另一个对象(这个对象就是我们俗称的原型对象).这个对象的所有属性和方法,都会被构造函数的实例继承.<br>也就是说,对于那些不变的属性方法,我们可以直接将其添加在类的prototype对象上.</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function Cat (name,color) &#123;</span><br><span class="line">		this.name = name;</span><br><span class="line">		this.color = color;</span><br><span class="line">		)</span><br><span class="line">		</span><br><span class="line">		Cat.prototype.dance = function ()&#123;</span><br><span class="line">				console.log(&apos;跳广场舞&apos;);</span><br><span class="line">		&#125;</span><br><span class="line">	</span><br><span class="line">		Cat.prototype.type = &apos;一个不正经的猫&apos;;</span><br></pre></td></tr></table></figure>
+<p>然后同样生成实例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var cat1 = new Cat(&apos;大宝&apos;,&apos;黑白色&apos;);</span><br><span class="line">var cat2 = new Cat(&apos;小宝&apos;,&apos;彩色&apos;);</span><br><span class="line"></span><br><span class="line">console.log(cat1.type);&apos;一个不正经的猫&apos;</span><br><span class="line">cat1.dance();//跳广场舞</span><br></pre></td></tr></table></figure>
+<p>这时所有实例的<code>type</code>属性和<code>eat()</code>方法，其实都是同一个内存地址，指向<code>prototype</code>对象，因此就提高了运行效率。</p>
+<h3 id="在类的外部通过-语法添加"><a href="#在类的外部通过-语法添加" class="headerlink" title="在类的外部通过.语法添加"></a>在类的外部通过.语法添加</h3><p>我们还可以在类的外部通过. 语法进行添加，因为在实例化对象的时候，并不会执行到在类外部通过. 语法添加的属性，所以实例化之后的对象是不能访问到. 语法所添加的对象和属性的，只能通过该类访问。</p>
+<h4 id="三者的区别"><a href="#三者的区别" class="headerlink" title="三者的区别"></a>三者的区别</h4><p>通过构造函数、原型和. 语法三者都可以在类上添加属性和方法。但是三者是有一定的区别的。 </p>
+<p>1.构造函数：通过this添加的属性和方法总是指向当前对象的，所以在实例化的时候，通过this添加的属性和方法都会在内存中复制一份，这样就会造成内存的浪费。但是这样创建的好处是即使改变了某一个对象的属性或方法，不会影响其他的对象（因为每一个对象都是复制的一份）。    </p>
+<p>2.原型：通过原型继承的方法并不是自身的，我们要在原型链上一层一层的查找，这样创建的好处是只在内存中创建一次，实例化的对象都会指向这个prototype 对象，但是这样做也有弊端，因为实例化的对象的原型都是指向同一内存地址，改动其中的一个对象的属性可能会影响到其他的对象 </p>
+<p>3.<code>.</code> 语法：在类的外部通过. 语法创建的属性和方法只会创建一次，但是这样创建的实例化的对象是访问不到的，只能通过类的自身访问.</p>
+<h3 id="javascript也有private-public-protected"><a href="#javascript也有private-public-protected" class="headerlink" title="javascript也有private public protected"></a>javascript也有private public protected</h3><p>对于<code>java</code>或者<code>Oc</code>程序员来说<code>private</code> <code>public</code> <code>protected</code>这三个关键字应该是很熟悉的哈，但是在js中，并没有类似于<code>private</code> <code>public</code> <code>protected</code>这样的关键字，但是我们又希望我们定义的属性和方法有一定的访问限制，于是我们就可以模拟<code>private</code> <code>public</code> <code>protected</code>这些访问权限。</p>
+<blockquote>
+<p>public：public表明该数据成员、成员函数是对所有用户开放的，所有用户都可以直接进行调用</p>
+<p>private：private表示私有，私有的意思就是除了class自己之外，任何人都不可以直接使用，私有财产神圣不可侵犯嘛，即便是子女，朋友，都不可以使用。</p>
+<p>protected：protected对于子女、朋友来说，就是public的，可以自由使用，没有任何限制，而对于其他的外部class，protected就变成private。</p>
+</blockquote>
+<h3 id="new的实质"><a href="#new的实质" class="headerlink" title="new的实质"></a>new的实质</h3><p>虽然很多人都已经了解了new的实质，那么我还是要再说一下new 的实质<br><code>var o = new Object()</code>    </p>
+<ol>
+<li>新建一个对象o     </li>
+<li><code>o. __proto__ = Object.prototype</code> 将新创建的对象的 <code>__proto__</code> 属性指向构造函数的prototype     </li>
+<li>将this指向新创建的对象     </li>
+<li>返回新对象，但是这里需要看构造函数有没有返回值，如果构造函数的返回值为基本数据类型<code>string</code>,<code>boolean</code>,<code>number</code>,<code>null</code>,<code>undefined</code>,那么就返回新对象，如果构造函数的返回值为对象类型，那么就返回这个对象类型</li>
+</ol>
+<h3 id="举个栗子"><a href="#举个栗子" class="headerlink" title="举个栗子"></a>举个栗子</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">var Book = function (id, name, price) &#123;</span><br><span class="line">        //private(在函数内部定义，函数外部访问不到，实例化之后实例化的对象访问不到)</span><br><span class="line">        var num = 1;</span><br><span class="line">        var id = id;</span><br><span class="line">        function checkId() &#123;</span><br><span class="line">            console.log(&apos;private&apos;)</span><br><span class="line">        &#125;</span><br><span class="line">        //protected(可以访问到函数内部的私有属性和私有方法，在实例化之后就可以对实例化的类进行初始化拿到函数的私有属性)</span><br><span class="line">        this.getName = function () &#123;</span><br><span class="line">            console.log(id)</span><br><span class="line">        &#125;</span><br><span class="line">        this.getPrice = function () &#123;</span><br><span class="line">            console.log(price)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        //public(实例化的之后，实例化的对象就可以访问到了~)</span><br><span class="line">        this.name = name;</span><br><span class="line">        this.copy = function () &#123;</span><br><span class="line">            console.log(&apos;this is public&apos;)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //在Book的原型上添加的方法实例化之后可以被实例化对象继承</span><br><span class="line">    Book.prototype.proFunction = function () &#123;</span><br><span class="line">        console.log(&apos;this is proFunction&apos;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //在函数外部通过.语法创建的属性和方法，只能通过该类访问，实例化对象访问不到</span><br><span class="line">    Book.setTime = function () &#123;</span><br><span class="line">        console.log(&apos;this is new time&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">    var book1 = new Book(&apos;111&apos;,&apos;悲惨世界&apos;,&apos;$99&apos;)</span><br><span class="line">    book1.getName();        // 111 getName是protected，可以访问到类的私有属性，所以实例化之后也可以访问到函数的私有属性</span><br><span class="line">    book1.checkId();        //报错book1.checkId is not a function</span><br><span class="line">    console.log(book1.id)   // undefined id是在函数内部通过定义的，是私有属性，所以实例化对象访问不到</span><br><span class="line">    console.log(book1.name) //name 是通过this创建的，所以在实例化的时候会在book1中复制一遍name属性，所以可以访问到</span><br><span class="line">    book1.copy()            //this is public</span><br><span class="line">    book1.proFunction();    //this is proFunction</span><br><span class="line">    Book.setTime();         //this is new time</span><br><span class="line">    book1.setTime();        //报错book1.setTime is not a function</span><br></pre></td></tr></table></figure>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>篇幅稍长,<a href="http://hjaiim.github.io/2017/10/20/js%E7%BB%A7%E6%89%BF/" target="_blank" rel="external">飞机票</a></p>
+<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p>JS的函数重载<br>这个是多态的基础，在之前的Javascript入门已经说过了，JS函数不支持多态，但是事实上JS函数是无态的，支持任意长度，类型的参数列表。如果同时定义了多个同名函数，则以最后一个函数为准。 </p>
+<p>在函数里根据传参的不同,经过函数体里面的条件语句之后,最后返回的结果不同.</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2018/03/10/js面向对象/" data-title="js-面向对象 | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2018/03/06/var,let,const/"  title="var,let,const区别">
+ <strong>下一篇：</strong><br/> 
+ <span>var,let,const区别
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#封装"><span class="toc-number">1.</span> <span class="toc-text">封装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、-生成实例对象的原始模式"><span class="toc-number">1.1.</span> <span class="toc-text">一、 生成实例对象的原始模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、-原始模式的改进"><span class="toc-number">1.2.</span> <span class="toc-text">二、 原始模式的改进</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、-构造函数模式"><span class="toc-number">1.3.</span> <span class="toc-text">三、 构造函数模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#通过this定义的属性和方法-我们实例化对象的时候都会重新复制一份"><span class="toc-number">1.4.</span> <span class="toc-text">通过this定义的属性和方法,我们实例化对象的时候都会重新复制一份.</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通过原型prototype"><span class="toc-number">2.</span> <span class="toc-text">通过原型prototype</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在类的外部通过-语法添加"><span class="toc-number">3.</span> <span class="toc-text">在类的外部通过.语法添加</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#三者的区别"><span class="toc-number">3.1.</span> <span class="toc-text">三者的区别</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#javascript也有private-public-protected"><span class="toc-number">4.</span> <span class="toc-text">javascript也有private public protected</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#new的实质"><span class="toc-number">5.</span> <span class="toc-text">new的实质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#举个栗子"><span class="toc-number">6.</span> <span class="toc-text">举个栗子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#继承"><span class="toc-number">7.</span> <span class="toc-text">继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多态"><span class="toc-number">8.</span> <span class="toc-text">多态</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="hjaiim" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=5597151709&verifier=2e2fc03f&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> To the world you maybe one peeson , but to one person you maybe the world. <br/>
+			This is my goddess.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/hjaiim" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		<a href="http://stackoverflow.com/users/8573660" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
+		
+		
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/liang-ren-de-hui-yi-yiren-guo" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:hjaiim@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
+		
+		<a href="/about" target="_blank" title="HJ">HJ</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

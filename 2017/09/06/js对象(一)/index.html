@@ -4,32 +4,26 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>实例化对象的三种形式 | Welcome to the literati Association!</title>
+    <title>js面向对象(一) | Welcome to the literati Association!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="HJ">
     
 
     
-    <meta name="description" content="1.构造函数模式
-123456function Person ($name,$age)&amp;#123;	this.name = $name;	this.age = $age;&amp;#125;var person1 = new Person(&amp;apos;hjai&amp;apos;,25);
-2.工厂模式
-12345678function Person($name,$age)&amp;#123;	var person =">
+    <meta name="description" content="JavaScript 语言是通过一种叫做 原型（prototype）的方式来实现面向对象编程的。下面就来讨论 基于类的（class-based）面向对象和 基于原型的 (prototype-based) 面向对象这两种方式在构造客观世界的方式上的差别。
+在基于类的面向对象方式中，对象（object）依靠 类（class）来产生。而在基于原型的面向对象方式中，对象（object）则是依靠 构造器（c">
 <meta property="og:type" content="article">
-<meta property="og:title" content="实例化对象的三种形式">
-<meta property="og:url" content="http://yoursite.com/2017/09/07/实例化对象的三种方式/index.html">
+<meta property="og:title" content="js面向对象(一)">
+<meta property="og:url" content="http://yoursite.com/2017/09/06/js对象(一)/index.html">
 <meta property="og:site_name" content="Welcome to the literati Association!">
-<meta property="og:description" content="1.构造函数模式
-123456function Person ($name,$age)&amp;#123;	this.name = $name;	this.age = $age;&amp;#125;var person1 = new Person(&amp;apos;hjai&amp;apos;,25);
-2.工厂模式
-12345678function Person($name,$age)&amp;#123;	var person =">
-<meta property="og:updated_time" content="2017-09-07T08:34:08.000Z">
+<meta property="og:description" content="JavaScript 语言是通过一种叫做 原型（prototype）的方式来实现面向对象编程的。下面就来讨论 基于类的（class-based）面向对象和 基于原型的 (prototype-based) 面向对象这两种方式在构造客观世界的方式上的差别。
+在基于类的面向对象方式中，对象（object）依靠 类（class）来产生。而在基于原型的面向对象方式中，对象（object）则是依靠 构造器（c">
+<meta property="og:updated_time" content="2017-09-07T08:29:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="实例化对象的三种形式">
-<meta name="twitter:description" content="1.构造函数模式
-123456function Person ($name,$age)&amp;#123;	this.name = $name;	this.age = $age;&amp;#125;var person1 = new Person(&amp;apos;hjai&amp;apos;,25);
-2.工厂模式
-12345678function Person($name,$age)&amp;#123;	var person =">
+<meta name="twitter:title" content="js面向对象(一)">
+<meta name="twitter:description" content="JavaScript 语言是通过一种叫做 原型（prototype）的方式来实现面向对象编程的。下面就来讨论 基于类的（class-based）面向对象和 基于原型的 (prototype-based) 面向对象这两种方式在构造客观世界的方式上的差别。
+在基于类的面向对象方式中，对象（object）依靠 类（class）来产生。而在基于原型的面向对象方式中，对象（object）则是依靠 构造器（c">
 
     
     <link rel="alternative" href="/atom.xml" title="Welcome to the literati Association!" type="application/atom+xml">
@@ -89,14 +83,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/09/07/实例化对象的三种方式/" title="实例化对象的三种形式" itemprop="url">实例化对象的三种形式</a>
+      <a href="/2017/09/06/js对象(一)/" title="js面向对象(一)" itemprop="url">js面向对象(一)</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="HJ" target="_blank" itemprop="author">HJ</a>
 		
   <p class="article-time">
-    <time datetime="2017-09-07T03:19:10.000Z" itemprop="datePublished"> 发表于 2017-09-07</time>
+    <time datetime="2017-09-06T09:02:19.000Z" itemprop="datePublished"> 发表于 2017-09-06</time>
     
   </p>
 </header>
@@ -109,13 +103,16 @@
 		
 		</div>
 		
-		<p>1.构造函数模式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function Person ($name,$age)</span><br><span class="line">&#123;</span><br><span class="line">	this.name = $name;</span><br><span class="line">	this.age = $age;</span><br><span class="line">&#125;</span><br><span class="line">var person1 = new Person(&apos;hjai&apos;,25);</span><br></pre></td></tr></table></figure>
-<p>2.工厂模式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function Person($name,$age)</span><br><span class="line">&#123;</span><br><span class="line">	var person = new Object();</span><br><span class="line">	person.name = $name;</span><br><span class="line">	person.age = $age;</span><br><span class="line">	return person;</span><br><span class="line">&#125;</span><br><span class="line">var person1 = Person(&apos;Hjai&apos;,23);</span><br></pre></td></tr></table></figure>
-<p>3.原型模式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function Person()</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.name = &apos;hjai&apos;;</span><br><span class="line">Person.prototype.age = 18;</span><br><span class="line">var person1 = new Person();</span><br></pre></td></tr></table></figure>
-<p>1.实例化对象就是创建对象的过程<br>2.实例是类的具象化产品<br>3.对象是一个具有多种属性的内容结构<br>4.当函数本身的属性和方法与原型的属性和方法同名的时候:<br>    a.默认调用的是本身的属性和方法<br>    b.函数对象本身的属性和方法的优先级要高于原型的属性和方法.  </p>
+		<p>JavaScript 语言是通过一种叫做 原型（prototype）的方式来实现面向对象编程的。下面就来讨论 基于类的（class-based）面向对象和 基于原型的 (prototype-based) 面向对象这两种方式在构造客观世界的方式上的差别。</p>
+<p>在基于类的面向对象方式中，对象（object）依靠 类（class）来产生。而在基于原型的面向对象方式中，对象（object）则是依靠 构造器（constructor）利用 原型（prototype）构造出来的。举个客观世界的例子来说明二种方式认知的差异。例如工厂造一辆车，一方面，工人必须参照一张工程图纸，设计规定这辆车应该如何制造。这里的工程图纸就好比是语言中的 类 (class)，而车就是按照这个 类（class）制造出来的；另一方面，工人和机器 ( 相当于 constructor) 利用各种零部件如发动机，轮胎，方向盘 ( 相当于 prototype 的各个属性 ) 将汽车构造出来。</p>
+<p>首先，客观世界中的对象的产生都是其它实物对象构造的结果，而抽象的“图纸”是不能产生“汽车”的，也就是说，类是一个抽象概念而并非实体，而对象的产生是一个实体的产生；<br>其次，按照一切事物皆对象这个最基本的面向对象的法则来看，类 (class) 本身并不是一个对象，然而原型方式中的构造器 (constructor) 和原型 (prototype) 本身也是其他对象通过原型方式构造出来的对象。</p>
+<p>最基本的面向对象<br>ECMAScript 是一门彻底的面向对象的编程语言（参考资源），JavaScript 是其中的一个变种 (variant)。它提供了 6 种基本数据类型，即 Boolean、Number、String、Null、Undefined、Object。为了实现面向对象，ECMAScript设计出了一种非常成功的数据结构 – JSON(JavaScript Object Notation), 这一经典结构已经可以脱离语言而成为一种广泛应用的数据交互格式 （参考资源）。<br>应该说，具有基本数据类型和 JSON 构造语法的 ECMAScript 已经基本可以实现面向对象的编程了。开发者可以随意地用 字面式声明（literal notation）方式来构造一个对象，并对其不存在的属性直接赋值，或者用 delete 将属性删除 ( 注：JS 中的 delete 关键字用于删除对象属性，经常被误作为 C++ 中的 delete，而后者是用于释放不再使用的对象 )，如 程序清单 2。</p>
+<p>清单 2. 字面式 (literal notation) 对象声明</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var person = &#123;</span><br><span class="line">    name: “张三”,</span><br><span class="line">    age: 26,</span><br><span class="line">    gender: “男”,</span><br><span class="line">    eat: function( stuff ) &#123;</span><br><span class="line">        alert( “我在吃” + stuff );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">person.height = 176;</span><br><span class="line">delete person[ “age” ];</span><br></pre></td></tr></table></figure>
+<p>大部分初学者或者对 JS 应用没有太高要求的开发者也基本上只用到 ECMAScript 定义的这一部分内容，就能满足基本的开发需求。然而，这样的代码复用性非常弱，与其他实现了继承、派生、多态等等的类式面向对象的强类型语言比较起来显得有些干瘪，不能满足复杂的 JS 应用开发。所以 ECMAScript 引入原型来解决对象继承问题。</p>
+<p>使用函数构造器构造对象<br>除了 字面式声明（literal notation）方式之外，ECMAScript 允许通过 构造器（constructor）创建对象。每个构造器实际上是一个 函数（function） 对象, 该函数对象含有一个“prototype”属性用于实现 基于原型的继承（prototype-based inheritance）和 共享属性（shared properties）。对象可以由“new 关键字 + 构造器调用”的方式来创建，如 程序清单 3：</p>
+<p>清单 3. 使用构造器 (constructor) 创建对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// 构造器 Person 本身是一个函数对象</span><br><span class="line">function Person() &#123;</span><br><span class="line">// 此处可做一些初始化工作</span><br><span class="line">&#125;</span><br><span class="line">// 它有一个名叫 prototype 的属性</span><br><span class="line">Person.prototype = &#123;</span><br><span class="line">    name: “张三”,</span><br><span class="line">    age: 26,</span><br><span class="line">    gender: “男”,</span><br><span class="line">    eat: function( stuff ) &#123;</span><br><span class="line">        alert( “我在吃” + stuff );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 使用 new 关键字构造对象</span><br><span class="line">var p = new Person();</span><br></pre></td></tr></table></figure>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -128,7 +125,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2017/09/07/实例化对象的三种方式/" data-title="实例化对象的三种形式 | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
+	  <div data-url="http://yoursite.com/2017/09/06/js对象(一)/" data-title="js面向对象(一) | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -142,18 +139,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2017/09/07/js对象(二)/" title="js面向对象(二)">
+ <a href="/2017/09/07/实例化对象的三种方式/" title="实例化对象的三种形式">
   <strong>上一篇：</strong><br/>
   <span>
-  js面向对象(二)</span>
+  实例化对象的三种形式</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2017/09/06/js对象(一)/"  title="js面向对象(一)">
+<a href="/2017/08/21/常用的meta标签写法和作用/"  title="html中的meta总结">
  <strong>下一篇：</strong><br/> 
- <span>js面向对象(一)
+ <span>html中的meta总结
 </span>
 </a>
 </div>
