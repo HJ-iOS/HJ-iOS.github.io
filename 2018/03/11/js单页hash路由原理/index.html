@@ -4,26 +4,29 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>解决overflow:属性,在iOS上滑动卡顿的问题 | Welcome to the literati Association!</title>
+    <title>js单页hash路由原理 | Welcome to the literati Association!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="HJ">
     
 
     
-    <meta name="description" content="一：Lying人生感悟摩西奶奶曾经说过：世界上，最公平和最不公平的，都是时间。别人偷不走它。而你也留不住它。你拥有它，却不能改变它。光阴里的艰难或是快乐，它都一一带走。身处其中的你我，年轻或是衰老，所能做的，就是充分去享用它，享受每一个生命时期，收藏每一个年龄段带给你的感动与美好。
-     是的，这句话我也曾经在某个令人刻骨铭心的夜晚对一个人说过。过去了的事情再提及难免让人有些怀念。既然走不出来">
+    <meta name="description" content="什么是路由?通俗点说，就是不同的URL显示不同的内容.
+什么是单页应用?单页，英文缩写为SPA( Single Page Application)，就是把各种功能做在一个页面内. 那所谓的单页路由应用就是：在一个页面内，通过切换地址栏的URL来实现切换内容的变化.
+前端路由有2种实现方式，一种是html5推出的historyapi，我们这里说的是另一种hash路由，就是常见的 # 号，这种方式兼容">
 <meta property="og:type" content="article">
-<meta property="og:title" content="解决overflow:属性,在iOS上滑动卡顿的问题">
-<meta property="og:url" content="http://yoursite.com/2016/04/09/overflow/index.html">
+<meta property="og:title" content="js单页hash路由原理">
+<meta property="og:url" content="http://yoursite.com/2018/03/11/js单页hash路由原理/index.html">
 <meta property="og:site_name" content="Welcome to the literati Association!">
-<meta property="og:description" content="一：Lying人生感悟摩西奶奶曾经说过：世界上，最公平和最不公平的，都是时间。别人偷不走它。而你也留不住它。你拥有它，却不能改变它。光阴里的艰难或是快乐，它都一一带走。身处其中的你我，年轻或是衰老，所能做的，就是充分去享用它，享受每一个生命时期，收藏每一个年龄段带给你的感动与美好。
-     是的，这句话我也曾经在某个令人刻骨铭心的夜晚对一个人说过。过去了的事情再提及难免让人有些怀念。既然走不出来">
-<meta property="og:updated_time" content="2016-05-05T02:44:06.000Z">
+<meta property="og:description" content="什么是路由?通俗点说，就是不同的URL显示不同的内容.
+什么是单页应用?单页，英文缩写为SPA( Single Page Application)，就是把各种功能做在一个页面内. 那所谓的单页路由应用就是：在一个页面内，通过切换地址栏的URL来实现切换内容的变化.
+前端路由有2种实现方式，一种是html5推出的historyapi，我们这里说的是另一种hash路由，就是常见的 # 号，这种方式兼容">
+<meta property="og:updated_time" content="2018-03-10T23:51:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="解决overflow:属性,在iOS上滑动卡顿的问题">
-<meta name="twitter:description" content="一：Lying人生感悟摩西奶奶曾经说过：世界上，最公平和最不公平的，都是时间。别人偷不走它。而你也留不住它。你拥有它，却不能改变它。光阴里的艰难或是快乐，它都一一带走。身处其中的你我，年轻或是衰老，所能做的，就是充分去享用它，享受每一个生命时期，收藏每一个年龄段带给你的感动与美好。
-     是的，这句话我也曾经在某个令人刻骨铭心的夜晚对一个人说过。过去了的事情再提及难免让人有些怀念。既然走不出来">
+<meta name="twitter:title" content="js单页hash路由原理">
+<meta name="twitter:description" content="什么是路由?通俗点说，就是不同的URL显示不同的内容.
+什么是单页应用?单页，英文缩写为SPA( Single Page Application)，就是把各种功能做在一个页面内. 那所谓的单页路由应用就是：在一个页面内，通过切换地址栏的URL来实现切换内容的变化.
+前端路由有2种实现方式，一种是html5推出的historyapi，我们这里说的是另一种hash路由，就是常见的 # 号，这种方式兼容">
 
     
     <link rel="alternative" href="/atom.xml" title="Welcome to the literati Association!" type="application/atom+xml">
@@ -83,14 +86,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/04/09/overflow/" title="解决overflow:属性,在iOS上滑动卡顿的问题" itemprop="url">解决overflow:属性,在iOS上滑动卡顿的问题</a>
+      <a href="/2018/03/11/js单页hash路由原理/" title="js单页hash路由原理" itemprop="url">js单页hash路由原理</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="HJ" target="_blank" itemprop="author">HJ</a>
 		
   <p class="article-time">
-    <time datetime="2016-04-09T09:28:32.000Z" itemprop="datePublished"> 发表于 2016-04-09</time>
+    <time datetime="2018-03-10T23:51:12.000Z" itemprop="datePublished"> 发表于 2018-03-11</time>
     
   </p>
 </header>
@@ -99,14 +102,27 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#一：Lying人生感悟"><span class="toc-number">1.</span> <span class="toc-text">一：Lying人生感悟</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二：回到正题"><span class="toc-number">2.</span> <span class="toc-text">二：回到正题</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是路由"><span class="toc-number">1.</span> <span class="toc-text">什么是路由?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是单页应用"><span class="toc-number">2.</span> <span class="toc-text">什么是单页应用?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一、-的涵义"><span class="toc-number">3.</span> <span class="toc-text">一、#的涵义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、HTTP请求不包括"><span class="toc-number">4.</span> <span class="toc-text">二、HTTP请求不包括</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、改变-不触发网页重载"><span class="toc-number">5.</span> <span class="toc-text">三、改变#不触发网页重载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、改变-会改变浏览器的访问历史"><span class="toc-number">6.</span> <span class="toc-text">四、改变#会改变浏览器的访问历史</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、window-location-hash读取-值"><span class="toc-number">7.</span> <span class="toc-text">五、window.location.hash读取#值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#六、onhashchange事件"><span class="toc-number">8.</span> <span class="toc-text">六、onhashchange事件</span></a></li></ol>
 		
 		</div>
 		
-		<h4 id="一：Lying人生感悟"><a href="#一：Lying人生感悟" class="headerlink" title="一：Lying人生感悟"></a>一：Lying人生感悟</h4><pre><code>摩西奶奶曾经说过：世界上，最公平和最不公平的，都是时间。别人偷不走它。而你也留不住它。你拥有它，却不能改变它。光阴里的艰难或是快乐，它都一一带走。身处其中的你我，年轻或是衰老，所能做的，就是充分去享用它，享受每一个生命时期，收藏每一个年龄段带给你的感动与美好。
-     是的，这句话我也曾经在某个令人刻骨铭心的夜晚对一个人说过。过去了的事情再提及难免让人有些怀念。既然走不出来又何必再强求自己走出来。所以让该来的到来，让不该走的别走，珍惜所拥有的一切期许是最好的选择……    
-</code></pre><h4 id="二：回到正题"><a href="#二：回到正题" class="headerlink" title="二：回到正题"></a>二：回到正题</h4><p>  故事背景：最近的一次开发中，使用到了overflow：scroll 属性来滑动div。信心满满的以为不会出现任何问题，看来还是太清高自傲了，于是写下这篇随笔特此总结一番。</p>
-<p>　　     如果你对某个div或模块使用了overflow: scroll属性，在iOS系统的手机上浏览时，则会出现明显的卡顿现象。但是在android系统的手机上则不会出现该问题。<br>　　-webkit-overflow-scrolling: touch;<br>　　                    据说是因为这行代码启用了硬件加速特性，所以滑动很流畅。但是这个属性也会相对耗费更多内存。在流畅的滑动效果和耗费内存之间，我选择了前者。<br>　<br>　从前端开发的角度讲，只需要知道CSS的属性-webkit-overflow-scrolling是真的创建了带有硬件加速的系统级控件，所以效率很高。<br>从实际开发的角度讲，采用这样的做法相对是耗更多内存的，最好是在产生了非常大面积的overflow时才应用。</p>
+		<h3 id="什么是路由"><a href="#什么是路由" class="headerlink" title="什么是路由?"></a>什么是路由?</h3><p>通俗点说，就是不同的URL显示不同的内容.</p>
+<h3 id="什么是单页应用"><a href="#什么是单页应用" class="headerlink" title="什么是单页应用?"></a>什么是单页应用?</h3><p>单页，英文缩写为SPA( Single Page Application)，就是把各种功能做在一个页面内. 那所谓的单页路由应用就是：在一个页面内，通过切换地址栏的URL来实现切换内容的变化.</p>
+<p>前端路由有2种实现方式，一种是html5推出的historyapi，我们这里说的是另一种hash路由，就是常见的 # 号，这种方式兼容性更好。</p>
+<h3 id="一、-的涵义"><a href="#一、-的涵义" class="headerlink" title="一、#的涵义"></a>一、#的涵义</h3><p><code>#</code>代表网页中的一个位置。其右面的字符，就是该位置的标识符。比如，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　http://www.example.com/index.html#print</span><br></pre></td></tr></table></figure>
+<p>就代表网页index.html的print位置。浏览器读取这个URL后，会自动将print位置滚动至可视区域。<br>为网页位置指定标识符，有两个方法。一是使用锚点，比如<a name="print"></a>，二是使用id属性，比如<div id="print">。</div></p>
+<h3 id="二、HTTP请求不包括"><a href="#二、HTTP请求不包括" class="headerlink" title="二、HTTP请求不包括"></a>二、HTTP请求不包括</h3><p><code>#</code>是用来指导浏览器动作的，对服务器端完全无用。所以，HTTP请求中不包括<code>#</code>。<br>比如，访问下面的网址，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://www.example.com/index.html#print</span><br></pre></td></tr></table></figure>
+<p>浏览器实际发出的请求是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GET /index.html HTTP/1.1</span><br><span class="line">　　Host: www.example.com</span><br></pre></td></tr></table></figure>
+<p>可以看到，只是请求index.html，根本没有”#print”的部分。</p>
+<h3 id="三、改变-不触发网页重载"><a href="#三、改变-不触发网页重载" class="headerlink" title="三、改变#不触发网页重载"></a>三、改变#不触发网页重载</h3><p>单单改变#后的部分，浏览器只会滚动到相应位置，不会重新加载网页。<br>比如，从<br>　　<a href="http://www.example.com/index.html#location1" target="_blank" rel="external">http://www.example.com/index.html#location1</a><br>改成<br>　　<a href="http://www.example.com/index.html#location2" target="_blank" rel="external">http://www.example.com/index.html#location2</a><br>浏览器不会重新向服务器请求index.html。</p>
+<h3 id="四、改变-会改变浏览器的访问历史"><a href="#四、改变-会改变浏览器的访问历史" class="headerlink" title="四、改变#会改变浏览器的访问历史"></a>四、改变#会改变浏览器的访问历史</h3><p>每一次改变#后的部分，都会在浏览器的访问历史中增加一个记录，使用”后退”按钮，就可以回到上一个位置。<br>这对于ajax应用程序特别有用，可以用不同的#值，表示不同的访问状态，然后向用户给出可以访问某个状态的链接。<br>值得注意的是，上述规则对IE 6和IE 7不成立，它们不会因为#的改变而增加历史记录。</p>
+<h3 id="五、window-location-hash读取-值"><a href="#五、window-location-hash读取-值" class="headerlink" title="五、window.location.hash读取#值"></a>五、window.location.hash读取#值</h3><p>window.location.hash这个属性可读可写。读取时，可以用来判断网页状态是否改变；写入时，则会在不重载网页的前提下，创造一条访问历史记录。</p>
+<h3 id="六、onhashchange事件"><a href="#六、onhashchange事件" class="headerlink" title="六、onhashchange事件"></a>六、onhashchange事件</h3><p>这是一个HTML 5新增的事件，当#值发生变化时，就会触发这个事件。IE8+、Firefox 3.6+、Chrome 5+、Safari 4.0+支持该事件。<br>它的使用方法有三种：   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">　　window.onhashchange = func;</span><br><span class="line">　　&lt;body onhashchange=&quot;func();&quot;&gt;</span><br><span class="line">　　window.addEventListener(&quot;hashchange&quot;, func, false);</span><br></pre></td></tr></table></figure>
+<p>对于不支持<code>onhashchange</code>的浏览器，可以用<code>setInterval</code>监控<code>location.hash</code>的变化。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -119,7 +135,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2016/04/09/overflow/" data-title="解决overflow:属性,在iOS上滑动卡顿的问题 | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
+	  <div data-url="http://yoursite.com/2018/03/11/js单页hash路由原理/" data-title="js单页hash路由原理 | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -133,18 +149,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/04/18/移动端知识的一些总结/" title="移动端知识的一些总结">
+ <a href="/2018/03/11/vue.js路由细说/" title="vue.js路由细说">
   <strong>上一篇：</strong><br/>
   <span>
-  移动端知识的一些总结</span>
+  vue.js路由细说</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2016/04/09/前端开发样式命名规范/"  title="前端开发样式命名规范">
+<a href="/2018/03/10/js面向对象/"  title="js-面向对象">
  <strong>下一篇：</strong><br/> 
- <span>前端开发样式命名规范
+ <span>js-面向对象
 </span>
 </a>
 </div>
@@ -159,7 +175,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#一：Lying人生感悟"><span class="toc-number">1.</span> <span class="toc-text">一：Lying人生感悟</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二：回到正题"><span class="toc-number">2.</span> <span class="toc-text">二：回到正题</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是路由"><span class="toc-number">1.</span> <span class="toc-text">什么是路由?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是单页应用"><span class="toc-number">2.</span> <span class="toc-text">什么是单页应用?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一、-的涵义"><span class="toc-number">3.</span> <span class="toc-text">一、#的涵义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、HTTP请求不包括"><span class="toc-number">4.</span> <span class="toc-text">二、HTTP请求不包括</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、改变-不触发网页重载"><span class="toc-number">5.</span> <span class="toc-text">三、改变#不触发网页重载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、改变-会改变浏览器的访问历史"><span class="toc-number">6.</span> <span class="toc-text">四、改变#会改变浏览器的访问历史</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、window-location-hash读取-值"><span class="toc-number">7.</span> <span class="toc-text">五、window.location.hash读取#值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#六、onhashchange事件"><span class="toc-number">8.</span> <span class="toc-text">六、onhashchange事件</span></a></li></ol>
  
   </div>
 
