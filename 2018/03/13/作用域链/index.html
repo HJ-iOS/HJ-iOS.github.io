@@ -25,7 +25,7 @@
 2.作用域又是什么呢?从字面上理解:起作用的范围(村里村长说话好使,村就是这个村长的作用域).
 3.变量作用域作用域是给变量用的,又称之为变量作用域.
 4.变量变量又分全局变量和局部变量.2个注意小点:">
-<meta property="og:image" content="https://github.com/hjaiim/picture/raw/master/aa.jpg">
+<meta property="og:image" content="https://github.com/hjaiim/picture/raw/master/ll.jpg">
 <meta property="og:image" content="https://github.com/hjaiim/picture/raw/master/gg.gif">
 <meta property="og:image" content="https://github.com/hjaiim/picture/raw/master/tt.png">
 <meta property="og:image" content="https://github.com/hjaiim/picture/raw/master/mm.png">
@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://github.com/hjaiim/picture/raw/master/vv.png">
 <meta property="og:image" content="https://github.com/hjaiim/picture/raw/master/cc.png">
 <meta property="og:image" content="https://github.com/hjaiim/picture/raw/master/xx.png">
-<meta property="og:updated_time" content="2018-03-13T08:19:43.000Z">
+<meta property="og:updated_time" content="2018-03-13T23:28:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js作用域链,执行环境">
 <meta name="twitter:description" content="1.作用域链从字面上理解:多个作用域连接在一起.  
@@ -41,7 +41,7 @@
 2.作用域又是什么呢?从字面上理解:起作用的范围(村里村长说话好使,村就是这个村长的作用域).
 3.变量作用域作用域是给变量用的,又称之为变量作用域.
 4.变量变量又分全局变量和局部变量.2个注意小点:">
-<meta name="twitter:image" content="https://github.com/hjaiim/picture/raw/master/aa.jpg">
+<meta name="twitter:image" content="https://github.com/hjaiim/picture/raw/master/ll.jpg">
 
     
     <link rel="alternative" href="/atom.xml" title="Welcome to the literati Association!" type="application/atom+xml">
@@ -144,7 +144,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">EC = &#123;</span><br><span class="line">    VO:&#123;/*函数中的arguments对象、参数、内部变量以及函数声明*/&#125;</span><br><span class="line">    this:&#123;&#125;,</span><br><span class="line">    Scope:&#123;/*VO以及所有父执行上下文中的VO*/&#125;//作用域链</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>1、全局环境：<br>　　全局环境是最外围的一个执行环境。全局执行环境被认为是window对象。因此所有全局变量和函数都是作为window对象的属性和方法创建的。代码载入浏览器时，全局执行环境被创建(当我们关闭网页或者浏览器时全局执行环境才被销毁)。比如在一个页面中，第一次载入JS代码时创建一个全局执行环境。<br>　　这也是为什么闭包有一个内存泄露的缺点。因为闭包中外部函数被当成了全局环境。所以不会被销毁，一直保存在内存中.<br>　　<br>2、函数执行环境<br>　　每个函数都有自己的执行环境，当执行进入一个函数时，函数的执行环境就会被推入一个执行环境栈的顶部并获取执行权。当这个函数执行完毕，它的执行环境又从这个栈的顶部被删除，并把执行权并还给之前执行环境。这就是ECMAScript程序中的执行流。<br>　　也可以这样解读：当调用一个 JavaScript 函数时，该函数就会进入与该函数相对应的执行环境。如果又调用了另外一个函数，则又会创建一个新的执行环境，并且在函数调用期间执行过程都处于该环境中。当调用的函数返回后，执行过程会返回原始执行环境。因而，运行中的 JavaScript 代码就构成了一个执行环境栈。</p>
 <h3 id="接下来看执行环境是如何参与工作的"><a href="#接下来看执行环境是如何参与工作的" class="headerlink" title="接下来看执行环境是如何参与工作的"></a>接下来看执行环境是如何参与工作的</h3><p>当执行流进入一个函数时，函数的环境就会被推入一个环境栈中。而在函数执行后，栈将其环境弹出，把控制权返回给这个环境栈中之前的执行环境。(有点绕).</p>
-<p><img src="https://github.com/hjaiim/picture/raw/master/aa.jpg" alt=""><br>字写得很挫,见谅.<br>这样看图片能理解了吧,执行环境A被弹出,就把控制权给执行环境B.</p>
+<p><img src="https://github.com/hjaiim/picture/raw/master/ll.jpg" alt=""><br>这样看图片能理解了吧,执行环境A被弹出,就把控制权给执行环境B.</p>
 <h3 id="执行环境的具体细节"><a href="#执行环境的具体细节" class="headerlink" title="执行环境的具体细节"></a>执行环境的具体细节</h3><p>执行环境的建立分为两个阶段：进入执行上下文（创建阶段）和执行阶段（激活/执行阶段）<br>（1）进入上下文阶段：发生在函数调用时，但在执行具体代码之前。具体完成创建作用域链；创建变量、函数和参数以及求this的值<br>（2）执行代码阶段：主要完成变量赋值、函数引用和解释/执行其他代码<br>总的来说可以将执行上下文看作是一个对象</p>
 <p>用一个实际函数说明:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(function foo(x,y,z)&#123;</span><br><span class="line"></span><br><span class="line">  var a = 1;</span><br><span class="line">  var b = function()&#123;&#125;;</span><br><span class="line">  function c()&#123;&#125;</span><br><span class="line">  (function d()&#123;&#125;)();</span><br><span class="line"></span><br><span class="line">&#125;)(10，20);</span><br></pre></td></tr></table></figure>
