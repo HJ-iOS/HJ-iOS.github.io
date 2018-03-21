@@ -1,0 +1,476 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>伪类和伪元素 | Welcome to the literati Association!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="HJ">
+    
+
+    
+    <meta name="description" content="伪类和伪元素的区别，其实很简单，从字面上就可以理解。它们有一个共同的修饰词“伪”，那么“伪”是什么意思呢？就是假的呗。所以，伪类就是假的类，伪元素就是假的元素，这就是在字面上它们之间的区别。(我的记法:伪类(泪)正常2只眼睛流泪,但是是伪的所以就只有一行眼泪了:,伪元素那就是2行了::)下面我们再从定义上感受一下。
+1.伪类伪类存在的意义是为了通过选择器，格式化DOM树以外的信息以及不能被常规CS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="伪类和伪元素">
+<meta property="og:url" content="http://yoursite.com/2018/03/21/伪类和伪元素/index.html">
+<meta property="og:site_name" content="Welcome to the literati Association!">
+<meta property="og:description" content="伪类和伪元素的区别，其实很简单，从字面上就可以理解。它们有一个共同的修饰词“伪”，那么“伪”是什么意思呢？就是假的呗。所以，伪类就是假的类，伪元素就是假的元素，这就是在字面上它们之间的区别。(我的记法:伪类(泪)正常2只眼睛流泪,但是是伪的所以就只有一行眼泪了:,伪元素那就是2行了::)下面我们再从定义上感受一下。
+1.伪类伪类存在的意义是为了通过选择器，格式化DOM树以外的信息以及不能被常规CS">
+<meta property="og:updated_time" content="2018-03-21T02:28:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="伪类和伪元素">
+<meta name="twitter:description" content="伪类和伪元素的区别，其实很简单，从字面上就可以理解。它们有一个共同的修饰词“伪”，那么“伪”是什么意思呢？就是假的呗。所以，伪类就是假的类，伪元素就是假的元素，这就是在字面上它们之间的区别。(我的记法:伪类(泪)正常2只眼睛流泪,但是是伪的所以就只有一行眼泪了:,伪元素那就是2行了::)下面我们再从定义上感受一下。
+1.伪类伪类存在的意义是为了通过选择器，格式化DOM树以外的信息以及不能被常规CS">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Welcome to the literati Association!" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Welcome to the literati Association!" title="Welcome to the literati Association!"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Welcome to the literati Association!">Welcome to the literati Association!</a></h1>
+				<h2 class="blog-motto">The president of the literati association is HJ.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/03/21/伪类和伪元素/" title="伪类和伪元素" itemprop="url">伪类和伪元素</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="HJ" target="_blank" itemprop="author">HJ</a>
+		
+  <p class="article-time">
+    <time datetime="2018-03-21T02:28:54.000Z" itemprop="datePublished"> 发表于 2018-03-21</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-伪类"><span class="toc-number">1.</span> <span class="toc-text">1.伪类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-伪元素"><span class="toc-number">2.</span> <span class="toc-text">2.伪元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-伪类和伪元素的区别（CSS3下的区别）"><span class="toc-number">3.</span> <span class="toc-text">3.伪类和伪元素的区别（CSS3下的区别）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#伪类其实是弥补了CSS选择器的不足，用来更方便地获取信息；"><span class="toc-number">3.1.</span> <span class="toc-text">伪类其实是弥补了CSS选择器的不足，用来更方便地获取信息；</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#而伪元素本质上是创建了一个虚拟容器-元素-，我们可以在其中添加内容或样式。"><span class="toc-number">3.2.</span> <span class="toc-text">而伪元素本质上是创建了一个虚拟容器(元素)，我们可以在其中添加内容或样式。</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-主要用法"><span class="toc-number">4.</span> <span class="toc-text">4.主要用法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1伪类"><span class="toc-number">4.1.</span> <span class="toc-text">4.1伪类</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-伪元素"><span class="toc-number">5.</span> <span class="toc-text">4.2 伪元素</span></a></li></ol>
+		
+		</div>
+		
+		<p>伪类和伪元素的区别，其实很简单，从字面上就可以理解。它们有一个共同的修饰词“伪”，那么“伪”是什么意思呢？就是假的呗。所以，伪类就是假的类，伪元素就是假的元素，这就是在字面上它们之间的区别。(我的记法:伪类(泪)正常2只眼睛流泪,但是是伪的所以就只有一行眼泪了<code>:</code>,伪元素那就是2行了<code>::</code>)下面我们再从定义上感受一下。</p>
+<h3 id="1-伪类"><a href="#1-伪类" class="headerlink" title="1.伪类"></a>1.伪类</h3><p>伪类存在的意义是为了通过选择器，格式化DOM树以外的信息以及不能被常规CSS选择器获取到的信息。</p>
+<p>通过上面的概念我们知道了伪类的功能有两种：</p>
+<p>1.格式化DOM树以外的信息。比如：<code>&lt;a&gt;</code>标签的<code>:link</code>、<code>:visited</code>等。这些信息不存在于DOM树中。</p>
+<p>2.不能被常规CSS选择器获取到的信息。比如：要获取第一个子元素，我们无法用常规的CSS选择器获取，但可以通过<code>:first-child</code>来获取到。</p>
+<h3 id="2-伪元素"><a href="#2-伪元素" class="headerlink" title="2.伪元素"></a>2.伪元素</h3><p>伪元素可以创建一些文档语言无法创建的虚拟元素。比如：文档语言没有一种机制可以描述元素内容的第一个字母或第一行，但伪元素可以做到(<code>::first-letter</code>、<code>::first-line</code>)。同时，伪元素还可以创建源文档不存在的内容，比如使用<code>::before</code>或<code>::after</code>。</p>
+<h3 id="3-伪类和伪元素的区别（CSS3下的区别）"><a href="#3-伪类和伪元素的区别（CSS3下的区别）" class="headerlink" title="3.伪类和伪元素的区别（CSS3下的区别）"></a>3.伪类和伪元素的区别（CSS3下的区别）</h3><p>通过上面的概念，我们就可以知道伪类与伪元素最本质的一个区别：</p>
+<h4 id="伪类其实是弥补了CSS选择器的不足，用来更方便地获取信息；"><a href="#伪类其实是弥补了CSS选择器的不足，用来更方便地获取信息；" class="headerlink" title="伪类其实是弥补了CSS选择器的不足，用来更方便地获取信息；"></a>伪类其实是弥补了CSS选择器的不足，用来更方便地获取信息；</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">HTML:</span><br><span class="line"></span><br><span class="line">&lt;ul&gt;</span><br><span class="line">    &lt;li&gt;11111&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;22222&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CSS：</span><br><span class="line"></span><br><span class="line">li:first-child &#123;</span><br><span class="line">    color: red;   </span><br><span class="line">&#125;</span><br><span class="line">// 选择器不能直接选取第一个子元素</span><br><span class="line">// 伪类弥补了选择器的不足</span><br></pre></td></tr></table></figure>
+<h4 id="而伪元素本质上是创建了一个虚拟容器-元素-，我们可以在其中添加内容或样式。"><a href="#而伪元素本质上是创建了一个虚拟容器-元素-，我们可以在其中添加内容或样式。" class="headerlink" title="而伪元素本质上是创建了一个虚拟容器(元素)，我们可以在其中添加内容或样式。"></a>而伪元素本质上是创建了一个虚拟容器(元素)，我们可以在其中添加内容或样式。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">HTML：</span><br><span class="line"></span><br><span class="line">&lt;p&gt;</span><br><span class="line">    &lt;span class=&quot;first-letter&quot;&gt;H&lt;/span&gt;ello, World</span><br><span class="line">&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CSS：</span><br><span class="line"></span><br><span class="line">.first-letter &#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>用伪元素来写,上面的代码其实就是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">p::first-letter &#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>所以，你可以理解<strong>伪元素本质上是创建了一个虚拟容器(元素)</strong>了吧。</p>
+<h3 id="4-主要用法"><a href="#4-主要用法" class="headerlink" title="4.主要用法"></a>4.主要用法</h3><h4 id="4-1伪类"><a href="#4-1伪类" class="headerlink" title="4.1伪类"></a>4.1伪类</h4><p><strong>1 :first-child</strong></p>
+<p>匹配第一个子元素。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">HTML：</span><br><span class="line"></span><br><span class="line">&lt;ul&gt;</span><br><span class="line">    &lt;li&gt;111&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;222&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;    </span><br><span class="line"></span><br><span class="line">CSS：</span><br><span class="line"></span><br><span class="line">li:first-child &#123;</span><br><span class="line">  color: red; // 第一个 li 会变红</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>2 :last-child</strong></p>
+<p>匹配最后一个子元素。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">HTML：</span><br><span class="line"></span><br><span class="line">&lt;ul&gt;</span><br><span class="line">    &lt;li&gt;aaa&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;bbb&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;ccc&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">CSS：</span><br><span class="line"></span><br><span class="line">li:last-child &#123;</span><br><span class="line">  color:red; // 最后一个 li 会变红</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>3 :first-of-type</strong></p>
+<p>匹配属于其父元素的第一个特定类型的子元素。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">HTML：</span><br><span class="line"></span><br><span class="line">&lt;div&gt;</span><br><span class="line">    &lt;h1&gt;h1文本&lt;/h1&gt;</span><br><span class="line">      &lt;p&gt;p文本&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">CSS：</span><br><span class="line"></span><br><span class="line">p:first-of-type &#123;</span><br><span class="line">  color: red;  // &lt;p&gt;标签的内容变为红色</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里有必要强调一下<code>:first-child与``:first-of-type</code>的区别。如果你的CSS写成:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">p:first-child &#123;</span><br><span class="line">  color:red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>页面是不会有变化的，因为<code>&lt;p&gt;</code>元素并不是父元素<code>&lt;div&gt;</code>的第一个子元素。</p>
+<p><strong>4 :last-of-type</strong></p>
+<p>匹配属于其父元素的最后一个特定类型的子元素。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">HTML：</span><br><span class="line"></span><br><span class="line">&lt;div&gt;</span><br><span class="line">    &lt;h1&gt;h1文本&lt;/h1&gt;</span><br><span class="line">    &lt;h1&gt;h1文本2&lt;/h1&gt;</span><br><span class="line">    &lt;p&gt;p文本&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">CSS：</span><br><span class="line"></span><br><span class="line">h1:last-of-type &#123;</span><br><span class="line">  color: red;  // 倒数第一个&lt;h1&gt;标签的内容变为红色(h1文本2)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-2-伪元素"><a href="#4-2-伪元素" class="headerlink" title="4.2 伪元素"></a>4.2 伪元素</h3><p><strong>1 ::before</strong></p>
+<p>在被选元素之前插入内容。需要指定content属性来插入内容。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">HTML：</span><br><span class="line"></span><br><span class="line">&lt;p&gt;CSS&lt;/p&gt;</span><br><span class="line">CSS：</span><br><span class="line"></span><br><span class="line">p::before &#123;</span><br><span class="line">  content: &quot;Hi,&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>2 ::after</strong></p>
+<p>在被选元素之后插入内容。需要指定content属性来插入内容。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">HTML：</span><br><span class="line"></span><br><span class="line">&lt;p&gt;Hi, &lt;/p&gt;</span><br><span class="line">CSS：</span><br><span class="line"></span><br><span class="line">p::after &#123;</span><br><span class="line">  content: &quot;CSS&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>3 ::first-letter</strong></p>
+<p>匹配元素中文本的首字母。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">HTML：</span><br><span class="line"></span><br><span class="line">&lt;p&gt;我在学伪元素&lt;/p&gt;</span><br><span class="line">注意：试试把&lt;p&gt;标签改成&lt;p&gt;???我在学伪元素&lt;/p&gt;，你会发现很有意思的现象。</span><br><span class="line"></span><br><span class="line">CSS：</span><br><span class="line"></span><br><span class="line">p::first-letter &#123;</span><br><span class="line">  font-size: 32px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>4 ::first-line</strong></p>
+<p>匹配元素中第一行的文本(只能在块元素中使用)。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">HTML：</span><br><span class="line"></span><br><span class="line">&lt;p&gt;我在学伪元素,我在学伪元素,我在学伪元素,我在学伪元素,我在学伪元素,我在学伪元素,我在学伪元素,我在学伪元素,我在学伪元素,我在学伪元素,我在学伪元素&lt;/p&gt;</span><br><span class="line">CSS：</span><br><span class="line"></span><br><span class="line">p::first-line &#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>5 ::selection</strong></p>
+<p>匹配被用户选中的部分。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">HTML：</span><br><span class="line"></span><br><span class="line">&lt;p&gt;我在学伪元素,我在学伪元素,我在学伪元素,我在学伪元素,我在学伪元素,我在学伪元素,我在学伪元素,我在学伪元素,我在学伪元素,我在学伪元素,我在学伪元素&lt;/p&gt;</span><br><span class="line">CSS：</span><br><span class="line"></span><br><span class="line">p::selection &#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2018/03/21/伪类和伪元素/" data-title="伪类和伪元素 | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2018/03/13/作用域链/"  title="js作用域链,执行环境">
+ <strong>下一篇：</strong><br/> 
+ <span>js作用域链,执行环境
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-伪类"><span class="toc-number">1.</span> <span class="toc-text">1.伪类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-伪元素"><span class="toc-number">2.</span> <span class="toc-text">2.伪元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-伪类和伪元素的区别（CSS3下的区别）"><span class="toc-number">3.</span> <span class="toc-text">3.伪类和伪元素的区别（CSS3下的区别）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#伪类其实是弥补了CSS选择器的不足，用来更方便地获取信息；"><span class="toc-number">3.1.</span> <span class="toc-text">伪类其实是弥补了CSS选择器的不足，用来更方便地获取信息；</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#而伪元素本质上是创建了一个虚拟容器-元素-，我们可以在其中添加内容或样式。"><span class="toc-number">3.2.</span> <span class="toc-text">而伪元素本质上是创建了一个虚拟容器(元素)，我们可以在其中添加内容或样式。</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-主要用法"><span class="toc-number">4.</span> <span class="toc-text">4.主要用法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1伪类"><span class="toc-number">4.1.</span> <span class="toc-text">4.1伪类</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-伪元素"><span class="toc-number">5.</span> <span class="toc-text">4.2 伪元素</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="hjaiim" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=5597151709&verifier=2e2fc03f&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> To the world you maybe one peeson , but to one person you maybe the world. <br/>
+			This is my goddess.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/hjaiim" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		<a href="http://stackoverflow.com/users/8573660" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
+		
+		
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/liang-ren-de-hui-yi-yiren-guo" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:hjaiim@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
+		
+		<a href="/about" target="_blank" title="HJ">HJ</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
