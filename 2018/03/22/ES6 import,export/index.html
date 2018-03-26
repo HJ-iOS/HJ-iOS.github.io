@@ -1,0 +1,474 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>ES6		import,export,export default | Welcome to the literati Association!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="HJ">
+    
+
+    
+    <meta name="description" content="1.exportexport命令用于规定模块的对外接口，import命令用于输入其他模块提供的功能。
+一个模块就是一个独立的文件。该文件内部的所有变量，外部无法获取。如果你希望外部能够读取模块内部的某个变量，就必须使用export关键字输出该变量。下面是一个 JS 文件，里面使用export命令输出变量。
+1234// profile.jsexport var firstName = &amp;apos;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6		import,export,export default">
+<meta property="og:url" content="http://yoursite.com/2018/03/22/ES6 import,export/index.html">
+<meta property="og:site_name" content="Welcome to the literati Association!">
+<meta property="og:description" content="1.exportexport命令用于规定模块的对外接口，import命令用于输入其他模块提供的功能。
+一个模块就是一个独立的文件。该文件内部的所有变量，外部无法获取。如果你希望外部能够读取模块内部的某个变量，就必须使用export关键字输出该变量。下面是一个 JS 文件，里面使用export命令输出变量。
+1234// profile.jsexport var firstName = &amp;apos;">
+<meta property="og:updated_time" content="2018-03-26T06:45:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6		import,export,export default">
+<meta name="twitter:description" content="1.exportexport命令用于规定模块的对外接口，import命令用于输入其他模块提供的功能。
+一个模块就是一个独立的文件。该文件内部的所有变量，外部无法获取。如果你希望外部能够读取模块内部的某个变量，就必须使用export关键字输出该变量。下面是一个 JS 文件，里面使用export命令输出变量。
+1234// profile.jsexport var firstName = &amp;apos;">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Welcome to the literati Association!" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Welcome to the literati Association!" title="Welcome to the literati Association!"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Welcome to the literati Association!">Welcome to the literati Association!</a></h1>
+				<h2 class="blog-motto">The president of the literati association is HJ.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/03/22/ES6 import,export/" title="ES6		import,export,export default" itemprop="url">ES6		import,export,export default</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="HJ" target="_blank" itemprop="author">HJ</a>
+		
+  <p class="article-time">
+    <time datetime="2018-03-22T01:49:47.000Z" itemprop="datePublished"> 发表于 2018-03-22</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-export"><span class="toc-number">1.</span> <span class="toc-text">1.export</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1另一种写法"><span class="toc-number">1.1.</span> <span class="toc-text">1.1另一种写法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2export命令除了输出变量，还可以输出函数或类（class）"><span class="toc-number">1.2.</span> <span class="toc-text">1.2export命令除了输出变量，还可以输出函数或类（class）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3as关键字重命名"><span class="toc-number">1.3.</span> <span class="toc-text">1.3as关键字重命名</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-import-命令"><span class="toc-number">2.</span> <span class="toc-text">2.import 命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-as关键字重命名"><span class="toc-number">2.1.</span> <span class="toc-text">2.1        as关键字重命名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-import命令输入的变量都是只读的"><span class="toc-number">2.2.</span> <span class="toc-text">2.2    import命令输入的变量都是只读的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3模块的整体加载"><span class="toc-number">2.3.</span> <span class="toc-text">2.3模块的整体加载(*)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-export-default"><span class="toc-number">2.4.</span> <span class="toc-text">3.export default</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1唯一性"><span class="toc-number">2.5.</span> <span class="toc-text">3.1唯一性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2不能跟变量声明语句"><span class="toc-number">2.6.</span> <span class="toc-text">3.2不能跟变量声明语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3可以接值"><span class="toc-number">2.7.</span> <span class="toc-text">3.3可以接值</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-跨模块常量"><span class="toc-number">3.</span> <span class="toc-text">4.跨模块常量</span></a></li></ol>
+		
+		</div>
+		
+		<h3 id="1-export"><a href="#1-export" class="headerlink" title="1.export"></a>1.export</h3><p><code>export</code>命令用于规定模块的对外接口，<code>import</code>命令用于输入其他模块提供的功能。</p>
+<p>一个模块就是一个独立的文件。该文件内部的所有变量，外部无法获取。如果你希望外部能够读取模块内部的某个变量，就必须使用export关键字输出该变量。下面是一个 JS 文件，里面使用export命令输出变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// profile.js</span><br><span class="line">export var firstName = &apos;Michael&apos;;</span><br><span class="line">export var lastName = &apos;Jackson&apos;;</span><br><span class="line">export var year = 1958;</span><br></pre></td></tr></table></figure>
+<p>上面代码是profile.js文件，保存了用户信息。ES6 将其视为一个模块，里面用export命令对外部输出了三个变量。</p>
+<h4 id="1-1另一种写法"><a href="#1-1另一种写法" class="headerlink" title="1.1另一种写法"></a>1.1另一种写法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var firstName = &apos;hj&apos;;</span><br><span class="line">var lastName = &apos;hjai&apos;;</span><br><span class="line">var year = 27;</span><br><span class="line">export &#123;firstName,lastName,year&#125;;</span><br></pre></td></tr></table></figure>
+<p>应该优先考虑使用这种写法。因为这样就可以在脚本尾部，一眼看清楚输出了哪些变量.</p>
+<h4 id="1-2export命令除了输出变量，还可以输出函数或类（class）"><a href="#1-2export命令除了输出变量，还可以输出函数或类（class）" class="headerlink" title="1.2export命令除了输出变量，还可以输出函数或类（class）"></a>1.2export命令除了输出变量，还可以输出函数或类（class）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export function addNum(x, y) &#123;</span><br><span class="line">  return x + y;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="1-3as关键字重命名"><a href="#1-3as关键字重命名" class="headerlink" title="1.3as关键字重命名"></a>1.3as关键字重命名</h4><p>通常情况下，export输出的变量就是本来的名字，但是可以使用as关键字重命名。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function fun1 ()&#123;&#125;</span><br><span class="line">function fun2 ()&#123;&#125;</span><br><span class="line"></span><br><span class="line">export &#123;</span><br><span class="line">	fun1 as v1</span><br><span class="line">	fun2 as v2</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-import-命令"><a href="#2-import-命令" class="headerlink" title="2.import 命令"></a>2.import 命令</h3><p>使用export命令定义了模块的对外接口以后，其他 JS 文件就可以通过import命令加载这个模块。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//main.js</span><br><span class="line"></span><br><span class="line">import &#123;firstName, lastName, year&#125; from &apos;./profile.js&apos;;</span><br><span class="line"></span><br><span class="line">function setName(element) &#123;</span><br><span class="line">  element.textContent = firstName + &apos; &apos; + lastName;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>大括号里面的变量名，必须与被导入模块（profile.js）对外接口的名称相同</strong>。</p>
+<h4 id="2-1-as关键字重命名"><a href="#2-1-as关键字重命名" class="headerlink" title="2.1        as关键字重命名"></a>2.1        as关键字重命名</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &#123; lastName as surname &#125; from &apos;./profile.js&apos;;</span><br></pre></td></tr></table></figure>
+<h4 id="2-2-import命令输入的变量都是只读的"><a href="#2-2-import命令输入的变量都是只读的" class="headerlink" title="2.2    import命令输入的变量都是只读的"></a>2.2    import命令输入的变量都是只读的</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import &#123;a&#125; from &apos;./xxx.js&apos;</span><br><span class="line"></span><br><span class="line">a = &#123;&#125;; // Syntax Error : &apos;a&apos; is read-only;</span><br></pre></td></tr></table></figure>
+<p>它的本质是输入接口。也就是说，不允许在加载模块的脚本里面，改写接口。</p>
+<p>但是如果a是一个对象，改写a的属性是允许的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import &#123;a&#125; from &apos;./xxx.js&apos;</span><br><span class="line"></span><br><span class="line">a.foo = &apos;hello&apos;; // 合法操作</span><br></pre></td></tr></table></figure>
+<p>上面代码中，a的属性可以成功改写，并且其他模块也可以读到改写后的值。不过，这种写法很难查错，建议凡是输入的变量，都当作完全只读，轻易不要改变它的属性。</p>
+<p>import后面的from指定模块文件的位置，可以是相对路径，也可以是绝对路径，<code>.js</code>后缀可以省略。如果只是模块名，不带有路径，那么必须有配置文件，告诉 JavaScript 引擎该模块的位置。</p>
+<h4 id="2-3模块的整体加载"><a href="#2-3模块的整体加载" class="headerlink" title="2.3模块的整体加载(*)"></a>2.3模块的整体加载(*)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// main.js</span><br><span class="line"></span><br><span class="line">import &#123; area, circumference &#125; from &apos;./circle&apos;;</span><br><span class="line"></span><br><span class="line">console.log(&apos;圆面积：&apos; + area(4));</span><br><span class="line">console.log(&apos;圆周长：&apos; + circumference(14));</span><br></pre></td></tr></table></figure>
+<p>整体加载的写法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import * as circle from &apos;./circle&apos;;</span><br><span class="line"></span><br><span class="line">console.log(&apos;圆面积：&apos; + circle.area(4));</span><br><span class="line">console.log(&apos;圆周长：&apos; + circle.circumference(14));</span><br></pre></td></tr></table></figure>
+<p>注意，模块整体加载所在的那个对象（上例是circle），应该是可以静态分析的，所以不允许运行时改变。下面的写法都是不允许的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import * as circle from &apos;./circle&apos;;</span><br><span class="line"></span><br><span class="line">// 下面两行都是不允许的</span><br><span class="line">circle.foo = &apos;hello&apos;;</span><br><span class="line">circle.area = function () &#123;&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="3-export-default"><a href="#3-export-default" class="headerlink" title="3.export default"></a>3.export default</h4><p>从前面的例子可以看出，使用import命令的时候，用户需要知道所要加载的变量名或函数名，否则无法加载。但是，用户肯定希望快速上手，未必愿意阅读文档，去了解模块有哪些属性和方法。</p>
+<p>为了给用户提供方便，让他们不用阅读文档就能加载模块，就要用到export default命令，为模块指定默认输出。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// export-default.js</span><br><span class="line">export default function () &#123;</span><br><span class="line">  console.log(&apos;老子的名字是蜡笔小新&apos;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码是一个模块文件export-default.js，它的默认输出是一个函数。</p>
+<p>其他模块加载该模块时，import命令可以为该匿名函数指定任意名字。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// import-default.js</span><br><span class="line">import consoloName from &apos;./export-default&apos;;</span><br><span class="line">consoloName(); // &apos;老子的名字是蜡笔小新&apos;</span><br></pre></td></tr></table></figure>
+<p>上面代码的import命令，可以用任意名称指向export-default.js输出的方法，这时就不需要知道原模块输出的函数名。<strong>需要注意的是，这时import命令后面，不使用大括号。</strong></p>
+<h4 id="3-1唯一性"><a href="#3-1唯一性" class="headerlink" title="3.1唯一性"></a>3.1唯一性</h4><p><code>export default</code>命令用于指定模块的默认输出。显然，一个模块只能有一个默认输出，因此<code>export default</code>命令只能使用一次。所以，<code>import</code>命令后面才不用加大括号，因为只可能唯一对应<code>export default</code>命令。</p>
+<h4 id="3-2不能跟变量声明语句"><a href="#3-2不能跟变量声明语句" class="headerlink" title="3.2不能跟变量声明语句"></a>3.2不能跟变量声明语句</h4><p>正是因为export default命令其实只是输出一个叫做default的变量，所以它后面不能跟变量声明语句。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 正确</span><br><span class="line">export var a = 1;</span><br><span class="line"></span><br><span class="line">// 正确</span><br><span class="line">var a = 1;</span><br><span class="line">export default a;</span><br><span class="line"></span><br><span class="line">// 错误</span><br><span class="line">export default var a = 1;</span><br></pre></td></tr></table></figure>
+<h4 id="3-3可以接值"><a href="#3-3可以接值" class="headerlink" title="3.3可以接值"></a>3.3可以接值</h4><p>同样地，因为export default命令的本质是将后面的值，赋给default变量，所以可以直接将一个值写在export default之后。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 正确</span><br><span class="line">export default 42;</span><br><span class="line"></span><br><span class="line">// 报错</span><br><span class="line">export 42;</span><br></pre></td></tr></table></figure>
+<h3 id="4-跨模块常量"><a href="#4-跨模块常量" class="headerlink" title="4.跨模块常量"></a>4.跨模块常量</h3><p><code>const</code>声明的常量只在当前代码块有效。如果想设置跨模块的常量（即跨多个文件），或者说一个值要被多个模块共享，可以采用下面的写法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// constants.js 模块</span><br><span class="line">export const A = 1;</span><br><span class="line">export const B = 3;</span><br><span class="line">export const C = 4;</span><br><span class="line"></span><br><span class="line">// test1.js 模块</span><br><span class="line">import * as constants from &apos;./constants&apos;;</span><br><span class="line">console.log(constants.A); // 1</span><br><span class="line">console.log(constants.B); // 3</span><br><span class="line"></span><br><span class="line">// test2.js 模块</span><br><span class="line">import &#123;A, B&#125; from &apos;./constants&apos;;</span><br><span class="line">console.log(A); // 1</span><br><span class="line">console.log(B); // 3</span><br></pre></td></tr></table></figure>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2018/03/22/ES6 import,export/" data-title="ES6		import,export,export default | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2018/03/21/伪类和伪元素/"  title="伪类和伪元素">
+ <strong>下一篇：</strong><br/> 
+ <span>伪类和伪元素
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-export"><span class="toc-number">1.</span> <span class="toc-text">1.export</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1另一种写法"><span class="toc-number">1.1.</span> <span class="toc-text">1.1另一种写法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2export命令除了输出变量，还可以输出函数或类（class）"><span class="toc-number">1.2.</span> <span class="toc-text">1.2export命令除了输出变量，还可以输出函数或类（class）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3as关键字重命名"><span class="toc-number">1.3.</span> <span class="toc-text">1.3as关键字重命名</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-import-命令"><span class="toc-number">2.</span> <span class="toc-text">2.import 命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-as关键字重命名"><span class="toc-number">2.1.</span> <span class="toc-text">2.1        as关键字重命名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-import命令输入的变量都是只读的"><span class="toc-number">2.2.</span> <span class="toc-text">2.2    import命令输入的变量都是只读的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3模块的整体加载"><span class="toc-number">2.3.</span> <span class="toc-text">2.3模块的整体加载(*)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-export-default"><span class="toc-number">2.4.</span> <span class="toc-text">3.export default</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1唯一性"><span class="toc-number">2.5.</span> <span class="toc-text">3.1唯一性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2不能跟变量声明语句"><span class="toc-number">2.6.</span> <span class="toc-text">3.2不能跟变量声明语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3可以接值"><span class="toc-number">2.7.</span> <span class="toc-text">3.3可以接值</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-跨模块常量"><span class="toc-number">3.</span> <span class="toc-text">4.跨模块常量</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="hjaiim" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=5597151709&verifier=2e2fc03f&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> To the world you maybe one peeson , but to one person you maybe the world. <br/>
+			This is my goddess.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/hjaiim" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		<a href="http://stackoverflow.com/users/8573660" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
+		
+		
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/liang-ren-de-hui-yi-yiren-guo" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:hjaiim@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
+		
+		<a href="/about" target="_blank" title="HJ">HJ</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
