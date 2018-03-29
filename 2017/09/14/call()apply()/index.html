@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>apply()和call()用法 | Welcome to the literati Association!</title>
+    <title>apply()和call()和bind()用法 | Welcome to the literati Association!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="HJ">
@@ -14,15 +14,15 @@
     <meta name="description" content="共同作用:借用别人的方法来调用,就像调用自己一样.在非严格模式下当我们第一个参数传递null或undefined是,函数体内的this会指向默认的宿主对象.
 区别:唯一的区别只有接受参数的方式不同.call()方法:定义    :    调用一个对象的一个方法,一另一个对象替换当前对象.语法    :    Function.call(obj,arg1,arg2,…)apply()方法:定义">
 <meta property="og:type" content="article">
-<meta property="og:title" content="apply()和call()用法">
+<meta property="og:title" content="apply()和call()和bind()用法">
 <meta property="og:url" content="http://yoursite.com/2017/09/14/call()apply()/index.html">
 <meta property="og:site_name" content="Welcome to the literati Association!">
 <meta property="og:description" content="共同作用:借用别人的方法来调用,就像调用自己一样.在非严格模式下当我们第一个参数传递null或undefined是,函数体内的this会指向默认的宿主对象.
 区别:唯一的区别只有接受参数的方式不同.call()方法:定义    :    调用一个对象的一个方法,一另一个对象替换当前对象.语法    :    Function.call(obj,arg1,arg2,…)apply()方法:定义">
 <meta property="og:image" content="https://github.com/hjaistrive/picture/raw/master/call.png">
-<meta property="og:updated_time" content="2017-10-10T06:31:35.000Z">
+<meta property="og:updated_time" content="2018-03-29T02:32:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="apply()和call()用法">
+<meta name="twitter:title" content="apply()和call()和bind()用法">
 <meta name="twitter:description" content="共同作用:借用别人的方法来调用,就像调用自己一样.在非严格模式下当我们第一个参数传递null或undefined是,函数体内的this会指向默认的宿主对象.
 区别:唯一的区别只有接受参数的方式不同.call()方法:定义    :    调用一个对象的一个方法,一另一个对象替换当前对象.语法    :    Function.call(obj,arg1,arg2,…)apply()方法:定义">
 <meta name="twitter:image" content="https://github.com/hjaistrive/picture/raw/master/call.png">
@@ -85,7 +85,7 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/09/14/call()apply()/" title="apply()和call()用法" itemprop="url">apply()和call()用法</a>
+      <a href="/2017/09/14/call()apply()/" title="apply()和call()和bind()用法" itemprop="url">apply()和call()和bind()用法</a>
   </h1>
   <p class="article-author">By
        
@@ -114,6 +114,13 @@
 <p>我在第26行打了断点,然后单步了一步.<br>sis.sayAge.call(bro)调用的方法确实是Sister中的方法,但是其中的this(上下文)却变成了Brother.用文档中的解释就是:只有这个sayAge是sis对象的,其执行环境却是bro的.</p>
 <p>简而言之:sis.sayAge.call(bro)意思就是,单单将sis的sayAge移动到bro对象中来执行.</p>
 <p>ps:要是我设计的js,我就规定这么写:sis.sayAge.in(bro)</p>
+<font color="#0099ff" size="4">bind()方法:</font> 
+
+<p>call和apply都是对函数的直接调用,但是bind方法返回的仍然是一个函数.所以后面还需要<code>()</code>来进行调用.</p>
+<p><strong>传参</strong>:<br>可以像call方法那样传参.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sis.sayAge.bin(bro,&apos;老子今年27&apos;);//注意这里不会调用执行函数</span><br><span class="line"></span><br><span class="line">sis.sayAge.bin(bro,&apos;老子今年27&apos;)();//这样才会调用</span><br></pre></td></tr></table></figure>
+<p>由于bind返回的仍然是一个函数,所以还可以在调用的时候传参数.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sis.sayAge.bin(bro)(&apos;老子今年27&apos;);</span><br></pre></td></tr></table></figure>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -126,7 +133,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2017/09/14/call()apply()/" data-title="apply()和call()用法 | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
+	  <div data-url="http://yoursite.com/2017/09/14/call()apply()/" data-title="apply()和call()和bind()用法 | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
 	  </div>
 	
 	</div>
