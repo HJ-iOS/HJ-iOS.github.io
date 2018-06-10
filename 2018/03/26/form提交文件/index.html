@@ -4,35 +4,26 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>js中用 void 0 代替 undefined | Welcome to the literati Association!</title>
+    <title>form提交文件 | Welcome to the literati Association!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="HJ">
     
 
     
-    <meta name="description" content="因为undefined在javascript中不是保留字。也就是说你可以给undefined赋值：
-
-题外话什么是保留字,就是js中关键字的替补队员,意思是现在虽然现在还不是关键字（也就是本身还不具备特殊含义的），但是未来可能会成为关键字的，你一样是不能使用它们当变量名啊方法名的。包括（按字母排序）
-
-undefined 在 ES5 中已经是全局对象的一个只读（read-only）属性了，它不能被">
+    <meta name="description" content="###方式1 
+123456&amp;lt;form id=&amp;quot;formAudio&amp;quot; method=&amp;quot;post&amp;quot; enctype=&amp;quot;multipart/form-data&amp;quot; name=&amp;quot;formAudio&amp;quot; target=&amp;quot;rfFrame&amp;quot;&amp;gt; 	&amp;lt;input type=&amp;quot;file&amp;quo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js中用 void 0 代替 undefined">
-<meta property="og:url" content="http://yoursite.com/2018/03/23/js中用 void 0 代替 undefined/index.html">
+<meta property="og:title" content="form提交文件">
+<meta property="og:url" content="http://yoursite.com/2018/03/26/form提交文件/index.html">
 <meta property="og:site_name" content="Welcome to the literati Association!">
-<meta property="og:description" content="因为undefined在javascript中不是保留字。也就是说你可以给undefined赋值：
-
-题外话什么是保留字,就是js中关键字的替补队员,意思是现在虽然现在还不是关键字（也就是本身还不具备特殊含义的），但是未来可能会成为关键字的，你一样是不能使用它们当变量名啊方法名的。包括（按字母排序）
-
-undefined 在 ES5 中已经是全局对象的一个只读（read-only）属性了，它不能被">
-<meta property="og:updated_time" content="2018-05-23T03:52:48.000Z">
+<meta property="og:description" content="###方式1 
+123456&amp;lt;form id=&amp;quot;formAudio&amp;quot; method=&amp;quot;post&amp;quot; enctype=&amp;quot;multipart/form-data&amp;quot; name=&amp;quot;formAudio&amp;quot; target=&amp;quot;rfFrame&amp;quot;&amp;gt; 	&amp;lt;input type=&amp;quot;file&amp;quo">
+<meta property="og:updated_time" content="2018-06-10T09:49:58.371Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js中用 void 0 代替 undefined">
-<meta name="twitter:description" content="因为undefined在javascript中不是保留字。也就是说你可以给undefined赋值：
-
-题外话什么是保留字,就是js中关键字的替补队员,意思是现在虽然现在还不是关键字（也就是本身还不具备特殊含义的），但是未来可能会成为关键字的，你一样是不能使用它们当变量名啊方法名的。包括（按字母排序）
-
-undefined 在 ES5 中已经是全局对象的一个只读（read-only）属性了，它不能被">
+<meta name="twitter:title" content="form提交文件">
+<meta name="twitter:description" content="###方式1 
+123456&amp;lt;form id=&amp;quot;formAudio&amp;quot; method=&amp;quot;post&amp;quot; enctype=&amp;quot;multipart/form-data&amp;quot; name=&amp;quot;formAudio&amp;quot; target=&amp;quot;rfFrame&amp;quot;&amp;gt; 	&amp;lt;input type=&amp;quot;file&amp;quo">
 
     
     <link rel="alternative" href="/atom.xml" title="Welcome to the literati Association!" type="application/atom+xml">
@@ -92,14 +83,14 @@ undefined 在 ES5 中已经是全局对象的一个只读（read-only）属性�
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/03/23/js中用 void 0 代替 undefined/" title="js中用 void 0 代替 undefined" itemprop="url">js中用 void 0 代替 undefined</a>
+      <a href="/2018/03/26/form提交文件/" title="form提交文件" itemprop="url">form提交文件</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="HJ" target="_blank" itemprop="author">HJ</a>
 		
   <p class="article-time">
-    <time datetime="2018-03-23T03:02:54.000Z" itemprop="datePublished"> 发表于 2018-03-23</time>
+    <time datetime="2018-03-26T03:06:40.000Z" itemprop="datePublished"> 发表于 2018-03-26</time>
     
   </p>
 </header>
@@ -108,28 +99,46 @@ undefined 在 ES5 中已经是全局对象的一个只读（read-only）属性�
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#因此，我们用void-0-代替undefined便成了通用准则。"><span class="toc-number">1.</span> <span class="toc-text">因此，我们用void 0 代替undefined便成了通用准则。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number"></span> <span class="toc-text">总结</span></a>
+			
 		
 		</div>
 		
-		<p>因为<code>undefined</code>在javascript中不是保留字。也就是说你可以给<code>undefined</code>赋值：</p>
-<blockquote>
-<p>题外话什么是保留字,就是js中<code>关键字</code>的替补队员,意思是现在虽然现在还不是关键字（也就是本身还不具备特殊含义的），但是未来可能会成为关键字的，你一样是不能使用它们当变量名啊方法名的。包括（按字母排序）</p>
-</blockquote>
-<p><code>undefined</code> 在 ES5 中已经是全局对象的一个只读（read-only）属性了，它不能被重写。但是在局部作用域中，还是可以被重写的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var undefined = &apos;詹姆斯牛逼&apos;;</span><br><span class="line">alert(undefined);//undefined</span><br><span class="line"></span><br><span class="line">function test()</span><br><span class="line">&#123;</span><br><span class="line">	var undefined = &apos;詹姆斯牛逼&apos;;</span><br><span class="line">	alert(undefined);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">test();//&apos;詹姆斯牛逼&apos;</span><br></pre></td></tr></table></figure>
-<h3 id="因此，我们用void-0-代替undefined便成了通用准则。"><a href="#因此，我们用void-0-代替undefined便成了通用准则。" class="headerlink" title="因此，我们用void 0 代替undefined便成了通用准则。"></a>因此，我们用void 0 代替undefined便成了通用准则。</h3><p>void 运算符能对给定的表达式进行求值，然后返回 undefined。也就是说，void 后面你随便跟上一个表达式，返回的都是 undefined，都能完美代替 undefined！那么，这其中最短的是什么呢？毫无疑问就是 void 0 了。其实用 void 1，void (1+1)，void (0) 或者 void “hello”，void (new Date()) 等等，都是一样的效果。更重要的前提是，void 是不能被重写的（cannot be overidden）</p>
-<p>那么，ES5 大环境下，void 0 就没有用武之地了吗？答案是否定的.<br>用 void 0 代替 undefined 能节省不少字节的大小，事实上，不少 JavaScript 压缩工具在压缩过程中，正是将 undefined 用 void 0 代替掉了.</p>
-<p>还有一个常见的功能，填充href。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href = &quot;javascript:void(0);&quot;/&gt;</span><br></pre></td></tr></table></figure>
-<p>但如果不写的话，点击它会刷新整个页面。于是便用上了href=”javascript:void(0)的方式，确保点击它会执行一个纯粹无聊的void(0)</p>
-<p>另一种情况是，如果我们要生成一个空的src的image，最好的方式似乎也是src=’javascript:void(0)’</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>void有如下作用： </p>
-<blockquote>
-<p>1.通过采用void 0取undefined比采用字面上的undefined更靠谱更安全，应该优先采用void 0这种方式。 </p>
-<p>2.填充的href确保点击时不会产生页面跳转; 填充的src，确保不会向服务器发出垃圾请求。</p>
-</blockquote>
-  
+		<p>###方式1 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;form id=&quot;formAudio&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot; name=&quot;formAudio&quot; target=&quot;rfFrame&quot;&gt; </span><br><span class="line">	&lt;input type=&quot;file&quot; name=&apos;uploadFile&apos; @change=&quot;onChange_file&quot;&gt;</span><br><span class="line">	&lt;input type=&quot;submit&quot; name=&quot;submit&quot; id=&quot;submit&quot;&gt;</span><br><span class="line">	&lt;input type=&quot;reset&quot; name=&quot;submit&quot; id=&quot;reset&quot; &gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line">&lt;iframe name=&quot;rfFrame&quot; style=&quot;display:none;&quot;&gt;&lt;/iframe&gt;</span><br></pre></td></tr></table></figure>
+<p>form提交之后会刷新页面,追加个<code>iframe</code>隐藏掉,然后把<code>form</code> 的<code>target</code>设为<code>iframe</code>的<code>name</code>,这样<code>form</code>刷新的就是iframe.</p>
+<p>提交都服务端</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">document.getElementById(&apos;formAudio&apos;).action = apiPath;</span><br><span class="line">document.getElementById(&apos;submit&apos;).click();</span><br><span class="line">document.getElementById(&apos;reset&apos;).click();</span><br></pre></td></tr></table></figure>
+<p>###方式2</p>
+<p>动态创建<code>&lt;form&gt;</code>,并通过append方法为其附加<code>&lt;input&gt;</code>的值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let formData = new FormData();</span><br><span class="line">formData.append(&apos;file&apos;,&apos;音频文件&apos;);</span><br><span class="line">//可以通过get()方法获取方才追加的值</span><br><span class="line">formData.get(&apos;file&apos;);</span><br></pre></td></tr></table></figure>
+<p>重点来了,怎么发送给服务端呢?<br>使用<code>XHR</code>发送<code>file</code>或者<code>Blob</code>.注意所有<code>file</code>都是<code>Blob</code>,所以在此使用2者都可以.</p>
+<pre><code>//创建xhr对象
+let xhr = new XMLHttpRequest();
+//设置xhr请求超时时间
+xhr.timeout = 3000;
+//设置相应返回的数据格式
+xhr.responseType = &apos;json&apos;;
+//允许跨域请求
+xhr.withCredentials = true;
+//创建一个post 请求,采用异步.
+xhr.open(&apos;POST&apos;,apiPath,true);
+
+xhr.ontimeout = function (){//请求超时}
+xhr.onload = function () {//上传成功,不需要返回的数据,这个事件也可以作为回调}
+//每当readState 改变时,就会触发该事件
+//readState(0-4)状态值
+xhr.onreadystatechange  = function (){
+    if(xhr.readState == 4){
+        if(xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300){
+            if(xhr.response &amp;&amp; xhr.response.data)
+            {//上传成功,服务端返回的数据
+            }
+        }
+    }
+
+//发送数据
+xhr.send(formData)//表单数据默认Content-Type 为 multipart/form-data
+</code></pre>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -141,7 +150,7 @@ undefined 在 ES5 中已经是全局对象的一个只读（read-only）属性�
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/03/23/js中用 void 0 代替 undefined/" data-title="js中用 void 0 代替 undefined | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
+	  <div data-url="http://yoursite.com/2018/03/26/form提交文件/" data-title="form提交文件 | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -154,19 +163,11 @@ undefined 在 ES5 中已经是全局对象的一个只读（read-only）属性�
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2018/03/26/form提交文件/" title="form提交文件">
-  <strong>上一篇：</strong><br/>
-  <span>
-  form提交文件</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2018/03/22/ES6 import,export/"  title="ES6		import,export,export default">
+<a href="/2018/03/23/js中用 void 0 代替 undefined/"  title="js中用 void 0 代替 undefined">
  <strong>下一篇：</strong><br/> 
- <span>ES6		import,export,export default
+ <span>js中用 void 0 代替 undefined
 </span>
 </a>
 </div>
@@ -181,7 +182,7 @@ undefined 在 ES5 中已经是全局对象的一个只读（read-only）属性�
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#因此，我们用void-0-代替undefined便成了通用准则。"><span class="toc-number">1.</span> <span class="toc-text">因此，我们用void 0 代替undefined便成了通用准则。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number"></span> <span class="toc-text">总结</span></a>
+ 
  
   </div>
 
