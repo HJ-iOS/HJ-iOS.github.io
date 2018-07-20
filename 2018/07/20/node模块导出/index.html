@@ -1,0 +1,464 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>exports、module.exports和export、export default | Welcome to the literati Association!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="HJ">
+    
+
+    
+    <meta name="description" content="使用范围:
+123require: node 和 es6 都支持的引入    export / import : 只有es6 支持的导出引入  module.exports / exports: 只有 node 支持的导出
+node模块Node里面的模块系统遵循的是CommonJS规范。那问题又来了，什么是`CommonJS规范呢？   
+由于js以前比较混乱，各写各的代码，没有一个模块的概念，而">
+<meta property="og:type" content="article">
+<meta property="og:title" content="exports、module.exports和export、export default">
+<meta property="og:url" content="http://yoursite.com/2018/07/20/node模块导出/index.html">
+<meta property="og:site_name" content="Welcome to the literati Association!">
+<meta property="og:description" content="使用范围:
+123require: node 和 es6 都支持的引入    export / import : 只有es6 支持的导出引入  module.exports / exports: 只有 node 支持的导出
+node模块Node里面的模块系统遵循的是CommonJS规范。那问题又来了，什么是`CommonJS规范呢？   
+由于js以前比较混乱，各写各的代码，没有一个模块的概念，而">
+<meta property="og:image" content="https://github.com/hjaiim/picture/raw/master/node.png">
+<meta property="og:updated_time" content="2018-07-20T02:54:08.881Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="exports、module.exports和export、export default">
+<meta name="twitter:description" content="使用范围:
+123require: node 和 es6 都支持的引入    export / import : 只有es6 支持的导出引入  module.exports / exports: 只有 node 支持的导出
+node模块Node里面的模块系统遵循的是CommonJS规范。那问题又来了，什么是`CommonJS规范呢？   
+由于js以前比较混乱，各写各的代码，没有一个模块的概念，而">
+<meta name="twitter:image" content="https://github.com/hjaiim/picture/raw/master/node.png">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Welcome to the literati Association!" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Welcome to the literati Association!" title="Welcome to the literati Association!"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Welcome to the literati Association!">Welcome to the literati Association!</a></h1>
+				<h2 class="blog-motto">The president of the literati association is HJ.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/07/20/node模块导出/" title="exports、module.exports和export、export default" itemprop="url">exports、module.exports和export、export default</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="HJ" target="_blank" itemprop="author">HJ</a>
+		
+  <p class="article-time">
+    <time datetime="2018-07-20T02:54:08.881Z" itemprop="datePublished"> 发表于 2018-07-20</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#node模块"><span class="toc-number">1.</span> <span class="toc-text">node模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ES中的模块导出导入"><span class="toc-number">2.</span> <span class="toc-text">ES中的模块导出导入</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#export-和-export-default"><span class="toc-number">2.1.</span> <span class="toc-text">export 和 export default</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<p>使用范围:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">require: node 和 es6 都支持的引入    </span><br><span class="line">export / import : 只有es6 支持的导出引入  </span><br><span class="line">module.exports / exports: 只有 node 支持的导出</span><br></pre></td></tr></table></figure>
+<h3 id="node模块"><a href="#node模块" class="headerlink" title="node模块"></a>node模块</h3><p><code>Node</code>里面的模块系统遵循的是<code>CommonJS</code>规范。<br>那问题又来了，什么是`CommonJS规范呢？   </p>
+<p>由于js以前比较混乱，各写各的代码，没有一个模块的概念，而这个规范出来其实就是对模块的一个定义  </p>
+<blockquote>
+<p><code>CommonJS</code>定义的模块分为: 模块标识(module)、模块定义(exports) 、模块引用(require)</p>
+</blockquote>
+<p>先解释 <code>exports</code> 和 <code>module.exports</code>   </p>
+<p>在一个node执行一个文件时，会给这个文件内生成一个 <code>exports</code>和<code>module</code>对象，<br>而<code>module</code>又有一个<code>exports</code>属性。他们之间的关系如下图，都指向一块{}内存区域。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exports = module.exports = &#123;&#125;;</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/hjaiim/picture/raw/master/node.png" alt=""></p>
+<p>代码详细解释:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//utils.js</span><br><span class="line">let a = 100;</span><br><span class="line"></span><br><span class="line">console.log(module.exports); //能打印出结果为：&#123;&#125;</span><br><span class="line">console.log(exports); //能打印出结果为：&#123;&#125;</span><br><span class="line"></span><br><span class="line">exports.a = 200; //这里辛苦劳作帮 module.exports 的内容给改成 &#123;a : 200&#125;</span><br><span class="line"></span><br><span class="line">exports = &apos;指向其他内存区&apos;; //这里把exports的指向指走</span><br><span class="line"></span><br><span class="line">//test.js</span><br><span class="line"></span><br><span class="line">var a = require(&apos;/utils&apos;);</span><br><span class="line">console.log(a) // 打印为 &#123;a : 200&#125;</span><br></pre></td></tr></table></figure>
+<p>解释:<br>从上面可以看出，其实<code>require</code>导出的内容是<code>module.exports</code>的指向的内存块内容，并不是<code>exports</code>的。<br>简而言之，区分他们之间的区别就是 <code>exports</code>只是 <code>module.exports</code>的引用，辅助后者添加内容用的。</p>
+<p>用白话讲就是，<code>exports</code>(秘书)只辅助<code>module.exports</code>(老板)操作内存中的数据，辛辛苦苦各种操作数据完，累得要死，结果到最后真正被<code>require</code>出去的内容还是<code>module.exports</code>的.</p>
+<p>其实大家用内存块的概念去理解(就是指针不同,指向相同内存地方)，就会很清楚了。</p>
+<p>然后呢，为了避免糊涂，尽量都用 module.exports 导出，然后用require导入。</p>
+<h3 id="ES中的模块导出导入"><a href="#ES中的模块导出导入" class="headerlink" title="ES中的模块导出导入"></a>ES中的模块导出导入</h3><p>这个就很简单了,大家也是常用的,不过也有一些细节的东西需要搞清楚。<br>比如 <code>export</code>和 <code>export default</code>，还有 导入的时候，<code>import a from ..</code>,<code>import {a} from ..</code>，总之也有点乱，那么下面我们就开始把它们捋清楚吧。(个人建议,看阮一峰翻译es6).</p>
+<h4 id="export-和-export-default"><a href="#export-和-export-default" class="headerlink" title="export 和 export default"></a>export 和 export default</h4><p>1.export与export default均可用于导出常量、函数、文件、模块等<br>2.在一个文件或模块中，export、import可以有多个，export default仅有一个<br>3.通过export方式导出，在导入时要加{ }，export default则不需要<br>4.export能直接导出变量表达式，export default不行。   </p>
+<p>下面咱们看看代码去验证一下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">testEs6Export.js</span><br><span class="line"></span><br><span class="line">&apos;use strict&apos;</span><br><span class="line">//导出变量</span><br><span class="line">export const a = &apos;100&apos;;  </span><br><span class="line"></span><br><span class="line"> //导出方法</span><br><span class="line">export const dogSay = function()&#123; </span><br><span class="line">    console.log(&apos;wang wang&apos;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> //导出方法第二种</span><br><span class="line">function catSay()&#123;</span><br><span class="line">   console.log(&apos;miao miao&apos;); </span><br><span class="line">&#125;</span><br><span class="line">export &#123; catSay &#125;;</span><br><span class="line"></span><br><span class="line">//export default导出</span><br><span class="line">const m = 100;</span><br><span class="line">export default m; </span><br><span class="line"></span><br><span class="line">//export defult const m = 100;// 这里不能写这种格式。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//index.js</span><br><span class="line">&apos;use strict&apos;</span><br><span class="line">import &#123; dogSay, catSay &#125; from &apos;./testEs6Export&apos;; //导出了 export 方法 </span><br><span class="line">import m from &apos;./testEs6Export&apos;;  //导出了 export default </span><br><span class="line"></span><br><span class="line">import * as testModule from &apos;./testEs6Export&apos;; //as 集合成对象导出</span><br><span class="line"></span><br><span class="line">console.log(testModule.m); // undefined , 因为  as 导出是 把 零散的 export 聚集在一起作为一个对象，而export default 是导出为 default属性。</span><br><span class="line">console.log(testModule.default); // 100</span><br></pre></td></tr></table></figure>
+<p>从上面可以看出，确实感觉 ES6的模块系统非常灵活的。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2018/07/20/node模块导出/" data-title="exports、module.exports和export、export default | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2018/07/05/属性名表达式/"  title="ES6-对象的拓展-属性名表达式">
+ <strong>下一篇：</strong><br/> 
+ <span>ES6-对象的拓展-属性名表达式
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#node模块"><span class="toc-number">1.</span> <span class="toc-text">node模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ES中的模块导出导入"><span class="toc-number">2.</span> <span class="toc-text">ES中的模块导出导入</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#export-和-export-default"><span class="toc-number">2.1.</span> <span class="toc-text">export 和 export default</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="hjaiim" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=5597151709&verifier=2e2fc03f&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> To the world you maybe one peeson , but to one person you maybe the world. <br/>
+			This is my goddess.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/hjaiim" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		<a href="http://stackoverflow.com/users/8573660" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
+		
+		
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/liang-ren-de-hui-yi-yiren-guo" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:hjaiim@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
+		
+		<a href="/about" target="_blank" title="HJ">HJ</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
