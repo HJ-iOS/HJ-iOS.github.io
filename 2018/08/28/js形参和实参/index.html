@@ -4,29 +4,41 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>iOS应用程序的特点 | Welcome to the literati Association!</title>
+    <title>js的函数形参与实参 | Welcome to the literati Association!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="HJ">
     
 
     
-    <meta name="description" content="1.只能运行一个应用在iOS中，一次只能有一个应用处于活动状态显示在屏幕上。从iOS4开始，用户按下Home键，应用程序可以在后台继续运行，但是需要专门为此编写代码（以后会详细介绍）
-2.只能使用一个窗口iOS只允许应用程序操作一个窗口，应用程序与用户的所有交互都在这个窗口中完成，大小就是iOS设备屏幕的固定大小    s
-3.有限的访问权限iOS的文件系统会为每个每个应用分配一块独立的区域，就是">
+    <meta name="description" content="1.定义形参:定义函数时候使用的参数,目的是用来接收调用该函数的时候传进来的实际参数.  
+实参:函数被调用的时候传递给函数的实际参数.
+eg:
+1234function fun (a,b,c)&amp;#123;	console.log(a,b,c);&amp;#125;fun(1,2,3);
+这里的abc就是形参,1,2,3就是实参.
+2.区别形参和实参是不同的变量.他们在内存中处于不同的位置.
+形参在函数运">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS应用程序的特点">
-<meta property="og:url" content="http://yoursite.com/2016/03/17/iOS应用程序的特点/index.html">
+<meta property="og:title" content="js的函数形参与实参">
+<meta property="og:url" content="http://yoursite.com/2018/08/28/js形参和实参/index.html">
 <meta property="og:site_name" content="Welcome to the literati Association!">
-<meta property="og:description" content="1.只能运行一个应用在iOS中，一次只能有一个应用处于活动状态显示在屏幕上。从iOS4开始，用户按下Home键，应用程序可以在后台继续运行，但是需要专门为此编写代码（以后会详细介绍）
-2.只能使用一个窗口iOS只允许应用程序操作一个窗口，应用程序与用户的所有交互都在这个窗口中完成，大小就是iOS设备屏幕的固定大小    s
-3.有限的访问权限iOS的文件系统会为每个每个应用分配一块独立的区域，就是">
-<meta property="og:updated_time" content="2016-03-17T01:46:14.000Z">
+<meta property="og:description" content="1.定义形参:定义函数时候使用的参数,目的是用来接收调用该函数的时候传进来的实际参数.  
+实参:函数被调用的时候传递给函数的实际参数.
+eg:
+1234function fun (a,b,c)&amp;#123;	console.log(a,b,c);&amp;#125;fun(1,2,3);
+这里的abc就是形参,1,2,3就是实参.
+2.区别形参和实参是不同的变量.他们在内存中处于不同的位置.
+形参在函数运">
+<meta property="og:updated_time" content="2018-08-28T03:08:50.643Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS应用程序的特点">
-<meta name="twitter:description" content="1.只能运行一个应用在iOS中，一次只能有一个应用处于活动状态显示在屏幕上。从iOS4开始，用户按下Home键，应用程序可以在后台继续运行，但是需要专门为此编写代码（以后会详细介绍）
-2.只能使用一个窗口iOS只允许应用程序操作一个窗口，应用程序与用户的所有交互都在这个窗口中完成，大小就是iOS设备屏幕的固定大小    s
-3.有限的访问权限iOS的文件系统会为每个每个应用分配一块独立的区域，就是">
+<meta name="twitter:title" content="js的函数形参与实参">
+<meta name="twitter:description" content="1.定义形参:定义函数时候使用的参数,目的是用来接收调用该函数的时候传进来的实际参数.  
+实参:函数被调用的时候传递给函数的实际参数.
+eg:
+1234function fun (a,b,c)&amp;#123;	console.log(a,b,c);&amp;#125;fun(1,2,3);
+这里的abc就是形参,1,2,3就是实参.
+2.区别形参和实参是不同的变量.他们在内存中处于不同的位置.
+形参在函数运">
 
     
     <link rel="alternative" href="/atom.xml" title="Welcome to the literati Association!" type="application/atom+xml">
@@ -86,14 +98,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/03/17/iOS应用程序的特点/" title="iOS应用程序的特点" itemprop="url">iOS应用程序的特点</a>
+      <a href="/2018/08/28/js形参和实参/" title="js的函数形参与实参" itemprop="url">js的函数形参与实参</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="HJ" target="_blank" itemprop="author">HJ</a>
 		
   <p class="article-time">
-    <time datetime="2016-03-17T01:46:14.000Z" itemprop="datePublished"> 发表于 2016-03-17</time>
+    <time datetime="2018-08-28T02:55:55.181Z" itemprop="datePublished"> 发表于 2018-08-28</time>
     
   </p>
 </header>
@@ -102,37 +114,35 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-只能运行一个应用"><span class="toc-number">1.</span> <span class="toc-text">1.只能运行一个应用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-只能使用一个窗口"><span class="toc-number">2.</span> <span class="toc-text">2.只能使用一个窗口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-有限的访问权限"><span class="toc-number">3.</span> <span class="toc-text">3.有限的访问权限</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-有限的响应时间"><span class="toc-number">4.</span> <span class="toc-text">4.有限的响应时间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-有限的屏幕尺寸"><span class="toc-number">5.</span> <span class="toc-text">5.有限的屏幕尺寸</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-有限的系统资源"><span class="toc-number">6.</span> <span class="toc-text">6.有限的系统资源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-几个新功能"><span class="toc-number">7.</span> <span class="toc-text">7.几个新功能</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-定义"><span class="toc-number">1.</span> <span class="toc-text">1.定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-区别"><span class="toc-number">2.</span> <span class="toc-text">2.区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-注意"><span class="toc-number">3.</span> <span class="toc-text">3.注意</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-如果实参是引用类型-object-array-那么对形参值进行修改-会影响到实参的值"><span class="toc-number">3.1.</span> <span class="toc-text">1.如果实参是引用类型(object,array),那么对形参值进行修改,会影响到实参的值.</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-形参与局部变量重名情况的处理"><span class="toc-number">3.2.</span> <span class="toc-text">2.形参与局部变量重名情况的处理</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h4 id="1-只能运行一个应用"><a href="#1-只能运行一个应用" class="headerlink" title="1.只能运行一个应用"></a>1.只能运行一个应用</h4><pre><code>在iOS中，一次只能有一个应用处于活动状态显示在屏幕上。从iOS4开始，用户按下Home键，应用程序可以在后台继续运行，但是需要专门为此编写代码（以后会详细介绍）
-</code></pre><h4 id="2-只能使用一个窗口"><a href="#2-只能使用一个窗口" class="headerlink" title="2.只能使用一个窗口"></a>2.只能使用一个窗口</h4><pre><code>iOS只允许应用程序操作一个窗口，应用程序与用户的所有交互都在这个窗口中完成，大小就是iOS设备屏幕的固定大小    s
-</code></pre><h4 id="3-有限的访问权限"><a href="#3-有限的访问权限" class="headerlink" title="3.有限的访问权限"></a>3.有限的访问权限</h4><pre><code>iOS的文件系统会为每个每个应用分配一块独立的区域，就是我们熟知的沙盒。每个应用只能读写自己沙盒内的文件。
-</code></pre><h4 id="4-有限的响应时间"><a href="#4-有限的响应时间" class="headerlink" title="4.有限的响应时间"></a>4.有限的响应时间</h4><pre><code>应用程序在运行的时候，按下Home键，iOS就会返回主屏幕，程序必须保存一切内容并退出，如果没有在5s之内保存必要的数据并放弃对系统资源的控制，无论是否已经完全保存，应用程序进程都会被禁止。有一个API可以在应用程序终止前请求多一些时间来完成必要的工作（以后会提到）
-</code></pre><h4 id="5-有限的屏幕尺寸"><a href="#5-有限的屏幕尺寸" class="headerlink" title="5.有限的屏幕尺寸"></a>5.有限的屏幕尺寸</h4><pre><code>设备            硬件尺寸          软件尺寸               精密程度    
-4s           640x960            320x480               2x
-5和5s        640x1136         320x568              2x
-6            6750x1334        375x667              2x
-6P           1080x1920        414x736              3x
-iPad和iPad mini     768x1024      768x1024          1x
-iPad Air、iPad mini Retina、iPad Retina                
-         768x1024           768x1024             1x
-硬件尺寸就是手机屏幕的大小，写代码的时候只要注意软件尺寸就可以了。
-</code></pre><h4 id="6-有限的系统资源"><a href="#6-有限的系统资源" class="headerlink" title="6.有限的系统资源"></a>6.有限的系统资源</h4><pre><code>Cocoa Touch 提供了一种内置机制，可以在内存不足的时候通知应用程序。赶紧释放不必要的内存空间（TMD占着茅坑不拉屎），要不然程序就会闪退。
-接下来的可以忽略不看：
-由于iOS具备图形特性和多种功能，很容易耗光内存。到目前为止iOS设备的物理内存要么是512MB（4s、iPad2、一代iPad mini、iPod touch5），要么是1024MB（5c、5s、6、6P、iPad Air、iPad mini Retina），以后一定还会大的（iPad Air 2 的内存已经达到了2GB）。
-很大一部分内存被用于屏幕缓冲区和其他一些系统进程，一般，只有不到一半的内存留给应用程序使用（实际可用内存可能更少，尤其是因为其他应用可能在后台运行）。
-
-谈到iOS内存，还需要考虑另一个因素：现代计算机操作系统（比如OS X）会将未使用的内存块写到磁盘的交换文件中，这样，当应用程序请求的内存超过计算机的实际可用内存时，它仍然可以正常运行。但是，iOS并不会将易失性内存（比如应用程序数据）写到交换文件中。因此，应用程序的可用内存大小受限于iOS设备中未使用的物理内存空间。
-</code></pre><h4 id="7-几个新功能"><a href="#7-几个新功能" class="headerlink" title="7.几个新功能"></a>7.几个新功能</h4><pre><code>1.iOS SDK中的Core Location框架可以确定当前手机的地理坐标&lt;br&gt;
-2.大部分iOS设备都有内置的摄像头和照片库（废话，但是也有人不知道）。&lt;br&gt;
-3.iOS有一个内置的运动传感器，用于检测设备的握持和移动方向。
-8.与众不同的交互方式
-
-iOS系统替你完成，比如点击文本框就会调出软键盘，不需要额外写代码。
-所有的设备都支持通过蓝牙连接外置键盘，现在依然无法连接鼠标。
-</code></pre>  
+		<h3 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h3><p>形参:定义函数时候使用的参数,目的是用来接收调用该函数的时候传进来的实际参数.  </p>
+<p>实参:函数被调用的时候传递给函数的实际参数.</p>
+<p>eg:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function fun (a,b,c)&#123;</span><br><span class="line">	console.log(a,b,c);</span><br><span class="line">&#125;</span><br><span class="line">fun(1,2,3);</span><br></pre></td></tr></table></figure>
+<p>这里的abc就是形参,1,2,3就是实参.</p>
+<h3 id="2-区别"><a href="#2-区别" class="headerlink" title="2.区别"></a>2.区别</h3><p>形参和实参是不同的变量.他们在内存中处于不同的位置.</p>
+<p>形参在函数运行结束时释放.</p>
+<h3 id="3-注意"><a href="#3-注意" class="headerlink" title="3.注意"></a>3.注意</h3><h4 id="1-如果实参是引用类型-object-array-那么对形参值进行修改-会影响到实参的值"><a href="#1-如果实参是引用类型-object-array-那么对形参值进行修改-会影响到实参的值" class="headerlink" title="1.如果实参是引用类型(object,array),那么对形参值进行修改,会影响到实参的值."></a>1.如果实参是引用类型(object,array),那么对形参值进行修改,会影响到实参的值.</h4><p>eg:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;sex:&apos;男&apos;&#125;;</span><br><span class="line">fucntion fun ($obj)&#123;</span><br><span class="line">	$obj.sex = &apos;女&apos;;</span><br><span class="line">&#125;</span><br><span class="line">fun(obj);</span><br><span class="line">console.log(obj.sex);//&apos;女&apos;</span><br></pre></td></tr></table></figure>
+<p>解释说明: </p>
+<blockquote>
+<p>函数的参数传递有2中方式:值传递和引用传递.<br>值传递:形参是实参的一个副本,对形参的改变不会影响实参.<br>引用传递:形参是对实参引用变量的复制,导致形参和实参都指向同一个对象实体(同一内存),所以改变形参,实参也会变.</p>
+</blockquote>
+<h4 id="2-形参与局部变量重名情况的处理"><a href="#2-形参与局部变量重名情况的处理" class="headerlink" title="2.形参与局部变量重名情况的处理"></a>2.形参与局部变量重名情况的处理</h4><p>当局部变量未声明,或者已经声明为赋值的情况下.此时内存中还没有这个变量.这时候调用同名变量那么就是形参.</p>
+<p>反之,当局部变量赋值完成以后,内存中已经存在这个变量,并且覆盖了同名的形参.在调用同名变量,那么指的就是已经赋值的局部变量.</p>
+<p>eg:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function fun (str)&#123;</span><br><span class="line">	alert(str);					//&apos;hello&apos;</span><br><span class="line">	var str = str + &apos;node.js&apos;;</span><br><span class="line">	var name = str;</span><br><span class="line">	alert(str);					//&apos;hello node.js&apos;</span><br><span class="line">	alert(name);				//&apos;hello node.js&apos;</span><br><span class="line">&#125;</span><br><span class="line">fun(&apos;hello&apos;);</span><br></pre></td></tr></table></figure>
+<p>唯一个不是很清楚的问题就是变量提升,模拟一下解释器创建执行环境.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function fun (str)&#123;</span><br><span class="line">	var a;</span><br><span class="line">	var name;</span><br><span class="line">	alert(str);</span><br><span class="line">	str = str + &apos;node.js&apos;;</span><br><span class="line">	name = str;</span><br><span class="line">	alert(str);</span><br><span class="line">	alert(name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>解释:</p>
+<blockquote>
+<p>由于存在变量提升,执行第一个<code>alert()</code>的时候,局部变量<code>str</code>只声明了,没有赋值.内存中还没有创建局部变量<code>str</code>,所以<code>alert()</code>的<code>str</code>是形参.<br>执行<code>str = str + &#39;node.js&#39;;</code>,左边<code>str</code>是局部变量,右边<code>str</code>是形参,互不干扰,此时局部变量<code>str</code>被赋值了<code>&#39;hellonode.js&#39;</code>;<br><code>name = str</code>此时的<code>str</code>是局部变量.</p>
+</blockquote>
+<p>所以我们在实际代码中,为了规避掉这个问题,我一般都会在形参前面在加个<code>$</code>,用以区分和容错.(个人见解)</p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -144,7 +154,7 @@ iOS系统替你完成，比如点击文本框就会调出软键盘，不需要�
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2016/03/17/iOS应用程序的特点/" data-title="iOS应用程序的特点 | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
+	  <div data-url="http://yoursite.com/2018/08/28/js形参和实参/" data-title="js的函数形参与实参 | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -157,19 +167,11 @@ iOS系统替你完成，比如点击文本框就会调出软键盘，不需要�
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/03/17/Vim学习/" title="Vim学习">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Vim学习</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/03/16/前端开发仓库/"  title="前端开发仓库">
+<a href="/2018/08/21/localhost,本机ip区别/"  title="localhost、127.0.0.1 和 本机IP 三者的区别">
  <strong>下一篇：</strong><br/> 
- <span>前端开发仓库
+ <span>localhost、127.0.0.1 和 本机IP 三者的区别
 </span>
 </a>
 </div>
@@ -184,7 +186,7 @@ iOS系统替你完成，比如点击文本框就会调出软键盘，不需要�
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-只能运行一个应用"><span class="toc-number">1.</span> <span class="toc-text">1.只能运行一个应用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-只能使用一个窗口"><span class="toc-number">2.</span> <span class="toc-text">2.只能使用一个窗口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-有限的访问权限"><span class="toc-number">3.</span> <span class="toc-text">3.有限的访问权限</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-有限的响应时间"><span class="toc-number">4.</span> <span class="toc-text">4.有限的响应时间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-有限的屏幕尺寸"><span class="toc-number">5.</span> <span class="toc-text">5.有限的屏幕尺寸</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-有限的系统资源"><span class="toc-number">6.</span> <span class="toc-text">6.有限的系统资源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-几个新功能"><span class="toc-number">7.</span> <span class="toc-text">7.几个新功能</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-定义"><span class="toc-number">1.</span> <span class="toc-text">1.定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-区别"><span class="toc-number">2.</span> <span class="toc-text">2.区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-注意"><span class="toc-number">3.</span> <span class="toc-text">3.注意</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-如果实参是引用类型-object-array-那么对形参值进行修改-会影响到实参的值"><span class="toc-number">3.1.</span> <span class="toc-text">1.如果实参是引用类型(object,array),那么对形参值进行修改,会影响到实参的值.</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-形参与局部变量重名情况的处理"><span class="toc-number">3.2.</span> <span class="toc-text">2.形参与局部变量重名情况的处理</span></a></li></ol></li></ol>
  
   </div>
 
