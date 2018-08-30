@@ -1,0 +1,527 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>js作用域链,执行环境(一) | Welcome to the literati Association!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="HJ">
+    
+
+    
+    <meta name="description" content="1.作用域链从字面上理解:多个作用域连接在一起.  
+官方给出的定义是:当代码在一个环境中执行时，会创建变量对象的一个作用域链。作用域链的用途是保证对执行环境有权访问的所有变量和函数的有序访问
+2.作用域又是什么呢?从字面上理解:起作用的范围(村里村长说话好使,村就是这个村长的作用域).
+3.变量作用域作用域是给变量用的,又称之为变量作用域.
+4.变量变量又分全局变量和局部变量.2个注意小点:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js作用域链,执行环境(一)">
+<meta property="og:url" content="http://yoursite.com/2018/03/13/作用域链1/index.html">
+<meta property="og:site_name" content="Welcome to the literati Association!">
+<meta property="og:description" content="1.作用域链从字面上理解:多个作用域连接在一起.  
+官方给出的定义是:当代码在一个环境中执行时，会创建变量对象的一个作用域链。作用域链的用途是保证对执行环境有权访问的所有变量和函数的有序访问
+2.作用域又是什么呢?从字面上理解:起作用的范围(村里村长说话好使,村就是这个村长的作用域).
+3.变量作用域作用域是给变量用的,又称之为变量作用域.
+4.变量变量又分全局变量和局部变量.2个注意小点:">
+<meta property="og:image" content="https://github.com/hjaiim/picture/raw/master/ll.jpg">
+<meta property="og:image" content="https://github.com/hjaiim/picture/raw/master/gg.gif">
+<meta property="og:image" content="https://github.com/hjaiim/picture/raw/master/tt.png">
+<meta property="og:image" content="https://github.com/hjaiim/picture/raw/master/mm.png">
+<meta property="og:image" content="https://github.com/hjaiim/picture/raw/master/ff.png">
+<meta property="og:image" content="https://github.com/hjaiim/picture/raw/master/vv.png">
+<meta property="og:image" content="https://github.com/hjaiim/picture/raw/master/cc.png">
+<meta property="og:image" content="https://github.com/hjaiim/picture/raw/master/xx.png">
+<meta property="og:updated_time" content="2018-08-30T03:35:14.926Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js作用域链,执行环境(一)">
+<meta name="twitter:description" content="1.作用域链从字面上理解:多个作用域连接在一起.  
+官方给出的定义是:当代码在一个环境中执行时，会创建变量对象的一个作用域链。作用域链的用途是保证对执行环境有权访问的所有变量和函数的有序访问
+2.作用域又是什么呢?从字面上理解:起作用的范围(村里村长说话好使,村就是这个村长的作用域).
+3.变量作用域作用域是给变量用的,又称之为变量作用域.
+4.变量变量又分全局变量和局部变量.2个注意小点:">
+<meta name="twitter:image" content="https://github.com/hjaiim/picture/raw/master/ll.jpg">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Welcome to the literati Association!" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Welcome to the literati Association!" title="Welcome to the literati Association!"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Welcome to the literati Association!">Welcome to the literati Association!</a></h1>
+				<h2 class="blog-motto">The president of the literati association is HJ.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/03/13/作用域链1/" title="js作用域链,执行环境(一)" itemprop="url">js作用域链,执行环境(一)</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="HJ" target="_blank" itemprop="author">HJ</a>
+		
+  <p class="article-time">
+    <time datetime="2018-03-13T08:19:43.000Z" itemprop="datePublished"> 发表于 2018-03-13</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-作用域链"><span class="toc-number">1.</span> <span class="toc-text">1.作用域链</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-作用域又是什么呢"><span class="toc-number">2.</span> <span class="toc-text">2.作用域又是什么呢?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-变量作用域"><span class="toc-number">3.</span> <span class="toc-text">3.变量作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-变量"><span class="toc-number">4.</span> <span class="toc-text">4.变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#那么进入正题-详细的好好说说js这个难点抽象点作用域链"><span class="toc-number">5.</span> <span class="toc-text">那么进入正题,详细的好好说说js这个难点抽象点作用域链.</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是执行环境-Execution-Context"><span class="toc-number">5.1.</span> <span class="toc-text">什么是执行环境(Execution Context)?</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#接下来看执行环境是如何参与工作的"><span class="toc-number">6.</span> <span class="toc-text">接下来看执行环境是如何参与工作的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#执行环境的具体细节"><span class="toc-number">7.</span> <span class="toc-text">执行环境的具体细节</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#环境栈"><span class="toc-number">8.</span> <span class="toc-text">环境栈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#那么到底什么是作用域链"><span class="toc-number">9.</span> <span class="toc-text">那么到底什么是作用域链</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#作用域链的作用"><span class="toc-number">10.</span> <span class="toc-text">作用域链的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在谈闭包"><span class="toc-number">11.</span> <span class="toc-text">在谈闭包</span></a></li></ol>
+		
+		</div>
+		
+		<h3 id="1-作用域链"><a href="#1-作用域链" class="headerlink" title="1.作用域链"></a>1.作用域链</h3><p>从字面上理解:多个作用域连接在一起.  </p>
+<p>官方给出的定义是:当代码在一个环境中执行时，会创建变量对象的一个作用域链。作用域链的用途是保证对执行环境有权访问的所有变量和函数的有序访问</p>
+<h3 id="2-作用域又是什么呢"><a href="#2-作用域又是什么呢" class="headerlink" title="2.作用域又是什么呢?"></a>2.作用域又是什么呢?</h3><p>从字面上理解:起作用的范围(村里村长说话好使,村就是这个村长的作用域).</p>
+<h3 id="3-变量作用域"><a href="#3-变量作用域" class="headerlink" title="3.变量作用域"></a>3.变量作用域</h3><p>作用域是给变量用的,又称之为变量作用域.</p>
+<h3 id="4-变量"><a href="#4-变量" class="headerlink" title="4.变量"></a>4.变量</h3><p>变量又分全局变量和局部变量.<br>2个注意小点:</p>
+<blockquote>
+<p>1.如果局部变量和全局变量重名了,局部变量会覆盖掉全局变量.<br>2.在函数内部声明变量不使用<code>var</code>,那么这个变量是一个全局变量.</p>
+</blockquote>
+<h3 id="那么进入正题-详细的好好说说js这个难点抽象点作用域链"><a href="#那么进入正题-详细的好好说说js这个难点抽象点作用域链" class="headerlink" title="那么进入正题,详细的好好说说js这个难点抽象点作用域链."></a>那么进入正题,详细的好好说说js这个难点抽象点作用域链.</h3><p>我们码代码要有一个写代码的开发环境IDE,同样，我们的代码在执行过程中也需要一个执行环境.</p>
+<h4 id="什么是执行环境-Execution-Context"><a href="#什么是执行环境-Execution-Context" class="headerlink" title="什么是执行环境(Execution Context)?"></a>什么是执行环境(Execution Context)?</h4><p>每当程序的执行流进入到一个可执行的代码时，就进入到了一个执行环境中。<br>简称<code>ec</code>或者上下文对象(更抽象).</p>
+<p>在javascript中，可执行的JavaScript代码分三种类型： </p>
+<blockquote>
+<ol>
+<li>Global Code，即全局的、不在任何函数里面的代码，例如：一个js文件、嵌入在HTML页面中的js代码等。    </li>
+<li>Eval Code，即使用eval()函数动态执行的JS代码。 </li>
+<li>Function Code，即用户自定义函数中的函数体JS代码。<br>跳过Eval Code，只说全局执行环境和函数执行环境。 </li>
+</ol>
+</blockquote>
+<p>每个执行环境都有一个与之关联的变量对象，环境中定义的所有变量和函数都保存在这个对象中。 </p>
+<p>总的来说可以将执行环境看作是一个对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">EC = &#123;</span><br><span class="line">    VO:&#123;/*函数中的arguments对象、参数、内部变量以及函数声明*/&#125;</span><br><span class="line">    this:&#123;&#125;,</span><br><span class="line">    Scope:&#123;/*VO以及所有父执行上下文中的VO*/&#125;//作用域链</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>1、全局环境：<br>　　全局环境是最外围的一个执行环境。全局执行环境被认为是window对象。因此所有全局变量和函数都是作为window对象的属性和方法创建的。代码载入浏览器时，全局执行环境被创建(当我们关闭网页或者浏览器时全局执行环境才被销毁)。比如在一个页面中，第一次载入JS代码时创建一个全局执行环境。<br>　　这也是为什么闭包有一个内存泄露的缺点。因为闭包中外部函数被当成了全局环境。所以不会被销毁，一直保存在内存中.<br>　　<br>2、函数执行环境<br>　　每个函数都有自己的执行环境，当执行进入一个函数时，函数的执行环境就会被推入一个执行环境栈的顶部并获取执行权。当这个函数执行完毕，它的执行环境又从这个栈的顶部被删除，并把执行权并还给之前执行环境。这就是ECMAScript程序中的执行流。<br>　　也可以这样解读：当调用一个 JavaScript 函数时，该函数就会进入与该函数相对应的执行环境。如果又调用了另外一个函数，则又会创建一个新的执行环境，并且在函数调用期间执行过程都处于该环境中。当调用的函数返回后，执行过程会返回原始执行环境。因而，运行中的 JavaScript 代码就构成了一个执行环境栈。</p>
+<h3 id="接下来看执行环境是如何参与工作的"><a href="#接下来看执行环境是如何参与工作的" class="headerlink" title="接下来看执行环境是如何参与工作的"></a>接下来看执行环境是如何参与工作的</h3><p>当执行流进入一个函数时，函数的环境就会被推入一个环境栈中。而在函数执行后，栈将其环境弹出，把控制权返回给这个环境栈中之前的执行环境。(有点绕).</p>
+<p><img src="https://github.com/hjaiim/picture/raw/master/ll.jpg" alt=""><br>这样看图片能理解了吧,执行环境A被弹出,就把控制权给执行环境B.</p>
+<h3 id="执行环境的具体细节"><a href="#执行环境的具体细节" class="headerlink" title="执行环境的具体细节"></a>执行环境的具体细节</h3><p>执行环境的建立分为两个阶段：进入执行上下文（创建阶段）和执行阶段（激活/执行阶段）<br>（1）进入上下文阶段：发生在函数调用时，但在执行具体代码之前。具体完成创建作用域链；创建变量、函数和参数以及求this的值<br>（2）执行代码阶段：主要完成变量赋值、函数引用和解释/执行其他代码<br>总的来说可以将执行上下文看作是一个对象</p>
+<p>用一个实际函数说明:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(function foo(x,y,z)&#123;</span><br><span class="line"></span><br><span class="line">  var a = 1;</span><br><span class="line">  var b = function()&#123;&#125;;</span><br><span class="line">  function c()&#123;&#125;</span><br><span class="line">  (function d()&#123;&#125;)();</span><br><span class="line"></span><br><span class="line">&#125;)(10，20);</span><br></pre></td></tr></table></figure>
+<p>函数调用后，相应的执行环境对象如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">executionContextObj = &#123;</span><br><span class="line">    scopeChain:&#123;...&#125;,</span><br><span class="line">    VO: &#123;</span><br><span class="line">        arguments:&#123;</span><br><span class="line">            x:10,</span><br><span class="line">            y:20,</span><br><span class="line">            Z:undefined,</span><br><span class="line">            length:2,//这里是实际传入参数的个数</span><br><span class="line">            callee:pointer to function foo()</span><br><span class="line">        &#125;</span><br><span class="line">        a:undefined,</span><br><span class="line">        b:undefined,</span><br><span class="line">        c:pointer to function c()</span><br><span class="line">    &#125;,</span><br><span class="line">    this:&#123;...&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第二阶段：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">executionContextObj = &#123;</span><br><span class="line">        scopeChain:&#123;...&#125;,</span><br><span class="line">  VO: &#123;</span><br><span class="line">          arguments:&#123;</span><br><span class="line">              x:10,</span><br><span class="line">              y:20,</span><br><span class="line">              Z:undefined,</span><br><span class="line">              length:2,//这里是实际传入参数的个数</span><br><span class="line">                    callee:pointer to function foo()</span><br><span class="line">            &#125;</span><br><span class="line">              a:1,</span><br><span class="line">              b:pointer to function b(),</span><br><span class="line">              c:pointer to function c()</span><br><span class="line">      &#125;,</span><br><span class="line">        this:&#123;...&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在第二阶段，就会为局部变量 a 、b 赋值，注意到 d 并没有在变量对象中，是因为，函数表达式是不会影响变量对象的，所以在作用域中任何一个位置引用d都会出现“d is not defined”的错误。</p>
+<h3 id="环境栈"><a href="#环境栈" class="headerlink" title="环境栈"></a>环境栈</h3><p>在上文中有提及了一个名词,环境栈(执行环境栈).<br>JavaScript解释器在浏览器中是单线程的，这意味着浏览器在同一时间内只执行一个事件，对于其他的事件我们把它们排队在一个称为 <code>执行环境栈</code>的地方。<br>每次函数的调用都会创建一个执行环境压入栈中，无论是函数内部的函数、还是递归调用等。</p>
+<p>我们已经知道，当浏览器第一次加载你的script，它默认的进了全局执行环境。如果在你的全局代码中你调用了一个函数，那么顺序流就会进入到你调用的函数当中，创建一个新的执行环境并且把这个环境添加到执行栈的顶部。</p>
+<p>如果你在当前的函数中调用了其他函数，同样的事会再次发生。执行流进入内部函数，并且创建一个新的执行环境，把它添加到已经存在的执行栈的顶部。浏览器始终执行当前在栈顶部的执行环境。一旦函数完成了当前的执行环境，它就会被弹出栈的顶部, 把控制权返回给当前执行环境的下个执行环境。下面例子展示了一个递归函数和该程序的执行栈：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(function foo(i) &#123;</span><br><span class="line">	if (i === 3) &#123;</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line">	else &#123;</span><br><span class="line">		foo(++i);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;(0));</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/hjaiim/picture/raw/master/gg.gif" alt=""></p>
+<p>这段代码简单地调用了自己三次，由1递增i的值。每次函数foo被调用，一个新的执行环境就会被调用。一旦一个环境完成了执行，它就会被弹出执行栈并且把控制权返回给当前执行环境的下个执行环境直到再次到达全局执行环境。</p>
+<h3 id="那么到底什么是作用域链"><a href="#那么到底什么是作用域链" class="headerlink" title="那么到底什么是作用域链"></a>那么到底什么是作用域链</h3><p>作用域链，其实就是环境栈中各个环境的变量对象组成的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function func1()&#123;</span><br><span class="line">    function func2()&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/hjaiim/picture/raw/master/tt.png" alt=""></p>
+<h3 id="作用域链的作用"><a href="#作用域链的作用" class="headerlink" title="作用域链的作用"></a>作用域链的作用</h3><p>1.搜索标识符(寻找变量)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var scope = &quot;global&quot;; </span><br><span class="line">      function fn1()&#123;</span><br><span class="line">         return scope; </span><br><span class="line">      &#125;</span><br><span class="line">      fn1();</span><br></pre></td></tr></table></figure>
+<p>当某个函数第一次被调用时，就会创建一个执行环境(execution context)以及相应的作用域链，并把作用域链赋值给一个特殊的内部属性([scope])。然后使用this，arguments(arguments在全局环境中不存在)和其他命名参数的值来初始化函数的活动对象(activation object)。当前执行环境的变量对象始终在作用域链的第0位。<br>以上面的代码为例，当第一次调用fn1()时的作用域链如下图所示： </p>
+<p><img src="https://github.com/hjaiim/picture/raw/master/mm.png" alt=""><br>可以看到fn1活动对象里并没有scope变量，于是沿着作用域链(scope chain)向后寻找，结果在全局变量对象里找到了scope，所以就返回全局变量对象里的scope值。</p>
+<blockquote>
+<p>标识符解析是沿着作用域链一级一级地搜索标识符地过程。搜索过程始终从作用域链地前端开始，然后逐级向后回溯，直到找到标识符为止（如果找不到标识符，通常会导致错误发生）—-《JavaScript高级程序设计》</p>
+</blockquote>
+<p>2.闭包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function outer()&#123;</span><br><span class="line">         var scope = &quot;outer&quot;;</span><br><span class="line">         function inner()&#123;</span><br><span class="line">            return scope;</span><br><span class="line">         &#125;</span><br><span class="line">         return inner;</span><br><span class="line">      &#125;</span><br><span class="line">      var fn = outer();</span><br><span class="line">      fn();</span><br></pre></td></tr></table></figure>
+<p>outer()内部返回了一个inner函数，当调用outer时，inner函数的作用域链就已经被初始化了（复制父函数的作用域链，再在前端插入自己的活动对象），具体如下图：<br><img src="https://github.com/hjaiim/picture/raw/master/ff.png" alt=""><br>一般来说，当某个环境中的所有代码执行完毕后，该环境被销毁（弹出环境栈），保存在其中的所有变量和函数也随之销毁（全局执行环境变量直到应用程序退出，如网页关闭才会被销毁）<br>但是像上面那种有内部函数的又有所不同，当outer()函数执行结束，执行环境被销毁，但是其关联的活动对象并没有随之销毁，而是一直存在于内存中，因为该活动对象被其内部函数的作用域链所引用。 </p>
+<p>具体如下图：<br>outer执行结束，内部函数开始被调用<br>outer执行环境等待被回收，outer的作用域链对全局变量对象和outer的活动对象引用都断了.<br><img src="https://github.com/hjaiim/picture/raw/master/vv.png" alt=""><br>像上面这种内部函数的作用域链仍然保持着对父函数活动对象的引用，就是闭包(closure).</p>
+<h3 id="在谈闭包"><a href="#在谈闭包" class="headerlink" title="在谈闭包"></a>在谈闭包</h3><p>闭包有两个作用：<br>第一个就是可以读取自身函数外部的变量（沿着作用域链寻找）<br>第二个就是让这些外部变量始终保存在内存中<br>关于第二点，来看一下以下的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function outer()&#123;</span><br><span class="line">         var result = new Array();</span><br><span class="line">         for(var i = 0; i &lt; 2; i++)&#123;//注：i是outer()的局部变量</span><br><span class="line">            result[i] = function()&#123;</span><br><span class="line">               return i;</span><br><span class="line">            &#125;</span><br><span class="line">         &#125;</span><br><span class="line">         return result;//返回一个函数对象数组</span><br><span class="line">         //这个时候会初始化result.length个关于内部函数的作用域链</span><br><span class="line">      &#125;</span><br><span class="line">      var fn = outer();</span><br><span class="line">      console.log(fn[0]());//result：2</span><br><span class="line">      console.log(fn[1]());//result：2</span><br></pre></td></tr></table></figure>
+<p>返回结果很出乎意料吧，你肯定以为依次返回0，1，但事实并非如此<br>来看一下调用<code>fn[0]()</code>的作用域链图：<br><img src="https://github.com/hjaiim/picture/raw/master/cc.png" alt=""></p>
+<p>可以看到result[0]函数的活动对象里并没有定义i这个变量，于是沿着作用域链去找i变量，结果在父函数outer的活动对象里找到变量i(值为2)，而这个变量i是父函数执行结束后将最终值保存在内存里的结果。<br>由此也可以得出，js函数内的变量值不是在编译的时候就确定的，而是等在运行时期再去寻找的。</p>
+<p>那怎么才能让result数组函数返回我们所期望的值呢？<br>看一下result的活动对象里有一个arguments，arguments对象是一个参数的集合，是用来保存对象的。<br>那么我们就可以把i当成参数传进去，这样一调用函数生成的活动对象内的arguments就有当前i的副本。<br>改进之后：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function outer()&#123;</span><br><span class="line">         var result = new Array();</span><br><span class="line">         for(var i = 0; i &lt; 2; i++)&#123;</span><br><span class="line">            //定义一个带参函数</span><br><span class="line">            function arg(num)&#123;</span><br><span class="line">               return num;</span><br><span class="line">            &#125;</span><br><span class="line">            //把i当成参数传进去</span><br><span class="line">            result[i] = arg(i);</span><br><span class="line">         &#125;</span><br><span class="line">         return result;</span><br><span class="line">      &#125;</span><br><span class="line">      var fn = outer();</span><br><span class="line">      console.log(fn[0]);//result:0</span><br><span class="line">      console.log(fn[1]);//result:1</span><br></pre></td></tr></table></figure>
+<p>虽然的到了期望的结果，但是又有人问这算闭包吗？调用内部函数的时候，父函数的环境变量还没被销毁呢，而且result返回的是一个整型数组，而不是一个函数数组！<br>确实如此，那就让arg(num)函数内部再定义一个内部函数就好了：<br>这样result返回的其实是innerarg()函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function outer()&#123;</span><br><span class="line">         var result = new Array();</span><br><span class="line">         for(var i = 0; i &lt; 2; i++)&#123;</span><br><span class="line">            //定义一个带参函数</span><br><span class="line">            function arg(num)&#123;</span><br><span class="line">               function innerarg()&#123;</span><br><span class="line">                  return num;</span><br><span class="line">               &#125;</span><br><span class="line">               return innerarg;</span><br><span class="line">            &#125;</span><br><span class="line">            //把i当成参数传进去</span><br><span class="line">            result[i] = arg(i);</span><br><span class="line">         &#125;</span><br><span class="line">         return result;</span><br><span class="line">      &#125;</span><br><span class="line">      var fn = outer();</span><br><span class="line">      console.log(fn[0]());</span><br><span class="line">      console.log(fn[1]());</span><br></pre></td></tr></table></figure>
+<p>当调用outer，for循环内i=0时的作用域链图如下：<br><img src="https://github.com/hjaiim/picture/raw/master/xx.png" alt=""></p>
+<p>由上图可知，当调用innerarg()时，它会沿作用域链找到父函数arg()活动对象里的arguments参数num=0.<br>上面代码中，函数arg在outer函数内预先被调用执行了，对于这种方法，js有一种简洁的写法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function outer()&#123;</span><br><span class="line">         var result = new Array();</span><br><span class="line">         for(var i = 0; i &lt; 2; i++)&#123;</span><br><span class="line">            //定义一个带参函数</span><br><span class="line">            result[i] = function(num)&#123;</span><br><span class="line">               function innerarg()&#123;</span><br><span class="line">                  return num;</span><br><span class="line">               &#125;</span><br><span class="line">               return innerarg;</span><br><span class="line">            &#125;(i);//预先执行函数写法</span><br><span class="line">            //把i当成参数传进去</span><br><span class="line">         &#125;</span><br><span class="line">         return result;</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+<p>关于this对象</p>
+<p>关于闭包经常会看到这么一道题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var name = &quot;The Window&quot;;</span><br><span class="line">　　var object = &#123;</span><br><span class="line">　　　　name : &quot;My Object&quot;,</span><br><span class="line">　　　　getNameFunc : function()&#123;</span><br><span class="line">　　　　　　return function()&#123;</span><br><span class="line">　　　　　　　　return this.name;</span><br><span class="line">　　　　　　&#125;;</span><br><span class="line">　　　　&#125;</span><br><span class="line">　　&#125;;</span><br><span class="line">　　alert(object.getNameFunc()());//result:The Window</span><br></pre></td></tr></table></figure>
+<p>《javascript高级程序设计》一书给出的解释是：</p>
+<p>this对象是在运行时基于函数的执行环境绑定的：在全局函数中，this等于window，而当函数被作为某个对象调用时，this等于那个对象。不过，匿名函数具有全局性，因此this对象同常指向window</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2018/03/13/作用域链1/" data-title="js作用域链,执行环境(一) | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2018/03/21/伪类和伪元素/" title="伪类和伪元素">
+  <strong>上一篇：</strong><br/>
+  <span>
+  伪类和伪元素</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2018/03/11/vue.js路由细说/"  title="vue.js路由细说">
+ <strong>下一篇：</strong><br/> 
+ <span>vue.js路由细说
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-作用域链"><span class="toc-number">1.</span> <span class="toc-text">1.作用域链</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-作用域又是什么呢"><span class="toc-number">2.</span> <span class="toc-text">2.作用域又是什么呢?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-变量作用域"><span class="toc-number">3.</span> <span class="toc-text">3.变量作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-变量"><span class="toc-number">4.</span> <span class="toc-text">4.变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#那么进入正题-详细的好好说说js这个难点抽象点作用域链"><span class="toc-number">5.</span> <span class="toc-text">那么进入正题,详细的好好说说js这个难点抽象点作用域链.</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是执行环境-Execution-Context"><span class="toc-number">5.1.</span> <span class="toc-text">什么是执行环境(Execution Context)?</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#接下来看执行环境是如何参与工作的"><span class="toc-number">6.</span> <span class="toc-text">接下来看执行环境是如何参与工作的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#执行环境的具体细节"><span class="toc-number">7.</span> <span class="toc-text">执行环境的具体细节</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#环境栈"><span class="toc-number">8.</span> <span class="toc-text">环境栈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#那么到底什么是作用域链"><span class="toc-number">9.</span> <span class="toc-text">那么到底什么是作用域链</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#作用域链的作用"><span class="toc-number">10.</span> <span class="toc-text">作用域链的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在谈闭包"><span class="toc-number">11.</span> <span class="toc-text">在谈闭包</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="hjaiim" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=5597151709&verifier=2e2fc03f&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> To the world you maybe one peeson , but to one person you maybe the world. <br/>
+			This is my goddess.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/hjaiim" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		<a href="http://stackoverflow.com/users/8573660" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
+		
+		
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/liang-ren-de-hui-yi-yiren-guo" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:hjaiim@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
+		
+		<a href="/about" target="_blank" title="HJ">HJ</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
