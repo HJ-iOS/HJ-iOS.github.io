@@ -4,26 +4,35 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>解决overflow:属性,在iOS上滑动卡顿的问题 | Welcome to the literati Association!</title>
+    <title>js作用域链和闭包(三) | Welcome to the literati Association!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="HJ">
     
 
     
-    <meta name="description" content="一：Lying人生感悟摩西奶奶曾经说过：世界上，最公平和最不公平的，都是时间。别人偷不走它。而你也留不住它。你拥有它，却不能改变它。光阴里的艰难或是快乐，它都一一带走。身处其中的你我，年轻或是衰老，所能做的，就是充分去享用它，享受每一个生命时期，收藏每一个年龄段带给你的感动与美好。
-     是的，这句话我也曾经在某个令人刻骨铭心的夜晚对一个人说过。过去了的事情再提及难免让人有些怀念。既然走不出来">
+    <meta name="description" content="闭包概念:有权访问另一个作用域的函数.作用:1.可以读取自身函数外部的变量.   (沿着作用域链查找)2.让这些外部变量始终保存在内存中.
+创建闭包的常见方式,就是在一个函数内部创建另一个函数.在内部定义的函数会将父函数的活动对象添加到他的作用域链中.
+eg:
+不闭包1234567function fun ()&amp;#123;	var num = 5;	num += 1;	console.log(nu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="解决overflow:属性,在iOS上滑动卡顿的问题">
-<meta property="og:url" content="http://yoursite.com/2016/04/09/overflow/index.html">
+<meta property="og:title" content="js作用域链和闭包(三)">
+<meta property="og:url" content="http://yoursite.com/2018/08/31/js闭包(3)/index.html">
 <meta property="og:site_name" content="Welcome to the literati Association!">
-<meta property="og:description" content="一：Lying人生感悟摩西奶奶曾经说过：世界上，最公平和最不公平的，都是时间。别人偷不走它。而你也留不住它。你拥有它，却不能改变它。光阴里的艰难或是快乐，它都一一带走。身处其中的你我，年轻或是衰老，所能做的，就是充分去享用它，享受每一个生命时期，收藏每一个年龄段带给你的感动与美好。
-     是的，这句话我也曾经在某个令人刻骨铭心的夜晚对一个人说过。过去了的事情再提及难免让人有些怀念。既然走不出来">
-<meta property="og:updated_time" content="2016-05-05T02:44:06.000Z">
+<meta property="og:description" content="闭包概念:有权访问另一个作用域的函数.作用:1.可以读取自身函数外部的变量.   (沿着作用域链查找)2.让这些外部变量始终保存在内存中.
+创建闭包的常见方式,就是在一个函数内部创建另一个函数.在内部定义的函数会将父函数的活动对象添加到他的作用域链中.
+eg:
+不闭包1234567function fun ()&amp;#123;	var num = 5;	num += 1;	console.log(nu">
+<meta property="og:image" content="https://github.com/hjaiim/picture/raw/master/close1.png">
+<meta property="og:image" content="https://github.com/hjaiim/picture/raw/master/close2.png">
+<meta property="og:updated_time" content="2018-08-31T03:00:06.489Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="解决overflow:属性,在iOS上滑动卡顿的问题">
-<meta name="twitter:description" content="一：Lying人生感悟摩西奶奶曾经说过：世界上，最公平和最不公平的，都是时间。别人偷不走它。而你也留不住它。你拥有它，却不能改变它。光阴里的艰难或是快乐，它都一一带走。身处其中的你我，年轻或是衰老，所能做的，就是充分去享用它，享受每一个生命时期，收藏每一个年龄段带给你的感动与美好。
-     是的，这句话我也曾经在某个令人刻骨铭心的夜晚对一个人说过。过去了的事情再提及难免让人有些怀念。既然走不出来">
+<meta name="twitter:title" content="js作用域链和闭包(三)">
+<meta name="twitter:description" content="闭包概念:有权访问另一个作用域的函数.作用:1.可以读取自身函数外部的变量.   (沿着作用域链查找)2.让这些外部变量始终保存在内存中.
+创建闭包的常见方式,就是在一个函数内部创建另一个函数.在内部定义的函数会将父函数的活动对象添加到他的作用域链中.
+eg:
+不闭包1234567function fun ()&amp;#123;	var num = 5;	num += 1;	console.log(nu">
+<meta name="twitter:image" content="https://github.com/hjaiim/picture/raw/master/close1.png">
 
     
     <link rel="alternative" href="/atom.xml" title="Welcome to the literati Association!" type="application/atom+xml">
@@ -83,14 +92,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/04/09/overflow/" title="解决overflow:属性,在iOS上滑动卡顿的问题" itemprop="url">解决overflow:属性,在iOS上滑动卡顿的问题</a>
+      <a href="/2018/08/31/js闭包(3)/" title="js作用域链和闭包(三)" itemprop="url">js作用域链和闭包(三)</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="HJ" target="_blank" itemprop="author">HJ</a>
 		
   <p class="article-time">
-    <time datetime="2016-04-09T09:28:32.000Z" itemprop="datePublished"> 发表于 2016-04-09</time>
+    <time datetime="2018-08-31T03:00:06.489Z" itemprop="datePublished"> 发表于 2018-08-31</time>
     
   </p>
 </header>
@@ -99,14 +108,28 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#一：Lying人生感悟"><span class="toc-number">1.</span> <span class="toc-text">一：Lying人生感悟</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二：回到正题"><span class="toc-number">2.</span> <span class="toc-text">二：回到正题</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包"><span class="toc-number">1.</span> <span class="toc-text">闭包</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#不闭包"><span class="toc-number">1.0.1.</span> <span class="toc-text">不闭包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#闭包-1"><span class="toc-number">1.0.2.</span> <span class="toc-text">闭包</span></a></li></ol></li></ol></li></ol>
 		
 		</div>
 		
-		<h4 id="一：Lying人生感悟"><a href="#一：Lying人生感悟" class="headerlink" title="一：Lying人生感悟"></a>一：Lying人生感悟</h4><pre><code>摩西奶奶曾经说过：世界上，最公平和最不公平的，都是时间。别人偷不走它。而你也留不住它。你拥有它，却不能改变它。光阴里的艰难或是快乐，它都一一带走。身处其中的你我，年轻或是衰老，所能做的，就是充分去享用它，享受每一个生命时期，收藏每一个年龄段带给你的感动与美好。
-     是的，这句话我也曾经在某个令人刻骨铭心的夜晚对一个人说过。过去了的事情再提及难免让人有些怀念。既然走不出来又何必再强求自己走出来。所以让该来的到来，让不该走的别走，珍惜所拥有的一切期许是最好的选择……    
-</code></pre><h4 id="二：回到正题"><a href="#二：回到正题" class="headerlink" title="二：回到正题"></a>二：回到正题</h4><p>  故事背景：最近的一次开发中，使用到了overflow：scroll 属性来滑动div。信心满满的以为不会出现任何问题，看来还是太清高自傲了，于是写下这篇随笔特此总结一番。</p>
-<p>　　     如果你对某个div或模块使用了overflow: scroll属性，在iOS系统的手机上浏览时，则会出现明显的卡顿现象。但是在android系统的手机上则不会出现该问题。<br>　　-webkit-overflow-scrolling: touch;<br>　　                    据说是因为这行代码启用了硬件加速特性，所以滑动很流畅。但是这个属性也会相对耗费更多内存。在流畅的滑动效果和耗费内存之间，我选择了前者。<br>　<br>　从前端开发的角度讲，只需要知道CSS的属性-webkit-overflow-scrolling是真的创建了带有硬件加速的系统级控件，所以效率很高。<br>从实际开发的角度讲，采用这样的做法相对是耗更多内存的，最好是在产生了非常大面积的overflow时才应用。</p>
+		<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>概念:有权访问另一个作用域的函数.<br>作用:<br>1.可以读取自身函数外部的变量.   (沿着作用域链查找)<br>2.让这些外部变量始终保存在内存中.</p>
+<p>创建闭包的常见方式,就是在一个函数内部创建另一个函数.在内部定义的函数会将父函数的活动对象添加到他的作用域链中.</p>
+<p>eg:</p>
+<h4 id="不闭包"><a href="#不闭包" class="headerlink" title="不闭包"></a>不闭包</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function fun ()&#123;</span><br><span class="line">	var num = 5;</span><br><span class="line">	num += 1;</span><br><span class="line">	console.log(num);</span><br><span class="line">&#125;</span><br><span class="line">fun();// 6</span><br><span class="line">fun():// 6</span><br></pre></td></tr></table></figure>
+<p>局部变量当函数运行完以后就会销毁这个变量，假如有多次调用这个函数它下一次调用的时候又会重新创建那个变量.</p>
+<p>当调用<code>fun()</code>,执行流进入该函数,创建一个执行环境,压入执行栈中,当函数中的代码执行完毕,环境栈将其弹出,把控制权交给下个执行环境.保存在执行环境中的作用域链中的所有变量和函数也随之销毁.</p>
+<h4 id="闭包-1"><a href="#闭包-1" class="headerlink" title="闭包"></a>闭包</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function a ()&#123;</span><br><span class="line">	var num = 5;</span><br><span class="line">	function b()&#123;</span><br><span class="line">		num += 1;</span><br><span class="line">		console.log(num);</span><br><span class="line">	&#125;</span><br><span class="line">	return b;</span><br><span class="line">&#125;</span><br><span class="line">var c = a();</span><br><span class="line">c();// 6</span><br><span class="line">c();// 7</span><br></pre></td></tr></table></figure>
+<p>这里在函数<code>a()</code>的内部定义了一个函数<code>b()</code>，并<code>return</code>了回去，同时在函数<code>a</code>的外部定义了一个变量<code>c</code>并引用了函数<code>a</code>。这时候发现第二次执行<code>c()</code>的时候输出为7，这说明在执行过一次的时候，变量num没有被销毁.</p>
+<p><strong>JavaScript中有回收机制，函数在被执行完以后这个函数的作用域就会被销毁，如果一个函数被其他变量引用，这个函数的作用域将不会被销毁.</strong></p>
+<p>那么来看看到底是如何引用的.<br><img src="https://github.com/hjaiim/picture/raw/master/close1.png" alt=""></p>
+<p>当<code>a()</code>执行结束，内部函数开始被调用;<code>a</code>的执行环境等待被回收，<code>a</code>的作用域链对全局变量对象和<code>a</code>的活动对象引用都断了。但是内部函数<code>b()</code>保持着对<code>a()</code>函数活动对象的引用，而<code>b()</code>又保存在全局变量<code>c</code>中，因此这些活动对象都不会被销毁。</p>
+<p><img src="https://github.com/hjaiim/picture/raw/master/close2.png" alt=""></p>
+<p>当时有个疑问,那就是b的作用域链是什么时候建立的,才能有对<code>a()</code>函数互动对象的引用.</p>
+<p>一番查找,说是在调用<code>a()</code>的时候,<code>b</code>函数的作用域链就已经被初始化了.(复制父函数的作用域链,在推入自己的活动对象).</p>
+<p>最后总结可以确定闭包的形成需要两个条件：</p>
+<blockquote>
+<p>1.在函数内部创建新的函数.<br>2.新的函数在执行时，访问了函数的变量对象；</p>
+</blockquote>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -119,7 +142,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2016/04/09/overflow/" data-title="解决overflow:属性,在iOS上滑动卡顿的问题 | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
+	  <div data-url="http://yoursite.com/2018/08/31/js闭包(3)/" data-title="js作用域链和闭包(三) | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -132,19 +155,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/04/18/移动端知识的一些总结/" title="移动端知识的一些总结">
-  <strong>上一篇：</strong><br/>
-  <span>
-  移动端知识的一些总结</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/04/09/前端开发样式命名规范/"  title="前端开发样式命名规范">
+<a href="/2018/08/30/作用域链2/"  title="js作用域,执行环境(二)">
  <strong>下一篇：</strong><br/> 
- <span>前端开发样式命名规范
+ <span>js作用域,执行环境(二)
 </span>
 </a>
 </div>
@@ -159,7 +174,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#一：Lying人生感悟"><span class="toc-number">1.</span> <span class="toc-text">一：Lying人生感悟</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二：回到正题"><span class="toc-number">2.</span> <span class="toc-text">二：回到正题</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包"><span class="toc-number">1.</span> <span class="toc-text">闭包</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#不闭包"><span class="toc-number">1.0.1.</span> <span class="toc-text">不闭包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#闭包-1"><span class="toc-number">1.0.2.</span> <span class="toc-text">闭包</span></a></li></ol></li></ol></li></ol>
  
   </div>
 
