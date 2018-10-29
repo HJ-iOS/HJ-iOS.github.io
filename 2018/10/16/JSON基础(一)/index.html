@@ -4,38 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>配置静态博客的简单介绍(自己看) | Welcome to the literati Association!</title>
+    <title>JSON基础(一) | Welcome to the literati Association!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="HJ">
     
 
     
-    <meta name="description" content="1.最基础的 方法 以及搭建blog需要下载的环境等问题  百度一大堆2. 下面介绍一些简单必须的步骤1.本地新建文件夹 eg：HJ’blog
-2.进入该文件夹目录下 cd+HJ&amp;apos;blog
-3.hexo init 随后会自动在目标文件夹中建立网站所需要的所有文件
-4.现在我们已经搭建起本地的hexo 博客了 ，在浏览器localhost：4000 预览
-hexo g  生产静态文件
-he">
+    <meta name="description" content="1. 何为 JSONJSON（ JavaScript Object Notation ），即 JavaScript 对象表示法。JSON 主要用于存储和交换文本信息，类似于XML。但是和 XML 相比，JSON 是更加轻量级的文本数据交换格式，具有更小、更快、更易解析的特点。JSON 具有自我描述性，更易理解。虽然 JSON 使用 JavaScript 语法来描述数据对象，但是，JSON 是独立于">
 <meta property="og:type" content="article">
-<meta property="og:title" content="配置静态博客的简单介绍(自己看)">
-<meta property="og:url" content="http://yoursite.com/2016/03/17/hexo加载静态博客/index.html">
+<meta property="og:title" content="JSON基础(一)">
+<meta property="og:url" content="http://yoursite.com/2018/10/16/JSON基础(一)/index.html">
 <meta property="og:site_name" content="Welcome to the literati Association!">
-<meta property="og:description" content="1.最基础的 方法 以及搭建blog需要下载的环境等问题  百度一大堆2. 下面介绍一些简单必须的步骤1.本地新建文件夹 eg：HJ’blog
-2.进入该文件夹目录下 cd+HJ&amp;apos;blog
-3.hexo init 随后会自动在目标文件夹中建立网站所需要的所有文件
-4.现在我们已经搭建起本地的hexo 博客了 ，在浏览器localhost：4000 预览
-hexo g  生产静态文件
-he">
-<meta property="og:updated_time" content="2016-03-18T07:22:44.000Z">
+<meta property="og:description" content="1. 何为 JSONJSON（ JavaScript Object Notation ），即 JavaScript 对象表示法。JSON 主要用于存储和交换文本信息，类似于XML。但是和 XML 相比，JSON 是更加轻量级的文本数据交换格式，具有更小、更快、更易解析的特点。JSON 具有自我描述性，更易理解。虽然 JSON 使用 JavaScript 语法来描述数据对象，但是，JSON 是独立于">
+<meta property="og:updated_time" content="2018-10-29T09:00:14.687Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="配置静态博客的简单介绍(自己看)">
-<meta name="twitter:description" content="1.最基础的 方法 以及搭建blog需要下载的环境等问题  百度一大堆2. 下面介绍一些简单必须的步骤1.本地新建文件夹 eg：HJ’blog
-2.进入该文件夹目录下 cd+HJ&amp;apos;blog
-3.hexo init 随后会自动在目标文件夹中建立网站所需要的所有文件
-4.现在我们已经搭建起本地的hexo 博客了 ，在浏览器localhost：4000 预览
-hexo g  生产静态文件
-he">
+<meta name="twitter:title" content="JSON基础(一)">
+<meta name="twitter:description" content="1. 何为 JSONJSON（ JavaScript Object Notation ），即 JavaScript 对象表示法。JSON 主要用于存储和交换文本信息，类似于XML。但是和 XML 相比，JSON 是更加轻量级的文本数据交换格式，具有更小、更快、更易解析的特点。JSON 具有自我描述性，更易理解。虽然 JSON 使用 JavaScript 语法来描述数据对象，但是，JSON 是独立于">
 
     
     <link rel="alternative" href="/atom.xml" title="Welcome to the literati Association!" type="application/atom+xml">
@@ -95,14 +80,14 @@ he">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/03/17/hexo加载静态博客/" title="配置静态博客的简单介绍(自己看)" itemprop="url">配置静态博客的简单介绍(自己看)</a>
+      <a href="/2018/10/16/JSON基础(一)/" title="JSON基础(一)" itemprop="url">JSON基础(一)</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="HJ" target="_blank" itemprop="author">HJ</a>
 		
   <p class="article-time">
-    <time datetime="2016-03-17T06:45:24.000Z" itemprop="datePublished"> 发表于 2016-03-17</time>
+    <time datetime="2018-10-16T02:01:57.996Z" itemprop="datePublished"> 发表于 2018-10-16</time>
     
   </p>
 </header>
@@ -111,22 +96,26 @@ he">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-最基础的-方法-以及搭建blog需要下载的环境等问题-百度一大堆"><span class="toc-number">1.</span> <span class="toc-text">1.最基础的 方法 以及搭建blog需要下载的环境等问题  百度一大堆</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-下面介绍一些简单必须的步骤"><span class="toc-number">2.</span> <span class="toc-text">2. 下面介绍一些简单必须的步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-这里说一下跟换主题的坑"><span class="toc-number">3.</span> <span class="toc-text">3.这里说一下跟换主题的坑</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-何为-JSON"><span class="toc-number">1.</span> <span class="toc-text">1. 何为 JSON</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-JSON-基本语法"><span class="toc-number">2.</span> <span class="toc-text">2. JSON 基本语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-JSON值的类型"><span class="toc-number">3.</span> <span class="toc-text">3. JSON值的类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-与XML比较"><span class="toc-number">4.</span> <span class="toc-text">4. 与XML比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-辅助工具"><span class="toc-number">5.</span> <span class="toc-text">5. 辅助工具</span></a></li></ol>
 		
 		</div>
 		
-		<h4 id="1-最基础的-方法-以及搭建blog需要下载的环境等问题-百度一大堆"><a href="#1-最基础的-方法-以及搭建blog需要下载的环境等问题-百度一大堆" class="headerlink" title="1.最基础的 方法 以及搭建blog需要下载的环境等问题  百度一大堆"></a>1.最基础的 方法 以及搭建blog需要下载的环境等问题  百度一大堆</h4><h4 id="2-下面介绍一些简单必须的步骤"><a href="#2-下面介绍一些简单必须的步骤" class="headerlink" title="2. 下面介绍一些简单必须的步骤"></a>2. 下面介绍一些简单必须的步骤</h4><pre><code>1.本地新建文件夹 eg：HJ’blog
-2.进入该文件夹目录下 cd+HJ&apos;blog
-3.hexo init 随后会自动在目标文件夹中建立网站所需要的所有文件
-4.现在我们已经搭建起本地的hexo 博客了 ，在浏览器localhost：4000 预览
-hexo g  生产静态文件
-hexo s    启动本地服务 ,样式查看
-hexo d  上传
-</code></pre><h4 id="3-这里说一下跟换主题的坑"><a href="#3-这里说一下跟换主题的坑" class="headerlink" title="3.这里说一下跟换主题的坑"></a>3.这里说一下跟换主题的坑</h4><pre><code>1.更换主题:妈了个鸡的  最大的坑 就是 配置主题 需要注意 空格和引号(重要的事情说3扁)  要特别 注意 千万别出错
-2.hexo clean
-3.git clone 你需要的主题
-4.更改 主题的配置文件
-</code></pre>  
+		<h3 id="1-何为-JSON"><a href="#1-何为-JSON" class="headerlink" title="1. 何为 JSON"></a>1. 何为 JSON</h3><p>JSON（ JavaScript Object Notation ），即 JavaScript 对象表示法。JSON 主要用于存储和交换文本信息，类似于XML。但是和 XML 相比，JSON 是更加轻量级的文本数据交换格式，具有更小、更快、更易解析的特点。JSON 具有自我描述性，更易理解。虽然 JSON 使用 JavaScript 语法来描述数据对象，但是，JSON 是独立于语言和平台的。JSON 解析器和 JSON 库支持许多不同的编程语言。</p>
+<h3 id="2-JSON-基本语法"><a href="#2-JSON-基本语法" class="headerlink" title="2. JSON 基本语法"></a>2. JSON 基本语法</h3><p>JSON 语法是 JavaScript 对象表示法语法的子集。具体内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">数据在key/value对中存储</span><br><span class="line">数据由逗号分隔</span><br><span class="line">花括号保存对象</span><br><span class="line">方括号保存数据</span><br></pre></td></tr></table></figure>
+<h3 id="3-JSON值的类型"><a href="#3-JSON值的类型" class="headerlink" title="3. JSON值的类型"></a>3. JSON值的类型</h3><p>JSON的数据都在key/value对中存储，其中，这个值，可选类型如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">数字（整数或浮点数），例如：&#123; &quot;number&quot;:12.34 &#125;</span><br><span class="line"></span><br><span class="line">字符串（在双引号中），例如：&#123; &quot;name&quot;:&quot;狗剩&quot; &#125;</span><br><span class="line"></span><br><span class="line">逻辑值（true 或 false），例如：&#123; &quot;isOpen&quot;:true &#125;</span><br><span class="line"></span><br><span class="line">数组（在中括号中），例如：&#123; &quot;array&quot;:[1.2 , &quot;3&quot; , true , [4,5] , &#123;&quot;test&quot;:&quot;ok&quot;&#125; , null] &#125;</span><br><span class="line"></span><br><span class="line">对象（在大括号中），例如：&#123; &quot;person&quot;:&#123;&quot;name&quot;:&quot;qiumengchen&quot;,&quot;isHandsome&quot;:true&#125; &#125;</span><br><span class="line"></span><br><span class="line">null，例如：&#123; &quot;blog&quot;:null &#125;</span><br></pre></td></tr></table></figure>
+<p>总体来说，JSON的完整表现形式有两种：</p>
+<p><strong>JSON对象</strong>：以大括号（<code>{}</code>）为标志，对象可以包含多个<code>key/value</code>对，注意：对象中的每一项都必须是<code>key/value</code>对，不能是其他形式。但是，其中的key必须是字符串，其中的value可以是合法的JSON数据类型包括：数字、字符串、逻辑值、数组、对象、null等。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; &quot;name&quot;:&quot;狗剩&quot; , &quot;isHandsome&quot;:true , &quot;blog&quot;:&#123;&quot;url&quot;:&quot;qiumengchen.top&quot;,&quot;name&quot;:&quot;myBlog&quot;&#125; &#125;</span><br></pre></td></tr></table></figure>
+<p><strong>JSON数组</strong>：以中括号（<code>[]</code>）为标志，数组可以包含多个value，value可以是合法的JSON数据类型包括：数字、字符串、逻辑值、数组、对象、null等。但是，一般来说，我们会保持数据中每个项的形式和意义的一致性，方便理解和运用。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ 99 , &quot;qiumengchen&quot; , true , [1,2,3] , &#123;&quot;name&quot;:&quot;qiumengchen&quot;&#125; , null ]</span><br></pre></td></tr></table></figure>
+<h3 id="4-与XML比较"><a href="#4-与XML比较" class="headerlink" title="4. 与XML比较"></a>4. 与XML比较</h3><p>与<code>XML</code><strong>相同</strong>之处</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">JSON 是纯文本</span><br><span class="line">JSON 具有”自我描述性”（人类可读）</span><br><span class="line">JSON 具有层级结构（值中存在值）</span><br><span class="line">JSON 可通过 JavaScript 进行解析</span><br><span class="line">JSON 数据可使用 AJAX 进行传输</span><br></pre></td></tr></table></figure>
+<p>与<code>XML</code><strong>不同</strong>之处</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">没有结束标签</span><br><span class="line">更短</span><br><span class="line">读写的速度更快</span><br><span class="line">能够使用内建的 JavaScript eval() 方法进行解析</span><br><span class="line">使用数组</span><br><span class="line">不使用保留字</span><br></pre></td></tr></table></figure>
+<h3 id="5-辅助工具"><a href="#5-辅助工具" class="headerlink" title="5. 辅助工具"></a>5. 辅助工具</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">JSON在线解析工具（功能包括：JSON格式化、压缩、验证格式、JSON转XML、CSV、YAML），地址如下：[https://c.runoob.com/front-end/53](https://c.runoob.com/front-end/53)</span><br><span class="line">Chrome浏览器插件：JSON-handle</span><br></pre></td></tr></table></figure>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -138,7 +127,7 @@ hexo d  上传
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2016/03/17/hexo加载静态博客/" data-title="配置静态博客的简单介绍(自己看) | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
+	  <div data-url="http://yoursite.com/2018/10/16/JSON基础(一)/" data-title="JSON基础(一) | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -152,18 +141,18 @@ hexo d  上传
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/04/09/overflow/" title="解决overflow:属性,在iOS上滑动卡顿的问题">
+ <a href="/2018/10/19/Object.assign/" title="Object.assign">
   <strong>上一篇：</strong><br/>
   <span>
-  解决overflow:属性,在iOS上滑动卡顿的问题</span>
+  Object.assign</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2016/03/17/Vim学习/"  title="Vim学习">
+<a href="/2018/10/08/ES6 箭头函数介绍/"  title="ES6的箭头函数介绍">
  <strong>下一篇：</strong><br/> 
- <span>Vim学习
+ <span>ES6的箭头函数介绍
 </span>
 </a>
 </div>
@@ -178,7 +167,7 @@ hexo d  上传
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-最基础的-方法-以及搭建blog需要下载的环境等问题-百度一大堆"><span class="toc-number">1.</span> <span class="toc-text">1.最基础的 方法 以及搭建blog需要下载的环境等问题  百度一大堆</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-下面介绍一些简单必须的步骤"><span class="toc-number">2.</span> <span class="toc-text">2. 下面介绍一些简单必须的步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-这里说一下跟换主题的坑"><span class="toc-number">3.</span> <span class="toc-text">3.这里说一下跟换主题的坑</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-何为-JSON"><span class="toc-number">1.</span> <span class="toc-text">1. 何为 JSON</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-JSON-基本语法"><span class="toc-number">2.</span> <span class="toc-text">2. JSON 基本语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-JSON值的类型"><span class="toc-number">3.</span> <span class="toc-text">3. JSON值的类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-与XML比较"><span class="toc-number">4.</span> <span class="toc-text">4. 与XML比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-辅助工具"><span class="toc-number">5.</span> <span class="toc-text">5. 辅助工具</span></a></li></ol>
  
   </div>
 
