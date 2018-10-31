@@ -5,7 +5,7 @@
 - [ES6系列--Object.assign()](http://hjaiim.github.io/2018/10/19/Object.assign/)
 - [ES6系列--箭头函数](http://hjaiim.github.io/2018/10/08/ES6%20%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E4%BB%8B%E7%BB%8D/)
 - [ES6系列--对象的拓展(属性名表达式)](http://hjaiim.github.io/2018/07/05/%E5%B1%9E%E6%80%A7%E5%90%8D%E8%A1%A8%E8%BE%BE%E5%BC%8F/)
-- [ES6系列-import,export,export default](http://hjaiim.github.io/2018/03/22/ES6%20import,export/)
+- [ES6系列--import,export,export default](http://hjaiim.github.io/2018/03/22/ES6%20import,export/)
 - [ES6系列--Class](http://hjaiim.github.io/2018/01/12/ES6%20Class%20%E7%B1%BB/)
 - [ES6系列--Map,Set](http://hjaiim.github.io/2017/11/21/Map%E5%92%8CSet/)
 - [ES6系列--Promise](http://hjaiim.github.io/2017/11/03/ES6%20Promise/)
@@ -39,4 +39,4 @@
 
 ###		Vue系列
 
-###			NODE系列
+###			Node系列
