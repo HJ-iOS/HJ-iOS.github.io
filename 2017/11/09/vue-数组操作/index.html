@@ -4,26 +4,44 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>js循环 | Welcome to the literati Association!</title>
+    <title>vue数组操作 | Welcome to the literati Association!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="HJ">
     
 
     
-    <meta name="description" content="1.我们如何遍历数组中的元素？20年前JavaScript刚萌生时，你可能这样实现数组遍历：123for (var index = 0; index &amp;lt; myArray.length; index++) &amp;#123;  console.log(myArray[index]);&amp;#125;
-2.自ES5正式发布后，你可以使用内建的forEach方法来遍历数组：123myArray.forEac">
+    <meta name="description" content="vue中数组的操作总结：     
+一、根据索引设置元素：1、调用$set方法：
+1this.arr.$set(index, val);
+2、调用splice方法：
+1this.arr.splice(index, 1, val);
+二、合并数组：1this.arr = this.arr.concat(anotherArr);
+三、清空数组：1this.arr = [];
+四、主要的数组方法：1、变">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js循环">
-<meta property="og:url" content="http://yoursite.com/2017/11/20/js循环/index.html">
+<meta property="og:title" content="vue数组操作">
+<meta property="og:url" content="http://yoursite.com/2017/11/09/vue-数组操作/index.html">
 <meta property="og:site_name" content="Welcome to the literati Association!">
-<meta property="og:description" content="1.我们如何遍历数组中的元素？20年前JavaScript刚萌生时，你可能这样实现数组遍历：123for (var index = 0; index &amp;lt; myArray.length; index++) &amp;#123;  console.log(myArray[index]);&amp;#125;
-2.自ES5正式发布后，你可以使用内建的forEach方法来遍历数组：123myArray.forEac">
-<meta property="og:updated_time" content="2017-11-20T08:01:16.000Z">
+<meta property="og:description" content="vue中数组的操作总结：     
+一、根据索引设置元素：1、调用$set方法：
+1this.arr.$set(index, val);
+2、调用splice方法：
+1this.arr.splice(index, 1, val);
+二、合并数组：1this.arr = this.arr.concat(anotherArr);
+三、清空数组：1this.arr = [];
+四、主要的数组方法：1、变">
+<meta property="og:updated_time" content="2017-11-09T02:34:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js循环">
-<meta name="twitter:description" content="1.我们如何遍历数组中的元素？20年前JavaScript刚萌生时，你可能这样实现数组遍历：123for (var index = 0; index &amp;lt; myArray.length; index++) &amp;#123;  console.log(myArray[index]);&amp;#125;
-2.自ES5正式发布后，你可以使用内建的forEach方法来遍历数组：123myArray.forEac">
+<meta name="twitter:title" content="vue数组操作">
+<meta name="twitter:description" content="vue中数组的操作总结：     
+一、根据索引设置元素：1、调用$set方法：
+1this.arr.$set(index, val);
+2、调用splice方法：
+1this.arr.splice(index, 1, val);
+二、合并数组：1this.arr = this.arr.concat(anotherArr);
+三、清空数组：1this.arr = [];
+四、主要的数组方法：1、变">
 
     
     <link rel="alternative" href="/atom.xml" title="Welcome to the literati Association!" type="application/atom+xml">
@@ -83,14 +101,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/11/20/js循环/" title="js循环" itemprop="url">js循环</a>
+      <a href="/2017/11/09/vue-数组操作/" title="vue数组操作" itemprop="url">vue数组操作</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="HJ" target="_blank" itemprop="author">HJ</a>
 		
   <p class="article-time">
-    <time datetime="2017-11-20T08:01:16.000Z" itemprop="datePublished"> 发表于 2017-11-20</time>
+    <time datetime="2017-11-09T02:34:53.000Z" itemprop="datePublished"> 发表于 2017-11-09</time>
     
   </p>
 </header>
@@ -99,22 +117,22 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-我们如何遍历数组中的元素？20年前JavaScript刚萌生时，你可能这样实现数组遍历："><span class="toc-number">1.</span> <span class="toc-text">1.我们如何遍历数组中的元素？20年前JavaScript刚萌生时，你可能这样实现数组遍历：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-自ES5正式发布后，你可以使用内建的forEach方法来遍历数组："><span class="toc-number">2.</span> <span class="toc-text">2.自ES5正式发布后，你可以使用内建的forEach方法来遍历数组：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-for-in循环"><span class="toc-number">3.</span> <span class="toc-text">3.for-in循环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-强大的for-of循环"><span class="toc-number">4.</span> <span class="toc-text">4.强大的for-of循环</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、根据索引设置元素："><span class="toc-number">1.</span> <span class="toc-text">一、根据索引设置元素：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、合并数组："><span class="toc-number">2.</span> <span class="toc-text">二、合并数组：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、清空数组："><span class="toc-number">3.</span> <span class="toc-text">三、清空数组：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#四、主要的数组方法："><span class="toc-number">4.</span> <span class="toc-text">四、主要的数组方法：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#五、注意："><span class="toc-number">5.</span> <span class="toc-text">五、注意：</span></a></li></ol>
 		
 		</div>
 		
-		<h3 id="1-我们如何遍历数组中的元素？20年前JavaScript刚萌生时，你可能这样实现数组遍历："><a href="#1-我们如何遍历数组中的元素？20年前JavaScript刚萌生时，你可能这样实现数组遍历：" class="headerlink" title="1.我们如何遍历数组中的元素？20年前JavaScript刚萌生时，你可能这样实现数组遍历："></a>1.我们如何遍历数组中的元素？20年前JavaScript刚萌生时，你可能这样实现数组遍历：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (var index = 0; index &lt; myArray.length; index++) &#123;</span><br><span class="line">  console.log(myArray[index]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="2-自ES5正式发布后，你可以使用内建的forEach方法来遍历数组："><a href="#2-自ES5正式发布后，你可以使用内建的forEach方法来遍历数组：" class="headerlink" title="2.自ES5正式发布后，你可以使用内建的forEach方法来遍历数组："></a>2.自ES5正式发布后，你可以使用内建的forEach方法来遍历数组：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">myArray.forEach(function (value) &#123;</span><br><span class="line">console.log(value);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>缺点:<strong>你不能使用break语句中断循环，也不能使用return语句返回到外层函数。</strong></p>
-<h3 id="3-for-in循环"><a href="#3-for-in循环" class="headerlink" title="3.for-in循环"></a>3.for-in循环</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (var index in myArray) &#123; // 千万别这样做</span><br><span class="line">  console.log(myArray[index]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>a.在这段代码中，赋给index的值不是实际的数字，而是字符串“0”、“1”、“2”，此时很可能在无意之间进行字符串算数计算，例如：“2” + 1 == “21”，这给编码过程带来极大的不便。<br>b.作用于数组的for-in循环体除了遍历数组元素外，还会遍历自定义属性。举个例子，如果你的数组中有一个可枚举属性myArray.name，循环将额外执行一次，遍历到名为“name”的索引。就连数组原型链上的属性都能被访问到。<br>c.最让人震惊的是，在某些情况下，这段代码可能按照随机顺序遍历数组元素。<br>d.简而言之，for-in是为普通对象设计的，你可以遍历得到字符串类型的键，因此不适用于数组遍历。</p>
-<p>解决方法1:检测到属于自身属性跳过本次循环</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var array = [&quot;admin&quot;,&quot;manager&quot;,&quot;db&quot;];</span><br><span class="line"> </span><br><span class="line">               Array.prototype.name= &quot;zhangshan&quot;;</span><br><span class="line"> </span><br><span class="line">               for(var i in array)&#123;</span><br><span class="line"> </span><br><span class="line">                      //如果不是该对象自身直接创建的属性（也就是该属性是原型中的属性），则跳过显示</span><br><span class="line"> </span><br><span class="line">                       if(!array.hasOwnProperty(i))&#123;</span><br><span class="line"> </span><br><span class="line">                               continue;</span><br><span class="line"> </span><br><span class="line">                        &#125;</span><br><span class="line"> </span><br><span class="line">                        alert(array[i]);</span><br><span class="line"> </span><br><span class="line">               &#125;</span><br></pre></td></tr></table></figure>
-<p>解决方法2:使用Object.keys()</p>
-<p>Object.keys() 方法会返回一个由一个给定对象的自身可枚举属性组成的数组，数组中属性名的排列顺序和使用for…in 循环遍历该对象时返回的顺序一致 （两者的主要区别是 一个 for-in 循环还会枚举其原型链上的属性）。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(var i in Object.keys(array))&#123;</span><br><span class="line">      console.log(array[i]);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="4-强大的for-of循环"><a href="#4-强大的for-of循环" class="headerlink" title="4.强大的for-of循环"></a>4.强大的for-of循环</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (var value of myArray) &#123;</span><br><span class="line">  console.log(value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>a.这是最简洁、最直接的遍历数组元素的语法<br>b.这个方法避开了for-in循环的所有缺陷<br>c.与forEach()不同的是，它可以正确响应break、continue和return语句</p>
+		<p>vue中数组的操作总结：     </p>
+<h4 id="一、根据索引设置元素："><a href="#一、根据索引设置元素：" class="headerlink" title="一、根据索引设置元素："></a>一、根据索引设置元素：</h4><p>1、调用$set方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.arr.$set(index, val);</span><br></pre></td></tr></table></figure>
+<p>2、调用splice方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.arr.splice(index, 1, val);</span><br></pre></td></tr></table></figure>
+<h4 id="二、合并数组："><a href="#二、合并数组：" class="headerlink" title="二、合并数组："></a>二、合并数组：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.arr = this.arr.concat(anotherArr);</span><br></pre></td></tr></table></figure>
+<h4 id="三、清空数组："><a href="#三、清空数组：" class="headerlink" title="三、清空数组："></a>三、清空数组：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.arr = [];</span><br></pre></td></tr></table></figure>
+<h4 id="四、主要的数组方法："><a href="#四、主要的数组方法：" class="headerlink" title="四、主要的数组方法："></a>四、主要的数组方法：</h4><p>1、变异方法（修改了原始数组），vue为触发视图更新，包装了以下变异方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">push()</span><br><span class="line">pop()</span><br><span class="line">shift()</span><br><span class="line">unshift()</span><br><span class="line">splice()  //无论何时，使用该方法删除元素时注意数组长度有变化，bug可能就是因为她</span><br><span class="line">sort()</span><br><span class="line">reverse()</span><br></pre></td></tr></table></figure>
+<p>2、非变异方法（不会修改原始数组而是返回一个新数组），如concat()、filter()，使用时直接用新数组替换旧数组，如上面的合并数组例子。</p>
+<h4 id="五、注意："><a href="#五、注意：" class="headerlink" title="五、注意："></a>五、注意：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//以下操作均无法触发视图更新</span><br><span class="line">this.arr[index] = val;</span><br><span class="line">this.arr.length = 2;</span><br></pre></td></tr></table></figure>
+<p>详细了解请参考vue官方文档<a href="https://cn.vuejs.org/v2/guide/list.html" target="_blank" rel="external">数组变动检测</a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -127,7 +145,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2017/11/20/js循环/" data-title="js循环 | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
+	  <div data-url="http://yoursite.com/2017/11/09/vue-数组操作/" data-title="vue数组操作 | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -141,18 +159,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2017/11/21/Map和Set/" title="Map和Set">
+ <a href="/2017/11/20/js循环/" title="js循环">
   <strong>上一篇：</strong><br/>
   <span>
-  Map和Set</span>
+  js循环</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2017/11/09/vue-数组操作/"  title="vue数组操作">
+<a href="/2017/11/07/数组的深拷贝/"  title="数组以及对象的深拷贝的方法">
  <strong>下一篇：</strong><br/> 
- <span>vue数组操作
+ <span>数组以及对象的深拷贝的方法
 </span>
 </a>
 </div>
@@ -167,7 +185,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-我们如何遍历数组中的元素？20年前JavaScript刚萌生时，你可能这样实现数组遍历："><span class="toc-number">1.</span> <span class="toc-text">1.我们如何遍历数组中的元素？20年前JavaScript刚萌生时，你可能这样实现数组遍历：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-自ES5正式发布后，你可以使用内建的forEach方法来遍历数组："><span class="toc-number">2.</span> <span class="toc-text">2.自ES5正式发布后，你可以使用内建的forEach方法来遍历数组：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-for-in循环"><span class="toc-number">3.</span> <span class="toc-text">3.for-in循环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-强大的for-of循环"><span class="toc-number">4.</span> <span class="toc-text">4.强大的for-of循环</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、根据索引设置元素："><span class="toc-number">1.</span> <span class="toc-text">一、根据索引设置元素：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、合并数组："><span class="toc-number">2.</span> <span class="toc-text">二、合并数组：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、清空数组："><span class="toc-number">3.</span> <span class="toc-text">三、清空数组：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#四、主要的数组方法："><span class="toc-number">4.</span> <span class="toc-text">四、主要的数组方法：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#五、注意："><span class="toc-number">5.</span> <span class="toc-text">五、注意：</span></a></li></ol>
  
   </div>
 
