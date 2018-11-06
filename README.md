@@ -41,7 +41,7 @@
 
 ###		Vue系列
 - [Vue--通信之爷孙传值](http://hjaiim.github.io/2018/11/05/vue-%E7%88%B7%E5%AD%99%E9%80%9A%E4%BF%A1/)
-- [Vue--通信之兄弟传值](http://localhost:4000/2018/11/06/vue-eventBus/)
+- [Vue--通信之兄弟传值](http://hjaiim.github.io/2018/11/06/vue-eventBus/)
 - [Vue--数组操作](http://hjaiim.github.io/2017/11/09/vue-%E6%95%B0%E7%BB%84%E6%93%8D%E4%BD%9C/)
 
 ###		Node系列
