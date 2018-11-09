@@ -56,3 +56,4 @@
 - [前端面试系列——进阶javascript](https://github.com/hjaiim/hjaiim.github.io/issues/3)
 - [前端面试系列——http/html/浏览器](https://github.com/hjaiim/hjaiim.github.io/issues/4)
 - [前端面试系列——css](https://github.com/hjaiim/hjaiim.github.io/issues/5)
+- [前端面试系列——大杂烩](https://github.com/hjaiim/hjaiim.github.io/issues/6)
