@@ -11,7 +11,7 @@
 - [ES6系列--Map,Set](http://hjaiim.github.io/2017/11/21/Map%E5%92%8CSet/)
 - [ES6系列--Promise](http://hjaiim.github.io/2017/11/03/ES6%20Promise/)
 - [ES6系列--Object.assign()](http://hjaiim.github.io/2018/10/19/Object.assign/)
-- [ES6系列--Object.defineProperty()](http://hjaiim.github.io/2017/11/02/Object.defineProperty/)
+
 
 
 ###		JS系列
@@ -34,6 +34,7 @@
 - [JS系列--继承的五种方式](http://hjaiim.github.io/2017/10/20/js%E7%BB%A7%E6%89%BF/)
 - [JS系列--非构造函数的继承](http://hjaiim.github.io/2017/10/23/%E9%9D%9E%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%9A%84%E7%BB%A7%E6%89%BF/)
 - [JS系列--this](http://hjaiim.github.io/2017/09/14/this%E5%85%A8%E9%9D%A2%E8%A7%A3%E6%9E%90/)
+- [JS系列--Object.defineProperty()](http://hjaiim.github.io/2017/11/02/Object.defineProperty/)
 
 ###		CSS系列
 - [待更新中]()
