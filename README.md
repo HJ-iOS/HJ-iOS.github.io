@@ -58,3 +58,12 @@
 - [前端面试系列——http/html/浏览器](https://github.com/hjaiim/hjaiim.github.io/issues/4)
 - [前端面试系列——css](https://github.com/hjaiim/hjaiim.github.io/issues/5)
 - [前端面试系列——大杂烩](https://github.com/hjaiim/hjaiim.github.io/issues/6)
+
+###		买了不看,看了不会,不会再买系列
+####	《javascript面向对象编程指南》
+####	《js权威指南》
+####	《js高级程序设计》
+####	《你不知道的javascript》
+####	《正则指引》
+####	《javascript函数式编程》
+####	《基于MVC的JavaScript Web富应用开发》
