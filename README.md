@@ -67,3 +67,9 @@
 ####	《正则指引》
 ####	《javascript函数式编程》
 ####	《基于MVC的JavaScript Web富应用开发》
+
+###	源码练习
+####	underscore.js
+####	zepto.js
+####	jq
+####	backbone.js
