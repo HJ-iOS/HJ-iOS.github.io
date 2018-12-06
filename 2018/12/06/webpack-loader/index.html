@@ -4,38 +4,26 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>配置静态博客的简单介绍(自己看) | Welcome to the literati Association!</title>
+    <title>webpack--loader | Welcome to the literati Association!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="HJ">
     
 
     
-    <meta name="description" content="1.最基础的 方法 以及搭建blog需要下载的环境等问题  百度一大堆2. 下面介绍一些简单必须的步骤1.本地新建文件夹 eg：HJ’blog
-2.进入该文件夹目录下 cd+HJ&amp;apos;blog
-3.hexo init 随后会自动在目标文件夹中建立网站所需要的所有文件
-4.现在我们已经搭建起本地的hexo 博客了 ，在浏览器localhost：4000 预览
-hexo g  生产静态文件
-he">
+    <meta name="description" content="1.媒体资源loader需要对图片,视频,文字等进行loader的配置,用到的是url-loader.列如对图片的配置:
+12345678&amp;#123;                test: /\.(png|jpg|gif|svg)$/,                loader: &amp;apos;file&amp;apos;,                query: &amp;#123;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="配置静态博客的简单介绍(自己看)">
-<meta property="og:url" content="http://yoursite.com/2016/03/17/hexo加载静态博客/index.html">
+<meta property="og:title" content="webpack--loader">
+<meta property="og:url" content="http://yoursite.com/2018/12/06/webpack-loader/index.html">
 <meta property="og:site_name" content="Welcome to the literati Association!">
-<meta property="og:description" content="1.最基础的 方法 以及搭建blog需要下载的环境等问题  百度一大堆2. 下面介绍一些简单必须的步骤1.本地新建文件夹 eg：HJ’blog
-2.进入该文件夹目录下 cd+HJ&amp;apos;blog
-3.hexo init 随后会自动在目标文件夹中建立网站所需要的所有文件
-4.现在我们已经搭建起本地的hexo 博客了 ，在浏览器localhost：4000 预览
-hexo g  生产静态文件
-he">
-<meta property="og:updated_time" content="2016-03-18T07:22:44.000Z">
+<meta property="og:description" content="1.媒体资源loader需要对图片,视频,文字等进行loader的配置,用到的是url-loader.列如对图片的配置:
+12345678&amp;#123;                test: /\.(png|jpg|gif|svg)$/,                loader: &amp;apos;file&amp;apos;,                query: &amp;#123;">
+<meta property="og:updated_time" content="2018-12-06T12:43:27.537Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="配置静态博客的简单介绍(自己看)">
-<meta name="twitter:description" content="1.最基础的 方法 以及搭建blog需要下载的环境等问题  百度一大堆2. 下面介绍一些简单必须的步骤1.本地新建文件夹 eg：HJ’blog
-2.进入该文件夹目录下 cd+HJ&amp;apos;blog
-3.hexo init 随后会自动在目标文件夹中建立网站所需要的所有文件
-4.现在我们已经搭建起本地的hexo 博客了 ，在浏览器localhost：4000 预览
-hexo g  生产静态文件
-he">
+<meta name="twitter:title" content="webpack--loader">
+<meta name="twitter:description" content="1.媒体资源loader需要对图片,视频,文字等进行loader的配置,用到的是url-loader.列如对图片的配置:
+12345678&amp;#123;                test: /\.(png|jpg|gif|svg)$/,                loader: &amp;apos;file&amp;apos;,                query: &amp;#123;">
 
     
     <link rel="alternative" href="/atom.xml" title="Welcome to the literati Association!" type="application/atom+xml">
@@ -95,14 +83,14 @@ he">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/03/17/hexo加载静态博客/" title="配置静态博客的简单介绍(自己看)" itemprop="url">配置静态博客的简单介绍(自己看)</a>
+      <a href="/2018/12/06/webpack-loader/" title="webpack--loader" itemprop="url">webpack--loader</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="HJ" target="_blank" itemprop="author">HJ</a>
 		
   <p class="article-time">
-    <time datetime="2016-03-17T06:45:24.000Z" itemprop="datePublished"> 发表于 2016-03-17</time>
+    <time datetime="2018-12-06T12:41:43.897Z" itemprop="datePublished"> 发表于 2018-12-06</time>
     
   </p>
 </header>
@@ -111,21 +99,28 @@ he">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-最基础的-方法-以及搭建blog需要下载的环境等问题-百度一大堆"><span class="toc-number">1.</span> <span class="toc-text">1.最基础的 方法 以及搭建blog需要下载的环境等问题  百度一大堆</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-下面介绍一些简单必须的步骤"><span class="toc-number">2.</span> <span class="toc-text">2. 下面介绍一些简单必须的步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-这里说一下跟换主题的坑"><span class="toc-number">3.</span> <span class="toc-text">3.这里说一下跟换主题的坑</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-媒体资源loader"><span class="toc-number">1.</span> <span class="toc-text">1.媒体资源loader</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-url-loader和file-loader对比"><span class="toc-number">2.</span> <span class="toc-text">2.url-loader和file-loader对比</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-loader中的参数"><span class="toc-number">3.</span> <span class="toc-text">3.loader中的参数</span></a></li></ol>
 		
 		</div>
 		
-		<h4 id="1-最基础的-方法-以及搭建blog需要下载的环境等问题-百度一大堆"><a href="#1-最基础的-方法-以及搭建blog需要下载的环境等问题-百度一大堆" class="headerlink" title="1.最基础的 方法 以及搭建blog需要下载的环境等问题  百度一大堆"></a>1.最基础的 方法 以及搭建blog需要下载的环境等问题  百度一大堆</h4><h4 id="2-下面介绍一些简单必须的步骤"><a href="#2-下面介绍一些简单必须的步骤" class="headerlink" title="2. 下面介绍一些简单必须的步骤"></a>2. 下面介绍一些简单必须的步骤</h4><pre><code>1.本地新建文件夹 eg：HJ’blog
-2.进入该文件夹目录下 cd+HJ&apos;blog
-3.hexo init 随后会自动在目标文件夹中建立网站所需要的所有文件
-4.现在我们已经搭建起本地的hexo 博客了 ，在浏览器localhost：4000 预览
-hexo g  生产静态文件
-hexo s    启动本地服务 ,样式查看
-hexo d  上传
-</code></pre><h4 id="3-这里说一下跟换主题的坑"><a href="#3-这里说一下跟换主题的坑" class="headerlink" title="3.这里说一下跟换主题的坑"></a>3.这里说一下跟换主题的坑</h4><pre><code>1.更换主题:妈了个鸡的  最大的坑 就是 配置主题 需要注意 空格和引号(重要的事情说3扁)  要特别 注意 千万别出错
-2.hexo clean
-3.git clone 你需要的主题
-4.更改 主题的配置文件
+		<h4 id="1-媒体资源loader"><a href="#1-媒体资源loader" class="headerlink" title="1.媒体资源loader"></a>1.媒体资源loader</h4><p>需要对图片,视频,文字等进行loader的配置,用到的是url-loader.<br>列如对图片的配置:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">                test: /\.(png|jpg|gif|svg)$/,</span><br><span class="line">                loader: &apos;file&apos;,</span><br><span class="line">                query: &#123;</span><br><span class="line">                    name: &apos;/assets/images/[name].[ext]&apos;,</span><br><span class="line">                    limit: 10000</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+<p>会配合webpack对资源引入路径进行复写,也就是所谓的引入路径问题.</p>
+<p>列如:<code>background</code>样式用url引入背景图片,webpack最终会将各个模块打包成一个文件.</p>
+<p>因此我们样式中的url路径是相对入口html页面的,而不是相对于原始css文件所在的路径.</p>
+<p>如果图片较多,会发很多http请求,会降低页面性能.这个问题可以通过<code>url-loader</code>解决.</p>
+<p><code>url-loader</code>会将引入的图片编码,生成dataUrl,也就是我们俗称的base64.相当于把图片数据翻译成一串字符串.再把字符串打包到js中.</p>
+<h4 id="2-url-loader和file-loader对比"><a href="#2-url-loader和file-loader对比" class="headerlink" title="2.url-loader和file-loader对比"></a>2.url-loader和file-loader对比</h4><p>url-loader和file-loader是什么关系呢？简答地说，url-loader封装了file-loader。url-loader不依赖于file-loader，即使用url-loader时，只需要安装url-loader即可，不需要安装file-loader，因为url-loader内置了file-loader.</p>
+<p>通过上面的介绍，我们可以看到，url-loader工作分两种情况：1.文件大小小于limit参数，url-loader将会把文件转为DataURL；2.文件大小大于limit，url-loader会调用file-loader进行处理，参数也会直接传给file-loader。因此我们只需要安装url-loader即可</p>
+<h4 id="3-loader中的参数"><a href="#3-loader中的参数" class="headerlink" title="3.loader中的参数"></a>3.loader中的参数</h4><p>上面提到url-loader的参数和file-loader的参数，那么loader的参数是个什么概念呢？loader的参数用来自定义loader处理文件时的工作特性。下面以url-loader为例，介绍一下webpack的loader中的参数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">                test: /\.(png|jpg|gif|svg)$/,</span><br><span class="line">                loader: &apos;file&apos;,</span><br><span class="line">                query: &#123;</span><br><span class="line">                    name: &apos;/assets/images/[name].[ext]&apos;,</span><br><span class="line">                    limit: 10000</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+<p>等价于</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">                test: /\.(png|jpg|gif|svg)$/,</span><br><span class="line">                loader: &apos;file?&amp;name=/assets/images/[name].[ext]&amp;limit=10000&apos;</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">                test: /\.jpeg$/,</span><br><span class="line">                use: &apos;url-loader?limit=1024&amp;name=[path][name].[ext]&amp;outputPath=img/&amp;publicPath=output/&apos;,</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+<p>这里涉及到了4个参数：limit、name、outputPath、publicPath。其中limit已经说明过。file-loader相关的是name、outputPath和publicPath。下面解释一下这3个参数<br>    name表示输出的文件名规则，如果不添加这个参数，输出的就是默认值：文件哈希。加上[path]表示输出文件的相对路径与当前文件相对路径相同，加上[name].[ext]则表示输出文件的名字和扩展名与当前相同。加上[path]这个参数后，打包后文件中引用文件的路径也会加上这个相对路径。</p>
+<pre><code>outputPath表示输出文件路径前缀。图片经过url-loader打包都会打包到指定的输出文件夹下。但是我们可以指定图片在输出文件夹下的路径。比如outputPath=img/，图片被打包时，就会在输出文件夹下新建（如果没有）一个名为img的文件夹，把图片放到里面。
+
+publicPath表示打包文件中引用文件的路径前缀，如果你的图片存放在CDN上，那么你上线时可以加上这个参数，值为CDN地址，这样就可以让项目上线后的资源引用路径指向CDN了
 </code></pre>  
 	</div>
 		<footer class="article-footer clearfix">
@@ -138,7 +133,7 @@ hexo d  上传
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2016/03/17/hexo加载静态博客/" data-title="配置静态博客的简单介绍(自己看) | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
+	  <div data-url="http://yoursite.com/2018/12/06/webpack-loader/" data-title="webpack--loader | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -151,19 +146,11 @@ hexo d  上传
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/04/09/前端开发样式命名规范/" title="前端开发样式命名规范">
-  <strong>上一篇：</strong><br/>
-  <span>
-  前端开发样式命名规范</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/03/17/iOS应用程序的特点/"  title="iOS应用程序的特点">
+<a href="/2018/11/16/vue-vuex/"  title="通信之全局传值vuex">
  <strong>下一篇：</strong><br/> 
- <span>iOS应用程序的特点
+ <span>通信之全局传值vuex
 </span>
 </a>
 </div>
@@ -178,7 +165,7 @@ hexo d  上传
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-最基础的-方法-以及搭建blog需要下载的环境等问题-百度一大堆"><span class="toc-number">1.</span> <span class="toc-text">1.最基础的 方法 以及搭建blog需要下载的环境等问题  百度一大堆</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-下面介绍一些简单必须的步骤"><span class="toc-number">2.</span> <span class="toc-text">2. 下面介绍一些简单必须的步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-这里说一下跟换主题的坑"><span class="toc-number">3.</span> <span class="toc-text">3.这里说一下跟换主题的坑</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-媒体资源loader"><span class="toc-number">1.</span> <span class="toc-text">1.媒体资源loader</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-url-loader和file-loader对比"><span class="toc-number">2.</span> <span class="toc-text">2.url-loader和file-loader对比</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-loader中的参数"><span class="toc-number">3.</span> <span class="toc-text">3.loader中的参数</span></a></li></ol>
  
   </div>
 
