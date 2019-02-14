@@ -1,0 +1,520 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>flex布局 | Welcome to the literati Association!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="HJ">
+    
+
+    
+    <meta name="description" content="一、简要介绍布局的传统解决方案是基于盒子模型,依赖display+position+float方式来实现,灵活性较差.
+是2009年w3c提出的一种可以简洁、快速弹性布局的属性。主要思想是给予容器控制内部元素高度和宽度的能力。目前已得到以下浏览器支持：其中在webkit内核的浏览器中使用时，必须加上-webkit-前缀，以下不再重复说明。
+下图为flex的相关概念的示意图
+
+使用flex布局的容器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="flex布局">
+<meta property="og:url" content="http://yoursite.com/2019/02/14/flex布局/index.html">
+<meta property="og:site_name" content="Welcome to the literati Association!">
+<meta property="og:description" content="一、简要介绍布局的传统解决方案是基于盒子模型,依赖display+position+float方式来实现,灵活性较差.
+是2009年w3c提出的一种可以简洁、快速弹性布局的属性。主要思想是给予容器控制内部元素高度和宽度的能力。目前已得到以下浏览器支持：其中在webkit内核的浏览器中使用时，必须加上-webkit-前缀，以下不再重复说明。
+下图为flex的相关概念的示意图
+
+使用flex布局的容器">
+<meta property="og:image" content="https://github.com/hjaiim/picture/raw/master/flex.png">
+<meta property="og:image" content="https://github.com/hjaiim/picture/raw/master/flex2.png">
+<meta property="og:image" content="https://github.com/hjaiim/picture/raw/master/flex1.png">
+<meta property="og:image" content="https://github.com/hjaiim/picture/raw/master/flex3.png">
+<meta property="og:image" content="https://github.com/hjaiim/picture/raw/master/flex4.png">
+<meta property="og:image" content="https://github.com/hjaiim/picture/raw/master/flex5.png">
+<meta property="og:image" content="https://github.com/hjaiim/picture/raw/master/flex6.png">
+<meta property="og:image" content="https://github.com/hjaiim/picture/raw/master/flex7.png">
+<meta property="og:image" content="https://github.com/hjaiim/picture/raw/master/flex8.png">
+<meta property="og:image" content="https://github.com/hjaiim/picture/raw/master/flex9.png">
+<meta property="og:image" content="https://github.com/hjaiim/picture/raw/master/flex10.png">
+<meta property="og:image" content="https://github.com/hjaiim/picture/raw/master/flex11.png">
+<meta property="og:image" content="https://github.com/hjaiim/picture/raw/master/flex12.png">
+<meta property="og:image" content="https://github.com/hjaiim/picture/raw/master/flex13.png">
+<meta property="og:updated_time" content="2019-02-14T07:04:18.579Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="flex布局">
+<meta name="twitter:description" content="一、简要介绍布局的传统解决方案是基于盒子模型,依赖display+position+float方式来实现,灵活性较差.
+是2009年w3c提出的一种可以简洁、快速弹性布局的属性。主要思想是给予容器控制内部元素高度和宽度的能力。目前已得到以下浏览器支持：其中在webkit内核的浏览器中使用时，必须加上-webkit-前缀，以下不再重复说明。
+下图为flex的相关概念的示意图
+
+使用flex布局的容器">
+<meta name="twitter:image" content="https://github.com/hjaiim/picture/raw/master/flex.png">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Welcome to the literati Association!" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Welcome to the literati Association!" title="Welcome to the literati Association!"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Welcome to the literati Association!">Welcome to the literati Association!</a></h1>
+				<h2 class="blog-motto">The president of the literati association is HJ.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2019/02/14/flex布局/" title="flex布局" itemprop="url">flex布局</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="HJ" target="_blank" itemprop="author">HJ</a>
+		
+  <p class="article-time">
+    <time datetime="2019-02-14T07:04:18.579Z" itemprop="datePublished"> 发表于 2019-02-14</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、简要介绍"><span class="toc-number">1.</span> <span class="toc-text">一、简要介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、属性总结表"><span class="toc-number">2.</span> <span class="toc-text">二、属性总结表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、容器属性详述"><span class="toc-number">3.</span> <span class="toc-text">三、容器属性详述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-flex-direction"><span class="toc-number">3.1.</span> <span class="toc-text">1.flex-direction</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、flex-wrap"><span class="toc-number">3.2.</span> <span class="toc-text">2、flex-wrap</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、flex-flow"><span class="toc-number">3.3.</span> <span class="toc-text">3、flex-flow</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、justify-content"><span class="toc-number">3.4.</span> <span class="toc-text">4、justify-content</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、align-items"><span class="toc-number">3.5.</span> <span class="toc-text">5、align-items</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、align-content"><span class="toc-number">3.6.</span> <span class="toc-text">6、align-content</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、flex-item属性详述"><span class="toc-number">4.</span> <span class="toc-text">四、flex item属性详述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、order"><span class="toc-number">4.1.</span> <span class="toc-text">1、order</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、flex-grow"><span class="toc-number">4.2.</span> <span class="toc-text">2、flex-grow</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、flex-shrink"><span class="toc-number">4.3.</span> <span class="toc-text">3、flex-shrink</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、flex-basis"><span class="toc-number">4.4.</span> <span class="toc-text">4、flex-basis</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、flex"><span class="toc-number">4.5.</span> <span class="toc-text">5、flex</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、align-self"><span class="toc-number">4.6.</span> <span class="toc-text">6、align-self</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h3 id="一、简要介绍"><a href="#一、简要介绍" class="headerlink" title="一、简要介绍"></a>一、简要介绍</h3><p>布局的传统解决方案是基于盒子模型,依赖<code>display</code>+<code>position</code>+<code>float</code>方式来实现,灵活性较差.</p>
+<p>是2009年w3c提出的一种可以简洁、快速弹性布局的属性。主要思想是给予容器控制内部元素高度和宽度的能力。目前已得到以下浏览器支持：<br><img src="https://github.com/hjaiim/picture/raw/master/flex.png" alt=""><br>其中在webkit内核的浏览器中使用时，必须加上-webkit-前缀，以下不再重复说明。</p>
+<p>下图为flex的相关概念的示意图</p>
+<p><img src="https://github.com/hjaiim/picture/raw/master/flex2.png" alt=""></p>
+<p>使用flex布局的容器（flex container），它内部的元素自动成为flex项目（flex item）。容器拥有两根隐形的轴，水平的主轴（main axis），和竖直的交叉轴。主轴开始的位置，即主轴与右边框的交点，称为main start；主轴结束的位置称为main end；交叉轴开始的位置称为cross start；交叉轴结束的位置称为cross end。item按主轴或交叉轴排列，item在主轴方向上占据的宽度称为main size，在交叉轴方向上占据的宽度称为cross size。</p>
+<p>此外，需注意使用flex容器内元素，即flex item的float，clear、vertical-align属性将失效.</p>
+<h3 id="二、属性总结表"><a href="#二、属性总结表" class="headerlink" title="二、属性总结表"></a>二、属性总结表</h3><p>下图是关于flex的属性总结表，后面会详细介绍每个属性的意义和用法</p>
+<p><img src="https://github.com/hjaiim/picture/raw/master/flex1.png" alt=""></p>
+<h3 id="三、容器属性详述"><a href="#三、容器属性详述" class="headerlink" title="三、容器属性详述"></a>三、容器属性详述</h3><h4 id="1-flex-direction"><a href="#1-flex-direction" class="headerlink" title="1.flex-direction"></a>1.flex-direction</h4><p>　　　　决定主轴的方向，即项目排列的方向，有四个可能的值：row(默认)|row-reverse|column|column-reverse</p>
+<p>　　　　row:主轴为水平方向，项目沿主轴从左至右排列</p>
+<p>　　　　column：主轴为竖直方向，项目沿主轴从上至下排列</p>
+<p>　　　　row-reverse：主轴水平，项目从右至左排列，与row反向</p>
+<p>　　　　column-reverse：主轴竖直，项目从下至上排列，与column反向</p>
+<p><img src="https://github.com/hjaiim/picture/raw/master/flex3.png" alt=""><br><img src="https://github.com/hjaiim/picture/raw/master/flex4.png" alt=""></p>
+<h4 id="2、flex-wrap"><a href="#2、flex-wrap" class="headerlink" title="2、flex-wrap"></a>2、flex-wrap</h4><p>　　　　默认情况下，item排列在一条线上，即主轴上，flex-wrap决定当排列不下时是否换行以及换行的方式，可能的值nowrap(默认)|wrap|wrap-reverse</p>
+<p>　　　　nowrap：自动缩小项目，不换行</p>
+<p>　　　　wrap：换行，且第一行在上方</p>
+<p>　　　　wrap-reverse：换行，第一行在下面<br>　　　　<br><img src="https://github.com/hjaiim/picture/raw/master/flex5.png" alt=""><br><img src="https://github.com/hjaiim/picture/raw/master/flex6.png" alt=""></p>
+<h4 id="3、flex-flow"><a href="#3、flex-flow" class="headerlink" title="3、flex-flow"></a>3、flex-flow</h4><p>　　　　是flex-direction和flex-wrap的简写形式，如：row wrap|column wrap-reverse等。默认值为row nowrap，即横向排列 不换行。</p>
+<h4 id="4、justify-content"><a href="#4、justify-content" class="headerlink" title="4、justify-content"></a>4、justify-content</h4><p>　　　　决定item在主轴上的对齐方式，可能的值有flex-start（默认），flex-end，center，space-between，space-around。当主轴沿水平方向时，具体含义为</p>
+<p>　　　　　　flex-start：左对齐</p>
+<p>　　　　　　flex-end：右对齐</p>
+<p>　　　　　　center：居中对齐</p>
+<p>　　　　　　space- between：两端对齐</p>
+<p>　　　　　　space-around：沿轴线均匀分布</p>
+<p>　　　　效果如下图　<br><img src="https://github.com/hjaiim/picture/raw/master/flex7.png" alt=""></p>
+<h4 id="5、align-items"><a href="#5、align-items" class="headerlink" title="5、align-items"></a>5、align-items</h4><p>　　决定了item在交叉轴上的对齐方式，可能的值有flex-start|flex-end|center|baseline|stretch，当主轴水平时，其具体含义为</p>
+<p>　　　　flex-start：顶端对齐</p>
+<p>　　　　flex-end：底部对齐</p>
+<p>　　　　center：竖直方向上居中对齐</p>
+<p>　　　　baseline：item第一行文字的底部对齐</p>
+<p>　　　　stretch：当item未设置高度时，item将和容器等高对齐</p>
+<p>　　效果图如下：</p>
+<p><img src="https://github.com/hjaiim/picture/raw/master/flex8.png" alt=""></p>
+<h4 id="6、align-content"><a href="#6、align-content" class="headerlink" title="6、align-content"></a>6、align-content</h4><p> 　　该属性定义了当有多根主轴时，即item不止一行时，多行在交叉轴轴上的对齐方式。注意当有多行时，定义了align-content后，align-items属性将失效。align-content可能值含义如下（假设主轴为水平方向）：</p>
+<p>　　　　　　flex-start：左对齐</p>
+<p>　　　　　　flex-end：右对齐</p>
+<p>　　　　　　center：居中对齐</p>
+<p>　　　　　　space- between：两端对齐</p>
+<p>　　　　　　space-around：沿轴线均匀分布</p>
+<p>　　　　　　stretch：各行将根据其flex-grow值伸展以充分占据剩余空间</p>
+<p>　　效果图如下<br><img src="https://github.com/hjaiim/picture/raw/master/flex9.png" alt=""><br><img src="https://github.com/hjaiim/picture/raw/master/flex10.png" alt=""></p>
+<h3 id="四、flex-item属性详述"><a href="#四、flex-item属性详述" class="headerlink" title="四、flex item属性详述"></a>四、flex item属性详述</h3><p>　　item的属性在item的style中设置。item共有如下六种属性</p>
+<h4 id="1、order"><a href="#1、order" class="headerlink" title="1、order"></a>1、order</h4><p>　　　　order的值是整数，默认为0，整数越小，item排列越靠前，如下图所示代码如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;wrap&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;div&quot; style=&quot;order:4&quot;&gt;&lt;h2&gt;item 1&lt;/h2&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;div&quot; style=&quot;order:2&quot;&gt;&lt;h2&gt;item 2&lt;/h2&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;div&quot; style=&quot;order:3&quot;&gt;&lt;h2&gt;item 3&lt;/h2&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;div&quot; style=&quot;order:1&quot;&gt;&lt;h2&gt;item 4&lt;/h2&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/hjaiim/picture/raw/master/flex11.png" alt=""></p>
+<h4 id="2、flex-grow"><a href="#2、flex-grow" class="headerlink" title="2、flex-grow"></a>2、flex-grow</h4><p>　　　　定义了当flex容器有多余空间时，item是否放大。默认值为0，即当有多余空间时也不放大；可能的值为整数，表示不同item的放大比例，如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;wrap&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;div&quot; style=&quot;flex-grow:1&quot;&gt;&lt;h2&gt;item 1&lt;/h2&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;div&quot; style=&quot;flex-grow:2&quot;&gt;&lt;h2&gt;item 2&lt;/h2&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;div&quot; style=&quot;flex-grow:3&quot;&gt;&lt;h2&gt;item 3&lt;/h2&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>即当有多余空间时item1、item2、和item3以1：2:3的比例放大。</p>
+<h4 id="3、flex-shrink"><a href="#3、flex-shrink" class="headerlink" title="3、flex-shrink"></a>3、flex-shrink</h4><p>　　　　定义了当容器空间不足时，item是否缩小。默认值为1，表示当空间不足时，item自动缩小，其可能的值为整数，表示不同item的缩小比例。flex-grow
+　　　　</p>
+<h4 id="4、flex-basis"><a href="#4、flex-basis" class="headerlink" title="4、flex-basis"></a>4、flex-basis</h4><p>　　　　表示项目在主轴上占据的空间，默认值为auto。如下代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;wrap&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;div&quot; style=&quot;flex-basis:80px&quot;&gt;&lt;h2&gt;item 1&lt;/h2&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;div&quot; style=&quot;flex-basis:160px&quot;&gt;&lt;h2&gt;item 2&lt;/h2&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;div&quot; style=&quot;flex-basis:240px&quot;&gt;&lt;h2&gt;item 3&lt;/h2&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>　　　　<br><img src="https://github.com/hjaiim/picture/raw/master/flex12.png" alt=""></p>
+<h4 id="5、flex"><a href="#5、flex" class="headerlink" title="5、flex"></a>5、flex</h4><p>　　　　flex属性是flex-grow、flex-shrink和flex-basis三属性的简写总和。</p>
+<h4 id="6、align-self"><a href="#6、align-self" class="headerlink" title="6、align-self"></a>6、align-self</h4><p>　　　　align-self属性允许item有自己独特的在交叉轴上的对齐方式，它有六个可能的值。默认值为auto</p>
+<p>　　　　　　auto：和父元素align-self的值一致</p>
+<p>　　　　　　flex-start：顶端对齐</p>
+<p>　　　　　　flex-end：底部对齐</p>
+<p>　　　　　　center：竖直方向上居中对齐</p>
+<p>　　　　　　baseline：item第一行文字的底部对齐</p>
+<p>　　　　　　stretch：当item未设置高度时，item将和容器等高对齐</p>
+<p><img src="https://github.com/hjaiim/picture/raw/master/flex13.png" alt=""></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2019/02/14/flex布局/" data-title="flex布局 | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2019/01/25/vue-实用记录/"  title="vue实用记录(持续中)">
+ <strong>下一篇：</strong><br/> 
+ <span>vue实用记录(持续中)
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、简要介绍"><span class="toc-number">1.</span> <span class="toc-text">一、简要介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、属性总结表"><span class="toc-number">2.</span> <span class="toc-text">二、属性总结表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、容器属性详述"><span class="toc-number">3.</span> <span class="toc-text">三、容器属性详述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-flex-direction"><span class="toc-number">3.1.</span> <span class="toc-text">1.flex-direction</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、flex-wrap"><span class="toc-number">3.2.</span> <span class="toc-text">2、flex-wrap</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、flex-flow"><span class="toc-number">3.3.</span> <span class="toc-text">3、flex-flow</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、justify-content"><span class="toc-number">3.4.</span> <span class="toc-text">4、justify-content</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、align-items"><span class="toc-number">3.5.</span> <span class="toc-text">5、align-items</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、align-content"><span class="toc-number">3.6.</span> <span class="toc-text">6、align-content</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、flex-item属性详述"><span class="toc-number">4.</span> <span class="toc-text">四、flex item属性详述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、order"><span class="toc-number">4.1.</span> <span class="toc-text">1、order</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、flex-grow"><span class="toc-number">4.2.</span> <span class="toc-text">2、flex-grow</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、flex-shrink"><span class="toc-number">4.3.</span> <span class="toc-text">3、flex-shrink</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、flex-basis"><span class="toc-number">4.4.</span> <span class="toc-text">4、flex-basis</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、flex"><span class="toc-number">4.5.</span> <span class="toc-text">5、flex</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、align-self"><span class="toc-number">4.6.</span> <span class="toc-text">6、align-self</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="hjaiim" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=5597151709&verifier=2e2fc03f&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> To the world you maybe one peeson , but to one person you maybe the world. <br/>
+			This is my goddess.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/hjaiim" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		<a href="http://stackoverflow.com/users/8573660" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
+		
+		
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/liang-ren-de-hui-yi-yiren-guo" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:hjaiim@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2019 
+		
+		<a href="/about" target="_blank" title="HJ">HJ</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
