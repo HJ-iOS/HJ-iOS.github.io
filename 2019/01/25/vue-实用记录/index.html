@@ -23,7 +23,7 @@
 123456const router = new VueRouter(&amp;#123;  routes: [    // 动态路径参数 以冒号开头    &amp;#123; path: &amp;apos;/user/:id&amp;apos;, component: User &amp;#125;  ]&amp;#125;)
 现在呢，像 /user/123 和 /user/456 都将映射到相同的路由。
 一个“">
-<meta property="og:updated_time" content="2019-01-25T03:42:22.863Z">
+<meta property="og:updated_time" content="2019-02-14T07:11:39.335Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue实用记录(持续中)">
 <meta name="twitter:description" content="1.动态路由匹配官网链接
@@ -105,7 +105,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-动态路由匹配"><span class="toc-number">1.</span> <span class="toc-text">1.动态路由匹配</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-copputed中绑定组件用到的data"><span class="toc-number">2.</span> <span class="toc-text">2.copputed中绑定组件用到的data</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-动态路由匹配"><span class="toc-number">1.</span> <span class="toc-text">1.动态路由匹配</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-computed中绑定组件用到的data"><span class="toc-number">2.</span> <span class="toc-text">2.computed中绑定组件用到的data</span></a></li></ol>
 		
 		</div>
 		
@@ -114,7 +114,7 @@
 <p>现在呢，像 <code>/user/123</code> 和 <code>/user/456</code> 都将映射到相同的路由。</p>
 <p>一个“路径参数”使用冒号 : 标记。当匹配到一个路由时，参数值会被设置到 <code>this.$route.params</code>，可以在每个组件内使用。(let id = this.$route.params.id)</p>
 <p>这样就不用在页面传参数的时候,额外加<code>id</code>这个参数key.</p>
-<h4 id="2-copputed中绑定组件用到的data"><a href="#2-copputed中绑定组件用到的data" class="headerlink" title="2.copputed中绑定组件用到的data"></a>2.copputed中绑定组件用到的data</h4><p>比如获取实例1中的id,之前的做法就是,在生命周期<code>created()</code>中获取id,像这样:<code>let  id = this.$route.params.id||0</code>.再在<code>data()</code>中定义这个<code>id</code>.</p>
+<h4 id="2-computed中绑定组件用到的data"><a href="#2-computed中绑定组件用到的data" class="headerlink" title="2.computed中绑定组件用到的data"></a>2.computed中绑定组件用到的data</h4><p>比如获取实例1中的id,之前的做法就是,在生命周期<code>created()</code>中获取id,像这样:<code>let  id = this.$route.params.id||0</code>.再在<code>data()</code>中定义这个<code>id</code>.</p>
 <p>因为computed在生命周期<code>beforeCreate()</code>的时候就已经执行了.</p>
 <p>那这样直接就可以这样使用</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">            id() &#123;</span><br><span class="line">                return this.$route.params.id || 0</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
@@ -170,7 +170,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-动态路由匹配"><span class="toc-number">1.</span> <span class="toc-text">1.动态路由匹配</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-copputed中绑定组件用到的data"><span class="toc-number">2.</span> <span class="toc-text">2.copputed中绑定组件用到的data</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-动态路由匹配"><span class="toc-number">1.</span> <span class="toc-text">1.动态路由匹配</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-computed中绑定组件用到的data"><span class="toc-number">2.</span> <span class="toc-text">2.computed中绑定组件用到的data</span></a></li></ol>
  
   </div>
 
