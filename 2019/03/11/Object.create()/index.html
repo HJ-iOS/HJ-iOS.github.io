@@ -4,26 +4,38 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>解决overflow:属性,在iOS上滑动卡顿的问题 | Welcome to the literati Association!</title>
+    <title>Object.create() | Welcome to the literati Association!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="HJ">
     
 
     
-    <meta name="description" content="一：Lying人生感悟摩西奶奶曾经说过：世界上，最公平和最不公平的，都是时间。别人偷不走它。而你也留不住它。你拥有它，却不能改变它。光阴里的艰难或是快乐，它都一一带走。身处其中的你我，年轻或是衰老，所能做的，就是充分去享用它，享受每一个生命时期，收藏每一个年龄段带给你的感动与美好。
-     是的，这句话我也曾经在某个令人刻骨铭心的夜晚对一个人说过。过去了的事情再提及难免让人有些怀念。既然走不出来">
+    <meta name="description" content="Object.create()的定义Object.create(proto,[propertiesObject])
+
+proto:新创建对象的原型对象propertiesObject:可选。要添加到新对象的可枚举（新添加的属性是其自身的属性，而不是其原型链上的属性）的属性
+
+Object.create()方法创建一个新对象,并使用现有的对象来提供新创建的对象的proto.
+12345Object.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="解决overflow:属性,在iOS上滑动卡顿的问题">
-<meta property="og:url" content="http://yoursite.com/2016/04/09/overflow/index.html">
+<meta property="og:title" content="Object.create()">
+<meta property="og:url" content="http://yoursite.com/2019/03/11/Object.create()/index.html">
 <meta property="og:site_name" content="Welcome to the literati Association!">
-<meta property="og:description" content="一：Lying人生感悟摩西奶奶曾经说过：世界上，最公平和最不公平的，都是时间。别人偷不走它。而你也留不住它。你拥有它，却不能改变它。光阴里的艰难或是快乐，它都一一带走。身处其中的你我，年轻或是衰老，所能做的，就是充分去享用它，享受每一个生命时期，收藏每一个年龄段带给你的感动与美好。
-     是的，这句话我也曾经在某个令人刻骨铭心的夜晚对一个人说过。过去了的事情再提及难免让人有些怀念。既然走不出来">
-<meta property="og:updated_time" content="2016-05-05T02:44:06.000Z">
+<meta property="og:description" content="Object.create()的定义Object.create(proto,[propertiesObject])
+
+proto:新创建对象的原型对象propertiesObject:可选。要添加到新对象的可枚举（新添加的属性是其自身的属性，而不是其原型链上的属性）的属性
+
+Object.create()方法创建一个新对象,并使用现有的对象来提供新创建的对象的proto.
+12345Object.">
+<meta property="og:updated_time" content="2019-03-11T02:56:01.393Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="解决overflow:属性,在iOS上滑动卡顿的问题">
-<meta name="twitter:description" content="一：Lying人生感悟摩西奶奶曾经说过：世界上，最公平和最不公平的，都是时间。别人偷不走它。而你也留不住它。你拥有它，却不能改变它。光阴里的艰难或是快乐，它都一一带走。身处其中的你我，年轻或是衰老，所能做的，就是充分去享用它，享受每一个生命时期，收藏每一个年龄段带给你的感动与美好。
-     是的，这句话我也曾经在某个令人刻骨铭心的夜晚对一个人说过。过去了的事情再提及难免让人有些怀念。既然走不出来">
+<meta name="twitter:title" content="Object.create()">
+<meta name="twitter:description" content="Object.create()的定义Object.create(proto,[propertiesObject])
+
+proto:新创建对象的原型对象propertiesObject:可选。要添加到新对象的可枚举（新添加的属性是其自身的属性，而不是其原型链上的属性）的属性
+
+Object.create()方法创建一个新对象,并使用现有的对象来提供新创建的对象的proto.
+12345Object.">
 
     
     <link rel="alternative" href="/atom.xml" title="Welcome to the literati Association!" type="application/atom+xml">
@@ -83,14 +95,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/04/09/overflow/" title="解决overflow:属性,在iOS上滑动卡顿的问题" itemprop="url">解决overflow:属性,在iOS上滑动卡顿的问题</a>
+      <a href="/2019/03/11/Object.create()/" title="Object.create()" itemprop="url">Object.create()</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="HJ" target="_blank" itemprop="author">HJ</a>
 		
   <p class="article-time">
-    <time datetime="2016-04-09T09:28:32.000Z" itemprop="datePublished"> 发表于 2016-04-09</time>
+    <time datetime="2019-03-11T02:56:01.393Z" itemprop="datePublished"> 发表于 2019-03-11</time>
     
   </p>
 </header>
@@ -99,14 +111,23 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#一：Lying人生感悟"><span class="toc-number">1.</span> <span class="toc-text">一：Lying人生感悟</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二：回到正题"><span class="toc-number">2.</span> <span class="toc-text">二：回到正题</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Object-create-null-的使用场景"><span class="toc-number">1.</span> <span class="toc-text">Object.create(null)的使用场景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#总结一下："><span class="toc-number">2.</span> <span class="toc-text">总结一下：</span></a></li></ol>
 		
 		</div>
 		
-		<h4 id="一：Lying人生感悟"><a href="#一：Lying人生感悟" class="headerlink" title="一：Lying人生感悟"></a>一：Lying人生感悟</h4><pre><code>摩西奶奶曾经说过：世界上，最公平和最不公平的，都是时间。别人偷不走它。而你也留不住它。你拥有它，却不能改变它。光阴里的艰难或是快乐，它都一一带走。身处其中的你我，年轻或是衰老，所能做的，就是充分去享用它，享受每一个生命时期，收藏每一个年龄段带给你的感动与美好。
-     是的，这句话我也曾经在某个令人刻骨铭心的夜晚对一个人说过。过去了的事情再提及难免让人有些怀念。既然走不出来又何必再强求自己走出来。所以让该来的到来，让不该走的别走，珍惜所拥有的一切期许是最好的选择……    
-</code></pre><h4 id="二：回到正题"><a href="#二：回到正题" class="headerlink" title="二：回到正题"></a>二：回到正题</h4><p>  故事背景：最近的一次开发中，使用到了overflow：scroll 属性来滑动div。信心满满的以为不会出现任何问题，看来还是太清高自傲了，于是写下这篇随笔特此总结一番。</p>
-<p>　　     如果你对某个div或模块使用了overflow: scroll属性，在iOS系统的手机上浏览时，则会出现明显的卡顿现象。但是在android系统的手机上则不会出现该问题。<br>　　-webkit-overflow-scrolling: touch;<br>　　                    据说是因为这行代码启用了硬件加速特性，所以滑动很流畅。但是这个属性也会相对耗费更多内存。在流畅的滑动效果和耗费内存之间，我选择了前者。<br>　<br>　从前端开发的角度讲，只需要知道CSS的属性-webkit-overflow-scrolling是真的创建了带有硬件加速的系统级控件，所以效率很高。<br>从实际开发的角度讲，采用这样的做法相对是耗更多内存的，最好是在产生了非常大面积的overflow时才应用。</p>
+		<p>Object.create()的定义<br><code>Object.create(proto,[propertiesObject])</code></p>
+<blockquote>
+<p>proto:新创建对象的原型对象<br>propertiesObject:可选。要添加到新对象的可枚举（新添加的属性是其自身的属性，而不是其原型链上的属性）的属性</p>
+</blockquote>
+<p>Object.create()方法创建一个新对象,并使用现有的对象来提供新创建的对象的<strong>proto</strong>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Object.create = function (o)&#123;</span><br><span class="line">	var F = function &#123;&#125;;</span><br><span class="line">	F.prototype = o;</span><br><span class="line">	return new F();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到Object.create内部创建了一个新对象(实例),假设叫<code>newObj</code>,默认情况下<code>newObj.__proto__ == F.prototype</code>,在本例中侧重重写了构造函数<code>F</code>的原型属性,最终的原型关系链<code>newObj.__proto__ == F.prototupe == o</code>.</p>
+<h4 id="Object-create-null-的使用场景"><a href="#Object-create-null-的使用场景" class="headerlink" title="Object.create(null)的使用场景"></a>Object.create(null)的使用场景</h4><p>为什么很多源码作者会使用Object.create(null)来初始化一个新对象呢？这是作者的习惯，还是一个最佳实践？</p>
+<p>使用<code>create</code>创建的对象，没有任何属性，显示<code>No properties</code>，我们可以把它当作一个非常纯净的<code>map</code>来使用，我们可以自己定义<code>hasOwnProperty、toString</code>方法，不管是有意还是不小心，我们完全不必担心会将原型链上的同名方法覆盖掉.</p>
+<p>另一个使用<code>create(null)</code>的理由是，在我们使用<code>for..in</code>循环的时候会遍历对象原型链上的属性，使用<code>create(null)</code>就不必再对属性进行检查了，当然，我们也可以直接使用<code>Object.keys[]</code>。</p>
+<h4 id="总结一下："><a href="#总结一下：" class="headerlink" title="总结一下："></a>总结一下：</h4><p>你需要一个非常干净且高度可定制的对象当作数据字典的时候；</p>
+<p>想节省hasOwnProperty带来的一丢丢性能损失并且可以偷懒少些一点代码的时候<br>用Object.create(null)吧！</p>
+<p>其他时候，请用{}。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -119,7 +140,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2016/04/09/overflow/" data-title="解决overflow:属性,在iOS上滑动卡顿的问题 | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
+	  <div data-url="http://yoursite.com/2019/03/11/Object.create()/" data-title="Object.create() | Welcome to the literati Association!" data-tsina="5597151709" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -132,19 +153,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/04/09/前端开发样式命名规范/" title="前端开发样式命名规范">
-  <strong>上一篇：</strong><br/>
-  <span>
-  前端开发样式命名规范</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/03/17/hexo加载静态博客/"  title="配置静态博客的简单介绍(自己看)">
+<a href="/2019/02/14/flex布局/"  title="flex布局">
  <strong>下一篇：</strong><br/> 
- <span>配置静态博客的简单介绍(自己看)
+ <span>flex布局
 </span>
 </a>
 </div>
@@ -159,7 +172,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#一：Lying人生感悟"><span class="toc-number">1.</span> <span class="toc-text">一：Lying人生感悟</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二：回到正题"><span class="toc-number">2.</span> <span class="toc-text">二：回到正题</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Object-create-null-的使用场景"><span class="toc-number">1.</span> <span class="toc-text">Object.create(null)的使用场景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#总结一下："><span class="toc-number">2.</span> <span class="toc-text">总结一下：</span></a></li></ol>
  
   </div>
 
