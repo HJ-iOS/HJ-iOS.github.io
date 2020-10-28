@@ -68,7 +68,10 @@
 ###		JAVA系列
 - [待学习中]
 ###		TS系列
-- [基础类型]（https://github.com/hjaiim/hjaiim.github.io/issues/8）
+- [基础类型](https://github.com/hjaiim/hjaiim.github.io/issues/8)
+- [断言]（）
+
+
 ###		前端面试系列
 - [前端面试系列——基础javascript](https://github.com/hjaiim/hjaiim.github.io/issues/2)
 - [前端面试系列——进阶javascript](https://github.com/hjaiim/hjaiim.github.io/issues/3)
